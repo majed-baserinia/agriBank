@@ -1,0 +1,24 @@
+{
+	"name": "@htsc/prettier-config",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "set of prettier rules applied to htsc apps",
+	"exports": {
+		".": "./index.mjs"
+	},
+	"files": [
+		"index.mjs"
+	],
+	"dependencies": {
+		"prettier-plugin-organize-attributes": "^1.0.0",
+		"prettier-plugin-organize-imports": "^3.2.4",
+		"prettier-plugin-style-order": "^0.2.2",
+		"prettier-plugin-tailwindcss": "^0.4.1"
+	},
+	"peerDependencies": {
+		"prettier": "^3.3.3"
+	},
+	"devDependencies": {
+		"prettier": "^3.3.3"
+	}
+}

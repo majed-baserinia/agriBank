@@ -1,0 +1,20 @@
+{
+	"typescript.tsdk": "node_modules\\typescript\\lib",
+	"cSpell.words": [
+		"Hashkey",
+		"HTSC",
+		"htsceslint",
+		"htsclint",
+		"Kahroba",
+		"Keshavarzi",
+		"Mediatr",
+		"tanstack",
+		"tseslint",
+		"tslintintegration",
+		"xpage",
+		"xtotal",
+		"موفق"
+	],
+	"eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+	"eslint.format.enable": true
+}

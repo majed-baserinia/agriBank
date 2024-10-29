@@ -1,0 +1,23 @@
+{
+	"name": "htsc-monorepo",
+	"version": "0.0.1",
+	"description": "monorepo for @htsc",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"build": "pnpm -r build",
+		"lint": "pnpm -r lint",
+		"format": "pnpm -r format"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.12.0",
+		"@types/eslint__js": "^8.42.3",
+		"eslint": "^9.12.0",
+		"typescript-eslint": "^8.8.1",
+		"@typescript-eslint/eslint-plugin": "^8.8.1",
+		"@typescript-eslint/parser": "^8.1.1",
+		"eslint-config-prettier": "^9.1.0",
+		"globals": "^15.11.0",
+		"prettier": "^3.3.3"
+	}
+}
