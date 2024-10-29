@@ -1,9 +1,9 @@
 /**
  * @type {import("prettier").Config}
  */
-const config  = {
+const config = {
 	endOfLine: "auto",
-	printWidth: 120,
+	printWidth: 100,
 	requirePragma: false,
 	semi: true,
 	tabWidth: 2,
@@ -11,6 +11,5 @@ const config  = {
 	useTabs: true,
 	singleAttributePerLine: true
 };
-
 
 export default config;

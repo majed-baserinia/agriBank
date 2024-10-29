@@ -9,7 +9,7 @@ export const htscPrettierConfig = {
 	arrowParens: "always",
 	bracketSpacing: true,
 	bracketSameLine: false,
-	printWidth: 120,
+	printWidth: 100,
 	proseWrap: "preserve",
 	requirePragma: false,
 	semi: true,
