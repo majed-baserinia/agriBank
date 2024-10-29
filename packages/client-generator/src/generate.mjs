@@ -1,9 +1,9 @@
 import { mkdir, rm } from "fs/promises";
-import { generateOpenApiToolsConfig } from "./generators/generate-openapitools-config.mjs";
+import { generateAxiosClients } from "./generators/generate-openapitools-config.mjs";
 import { generateZodSchemas } from "./generators/generate-zod-schemas.mjs";
 
 /**
- * @param {import("zod").infer<typeof import("./main.mjs").schema>} config
+ * @param {import("zod").infer<typeof import("./cli.mjs").schema>} config
  */
 export async function generate(config) {
 	console.log("Generating clients! @FoHoOV");
@@ -17,6 +17,6 @@ export async function generate(config) {
 		recursive: true
 	});
 
-	await generateOpenApiToolsConfig(config);
+	await generateAxiosClients(config);
 	await generateZodSchemas(config);
 }

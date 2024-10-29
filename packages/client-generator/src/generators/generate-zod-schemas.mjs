@@ -1,10 +1,10 @@
-import { writeFile, readFile } from "fs/promises";
+import { writeFile, mkdir } from "fs/promises";
 import { join } from "path";
 import { mapOpenApiEndpoints, generateFile } from "typed-openapi";
 import SwaggerParser from "@apidevtools/swagger-parser";
 
 /**
- * @param {import("zod").infer<typeof import("../main.mjs").schema>} config
+ * @param {import("zod").infer<typeof import("../cli.mjs").schema>} config
  */
 async function runTypedOpenApi(config) {
 	const now = new Date();
@@ -21,7 +21,7 @@ async function runTypedOpenApi(config) {
 }
 
 /**
- * @param {import("zod").infer<typeof import("../main.mjs").schema>} config
+ * @param {import("zod").infer<typeof import("../cli.mjs").schema>} config
  */
 export async function generateZodSchemas(config) {
 	const contents = await runTypedOpenApi(config);
@@ -42,6 +42,12 @@ export async function generateZodSchemas(config) {
 	const SCHEMA_FOLDER_PATH = `${config.out}/zod`;
 	const SCHEMA_FILE_PATH = join(SCHEMA_FOLDER_PATH, OUTPUT_SCHEMA_FILE_NAME);
 
-	console.log("writing zod schemas...", output);
-	await writeFile(SCHEMA_FILE_PATH, output);
+	await mkdir(SCHEMA_FOLDER_PATH, {
+		recursive: true
+	});
+
+	console.log("writing zod schemas...", OUTPUT_SCHEMA_FILE_NAME);
+	await writeFile(SCHEMA_FILE_PATH, output, {
+		encoding: "utf-8"
+	});
 }

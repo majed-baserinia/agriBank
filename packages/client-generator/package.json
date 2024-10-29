@@ -11,12 +11,7 @@
 		"directory": "packages/client-generator"
 	},
 	"scripts": {
-		"open-api:generate:linux": "rm -rf ./src/lib/generated-client && env-cmd pnpm run open-api:generate:shared && env-cmd pnpm run open-api:zod:linux",
-		"open-api:generate:windows": "(rmdir /s /q .\\src\\lib\\generated-client || dir) && env-cmd pnpm run open-api:generate:shared && env-cmd pnpm run open-api:zod:windows",
-		"open-api:generate:shared": "node generate-openapitools-json.js && openapi-generator-cli generate --generator-key typescript-axios",
-		"open-api:zod:linux": "mkdir -p ./src/lib/generated-client/zod && typed-openapi $PUBLIC_API_URL/openapi.json -o ./src/lib/generated-client/zod/schemas.ts --runtime zod && pnpm run open-api:zod:shared",
-		"open-api:zod:windows": "mkdir .\\src\\lib\\generated-client\\zod && typed-openapi %PUBLIC_API_URL%/openapi.json -o ./src/lib/generated-client/zod/schemas.ts --runtime zod && pnpm run open-api:zod:shared",
-		"open-api:zod:shared": "node extract-zod.js"
+		"dev": "node main.mjs"
 	},
 	"exports": {
 		".": "./main.mjs"
@@ -29,7 +24,8 @@
 		"typed-openapi": "^0.9.0"
 	},
 	"peerDependencies": {
-		"zod": "^3.23.8"
+		"zod": "^3.23.8",
+		"axios": "^1.7.0"
 	},
 	"devDependencies": {
 		"@types/node": "^22.8.2",
