@@ -3,6 +3,13 @@
 	"version": "0.0.1",
 	"type": "module",
 	"description": "set of eslint rules applied to htsc apps",
+	"author": "@FoHoOV",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FoHoOV/htsc",
+		"directory": "packages/eslint-plugin"
+	},
 	"exports": {
 		".": "./index.mjs"
 	},

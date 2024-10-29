@@ -4,6 +4,15 @@
 	"description": "monorepo for @htsc",
 	"private": true,
 	"type": "module",
+	"author": "@FoHoOV",
+	"contributors": [
+		"@SaeedMohammadiha"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FoHoOV/htsc"
+	},
+	"license": "MIT",
 	"scripts": {
 		"build": "pnpm -r build",
 		"lint": "pnpm -r lint",
