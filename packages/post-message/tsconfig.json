@@ -1,0 +1,30 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"useDefineForClassFields": true,
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"module": "ESNext",
+		"moduleResolution": "Node",
+		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
+
+		"experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+		"emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"paths": {
+			"$lib/*": ["./lib/*"]
+		}
+	},
+	"exclude": ["node_modules"],
+	"include": ["lib", "./index.ts"],
+	"files": ["./eslint.config.mjs", "./.prettierrc.mjs", "./vite.config.js"]
+}

@@ -53,6 +53,9 @@ const plugin = {
 				}
 			},
 			{
+				ignores: ["dist"]
+			},
+			{
 				rules: {
 					"react-refresh/only-export-components": "warn",
 					"no-unused-expressions": "off",

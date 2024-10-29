@@ -1,0 +1,39 @@
+{
+	"name": "@htsc/post-message",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "includes all communication protocols with super app",
+	"author": "@FoHoOV",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FoHoOV/htsc",
+		"directory": "packages/post-message"
+	},
+	"module": "./dist/post-message.js",
+	"exports": {
+		".": {
+			"import": "./dist/post-message.js"
+		}
+	},
+	"types": "./dist/types.d.ts",
+	"scripts": {
+		"build": "vite build"
+	},
+	"devDependencies": {
+		"@htsc/eslint-plugin": "0.0.1",
+		"@htsc/prettier-config": "0.0.1",
+		"@types/react": "^18.3.11",
+		"@vitejs/plugin-react": "^4.3.3",
+		"eslint": "^9.12.0",
+		"prettier": "^3.3.3",
+		"react": "^18.3.1",
+		"typescript": "~5.6.2",
+		"vite": "^5.4.9",
+		"vite-plugin-dts": "^4.3.0",
+		"vite-tsconfig-paths": "^5.0.1"
+	},
+	"peerDependencies": {
+		"react": "^18.3.1"
+	}
+}
