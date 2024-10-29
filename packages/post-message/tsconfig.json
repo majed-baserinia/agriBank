@@ -11,7 +11,7 @@
 		"forceConsistentCasingInFileNames": true,
 
 		"module": "ESNext",
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
 
 		"experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
