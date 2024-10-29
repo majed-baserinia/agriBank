@@ -1,6 +1,7 @@
 {
 	"typescript.tsdk": "node_modules\\typescript\\lib",
 	"cSpell.words": [
+		"apidevtools",
 		"Hashkey",
 		"HTSC",
 		"htsceslint",
@@ -8,6 +9,7 @@
 		"Kahroba",
 		"Keshavarzi",
 		"Mediatr",
+		"openapitools",
 		"tanstack",
 		"tseslint",
 		"tslintintegration",
