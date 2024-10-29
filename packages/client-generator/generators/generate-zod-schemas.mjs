@@ -4,7 +4,7 @@ import { mapOpenApiEndpoints, generateFile } from "typed-openapi";
 import SwaggerParser from "@apidevtools/swagger-parser";
 
 /**
- * @param {import("zod").infer<typeof import("../args.mjs").schema>} config
+ * @param {import("zod").infer<typeof import("../main.mjs").schema>} config
  */
 async function runTypedOpenApi(config) {
 	const now = new Date();
@@ -21,7 +21,7 @@ async function runTypedOpenApi(config) {
 }
 
 /**
- * @param {import("zod").infer<typeof import("../args.mjs").schema>} config
+ * @param {import("zod").infer<typeof import("../main.mjs").schema>} config
  */
 export async function generateZodSchemas(config) {
 	const contents = await runTypedOpenApi(config);

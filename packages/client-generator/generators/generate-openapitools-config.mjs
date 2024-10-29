@@ -15,7 +15,7 @@ export async function runOpenApiGenerator() {
 }
 
 /**
- * @param {import("zod").infer<typeof import("../args.mjs").schema>} config
+ * @param {import("zod").infer<typeof import("../main.mjs").schema>} config
  */
 export async function generateOpenApiToolsConfig(config) {
 	const SCHEMA_FILE_PATH = join(import.meta.dirname, "openapitools.json");
