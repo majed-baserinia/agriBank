@@ -10,8 +10,8 @@
 	},
 	"exports": {
 		"./components/*": {
-			"import": "./dist/components/*.js",
-			"types": "./dist/components/*.d.ts"
+			"import": "./dist/components/*/index.js",
+			"types": "./dist/components/*/index.d.ts"
 		},
 		"./utils": {
 			"import": "./dist/utils.js",

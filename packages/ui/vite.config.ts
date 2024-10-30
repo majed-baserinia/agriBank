@@ -32,7 +32,7 @@ export default defineConfig({
 			name: "ui",
 			fileName: (_, filename) => {
 				if (filename[0].toUpperCase() === filename[0]) {
-					return `components/${filename}/${filename}.js`;
+					return `components/${filename}/index.js`;
 				}
 				return "utils.js";
 			}
@@ -60,5 +60,5 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]
+	plugins: [tsconfigPaths(), dts()]
 });
