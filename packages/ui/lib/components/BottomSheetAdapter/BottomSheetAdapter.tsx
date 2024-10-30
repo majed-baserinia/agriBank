@@ -1,8 +1,8 @@
 import { useTheme } from "@mui/material";
 import Sheet from "react-modal-sheet";
-import type { Props } from "./type";
+import type { Props } from "./types";
 
-export default function BottomSheetAdapter(props: Props) {
+export function BottomSheetAdapter(props: Props) {
 	const { open, setOpen, children, snapPoints = [450, 0] } = props;
 	const theme = useTheme();
 

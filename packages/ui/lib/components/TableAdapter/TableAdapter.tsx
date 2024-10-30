@@ -7,9 +7,9 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import type { Props } from "./type";
+import type { Props } from "./types";
 
-export default function TableAdapter<TColumnNames extends string>({
+export function TableAdapter<TColumnNames extends string>({
 	columns,
 	rowsData
 }: Props<TColumnNames>) {

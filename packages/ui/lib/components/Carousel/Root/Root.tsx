@@ -3,9 +3,9 @@ import type { Theme } from "@mui/material";
 import { useTheme } from "@mui/material";
 import type React from "react";
 import { useRef } from "react";
-import OptionsContext from "$components/Carousel/Context/OptionsContext";
+import { OptionsContext } from "$components/Carousel/Context/OptionsContext";
 import { useInitializeGlider } from "$components/Carousel/Root/useInitializeGlider";
-import Track from "$components/Carousel/Track/Track";
+import { Track } from "$components/Carousel/Track/Track";
 import type { GlideEvents } from "$components/Carousel/events";
 import type { GlideOptions } from "$components/Carousel/options";
 import styles from "./styles.module.css";
@@ -16,7 +16,7 @@ export type Props = GlideOptions &
 		children: React.ReactNode;
 	};
 
-export default function Root({ className, setDefaultOptions = true, children, ...options }: Props) {
+export function Root({ className, setDefaultOptions = true, children, ...options }: Props) {
 	const rootRef = useRef<HTMLDivElement>(null);
 	const theme = useTheme();
 	useInitializeGlider(rootRef, getGliderOptions(theme, options, setDefaultOptions));

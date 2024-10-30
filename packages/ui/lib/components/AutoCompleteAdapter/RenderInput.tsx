@@ -2,7 +2,7 @@ import type { AutocompleteRenderInputParams } from "@mui/material";
 import { CircularProgress, TextField, useTheme } from "@mui/material";
 import type { RenderInputProps } from "./types";
 
-export default function RenderInput(props: {
+export function RenderInput(props: {
 	params: AutocompleteRenderInputParams;
 	aditionalProps: RenderInputProps;
 }) {

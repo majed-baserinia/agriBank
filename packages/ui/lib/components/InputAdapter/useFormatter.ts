@@ -1,4 +1,4 @@
-import type { InputType } from "$components/InputAdapter/type";
+import type { InputType } from "$lib/components/InputAdapter/types";
 import { filter } from "$components/InputAdapter/utils";
 
 type Options = {

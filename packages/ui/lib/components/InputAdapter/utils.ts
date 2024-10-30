@@ -5,7 +5,7 @@ import {
 	persianToEnglishDigits
 } from "$lib/utils/formatters";
 
-import type { InputType } from "./type";
+import type { InputType } from "./types";
 
 export function isInputTypeNumeric(type: InputType) {
 	return type === "card" || type === "money" || type === "number" || type === "date";

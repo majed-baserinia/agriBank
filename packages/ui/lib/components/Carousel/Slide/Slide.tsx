@@ -5,7 +5,7 @@ export type Props = {
 	children: React.ReactNode;
 };
 
-export default function Slide({ className, children }: Props) {
+export function Slide({ className, children }: Props) {
 	const options = useOptionsContext();
 
 	return options.focusActiveSlide?.enabled ? (

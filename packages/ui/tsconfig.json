@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"target": "ES2020",
 		"useDefineForClassFields": true,
-		"lib": ["ES2020", "DOM", "DOM.Iterable"],
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
 		"module": "ESNext",
 		"skipLibCheck": true,
 
@@ -28,6 +28,6 @@
 			"$components/*": ["./lib/components/*"]
 		}
 	},
-	"include": ["./lib", "./index.ts"],
+	"include": ["./lib", "./index.ts", "lib/components/ButtonAdapter/types.ts"],
 	"exclude": ["node_modules", "dist"]
 }

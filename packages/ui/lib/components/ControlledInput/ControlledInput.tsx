@@ -1,8 +1,8 @@
 import { type FieldValues } from "react-hook-form";
 import type { FormControlProps } from "$components/ControlledInput/Controlled";
 import { Controlled } from "$components/ControlledInput/Controlled";
-import InputAdapter from "$components/InputAdapter";
-import type { InputAdapterProps } from "$components/InputAdapter/type";
+import { InputAdapter } from "$lib/components/InputAdapter/InputAdapter";
+import type { InputAdapterProps } from "$lib/components/InputAdapter/types";
 
 export type Props<TFieldValues extends FieldValues, TContext> = FormControlProps<
 	TFieldValues,

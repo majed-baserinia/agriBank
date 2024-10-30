@@ -23,5 +23,5 @@ export default {
 			// => @media (min-width: 1024px) { ... }
 		}
 	},
-	plugins: [require("tailwind-scrollbar")]
+	plugins: [scrollBar]
 };

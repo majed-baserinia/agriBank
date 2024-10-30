@@ -7,5 +7,3 @@ export const Controlled = {
 	TextArea: ControlledTextArea,
 	Select: ControlledSelect
 };
-
-export default Controlled;

@@ -1,11 +1,11 @@
-import Slides from "$components/Carousel/Slide/Slides";
+import { Slides } from "$components/Carousel/Slide/Slides";
 
 export type Props = {
 	className?: string;
 	children: React.ReactNode;
 };
 
-export default function Track({ className = "", children }: Props) {
+export function Track({ className = "", children }: Props) {
 	return (
 		<div
 			className={`glide__track ${className}`}

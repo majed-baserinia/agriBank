@@ -1,18 +1,14 @@
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import { CssBaseline, GlobalStyles, ThemeProvider, createTheme } from "@mui/material";
-import type { ReactNode } from "react";
 import { useMemo } from "react";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
+import type { Props } from "./types";
 
 import { useInitialSettingStore } from "@htsc/ignite";
 
-interface Props {
-	children: ReactNode;
-}
-
-const MaterialThemeProvider = ({ children }: Props) => {
+export const MaterialThemeProvider = ({ children }: Props) => {
 	const settings = useInitialSettingStore((s) => s.settings);
 
 	const themeTemplate = createTheme({
@@ -141,10 +137,10 @@ const MaterialThemeProvider = ({ children }: Props) => {
 					}
 					//add more variants here
 					// {
-					//   props: { variant: "new varient" },
+					//   props: { variant: "new variant" },
 					//   style: {
 					//     textTransform: "none",
-					//     border: `2px new varient ${blue[500]}`
+					//     border: `2px new variant ${blue[500]}`
 					//   }
 					// }
 				]
@@ -244,5 +240,3 @@ const MaterialThemeProvider = ({ children }: Props) => {
 		</CacheProvider>
 	);
 };
-
-export default MaterialThemeProvider;

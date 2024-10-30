@@ -1,8 +1,8 @@
 import { type FieldValues } from "react-hook-form";
 import type { FormControlProps } from "$components/ControlledInput/Controlled";
 import { Controlled } from "$components/ControlledInput/Controlled";
-import TextAreaAdapater from "$components/TextareaAdapter";
-import type { TextareaAdapterProps } from "$components/TextareaAdapter/type";
+import { TextAreaAdapter } from "$components/TextAreaAdapter";
+import type { TextareaAdapterProps } from "$lib/components/TextAreaAdapter/types";
 
 export type Props<TFieldValues extends FieldValues, TContext> = FormControlProps<
 	TFieldValues,
@@ -16,7 +16,7 @@ export function ControlledTextArea<TFieldValues extends FieldValues, TContext>(
 	return (
 		<Controlled<TextareaAdapterProps, TFieldValues, TContext>
 			element={(props) => {
-				return <TextAreaAdapater {...props} />;
+				return <TextAreaAdapter {...props} />;
 			}}
 			{...props}
 		/>

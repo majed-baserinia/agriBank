@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import OptionsContext from "$components/Carousel/Context/OptionsContext";
+import { OptionsContext } from "$components/Carousel/Context/OptionsContext";
 
 export function useOptionsContext() {
 	const context = useContext(OptionsContext);
