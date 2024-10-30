@@ -96,6 +96,7 @@ const plugin = {
 						}
 					],
 					"@typescript-eslint/only-throw-error": "warn",
+					"@typescript-eslint/consistent-type-imports": "error",
 					"@typescript-eslint/prefer-promise-reject-errors": "warn",
 					"react/prop-types": [
 						"error",
