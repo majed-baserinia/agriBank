@@ -1,7 +1,8 @@
 import type { SwitchProps } from "@mui/material";
 import { Switch, styled } from "@mui/material";
+import type React from "react";
 
-export const LargeSwitch = styled((props: SwitchProps) => (
+export const LargeSwitch: React.FC<SwitchProps> = styled((props: SwitchProps) => (
 	<Switch
 		focusVisibleClassName=".Mui-focusVisible"
 		disableRipple

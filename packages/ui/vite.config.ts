@@ -3,18 +3,44 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
 import { resolve } from "path";
+import { readdirSync, statSync, existsSync } from "fs";
+import { stringify } from "querystring";
+
+function getComponentEntries() {
+	const componentsDir = resolve(__dirname, "lib/components");
+	const entries: Record<string, string> = {};
+
+	readdirSync(componentsDir).forEach((dir) => {
+		const fullPath = resolve(componentsDir, dir, "index.ts");
+		if (statSync(resolve(componentsDir, dir)).isDirectory() && existsSync(fullPath)) {
+			entries[dir] = fullPath;
+		}
+	});
+
+	return entries;
+}
 
 export default defineConfig({
 	build: {
+		emptyOutDir: true,
 		lib: {
-			entry: resolve(import.meta.dirname, "index.ts"),
+			entry: {
+				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),
+				...getComponentEntries()
+			},
 			formats: ["es"],
-			name: "ignite",
-			fileName: "ignite"
+			name: "ui",
+			fileName: (_, filename) => {
+				if (filename[0].toUpperCase() === filename[0]) {
+					return `components/${filename}/${filename}.js`;
+				}
+				return "utils.js";
+			}
 		},
 		rollupOptions: {
 			external: [
 				"react",
+				"jsx-runtime",
 				"react-router-dom",
 				"zustand",
 				"i18next",
@@ -34,5 +60,5 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })]
+	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]
 });

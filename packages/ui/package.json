@@ -9,9 +9,22 @@
 		"directory": "packages/ui"
 	},
 	"exports": {
-		".": {
-			"import": "./dist/ui.js",
-			"types": "./dist/index.d.ts"
+		"./components/*": {
+			"import": "./dist/components/*.js",
+			"types": "./dist/components/*.d.ts"
+		},
+		"./utils": {
+			"import": "./dist/utils.js",
+			"types": "./dist/utils.d.ts"
+		},
+		"./fonts": {
+			"import": "./dist/fonts"
+		},
+		"./icons": {
+			"import": "./dist/icons"
+		},
+		"./images": {
+			"import": "./dist/images"
 		}
 	},
 	"scripts": {
