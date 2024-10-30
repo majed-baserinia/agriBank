@@ -11,7 +11,9 @@
 		"directory": "packages/client-generator"
 	},
 	"scripts": {
-		"dev": "node main.mjs"
+		"dev": "node main.mjs",
+		"lint": "eslint .",
+		"format": "prettier --write ."
 	},
 	"exports": {
 		".": "./main.mjs"

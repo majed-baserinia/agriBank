@@ -9,6 +9,7 @@
 		"directory": "packages/ui"
 	},
 	"scripts": {
+		"build": "vite build",
 		"dev": "vite",
 		"format": "prettier --write .",
 		"lint": "eslint .",
