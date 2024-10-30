@@ -10,7 +10,6 @@
 		"url": "git+https://github.com/FoHoOV/htsc",
 		"directory": "packages/ignite"
 	},
-	"module": "./dist/ignite.js",
 	"exports": {
 		".": {
 			"import": "./dist/ignite.js",
@@ -26,7 +25,7 @@
 	},
 	"devDependencies": {
 		"@htsc/eslint-plugin": "0.0.1",
-		"@htsc/post-message": "^0.0.1",
+		"@htsc/post-message": "0.0.1",
 		"@htsc/prettier-config": "0.0.1",
 		"@types/node": "^22.8.4",
 		"@types/react": "^18.3.11",
@@ -48,6 +47,7 @@
 		"i18next": "^23.2.5",
 		"react-i18next": "^13.0.1",
 		"react-router-dom": "^6.13.0",
+		"@htsc/post-message": "^0.0.1",
 		"zustand": "^4.3.8"
 	}
 }

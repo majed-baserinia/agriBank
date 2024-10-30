@@ -12,15 +12,15 @@ export default defineConfig({
 			fileName: "ignite"
 		},
 		rollupOptions: {
-			external: ["react", "zustand", "i18next", "react-i18next"],
-			output: {
-				globals: {
-					react: "React",
-					zustand: "Zustand",
-					i18next: "I18next",
-					"react-i18next": "ReactI18next"
-				}
-			}
+			external: [
+				"react",
+				"react-router-dom",
+				"zustand",
+				"i18next",
+				"react-i18next",
+				"@htsc/post-message",
+				"zod"
+			]
 		}
 	},
 	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]

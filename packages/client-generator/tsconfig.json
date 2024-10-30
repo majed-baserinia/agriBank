@@ -9,5 +9,6 @@
 		"target": "ES2022",
 		"strict": true
 	},
-	"include": ["**/*"]
+	"include": ["**/*"],
+	"exclude": ["node_modules", "dist"]
 }

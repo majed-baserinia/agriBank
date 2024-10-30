@@ -52,7 +52,7 @@ const plugin = {
 					globals: globals.browser,
 					parserOptions: {
 						projectService: {
-							allowDefaultProject: ["*.js", "*.mjs", ".*.mjs"]
+							allowDefaultProject: ["*.js", "*.mjs", ".*.mjs", "vite.config.ts"]
 						},
 						tsconfigRootDir: import.meta.dirname
 					}

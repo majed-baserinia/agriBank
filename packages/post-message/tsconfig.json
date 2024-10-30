@@ -13,5 +13,6 @@
 			"$lib/*": ["./lib/*"]
 		}
 	},
-	"include": ["./lib", "./index.ts"]
+	"include": ["./lib", "./index.ts"],
+	"exclude": ["node_modules", "dist"]
 }

@@ -2,7 +2,6 @@
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"lib": ["DOM", "DOM.Iterable", "ESNext"],
-		"allowJs": true,
 
 		"moduleResolution": "Bundler",
 		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
@@ -13,5 +12,6 @@
 			"$lib/*": ["./lib/*"]
 		}
 	},
-	"include": ["./lib", "./index.ts"]
+	"include": ["./lib", "./index.ts"],
+	"exclude": ["node_modules", "dist"]
 }

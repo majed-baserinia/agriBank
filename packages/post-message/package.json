@@ -10,7 +10,6 @@
 		"url": "git+https://github.com/FoHoOV/htsc",
 		"directory": "packages/post-message"
 	},
-	"module": "./dist/post-message.js",
 	"exports": {
 		".": {
 			"import": "./dist/post-message.js",

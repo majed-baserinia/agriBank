@@ -13,12 +13,7 @@ export default defineConfig({
 			fileName: "post-message"
 		},
 		rollupOptions: {
-			external: ["react"],
-			output: {
-				globals: {
-					react: "React"
-				}
-			}
+			external: ["react"]
 		}
 	},
 	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]

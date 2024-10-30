@@ -23,7 +23,7 @@ export function useMultipleInitRequest({
 	duration,
 	onInitializationFailed
 }: MultipleInitRequestProps) {
-	const intervalRef = useRef<NodeJS.Timeout | null>(null);
+	const intervalRef = useRef<number | null>(null);
 	const counter = useRef(0);
 
 	useEffect(() => {
