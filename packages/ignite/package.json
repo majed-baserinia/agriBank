@@ -18,7 +18,8 @@
 		}
 	},
 	"scripts": {
-		"build": "vite build"
+		"build": "vite build",
+		"lint": "eslint ."
 	},
 	"dependencies": {
 		"zod": "^3.23.8"

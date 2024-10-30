@@ -1,13 +1,10 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-		"lib": ["ES2022"],
-		"moduleResolution": "Node",
+		"moduleResolution": "Bundler",
 		"allowJs": true,
 		"checkJs": true,
-		"noEmit": true,
-		"target": "ES2022",
-		"strict": true
+		"noEmit": true
 	},
-	"include": ["**/*"]
+	"include": ["**/*.js", "**/*.mjs"]
 }

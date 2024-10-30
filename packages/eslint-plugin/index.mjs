@@ -1,7 +1,9 @@
 import pluginJs from "@eslint/js";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import pluginReact from "eslint-plugin-react";
+// @ts-expect-error
 import reactHooks from "eslint-plugin-react-hooks";
+// @ts-expect-error
 import reactRefresh from "eslint-plugin-react-refresh";
 import fs from "fs";
 import globals from "globals";
@@ -21,7 +23,9 @@ const plugin = {
 		"flat/recommended": tseslint.config(
 			pluginJs.configs.recommended,
 			...tseslint.configs.recommendedTypeChecked,
+			// @ts-expect-error
 			pluginReact.configs.flat.recommended,
+			// @ts-expect-error
 			pluginReact.configs.flat["jsx-runtime"],
 			eslintPluginPrettierRecommended,
 			{
@@ -47,7 +51,9 @@ const plugin = {
 				languageOptions: {
 					globals: globals.browser,
 					parserOptions: {
-						projectService: true,
+						projectService: {
+							allowDefaultProject: ["*.js", "*.mjs", ".*.mjs"]
+						},
 						tsconfigRootDir: import.meta.dirname
 					}
 				}
