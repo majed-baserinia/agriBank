@@ -28,6 +28,6 @@
 			"$components/*": ["./lib/components/*"]
 		}
 	},
-	"include": ["./lib", "./index.ts", "lib/components/ButtonAdapter/types.ts"],
+	"include": ["./lib", "./index.ts"],
 	"exclude": ["node_modules", "dist"]
 }
