@@ -1,0 +1,9 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"noEmit": true
+	},
+	"include": ["**/*.m?(t|j)s", "./vite.config.js"]
+}

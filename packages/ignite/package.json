@@ -8,32 +8,45 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/FoHoOV/htsc",
-		"directory": "packages/post-message"
+		"directory": "packages/ignite"
 	},
-	"module": "./dist/post-message.js",
+	"module": "./dist/ignite.js",
 	"exports": {
 		".": {
-			"import": "./dist/post-message.js",
+			"import": "./dist/ignite.js",
 			"types": "./dist/types.d.ts"
 		}
 	},
 	"scripts": {
 		"build": "vite build"
 	},
+	"dependencies": {
+		"zod": "^3.23.8"
+	},
 	"devDependencies": {
 		"@htsc/eslint-plugin": "0.0.1",
+		"@htsc/post-message": "^0.0.1",
 		"@htsc/prettier-config": "0.0.1",
+		"@types/node": "^22.8.4",
 		"@types/react": "^18.3.11",
 		"@vitejs/plugin-react": "^4.3.3",
 		"eslint": "^9.12.0",
 		"prettier": "^3.3.3",
 		"react": "^18.3.1",
+		"i18next": "^23.2.5",
+		"react-i18next": "^13.0.1",
+		"react-router-dom": "^6.13.0",
 		"typescript": "~5.6.2",
 		"vite": "^5.4.9",
 		"vite-plugin-dts": "^4.3.0",
-		"vite-tsconfig-paths": "^5.0.1"
+		"vite-tsconfig-paths": "^5.0.1",
+		"zustand": "^4.3.8"
 	},
 	"peerDependencies": {
-		"react": "^18.3.1"
+		"react": "^18.3.1",
+		"i18next": "^23.2.5",
+		"react-i18next": "^13.0.1",
+		"react-router-dom": "^6.13.0",
+		"zustand": "^4.3.8"
 	}
 }

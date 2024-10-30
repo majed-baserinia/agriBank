@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"target": "ES2022",
+		"useDefineForClassFields": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"strict": true,
+		"forceConsistentCasingInFileNames": true,
+
+		"module": "ES2022",
+		"moduleResolution": "Bundler",
+
+		"experimentalDecorators": true /* Enables experimental support for ES7 decorators. */,
+		"emitDecoratorMetadata": true /* Enables experimental support for emitting type metadata for decorators. */,
+		"resolveJsonModule": true,
+		"isolatedModules": true
+	},
+	"exclude": ["node_modules"]
+}

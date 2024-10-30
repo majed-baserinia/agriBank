@@ -13,6 +13,5 @@
 			"$lib/*": ["./lib/*"]
 		}
 	},
-	"include": ["./lib", "./index.ts"],
-	"files": ["./eslint.config.mjs", "./.prettierrc.mjs", "./vite.config.js"]
+	"include": ["./lib", "./index.ts"]
 }
