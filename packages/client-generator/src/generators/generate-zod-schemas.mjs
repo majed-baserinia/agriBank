@@ -9,7 +9,9 @@ import SwaggerParser from "@apidevtools/swagger-parser";
 async function runTypedOpenApi(config) {
 	const now = new Date();
 
-	const openApiDoc = /**@type {import("openapi3-ts/oas31").OpenAPIObject} */ (await SwaggerParser.bundle(config.url));
+	const openApiDoc = /**@type {import("openapi3-ts/oas31").OpenAPIObject} */ (
+		await SwaggerParser.bundle(config.url)
+	);
 
 	const ctx = mapOpenApiEndpoints(openApiDoc);
 	console.log(`Found ${ctx.endpointList.length} endpoints`);
