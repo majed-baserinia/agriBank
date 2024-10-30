@@ -12,11 +12,13 @@ export default defineConfig({
 			fileName: "ignite"
 		},
 		rollupOptions: {
-			external: ["react", "zustand"],
+			external: ["react", "zustand", "i18next", "react-i18next"],
 			output: {
 				globals: {
 					react: "React",
-					zustand: "Zustand"
+					zustand: "Zustand",
+					i18next: "I18next",
+					"react-i18next": "ReactI18next"
 				}
 			}
 		}
