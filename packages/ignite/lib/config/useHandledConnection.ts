@@ -1,6 +1,6 @@
 import { environment } from "$lib/env";
-import { InitialSetting, pushAlert } from "$lib/stores";
-import { closeApp, ConnectionProps, useConnection } from "@htsc/post-message";
+import { type InitialSetting, pushAlert } from "$lib/stores";
+import { type ConnectionProps, closeApp, useConnection } from "@htsc/post-message";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 

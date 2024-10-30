@@ -1,4 +1,4 @@
-import { AppAlert } from "$lib/stores/alerts/types";
+import type { AppAlert } from "$lib/stores/alerts/types";
 import { create } from "zustand";
 
 const state: { alerts: AppAlert[] } = { alerts: [] };

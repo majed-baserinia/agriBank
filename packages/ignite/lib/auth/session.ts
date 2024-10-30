@@ -1,4 +1,4 @@
-import { AuthTokens } from "./types";
+import type { AuthTokens } from "./types";
 
 export const saveAuthTokens = (tokens: AuthTokens): void => {
 	sessionStorage.setItem("id_token", tokens.idToken || "");

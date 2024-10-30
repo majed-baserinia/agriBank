@@ -1,5 +1,5 @@
 import "i18next";
-import BASE_FA_TRANSLATION from "./common/locales/fa/base.json";
+import type BASE_FA_TRANSLATION from "$lib/locales/fa/base.json";
 
 declare module "i18next" {
 	interface CustomTypeOptions {

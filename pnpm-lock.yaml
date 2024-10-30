@@ -126,7 +126,7 @@ importers:
         specifier: 0.0.1
         version: link:../eslint-plugin
       '@htsc/post-message':
-        specifier: ^0.0.1
+        specifier: 0.0.1
         version: link:../post-message
       '@htsc/prettier-config':
         specifier: 0.0.1

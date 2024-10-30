@@ -1,6 +1,6 @@
-import { AuthTokens, clearAuth, saveAuthTokens } from "$lib/auth";
+import { type AuthTokens, clearAuth, saveAuthTokens } from "$lib/auth";
 import { create } from "zustand";
-import { InitialSetting, InitialSettingStore } from "./types";
+import type { InitialSetting, InitialSettingStore } from "./types";
 
 export const useInitialSettingStore = create<InitialSettingStore>((set) => ({
 	settings: <InitialSetting>{ language: "fa-IR", themeName: "light", theme: {} },
