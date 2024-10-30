@@ -1,0 +1,169 @@
+:root {
+	--rmdp-primary-teal: #007261;
+	--rmdp-secondary-teal: #b0d3ce;
+	--rmdp-shadow-teal: #b0d3ce;
+	--rmdp-today-teal: #54a195;
+	--rmdp-hover-teal: #005145;
+	--rmdp-deselect-teal: #338e81;
+	/* --main-blue: #90caf9;
+	--main-white: #fff;
+	--main-grey: rgba(255, 255, 255, 0.23);
+	--main-dark-grey: #121212;
+	--main-ease: cubic-bezier(0.65, 0.05, 0.36, 1); */
+}
+
+/* .primary .rmdp-wrapper {
+	border: 1px solid var(--rmdp-secondary-teal);
+	box-shadow: 0 0 5px var(--rmdp-secondary-teal);
+} */
+
+.primary .rmdp-panel-body li {
+	background-color: var(--rmdp-primary-teal);
+	box-shadow: 0 0 2px var(--rmdp-secondary-teal);
+}
+
+.primary .rmdp-week-day {
+	color: var(--rmdp-primary-teal);
+}
+
+.primary .rmdp-day.rmdp-deactive {
+	color: var(--rmdp-secondary-teal);
+}
+
+.primary .rmdp-range {
+	background-color: var(--rmdp-primary-teal);
+	box-shadow: 0 0 3px var(--rmdp-shadow-teal);
+}
+
+.primary .rmdp-arrow {
+	border: solid var(--rmdp-primary-teal);
+	border-width: 0 2px 2px 0;
+}
+
+.primary .rmdp-arrow-container:hover {
+	background-color: var(--rmdp-primary-teal);
+	box-shadow: 0 0 3px var(--rmdp-secondary-teal);
+}
+
+.primary .rmdp-panel-body::-webkit-scrollbar-thumb {
+	background: var(--rmdp-primary-teal);
+}
+
+.primary .rmdp-day.rmdp-today span {
+	background-color: #8abeb6;
+}
+
+.primary .rmdp-rtl .rmdp-panel {
+	border-left: unset;
+	border-right: 1px solid var(--rmdp-secondary-teal);
+}
+
+.primary .rmdp-selected span {
+	border-radius: 16px !important;
+}
+
+.primary .rmdp-day.rmdp-selected span:not(.highlight) {
+	background-color: var(--rmdp-primary-teal);
+	box-shadow: 0 0 3px var(--rmdp-shadow-teal);
+}
+
+.primary .rmdp-day:not(.rmdp-day-hidden) span:hover {
+	background-color: var(--rmdp-hover-teal) !important;
+}
+
+.primary .b-deselect {
+	color: var(--rmdp-deselect-teal);
+	background-color: white;
+}
+
+.primary .rmdp-action-button {
+	color: var(--rmdp-primary-teal);
+}
+
+.primary .rmdp-button:not(.rmdp-action-button) {
+	background-color: var(--rmdp-primary-teal);
+}
+
+.primary .rmdp-button:not(.rmdp-action-button):hover {
+	background-color: var(--rmdp-deselect-teal);
+}
+.rmdp-container {
+	width: 100%;
+}
+.rmdp-input {
+	border: 1px solid #c5c5c5;
+	border-radius: 8px;
+	height: 48px !important;
+	width: 100%;
+	padding: 4px 12px;
+}
+/* .rmdp-input {
+	color: var(--main-white);
+	height: 4rem;
+	outline: 1px solid var(--main-grey);
+	border-radius: 5px;
+	border: none;
+	background-color: var(--main-dark-grey);
+	padding-left: 20px;
+	font-size: 20px;
+	transition: 0.1s var(--main-ease);
+} */
+input::placeholder {
+	font-size: 16px;
+	color: #828282;
+}
+
+input.datepickerInput {
+	border: 1px solid #c5c5c5;
+	border-radius: 8px;
+	height: 48px !important;
+	width: 100%;
+	padding: 4px 12px;
+}
+input.datepickerInput:hover {
+	border: 1px solid #828282;
+}
+
+input.datepickerInput:focus {
+	outline: none;
+	border: 2px solid var(--rmdp-deselect-teal);
+}
+
+input.error {
+	border: 2px solid red;
+	border-radius: 8px;
+	height: 48px !important;
+	width: 100%;
+	padding: 4px 12px;
+}
+
+.ep-arrow::after {
+	display: none;
+}
+
+.rmdp-header-values :first-child {
+	padding: 5px 20px;
+	border-radius: 8px;
+}
+.rmdp-header-values :last-child {
+	padding: 5px 20px;
+	border-radius: 8px;
+}
+
+.rmdp-calendar:has(.rmdp-header + div .rmdp-month-picker[style*="display: flex"])
+	.rmdp-header
+	div
+	.rmdp-header-values
+	:first-child {
+	background-color: var(--rmdp-deselect-teal);
+	color: white;
+}
+
+.rmdp-calendar:has(.rmdp-header + div .rmdp-year-picker[style*="display: block"])
+	.rmdp-header
+	div
+	.rmdp-header-values
+	:last-child {
+	background-color: var(--rmdp-deselect-teal);
+	color: white;
+}

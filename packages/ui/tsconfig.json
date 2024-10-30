@@ -14,13 +14,19 @@
 		"moduleDetection": "force",
 		"noEmit": true,
 		"jsx": "react-jsx",
+		"baseUrl": ".",
 
 		/* Linting */
 		"strict": true,
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"noFallthroughCasesInSwitch": true,
-		"noUncheckedSideEffectImports": true
+		"noUncheckedSideEffectImports": true,
+
+		"paths": {
+			"$lib/*": ["./lib/*"],
+			"$components/*": ["./lib/components/*"]
+		}
 	},
 	"include": ["./lib", "./index.ts"],
 	"exclude": ["node_modules", "dist"]
