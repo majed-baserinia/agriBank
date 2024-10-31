@@ -2,19 +2,20 @@ import { environment } from "$lib/env";
 import { type InitialSetting, pushAlert } from "$lib/stores";
 import { type ConnectionProps, closeApp, useConnection } from "@htsc/post-message";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export type Props = ConnectionProps<InitialSetting>;
 
 export function useHandledConnection(props: Props) {
 	const navigate = useNavigate();
+	const location = useLocation();
 	const { t } = useTranslation("base");
 
-	return useConnection<InitialSetting>({
+	const connection = useConnection<InitialSetting>({
 		onGobackPressed: () => {
 			if (
-				window.location.pathname === environment.BASE_URL ||
-				`${window.location.pathname}/` === environment.BASE_URL
+				location.pathname === environment.VITE_BASE_URL ||
+				`${location.pathname}/` === environment.VITE_BASE_URL
 			) {
 				closeApp();
 			} else {
@@ -41,4 +42,11 @@ export function useHandledConnection(props: Props) {
 		},
 		...props
 	});
+
+	return {
+		...connection,
+		readyToLoad: environment.VITE_FORCE_IFRAME_READY
+			? environment.VITE_FORCE_IFRAME_READY
+			: connection.readyToLoad
+	};
 }

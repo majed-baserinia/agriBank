@@ -38,26 +38,26 @@ export const cardNumberToIcon = [
 		id: 1,
 		cardnumber: "636214",
 		icon: Ayandeh,
-		name: i18next.t("BASE:Ayandeh")
+		name: i18next.t("base:Ayandeh")
 	},
 
 	{
 		id: 2,
 		cardnumber: "627381",
 		icon: Ansar,
-		name: i18next.t("BASE:Ansar")
+		name: i18next.t("base:Ansar")
 	},
 	{
 		id: 3,
 		cardnumber: "505785",
 		icon: IranZamin,
-		name: i18next.t("BASE:IranZamin")
+		name: i18next.t("base:IranZamin")
 	},
 	{
 		id: 4,
 		cardnumber: "622106",
 		icon: Parsian,
-		name: i18next.t("BASE:Parsian")
+		name: i18next.t("base:Parsian")
 		// '622106': 'FaParsianIcon',
 	},
 
@@ -65,7 +65,7 @@ export const cardNumberToIcon = [
 		id: 5,
 		cardnumber: "627884",
 		icon: Parsian,
-		name: i18next.t("BASE:Parsian")
+		name: i18next.t("base:Parsian")
 		// '627884': 'FaParsianIcon',
 	},
 
@@ -73,7 +73,7 @@ export const cardNumberToIcon = [
 		id: 6,
 		cardnumber: "639194",
 		icon: Parsian,
-		name: i18next.t("BASE:Parsian")
+		name: i18next.t("base:Parsian")
 		//'639194': 'FaParsianIcon',
 	},
 
@@ -81,7 +81,7 @@ export const cardNumberToIcon = [
 		id: 7,
 		cardnumber: "502229",
 		icon: Pasargad,
-		name: i18next.t("BASE:Pasargad")
+		name: i18next.t("base:Pasargad")
 		//'502229': 'FaPasargadIcon',
 	},
 
@@ -89,7 +89,7 @@ export const cardNumberToIcon = [
 		id: 8,
 		cardnumber: "639347",
 		icon: Pasargad,
-		name: i18next.t("BASE:Pasargad")
+		name: i18next.t("base:Pasargad")
 		//'639347': 'FaPasargadIcon',
 	},
 
@@ -97,224 +97,224 @@ export const cardNumberToIcon = [
 		id: 9,
 		cardnumber: "627760",
 		icon: Post,
-		name: i18next.t("BASE:Post")
+		name: i18next.t("base:Post")
 		//'627760': 'FaPostIcon',
 	},
 	{
 		id: 10,
 		cardnumber: "585983",
 		icon: Tejarat,
-		name: i18next.t("BASE:Tejarat")
+		name: i18next.t("base:Tejarat")
 		// '585983': 'FaTejaratIcon',
 	},
 	{
 		id: 1,
 		cardnumber: "627353",
 		icon: Tejarat,
-		name: i18next.t("BASE:Tejarat")
+		name: i18next.t("base:Tejarat")
 		// '627353': 'FaTejaratIcon',
 	},
 	{
 		id: 11,
 		cardnumber: "502908",
 		icon: Tosee,
-		name: i18next.t("BASE:Tosee")
+		name: i18next.t("base:Tosee")
 		// '502908': 'FaToseeIcon',
 	},
 	{
 		id: 12,
 		cardnumber: "504172",
 		icon: Resalat,
-		name: i18next.t("BASE:Resalat")
+		name: i18next.t("base:Resalat")
 		// '504172': 'FaResalatIcon',
 	},
 	{
 		id: 13,
 		cardnumber: "207177",
 		icon: ToseeSaderat,
-		name: i18next.t("BASE:ToseeSaderat")
+		name: i18next.t("base:ToseeSaderat")
 		// '207177': 'FaToseeSaderatIcon',
 	},
 	{
 		id: 14,
 		cardnumber: "627648",
 		icon: ToseeSaderat,
-		name: i18next.t("BASE:ToseeSaderat")
+		name: i18next.t("base:ToseeSaderat")
 		// '627648': 'FaToseeSaderatIcon',
 	},
 	{
 		id: 15,
 		cardnumber: "636949",
 		icon: Hekmat,
-		name: i18next.t("BASE:Hekmat")
+		name: i18next.t("base:Hekmat")
 		// '636949': 'FaHekmatIcon',
 	},
 	{
 		id: 16,
 		cardnumber: "585947",
 		icon: KhavarMianeh,
-		name: i18next.t("BASE:KhavarMianeh")
+		name: i18next.t("base:KhavarMianeh")
 		// '585947': 'FaKhavarMianehIcon',
 	},
 	{
 		id: 17,
 		cardnumber: "627412",
 		icon: EghtesadNovin,
-		name: i18next.t("BASE:EghtesadNovin")
+		name: i18next.t("base:EghtesadNovin")
 		// '627412': 'FaEghtesadNovinIcon',
 	},
 	{
 		id: 18,
 		cardnumber: "502938",
 		icon: Dey,
-		name: i18next.t("BASE:Dey")
+		name: i18next.t("base:Dey")
 		// '502938': 'FaDayIcon',
 	},
 	{
 		id: 19,
 		cardnumber: "589463",
 		icon: Refah,
-		name: i18next.t("BASE:Refah")
+		name: i18next.t("base:Refah")
 		// '589463': 'FaRefahIcon',
 	},
 	{
 		id: 20,
 		cardnumber: "621986",
 		icon: Saman,
-		name: i18next.t("BASE:Saman")
+		name: i18next.t("base:Saman")
 		// '621986': 'FaSamanIcon',
 	},
 	{
 		id: 21,
 		cardnumber: "589210",
 		icon: Sepah,
-		name: i18next.t("BASE:Sepah")
+		name: i18next.t("base:Sepah")
 		// '589210': 'FaSepahIcon',
 	},
 	{
 		id: 22,
 		cardnumber: "639607",
 		icon: Sarmayeh,
-		name: i18next.t("BASE:Sarmayeh")
+		name: i18next.t("base:Sarmayeh")
 		// '639607': 'FaSarmayehIcon',
 	},
 	{
 		id: 23,
 		cardnumber: "639346",
 		icon: Sina,
-		name: i18next.t("BASE:Sina")
+		name: i18next.t("base:Sina")
 		// '639346': 'FaSinaIcon',
 	},
 	{
 		id: 24,
 		cardnumber: "504706",
 		icon: Shahr,
-		name: i18next.t("BASE:Shahr")
+		name: i18next.t("base:Shahr")
 		// '504706': 'FaShahrIcon',
 	},
 	{
 		id: 25,
 		cardnumber: "502806",
 		icon: Shahr,
-		name: i18next.t("BASE:Shahr")
+		name: i18next.t("base:Shahr")
 		// '502806': 'FaShahrIcon',
 	},
 	{
 		id: 26,
 		cardnumber: "603769",
 		icon: Saderat,
-		name: i18next.t("BASE:Saderat")
+		name: i18next.t("base:Saderat")
 		// '603769': 'FaSaderatIcon',
 	},
 	{
 		id: 27,
 		cardnumber: "627961",
 		icon: SanatMadan,
-		name: i18next.t("BASE:SanatMadan")
+		name: i18next.t("base:SanatMadan")
 		// '627961': 'SanatMadan',
 	},
 	{
 		id: 28,
 		cardnumber: "627488",
 		icon: KarAfarin,
-		name: i18next.t("BASE:KarAfarin")
+		name: i18next.t("base:KarAfarin")
 		// '627488': 'FaKarafarinIcon',
 	},
 	{
 		id: 29,
 		cardnumber: "502910",
 		icon: KarAfarin,
-		name: i18next.t("BASE:KarAfarin")
+		name: i18next.t("base:KarAfarin")
 		// '502910': 'FaKarafarinIcon',
 	},
 	{
 		id: 30,
 		cardnumber: "639217",
 		icon: Keshavarzi,
-		name: i18next.t("BASE:Keshavarzi")
+		name: i18next.t("base:Keshavarzi")
 		// '639217': 'FaKeshavarziIcon',
 	},
 	{
 		id: 31,
 		cardnumber: "603770",
 		icon: Keshavarzi,
-		name: i18next.t("BASE:Keshavarzi")
+		name: i18next.t("base:Keshavarzi")
 		// '603770': 'FaKeshavarziIcon',
 	},
 	{
 		id: 32,
 		cardnumber: "505416",
 		icon: Gardeshgari,
-		name: i18next.t("BASE:Gardeshgari")
+		name: i18next.t("base:Gardeshgari")
 		// '505416': 'FaGardeshgariIcon',
 	},
 	{
 		id: 33,
 		cardnumber: "636795",
 		icon: BankMarkazi,
-		name: i18next.t("BASE:BankMarkazi")
+		name: i18next.t("base:BankMarkazi")
 		// '636795': 'BankMarkazi',
 	},
 	{
 		id: 34,
 		cardnumber: "628023",
 		icon: Maskan,
-		name: i18next.t("BASE:Maskan")
+		name: i18next.t("base:Maskan")
 		// '628023': 'FaMaskanIcon',
 	},
 	{
 		id: 35,
 		cardnumber: "991975",
 		icon: Mellat,
-		name: i18next.t("BASE:Mellat")
+		name: i18next.t("base:Mellat")
 		// '991975': 'FaMellatIcon',
 	},
 	{
 		id: 36,
 		cardnumber: "610433",
 		icon: Mellat,
-		name: i18next.t("BASE:Mellat")
+		name: i18next.t("base:Mellat")
 		// '610433': 'FaMellatIcon',
 	},
 	{
 		id: 37,
 		cardnumber: "603799",
 		icon: Melli,
-		name: i18next.t("BASE:Melli")
+		name: i18next.t("base:Melli")
 		// '603799': 'FaMelliIcon',
 	},
 	{
 		id: 38,
 		cardnumber: "606373",
 		icon: MehrIran,
-		name: i18next.t("BASE:MehrIran")
+		name: i18next.t("base:MehrIran")
 		// '606373': 'FaMehrIranIcon',
 	},
 	{
 		id: 39,
 		cardnumber: "639370",
 		icon: MehrEghtesad,
-		name: i18next.t("BASE:MehrEghtesad")
+		name: i18next.t("base:MehrEghtesad")
 		// '639370': 'FaMehrEghtesadIcon',
 	},
 
@@ -322,7 +322,7 @@ export const cardNumberToIcon = [
 		id: 40,
 		cardnumber: "505801",
 		icon: Kosar,
-		name: i18next.t("BASE:Kosar")
+		name: i18next.t("base:Kosar")
 		// '505801': 'FaKosarIcon',
 	},
 
@@ -330,7 +330,7 @@ export const cardNumberToIcon = [
 		id: 41,
 		cardnumber: "507677",
 		icon: Noor,
-		name: i18next.t("BASE:Noor")
+		name: i18next.t("base:Noor")
 		// '507677': 'FaNoorIcon',
 	}
 ];

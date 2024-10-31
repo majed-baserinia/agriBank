@@ -4,7 +4,7 @@ import { Alerts } from "@htsc/ui/components/Alerts";
 import { Loader } from "@htsc/ui/components/Loader";
 import { MaterialThemeProvider } from "@htsc/ui/components/MaterialThemProvider";
 
-const Layout = () => {
+export const Layout = () => {
 	const isReady = useInit();
 
 	return isReady ? (
@@ -18,5 +18,3 @@ const Layout = () => {
 		<Loader showLoader />
 	);
 };
-
-export default Layout;
