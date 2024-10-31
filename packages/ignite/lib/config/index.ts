@@ -3,8 +3,8 @@ import { getTheme } from "$lib/config/getTheme";
 import { useHandledConnection } from "$lib/config/useHandledConnection";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
-import { getI18n } from "react-i18next";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useTransition } from "react";
+import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
 export function useInitConfig() {
@@ -22,6 +22,7 @@ export function useInitConfig() {
 		}
 	});
 	const [configReady, seConfigReady] = useState(false);
+	const { i18n } = useTranslation();
 
 	const getConfig = useCallback(async () => {
 		try {
@@ -31,7 +32,7 @@ export function useInitConfig() {
 			//read lang and theme from query string
 			const language = searchParams.get("Lang") ?? "fa-IR";
 			const themeName = searchParams.get("Theme") ?? "light";
-			await getI18n().changeLanguage(language);
+			await i18n.changeLanguage(language);
 
 			//get the theme and set the language
 			const theme = await getTheme(apiConf.ThemeRoute, themeName);
