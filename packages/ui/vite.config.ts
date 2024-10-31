@@ -26,13 +26,18 @@ export default defineConfig({
 		lib: {
 			entry: {
 				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),
+				tailwindConfig: resolve(import.meta.dirname, "tailwind.base.config.js"),
 				...getComponentEntries()
 			},
 			formats: ["es"],
 			name: "ui",
 			fileName: (_, filename) => {
+				console.log(filename);
 				if (filename[0].toUpperCase() === filename[0]) {
 					return `components/${filename}/index.js`;
+				}
+				if (filename === "tailwindConfig") {
+					return `${filename}.js`;
 				}
 				return "utils.js";
 			}
@@ -42,6 +47,7 @@ export default defineConfig({
 				"react",
 				"jsx-runtime",
 				"react-router-dom",
+				"tailwind-scrollbar",
 				"zustand",
 				"i18next",
 				"react-i18next",
@@ -60,5 +66,5 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [tsconfigPaths(), dts()]
+	plugins: [react(), tsconfigPaths(), dts()]
 });

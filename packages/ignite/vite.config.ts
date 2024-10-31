@@ -4,6 +4,9 @@ import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+	define: {
+		"import.meta.dynamic.env": "import.meta.env"
+	},
 	build: {
 		lib: {
 			entry: resolve(import.meta.dirname, "index.ts"),

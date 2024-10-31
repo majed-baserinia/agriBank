@@ -13,7 +13,7 @@ const iconMap = {
 	error: errorIcon
 };
 
-export function AlertIcon(props: Props) {
+export function Icon(props: Props) {
 	const { type } = props;
 	const [selectedIcon, setSelectedIcon] = useState(errorIcon);
 

@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { ButtonAdapter } from "$lib/components/ButtonAdapter/ButtonAdapter";
-import { AlertIcon } from "./AlertIcon";
+import { Icon } from "./Icon";
 import type { AppAlert } from "@htsc/ignite";
 
-export function AppAlerts() {
+export function Alerts() {
 	const { alerts } = useAlert();
 	const { t } = useTranslation("BASE");
 	const [open, setOpen] = useState(true);
@@ -49,7 +49,7 @@ export function AppAlerts() {
 				justifyContent={"center"}
 				alignItems={"center"}
 			>
-				<AlertIcon type={capturedAlert.type} />
+				<Icon type={capturedAlert.type} />
 			</Grid>
 			<DialogTitle sx={{ margin: "auto" }}>
 				<Typography

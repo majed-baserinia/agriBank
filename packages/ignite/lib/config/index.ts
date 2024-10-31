@@ -48,7 +48,7 @@ export function useInitConfig() {
 			//TODO: add a convenient alert for this
 			//probably send a postmessage to parent
 			alert("can't initiate");
-			console.log(err);
+			console.error(err);
 		}
 	}, [initApi, setSettings]);
 

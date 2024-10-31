@@ -1,3 +1,3 @@
-export * from "./AlertIcon";
-export * from "./AppAlerts";
+export * from "./Icon";
+export * from "./Alerts";
 export * from "./types";

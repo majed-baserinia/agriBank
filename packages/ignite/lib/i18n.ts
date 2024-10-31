@@ -1,9 +1,9 @@
 import BASE_EN_TRANSLATION from "$lib/locales/en/base.json";
 import BASE_FA_TRANSLATION from "$lib/locales/fa/base.json";
-import i18n from "i18next";
+import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
 
-void i18n
+void i18next
 	.use(initReactI18next) // passes i18n down to react-i18next
 	.init({
 		// the translations
@@ -23,8 +23,6 @@ void i18n
 			escapeValue: false // react already safes from xss => https://www.i18next.com/translation-function/interpolation#unescape
 		}
 	});
-
-export default i18n;
 
 //makes sure all the keys of Fa and En are the same
 BASE_FA_TRANSLATION satisfies typeof BASE_EN_TRANSLATION;
