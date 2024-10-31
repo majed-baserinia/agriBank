@@ -35,4 +35,4 @@ void i18next
 BASE_FA_TRANSLATION satisfies typeof BASE_EN_TRANSLATION;
 BASE_EN_TRANSLATION satisfies typeof BASE_FA_TRANSLATION;
 
-export default i18next;
+export { i18next };
