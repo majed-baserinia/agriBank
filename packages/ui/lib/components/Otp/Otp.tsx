@@ -19,7 +19,7 @@ export function Otp(props: Props) {
 		timerInSeconds,
 		defaultValue
 	} = props;
-	const { t } = useTranslation("BASE");
+	const { t } = useTranslation("base");
 	const [IsCountDownTimerCounting, setIsCountDownTimerCounting] = useState<boolean>();
 
 	return (

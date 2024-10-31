@@ -13,15 +13,14 @@ import "react-multi-date-picker/styles/layouts/prime.css";
 import { useInitialSettingStore } from "@htsc/ignite";
 import type { Value } from "react-multi-date-picker";
 import Icon from "react-multi-date-picker/components/icon";
-import { InputAdapter } from "../InputAdapter/InputAdapter";
+import { InputAdapter } from "$components/InputAdapter/InputAdapter";
 import "./styles.css";
 import type { Props } from "./types";
 
 export function DatePickerAdapter(props: Props) {
-	const { t } = useTranslation("BASE");
+	const { t } = useTranslation("base");
 	const appLanguage = useInitialSettingStore((store) => store.settings.language);
 	const { label = t("date"), helperText, onChange, error, defaultValue } = props;
-
 	const [value, setValue] = useState<Value>();
 	const datepicker = useRef();
 

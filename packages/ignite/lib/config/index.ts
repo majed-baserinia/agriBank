@@ -2,8 +2,8 @@ import { getApiConfig } from "$lib/config/getApiConfig";
 import { getTheme } from "$lib/config/getTheme";
 import { useHandledConnection } from "$lib/config/useHandledConnection";
 import { useInitialSettingStore } from "$lib/stores";
-import useApiConfig from "$lib/stores/api/api";
-import { changeLanguage } from "i18next";
+import { useApiConfig } from "$lib/stores/api/api";
+import { getI18n } from "react-i18next";
 import { useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
@@ -31,10 +31,10 @@ export function useInitConfig() {
 			//read lang and theme from query string
 			const language = searchParams.get("Lang") ?? "fa-IR";
 			const themeName = searchParams.get("Theme") ?? "light";
-			void changeLanguage(language);
+			await getI18n().changeLanguage(language);
 
 			//get the theme and set the language
-			const theme = await getTheme(themeName, apiConf.ThemeRoute);
+			const theme = await getTheme(apiConf.ThemeRoute, themeName);
 
 			//set the settings {theme, language, idToken, refreshToken} to store
 			setSettings({
@@ -47,9 +47,10 @@ export function useInitConfig() {
 		} catch (err) {
 			//TODO: add a convenient alert for this
 			//probably send a postmessage to parent
-			alert("can't initiate");
+			alert("can't initiate app");
 			console.error(err);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [initApi, setSettings]);
 
 	useEffect(() => {

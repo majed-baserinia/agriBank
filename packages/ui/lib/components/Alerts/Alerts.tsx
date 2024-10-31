@@ -9,7 +9,7 @@ import type { AppAlert } from "@htsc/ignite";
 
 export function Alerts() {
 	const { alerts } = useAlert();
-	const { t } = useTranslation("BASE");
+	const { t } = useTranslation("base");
 	const [open, setOpen] = useState(true);
 	const [localAlerts, setLocalAlerts] = useState<AppAlert[]>([]);
 	const capturedAlert = localAlerts[0];

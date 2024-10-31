@@ -8,6 +8,7 @@ export default defineConfig({
 		"import.meta.dynamic.env": "import.meta.env"
 	},
 	build: {
+		sourcemap: "inline",
 		lib: {
 			entry: resolve(import.meta.dirname, "index.ts"),
 			formats: ["es"],

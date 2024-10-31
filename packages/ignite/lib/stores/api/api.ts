@@ -27,5 +27,3 @@ export const useApiConfig = create<ApiConfig>((set, get) => ({
 		});
 	}
 }));
-
-export default useApiConfig;

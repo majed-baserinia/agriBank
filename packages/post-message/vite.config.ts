@@ -4,8 +4,8 @@ import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-	root: ".",
 	build: {
+		sourcemap: "inline",
 		lib: {
 			entry: resolve(import.meta.dirname, "index.ts"),
 			formats: ["es"],
@@ -13,7 +13,7 @@ export default defineConfig({
 			fileName: "post-message"
 		},
 		rollupOptions: {
-			external: ["react"]
+			external: ["react", "react-router-dom"]
 		}
 	},
 	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]

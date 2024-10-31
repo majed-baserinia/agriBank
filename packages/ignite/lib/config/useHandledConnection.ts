@@ -8,7 +8,7 @@ export type Props = ConnectionProps<InitialSetting>;
 
 export function useHandledConnection(props: Props) {
 	const navigate = useNavigate();
-	const { t } = useTranslation("BASE");
+	const { t } = useTranslation("base");
 
 	return useConnection<InitialSetting>({
 		onGobackPressed: () => {

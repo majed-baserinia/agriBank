@@ -31,7 +31,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		isOptionEqualToValue
 	} = props;
 
-	const { t } = useTranslation("BASE");
+	const { t } = useTranslation("base");
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
