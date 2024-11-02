@@ -3,7 +3,7 @@ import { getTheme } from "$lib/config/getTheme";
 import { useHandledConnection } from "$lib/config/useHandledConnection";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
-import { useCallback, useEffect, useState, useTransition } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
