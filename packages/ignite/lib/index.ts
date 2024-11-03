@@ -1,11 +1,10 @@
-/// <reference types="./i18.d.ts" />
-
 import { useInitConfig } from "$lib/config";
 
 export * from "./auth";
 export * from "./config";
 export * from "./env";
 export * from "./i18n";
+export * from "./i18n.types";
 export * from "./stores";
 /**
  * initializes the app, including the theme, language and the api config
