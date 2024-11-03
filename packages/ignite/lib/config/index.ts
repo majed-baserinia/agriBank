@@ -1,6 +1,7 @@
 import { getApiConfig } from "$lib/config/getApiConfig";
 import { getTheme } from "$lib/config/getTheme";
 import { useHandledConnection } from "$lib/config/useHandledConnection";
+import { initLanguage } from "$lib/i18n";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
 import { useCallback, useEffect, useState } from "react";
@@ -53,6 +54,10 @@ export function useInitConfig() {
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [initApi, setSettings]);
+
+	useEffect(() => {
+		initLanguage();
+	}, []);
 
 	useEffect(() => {
 		void getConfig();

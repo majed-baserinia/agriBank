@@ -5,13 +5,12 @@ import { RouterProvider } from "react-router-dom";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-import "./index.css";
-
 // TODO: switch to component based routes
 import router from "./route-config/routes";
-import { initLanguage } from "./i18n";
 
-void initLanguage();
+import "./i18n";
+import "./index.css";
+
 const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root") as HTMLElement).render(

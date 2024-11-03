@@ -1,7 +1,15 @@
 import "i18next";
-import type { BaseLanguageOptions } from "./i18n/i18n";
+import type { BaseLanguageOptions } from "./i18n";
+
+export type ModifiedHTSCTypeOptions<T> = (T extends { defaultNS: string }
+	? Omit<T, "defaultNS">
+	: T) &
+	BaseLanguageOptions;
 
 declare module "i18next" {
 	// eslint-disable-next-line @typescript-eslint/no-empty-object-type
-	interface CustomTypeOptions extends BaseLanguageOptions {}
+	export interface HTSCTypeOptions {}
+
+	// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+	interface CustomTypeOptions extends ModifiedHTSCTypeOptions<HTSCTypeOptions> {}
 }

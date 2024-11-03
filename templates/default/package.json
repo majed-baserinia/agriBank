@@ -16,6 +16,7 @@
 		"@glidejs/glide": "^3.6.2",
 		"@htsc/ignite": "0.0.1",
 		"@htsc/post-message": "0.0.1",
+		"@htsc/prettier-config": "0.0.1",
 		"@htsc/ui": "0.0.1",
 		"@mui/icons-material": "^5.14.1",
 		"@mui/lab": "^5.0.0-alpha.138",

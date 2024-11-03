@@ -27,5 +27,10 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [tsconfigPaths(), dts()]
+	plugins: [
+		tsconfigPaths(),
+		dts({
+			insertTypesEntry: true
+		})
+	]
 });

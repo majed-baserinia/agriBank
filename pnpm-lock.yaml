@@ -394,6 +394,9 @@ importers:
       '@htsc/post-message':
         specifier: 0.0.1
         version: link:../../packages/post-message
+      '@htsc/prettier-config':
+        specifier: 0.0.1
+        version: link:../../packages/prettier-config
       '@htsc/ui':
         specifier: 0.0.1
         version: link:../../packages/ui

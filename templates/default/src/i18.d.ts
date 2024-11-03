@@ -1,9 +1,8 @@
-import "i18next";
+import "@htsc/ignite";
 import type FA_TRANSLATION from "./locals/fa/translation.json";
-import type { BaseLanguageOptions } from "@htsc/ignite";
 
 declare module "i18next" {
-	interface CustomTypeOptions extends BaseLanguageOptions {
+	interface HTSCTypeOptions {
 		defaultNS: "translation";
 		resources: {
 			translation: typeof FA_TRANSLATION;
