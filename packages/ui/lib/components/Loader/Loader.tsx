@@ -1,4 +1,4 @@
-import logoLoader from "public/images/logo-loader.gif";
+import logoLoader from "$assets/images/logo-loader.gif";
 import type { Props } from "./types";
 
 export const Loader = ({ showLoader }: Props) => {

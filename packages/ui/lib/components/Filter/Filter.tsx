@@ -1,13 +1,13 @@
 import { Grid, MenuItem, Paper, Typography, useTheme } from "@mui/material";
 import { useState } from "react";
 
-import CloseIcon from "@mui/icons-material/Close";
-import filterIcon from "public/icons/filter.svg";
+import filterIcon from "$assets/icons/filter.svg";
 import { ButtonAdapter } from "$components/ButtonAdapter";
-import { ModalOrBottomSheet } from "$lib/components/ModalOrBottomSheet/ModalOrBottomSheet";
+import { ChipsAdapter } from "$components/ChipsAdapter";
 import { SelectAdapter } from "$components/SelectAdapter";
 import { SvgToIcon } from "$components/SvgToIcon";
-import { ChipsAdapter } from "$components/ChipsAdapter";
+import { ModalOrBottomSheet } from "$lib/components/ModalOrBottomSheet/ModalOrBottomSheet";
+import CloseIcon from "@mui/icons-material/Close";
 import type { Props } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

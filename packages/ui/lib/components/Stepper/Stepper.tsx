@@ -1,7 +1,7 @@
-import { Grid, Typography, useTheme } from "@mui/material";
-import activeIcon from "public/icons/stepper/active.svg";
-import completedIcon from "public/icons/stepper/completed.svg";
+import completedIcon from "$assets//icons/stepper/completed.svg";
+import activeIcon from "$assets/icons/stepper/active.svg";
 import { SvgToIcon } from "$components/SvgToIcon";
+import { Grid, Typography, useTheme } from "@mui/material";
 
 import type { StepperProps } from "./types";
 

@@ -18,7 +18,8 @@
 
 		"paths": {
 			"$lib/*": ["./lib/*"],
-			"$components/*": ["./lib/components/*"]
+			"$components/*": ["./lib/components/*"],
+			"$assets/*": ["./lib/assets/*"]
 		}
 	},
 	"include": ["./lib", "./index.ts"],

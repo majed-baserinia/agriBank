@@ -1,11 +1,11 @@
-import { Grid, Typography } from "@mui/material";
-import refreshIcon from "public/icons/refresh-alert.svg";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
+import refreshIcon from "$assets/icons/refresh-alert.svg";
 import { ButtonAdapter } from "$components/ButtonAdapter";
+import { CountDownTimer } from "$components/CountDownTimer";
 import { InputAdapter } from "$components/InputAdapter";
 import { SvgToIcon } from "$components/SvgToIcon";
-import { CountDownTimer } from "$components/CountDownTimer";
+import { Grid, Typography } from "@mui/material";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import type { Props } from "./types";
 
 export function Otp(props: Props) {

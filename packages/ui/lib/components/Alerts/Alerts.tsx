@@ -1,11 +1,11 @@
-import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from "@mui/material";
 import { clearAlert, useAlert } from "@htsc/ignite";
+import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import { ButtonAdapter } from "$lib/components/ButtonAdapter/ButtonAdapter";
-import { Icon } from "./Icon";
 import type { AppAlert } from "@htsc/ignite";
+import { Icon } from "./Icon";
 
 export function Alerts() {
 	const { alerts } = useAlert();

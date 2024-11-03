@@ -2,12 +2,12 @@ import { InputAdornment, TextField, useTheme } from "@mui/material";
 import type { ReactNode } from "react";
 import { useEffect, useState } from "react";
 
-import { useFormatter } from "./useFormatter";
+import alertIcon from "$assets/icons/input/alertIcon.svg";
+import sucIcon from "$assets/icons/input/successIcon.svg";
 import { isInputTypeNumeric } from "$components/InputAdapter/utils";
-import alertIcon from "public/icons/input/alertIcon.svg";
-import sucIcon from "public/icons/input/successIcon.svg";
 import { SvgToIcon } from "$components/SvgToIcon";
 import type { InputAdapterProps } from "./types";
+import { useFormatter } from "./useFormatter";
 
 const heightSizeList = {
 	sm: "40px",
