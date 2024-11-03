@@ -13,7 +13,10 @@
 			"import": "./dist/components/*/index.js",
 			"types": "./dist/components/*/index.d.ts"
 		},
-		"./tailwind-config": "./dist/tailwindConfig.js",
+		"./tailwind-config": {
+			"import": "./dist/tailwindConfig.js",
+			"default": "./dist/tailwindConfig.js"
+		},
 		"./utils": {
 			"import": "./dist/utils.js",
 			"types": "./dist/utils.d.ts"
