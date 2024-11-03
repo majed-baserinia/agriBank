@@ -13,7 +13,10 @@ export function useHandledConnection(props: Props) {
 
 	const connection = useConnection<InitialSetting>({
 		onGobackPressed: () => {
-			if (location.pathname === environment.VITE_BASE_URL || `${location.pathname}/` === environment.VITE_BASE_URL) {
+			if (
+				location.pathname === environment.VITE_BASE_URL ||
+				`${location.pathname}/` === environment.VITE_BASE_URL
+			) {
 				closeApp();
 			} else {
 				navigate(-1);
@@ -42,6 +45,8 @@ export function useHandledConnection(props: Props) {
 
 	return {
 		...connection,
-		readyToLoad: environment.VITE_FORCE_IFRAME_READY ? environment.VITE_FORCE_IFRAME_READY : connection.readyToLoad
+		readyToLoad: environment.VITE_FORCE_IFRAME_READY
+			? environment.VITE_FORCE_IFRAME_READY
+			: connection.readyToLoad
 	};
 }
