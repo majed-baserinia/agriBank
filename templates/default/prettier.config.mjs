@@ -7,4 +7,4 @@ const config = {
 	...htscPrettierConfig
 };
 
-	export default config;
+export default config;
