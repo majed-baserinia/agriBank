@@ -13,7 +13,7 @@
 	"exports": {
 		".": {
 			"import": "./dist/post-message.js",
-			"types": "./dist/types.d.ts"
+			"types": "./dist/index.d.ts"
 		}
 	},
 	"scripts": {

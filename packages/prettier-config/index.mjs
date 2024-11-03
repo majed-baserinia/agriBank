@@ -2,7 +2,11 @@
  * @type {import("prettier").Config}
  */
 export const htscPrettierConfig = {
-	plugins: ["prettier-plugin-organize-attributes", "prettier-plugin-organize-imports", "prettier-plugin-tailwindcss"],
+	plugins: [
+		"prettier-plugin-organize-attributes",
+		"prettier-plugin-organize-imports",
+		"prettier-plugin-tailwindcss"
+	],
 	htmlWhitespaceSensitivity: "strict",
 	tailwindFunctions: ["tw"],
 	endOfLine: "auto",

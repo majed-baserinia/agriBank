@@ -1,4 +1,4 @@
-import defaultTheme from "public/defaultTheme.json";
+import defaultTheme from "$lib/assets/defaultTheme.json";
 
 export async function getTheme(themeUrl: string, themeName: string) {
 	try {

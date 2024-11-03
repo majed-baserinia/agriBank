@@ -16,5 +16,5 @@ export default defineConfig({
 			external: ["react", "react-router-dom"]
 		}
 	},
-	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]
+	plugins: [tsconfigPaths(), dts()]
 });

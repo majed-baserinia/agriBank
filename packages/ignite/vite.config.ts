@@ -27,5 +27,5 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [tsconfigPaths(), dts({ rollupTypes: true })]
+	plugins: [tsconfigPaths(), dts()]
 });
