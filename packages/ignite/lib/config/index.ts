@@ -1,7 +1,7 @@
 import { getApiConfig } from "$lib/config/getApiConfig";
 import { getTheme } from "$lib/config/getTheme";
 import { useHandledConnection } from "$lib/config/useHandledConnection";
-import { initLanguage } from "$lib/i18n";
+import { addLanguagePacks } from "$lib/i18n";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
 import { useCallback, useEffect, useState } from "react";
@@ -56,7 +56,7 @@ export function useInitConfig() {
 	}, [initApi, setSettings]);
 
 	useEffect(() => {
-		initLanguage();
+		addLanguagePacks();
 	}, []);
 
 	useEffect(() => {

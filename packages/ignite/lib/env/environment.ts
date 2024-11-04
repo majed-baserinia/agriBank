@@ -8,5 +8,3 @@ const envSchema = z.object({
 export const environment = envSchema.parse({
 	...import.meta.dynamic.env
 });
-
-console.log(environment);
