@@ -1,10 +1,9 @@
 import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
-import tsconfigPaths from "vite-tsconfig-paths";
-import dts from "vite-plugin-dts";
+import { existsSync, readdirSync, statSync } from "fs";
 import { resolve } from "path";
-import { readdirSync, statSync, existsSync } from "fs";
-import { stringify } from "querystring";
+import { defineConfig } from "vite";
+import dts from "vite-plugin-dts";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 function getComponentEntries() {
 	const componentsDir = resolve(__dirname, "lib/components");
@@ -13,12 +12,17 @@ function getComponentEntries() {
 	readdirSync(componentsDir).forEach((dir) => {
 		const fullPath = resolve(componentsDir, dir, "index.ts");
 		if (statSync(resolve(componentsDir, dir)).isDirectory() && existsSync(fullPath)) {
+			if (dir[0].toUpperCase() !== dir[0]) {
+				throw new Error(`component folders should start with uppercase: ${dir}`);
+			}
 			entries[dir] = fullPath;
 		}
 	});
 
 	return entries;
 }
+
+const componentEntries = getComponentEntries();
 
 export default defineConfig({
 	build: {
@@ -27,13 +31,12 @@ export default defineConfig({
 			entry: {
 				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),
 				tailwindConfig: resolve(import.meta.dirname, "tailwind.base.config.js"),
-				...getComponentEntries()
+				...componentEntries
 			},
 			formats: ["es"],
 			name: "ui",
 			fileName: (_, filename) => {
-				console.log(filename);
-				if (filename[0].toUpperCase() === filename[0]) {
+				if (Object.keys(componentEntries).includes(filename)) {
 					return `components/${filename}/index.js`;
 				}
 				if (filename === "tailwindConfig") {
@@ -47,7 +50,6 @@ export default defineConfig({
 				"react",
 				"jsx-runtime",
 				"react-router-dom",
-				"tailwind-scrollbar",
 				"zustand",
 				"i18next",
 				"react-i18next",

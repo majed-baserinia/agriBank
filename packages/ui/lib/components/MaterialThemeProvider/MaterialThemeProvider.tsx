@@ -12,7 +12,6 @@ export const MaterialThemeProvider = ({ children }: Props) => {
 	const settings = useInitialSettingStore((s) => s.settings);
 
 	const themeTemplate = createTheme({
-		...settings.theme,
 		direction: settings.language === "fa-IR" ? "rtl" : "ltr",
 		typography: {
 			fontFamily: settings.language === "fa-IR" ? "IRANSans" : "Roboto , sans-serif",
