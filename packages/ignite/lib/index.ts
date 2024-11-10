@@ -1,4 +1,4 @@
-import { useInitConfig } from "$lib/config";
+import { useInitConfig, type Options } from "$lib/config";
 
 export * from "./auth";
 export * from "./config";
@@ -7,6 +7,6 @@ export * from "./stores";
 /**
  * initializes the app, including the theme, language and the api config
  */
-export function useInit() {
-	return useInitConfig();
+export function useInit(options: Options) {
+	return useInitConfig(options);
 }

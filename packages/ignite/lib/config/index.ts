@@ -1,6 +1,9 @@
 import { getApiConfig } from "$lib/config/getApiConfig";
 import { getTheme } from "$lib/config/getTheme";
-import { useHandledConnection } from "$lib/config/useHandledConnection";
+import {
+	useHandledConnection,
+	type Props as HandledConnectionProps
+} from "$lib/config/useHandledConnection";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
 import { initLanguagePacks } from "@htsc/i18n";
@@ -8,7 +11,9 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
-export function useInitConfig() {
+export type Options = Pick<HandledConnectionProps, "onInitializationFailed">;
+
+export function useInitConfig({ onInitializationFailed }: Options) {
 	const [searchParams] = useSearchParams();
 
 	const { setSettings } = useInitialSettingStore();
@@ -20,7 +25,8 @@ export function useInitConfig() {
 				refreshToken: data.refreshToken,
 				osType: data.osType
 			});
-		}
+		},
+		onInitializationFailed
 	});
 	const [configReady, seConfigReady] = useState(false);
 	const { i18n } = useTranslation();

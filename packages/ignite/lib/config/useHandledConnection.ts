@@ -4,9 +4,11 @@ import { type ConnectionProps, closeApp, useConnection } from "@htsc/post-messag
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export type Props = ConnectionProps<InitialSetting>;
+export type Props = Omit<ConnectionProps<InitialSetting>, "onInitializationFailed"> & {
+	onInitializationFailed?: (errorMessage: string) => boolean;
+};
 
-export function useHandledConnection(props: Props) {
+export function useHandledConnection({ onInitializationFailed, ...restProps }: Props) {
 	const navigate = useNavigate();
 	const location = useLocation();
 	const { t } = useTranslation("base");
@@ -25,10 +27,14 @@ export function useHandledConnection(props: Props) {
 			}
 		},
 		onInitializationFailed: () => {
-			alert(t("initErrorText"));
+			const errorMessage = t("initErrorText");
+			if (onInitializationFailed?.(errorMessage) === false) {
+				return false;
+			}
+			alert(errorMessage);
 			return false;
 		},
-		...props
+		...restProps
 	});
 
 	return {
