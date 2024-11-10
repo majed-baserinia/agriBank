@@ -3,6 +3,7 @@ import { existsSync, readdirSync, statSync } from "fs";
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
+import { libInjectCss } from "vite-plugin-lib-inject-css";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 function getComponentEntries() {
@@ -27,6 +28,7 @@ const componentEntries = getComponentEntries();
 export default defineConfig({
 	build: {
 		emptyOutDir: true,
+		sourcemap: true,
 		lib: {
 			entry: {
 				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),
@@ -48,7 +50,8 @@ export default defineConfig({
 		rollupOptions: {
 			external: [
 				"react",
-				"jsx-runtime",
+				/react\/*/,
+				"react-dom",
 				"react-router-dom",
 				"zustand",
 				"i18next",
@@ -56,8 +59,8 @@ export default defineConfig({
 				"@htsc/post-message",
 				"@htsc/ignite",
 				"@glidejs/glide",
-				"@mui/*",
-				"@emotion/*",
+				/@mui\/*/,
+				/@emotion\/*/,
 				"stylis",
 				"stylis-plugin-rtl",
 				"react-modal-sheet",
@@ -68,5 +71,5 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [react(), tsconfigPaths(), dts()]
+	plugins: [react(), tsconfigPaths(), libInjectCss(), dts()]
 });

@@ -33,6 +33,8 @@ import ToseeSaderat from "$assets/icons/Banks/Color/Tosee Saderat.svg";
 import Tosee from "$assets/icons/Banks/Color/Tosee.svg";
 import i18next from "i18next";
 
+// TODO: WTF is this? this should be dynamically imported based on condition, this hugeeely increases the bundle size
+
 export const cardNumberToIcon = [
 	{
 		id: 1,

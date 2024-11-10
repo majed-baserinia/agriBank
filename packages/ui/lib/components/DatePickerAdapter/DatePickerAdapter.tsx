@@ -10,10 +10,10 @@ import "react-multi-date-picker/styles/backgrounds/bg-gray.css";
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import "react-multi-date-picker/styles/layouts/prime.css";
 
+import { InputAdapter } from "$components/InputAdapter";
 import { useInitialSettingStore } from "@htsc/ignite";
 import type { Value } from "react-multi-date-picker";
 import Icon from "react-multi-date-picker/components/icon";
-import { InputAdapter } from "$components/InputAdapter/InputAdapter";
 import "./styles.css";
 import type { Props } from "./types";
 

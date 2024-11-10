@@ -1,26 +1,22 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face {
 	font-family: "IRANSans";
-	src: url("./assets/fonts/IranSansWeb/IRANSansFaNum.ttf") format("truetype");
+	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNum.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: "IRANSans";
-	src: url("./assets/fonts/IranSansWeb/IRANSansFaNumBold.ttf") format("truetype");
+	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNumBold.ttf") format("truetype");
 	font-weight: 700;
 }
 @font-face {
 	font-family: "IRANSans";
-	src: url("./assets/fonts/IranSansWeb/IRANSansFaNumMedium.ttf") format("truetype");
+	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNumMedium.ttf") format("truetype");
 	font-weight: 500;
 }
 @font-face {
 	font-family: "IRANSans";
-	src: url("./assets/fonts/IranSansWeb/IRANSansFaNumLight.ttf") format("truetype");
+	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNumLight.ttf") format("truetype");
 	font-weight: 300;
 }
 

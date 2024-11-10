@@ -9,7 +9,7 @@ export default defineConfig({
 	},
 	build: {
 		emptyOutDir: true,
-		sourcemap: "inline",
+		sourcemap: true,
 		lib: {
 			entry: resolve(import.meta.dirname, "index.ts"),
 			formats: ["es"],
