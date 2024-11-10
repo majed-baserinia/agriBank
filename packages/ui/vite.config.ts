@@ -23,7 +23,22 @@ function getComponentEntries() {
 	return entries;
 }
 
+function getStoreEntries() {
+	const componentsDir = resolve(__dirname, "lib/stores");
+	const entries: Record<string, string> = {};
+
+	readdirSync(componentsDir).forEach((dir) => {
+		const fullPath = resolve(componentsDir, dir, "index.ts");
+		if (statSync(resolve(componentsDir, dir)).isDirectory() && existsSync(fullPath)) {
+			entries[dir] = fullPath;
+		}
+	});
+
+	return entries;
+}
+
 const componentEntries = getComponentEntries();
+const storeEntries = getStoreEntries();
 
 export default defineConfig({
 	build: {
@@ -33,7 +48,8 @@ export default defineConfig({
 			entry: {
 				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),
 				tailwindConfig: resolve(import.meta.dirname, "tailwind.base.config.js"),
-				...componentEntries
+				...componentEntries,
+				...storeEntries
 			},
 			formats: ["es"],
 			name: "ui",
@@ -41,10 +57,10 @@ export default defineConfig({
 				if (Object.keys(componentEntries).includes(filename)) {
 					return `components/${filename}/index.js`;
 				}
-				if (filename === "tailwindConfig") {
-					return `${filename}.js`;
+				if (Object.keys(storeEntries).includes(filename)) {
+					return `stores/${filename}/index.js`;
 				}
-				return "utils.js";
+				return `${filename}.js`;
 			}
 		},
 		rollupOptions: {

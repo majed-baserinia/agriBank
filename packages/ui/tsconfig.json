@@ -18,6 +18,7 @@
 
 		"paths": {
 			"$lib/*": ["./lib/*"],
+			"$stores/*": ["./lib/stores/*"],
 			"$components/*": ["./lib/components/*"],
 			"$assets/*": ["./lib/assets/*"]
 		}

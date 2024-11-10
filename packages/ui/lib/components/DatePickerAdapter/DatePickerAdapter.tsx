@@ -11,15 +11,14 @@ import "react-multi-date-picker/styles/layouts/mobile.css";
 import "react-multi-date-picker/styles/layouts/prime.css";
 
 import { InputAdapter } from "$components/InputAdapter";
-import { useInitialSettingStore } from "@htsc/ignite";
 import type { Value } from "react-multi-date-picker";
 import Icon from "react-multi-date-picker/components/icon";
 import "./styles.css";
 import type { Props } from "./types";
 
 export function DatePickerAdapter(props: Props) {
-	const { t } = useTranslation("base");
-	const appLanguage = useInitialSettingStore((store) => store.settings.language);
+	const { t, i18n } = useTranslation("base");
+
 	const { label = t("date"), helperText, onChange, error, defaultValue } = props;
 	const [value, setValue] = useState<Value>();
 	const datepicker = useRef();
@@ -36,7 +35,7 @@ export function DatePickerAdapter(props: Props) {
 
 	const handleDatePickerChange = (date: Value) => {
 		const val =
-			appLanguage === "fa-IR"
+			i18n.language === "fa-IR"
 				? new DateObject(date! as string).convert(persian, persian_en).format()
 				: new DateObject(date! as string).format();
 		//	setValue(date);
@@ -60,8 +59,8 @@ export function DatePickerAdapter(props: Props) {
 				<DatePicker
 					ref={datepicker}
 					render={<Icon />}
-					calendar={appLanguage === "fa-IR" ? persian_ca : undefined}
-					locale={appLanguage === "fa-IR" ? persian_fa : undefined}
+					calendar={i18n.language === "fa-IR" ? persian_ca : undefined}
+					locale={i18n.language === "fa-IR" ? persian_fa : undefined}
 					value={value}
 					monthYearSeparator=" "
 					inputMode="numeric"

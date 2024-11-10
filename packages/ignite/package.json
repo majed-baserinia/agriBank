@@ -17,7 +17,7 @@
 		}
 	},
 	"scripts": {
-		"build": "vite build",
+		"build": "tsc && vite build",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
@@ -27,6 +27,8 @@
 	"devDependencies": {
 		"@htsc/eslint-plugin": "0.0.1",
 		"@htsc/post-message": "0.0.1",
+		"@htsc/ui": "0.0.1",
+		"@htsc/i18n": "0.0.1",
 		"@htsc/prettier-config": "0.0.1",
 		"@types/node": "^22.8.4",
 		"@types/react": "^18.3.11",
@@ -49,6 +51,8 @@
 		"react-i18next": "^13.0.1",
 		"react-router-dom": "^6.13.0",
 		"@htsc/post-message": "0.0.1",
+		"@htsc/ui": "0.0.1",
+		"@htsc/i18n": "0.0.1",
 		"zustand": "^4.3.8"
 	}
 }

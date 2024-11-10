@@ -13,6 +13,10 @@
 			"import": "./dist/components/*/index.js",
 			"types": "./dist/components/*/index.d.ts"
 		},
+		"./stores/*": {
+			"import": "./dist/stores/*/index.js",
+			"types": "./dist/stores/*/index.d.ts"
+		},
 		"./tailwind-config": {
 			"import": "./dist/tailwindConfig.js",
 			"default": "./dist/tailwindConfig.js"
@@ -20,19 +24,10 @@
 		"./utils": {
 			"import": "./dist/utils.js",
 			"types": "./dist/utils.d.ts"
-		},
-		"./fonts": {
-			"import": "./dist/fonts"
-		},
-		"./icons": {
-			"import": "./dist/icons"
-		},
-		"./images": {
-			"import": "./dist/images"
 		}
 	},
 	"scripts": {
-		"build": "vite build",
+		"build": "tsc && vite build",
 		"dev": "vite",
 		"format": "prettier --write .",
 		"lint": "eslint .",
@@ -44,9 +39,9 @@
 		"@emotion/styled": "^11.11.0",
 		"@glidejs/glide": "^3.6.2",
 		"@htsc/eslint-plugin": "0.0.1",
-		"@htsc/ignite": "0.0.1",
 		"@htsc/post-message": "0.0.1",
 		"@htsc/prettier-config": "0.0.1",
+		"@htsc/i18n": "0.0.1",
 		"@mui/icons-material": "^5.14.1",
 		"@mui/lab": "^5.0.0-alpha.138",
 		"@mui/material": "^5.14.3",
@@ -79,8 +74,8 @@
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
 		"@glidejs/glide": "^3.6.2",
-		"@htsc/ignite": "0.0.1",
 		"@htsc/post-message": "0.0.1",
+		"@htsc/i18n": "0.0.1",
 		"@mui/icons-material": "^5.14.1",
 		"@mui/lab": "^5.0.0-alpha.138",
 		"@mui/material": "^5.14.3",

@@ -1,5 +1,5 @@
 import { environment } from "$lib/env";
-import { type InitialSetting, pushAlert } from "$lib/stores";
+import { type InitialSetting } from "$lib/stores";
 import { type ConnectionProps, closeApp, useConnection } from "@htsc/post-message";
 import { useTranslation } from "react-i18next";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -25,19 +25,7 @@ export function useHandledConnection(props: Props) {
 			}
 		},
 		onInitializationFailed: () => {
-			pushAlert({
-				type: "error",
-				messageText: t("initErrorText"),
-				hasConfirmAction: true,
-				actions: {
-					onConfirm() {
-						closeApp();
-					},
-					onCloseModal() {
-						closeApp();
-					}
-				}
-			});
+			alert(t("initErrorText"));
 			return false;
 		},
 		...props

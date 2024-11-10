@@ -140,6 +140,36 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3
 
+  packages/i18n:
+    devDependencies:
+      '@htsc/eslint-plugin':
+        specifier: 0.0.1
+        version: link:../eslint-plugin
+      '@htsc/prettier-config':
+        specifier: 0.0.1
+        version: link:../prettier-config
+      eslint:
+        specifier: ^9.12.0
+        version: 9.13.0(jiti@1.21.6)
+      i18next:
+        specifier: ^23.2.5
+        version: 23.16.4
+      prettier:
+        specifier: ^3.3.3
+        version: 3.3.3
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^5.4.9
+        version: 5.4.10(@types/node@22.8.4)
+      vite-plugin-dts:
+        specifier: ^4.3.0
+        version: 4.3.0(@types/node@22.8.4)(rollup@4.24.2)(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.4))
+      vite-tsconfig-paths:
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.4))
+
   packages/ignite:
     dependencies:
       zod:
@@ -149,12 +179,18 @@ importers:
       '@htsc/eslint-plugin':
         specifier: 0.0.1
         version: link:../eslint-plugin
+      '@htsc/i18n':
+        specifier: 0.0.1
+        version: link:../i18n
       '@htsc/post-message':
         specifier: 0.0.1
         version: link:../post-message
       '@htsc/prettier-config':
         specifier: 0.0.1
         version: link:../prettier-config
+      '@htsc/ui':
+        specifier: 0.0.1
+        version: link:../ui
       '@types/node':
         specifier: ^22.8.4
         version: 22.8.4
@@ -286,9 +322,9 @@ importers:
       '@htsc/eslint-plugin':
         specifier: 0.0.1
         version: link:../eslint-plugin
-      '@htsc/ignite':
+      '@htsc/i18n':
         specifier: 0.0.1
-        version: link:../ignite
+        version: link:../i18n
       '@htsc/post-message':
         specifier: 0.0.1
         version: link:../post-message
@@ -388,6 +424,9 @@ importers:
       '@glidejs/glide':
         specifier: ^3.6.2
         version: 3.6.2
+      '@htsc/i18n':
+        specifier: 0.0.1
+        version: link:../../packages/i18n
       '@htsc/ignite':
         specifier: 0.0.1
         version: link:../../packages/ignite

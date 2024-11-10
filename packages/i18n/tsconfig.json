@@ -1,0 +1,13 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"moduleResolution": "Bundler",
+		"baseUrl": ".",
+
+		"paths": {
+			"$lib/*": ["./lib/*"]
+		}
+	},
+	"include": ["./lib", "./index.ts"],
+	"exclude": ["node_modules", "dist"]
+}

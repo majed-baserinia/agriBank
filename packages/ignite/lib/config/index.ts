@@ -1,9 +1,9 @@
 import { getApiConfig } from "$lib/config/getApiConfig";
 import { getTheme } from "$lib/config/getTheme";
 import { useHandledConnection } from "$lib/config/useHandledConnection";
-import { addLanguagePacks } from "$lib/i18n";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
+import { initLanguagePacks } from "@htsc/i18n";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
@@ -56,8 +56,8 @@ export function useInitConfig() {
 	}, [initApi, setSettings]);
 
 	useEffect(() => {
-		addLanguagePacks();
-	}, []);
+		initLanguagePacks(i18n);
+	}, [i18n]);
 
 	useEffect(() => {
 		void getConfig();

@@ -19,11 +19,13 @@ export default defineConfig({
 		rollupOptions: {
 			external: [
 				"react",
+				/react\/*/,
+				"react-dom",
 				"react-router-dom",
 				"zustand",
 				"i18next",
 				"react-i18next",
-				"@htsc/post-message",
+				/@htsc\/*/,
 				"zod"
 			]
 		}
