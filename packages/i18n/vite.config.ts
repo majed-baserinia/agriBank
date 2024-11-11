@@ -7,10 +7,16 @@ export default defineConfig({
 	build: {
 		sourcemap: true,
 		lib: {
-			entry: resolve(import.meta.dirname, "index.ts"),
+			entry: {
+				i18n: resolve(import.meta.dirname, "index.ts"),
+				types: resolve(import.meta.dirname, "./lib/types/index.ts")
+			},
 			formats: ["es"],
 			name: "i18n",
-			fileName: "i18n"
+			fileName: (_, entryName) => {
+				console.log(entryName);
+				return `${entryName}.js`;
+			}
 		},
 		rollupOptions: {
 			external: ["i18next"]
