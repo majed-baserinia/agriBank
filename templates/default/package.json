@@ -20,7 +20,7 @@
 		"@htsc/prettier-config": "0.0.1",
 		"@htsc/ui": "0.0.1",
 		"@mui/icons-material": "^5.14.1",
-		"@mui/lab": "^5.0.0-alpha.138",
+		"@mui/lab": "^5.0.0",
 		"@mui/material": "^5.14.3",
 		"@mui/styled-engine-sc": "^5.12.0",
 		"@tanstack/react-query": "^4.35.3",

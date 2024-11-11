@@ -1,6 +1,14 @@
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
-import { CssBaseline, GlobalStyles, ThemeProvider, createTheme } from "@mui/material";
+import {
+	CssBaseline,
+	GlobalStyles,
+	ThemeProvider,
+	createTheme,
+	type ThemeOptions
+} from "@mui/material";
+
+import { deepmerge } from "@mui/utils";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { prefixer } from "stylis";
@@ -11,7 +19,10 @@ export const MaterialThemeProvider = ({ theme, children }: Props) => {
 	const { i18n } = useTranslation();
 
 	const themeTemplate = useMemo(() => {
-		return createTheme(
+		// TODO: most of defaultTheme.json should be moved here,
+		// then also, configurations in defaultTheme.json conflict with what we have here in MUIProvider
+		// these conflicts should also be resolved
+		const mergedTheme = deepmerge<ThemeOptions>(
 			{
 				direction: i18n.language === "fa-IR" ? "rtl" : "ltr",
 				typography: {
@@ -210,8 +221,9 @@ export const MaterialThemeProvider = ({ theme, children }: Props) => {
 					}
 				}
 			},
-			theme ?? {}
+			theme
 		);
+		return createTheme(mergedTheme);
 	}, [theme, i18n.language]);
 
 	const emotionCache = useMemo(() => {
