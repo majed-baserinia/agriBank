@@ -25,3 +25,6 @@ dist-ssr
 
 .env.development
 .env.production
+
+openapitools.json
+src/generated-clients

@@ -11,7 +11,6 @@ export async function generateAxiosClients(config) {
 				"exec",
 				"openapi-generator-cli",
 				"generate",
-				...(config.tags ? ["--global-property", `apis=${config.tags.join(":")}`] : []),
 				"--output",
 				config.out,
 				"--generator-name",
@@ -37,7 +36,7 @@ export async function generateAxiosClients(config) {
 		cmd.on("close", (code) => {
 			if (code !== 0) {
 				console.error("An error happened while generating axios clients");
-				process.exit(code);
+				throw new Error("application with exit code: " + code);
 			}
 			resolve(undefined);
 		});
