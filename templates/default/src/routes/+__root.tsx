@@ -46,7 +46,7 @@ function App() {
 				) : (
 					<Loader showLoader />
 				)}
-				<TanStackRouterDevtools />
+				<TanStackRouterDevtools position="bottom-right" />
 				<ReactQueryDevtools />
 			</QueryClientProvider>
 		</StrictMode>

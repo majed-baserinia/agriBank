@@ -12,12 +12,19 @@
 
 import { Route as rootRoute } from './routes/+__root'
 import { Route as IndexImport } from './routes/+index'
+import { Route as InfoIndexImport } from './routes/+info/+index'
 
 // Create/Update Routes
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const InfoIndexRoute = InfoIndexImport.update({
+  id: '/info/',
+  path: '/info/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -32,6 +39,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
+    '/info/': {
+      id: '/info/'
+      path: '/info'
+      fullPath: '/info'
+      preLoaderRoute: typeof InfoIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -39,32 +53,37 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/info': typeof InfoIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/info': typeof InfoIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/info/': typeof InfoIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/info'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/info'
+  id: '__root__' | '/' | '/info/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  InfoIndexRoute: typeof InfoIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  InfoIndexRoute: InfoIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -77,11 +96,15 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "+__root.tsx",
       "children": [
-        "/"
+        "/",
+        "/info/"
       ]
     },
     "/": {
       "filePath": "+index.tsx"
+    },
+    "/info/": {
+      "filePath": "+info/+index.tsx"
     }
   }
 }
