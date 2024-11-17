@@ -1,5 +1,5 @@
 {
-	"name": "default",
+	"name": "your-app-name",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -8,7 +8,7 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"generate-client": "pnpm exec client-generator"
+		"generate-client": "pnpm exec client-generator --out src/services/generated"
 	},
 	"dependencies": {
 		"@emotion/cache": "^11.11.0",
