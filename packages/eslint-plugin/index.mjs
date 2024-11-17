@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 // @ts-expect-error
 import reactRefresh from "eslint-plugin-react-refresh";
+import pluginRouter from "@tanstack/eslint-plugin-router";
 import fs from "fs";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -27,6 +28,7 @@ const plugin = {
 			pluginReact.configs.flat.recommended,
 			// @ts-expect-error
 			pluginReact.configs.flat["jsx-runtime"],
+			pluginRouter.configs["flat/recommended"],
 			eslintPluginPrettierRecommended,
 			{
 				plugins: {
@@ -51,9 +53,6 @@ const plugin = {
 				languageOptions: {
 					globals: globals.browser,
 					parserOptions: {
-						projectService: {
-							allowDefaultProject: ["*.js", "*.mjs", ".*.mjs", "vite.config.ts"]
-						},
 						tsconfigRootDir: import.meta.dirname
 					}
 				}
