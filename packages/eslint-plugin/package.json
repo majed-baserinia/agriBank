@@ -11,10 +11,7 @@
 		"directory": "packages/eslint-plugin"
 	},
 	"exports": {
-		".": {
-			"import": "./index.mjs",
-			"types": "./dist/types/index.d.mts"
-		}
+		".": "./index.mjs"
 	},
 	"files": [
 		"./index.mjs"
