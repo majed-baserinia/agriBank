@@ -21,7 +21,7 @@ export default defineConfig({
 				"react",
 				/react\/*/,
 				"react-dom",
-				"react-router-dom",
+				/@tanstack\/*/,
 				"zustand",
 				"i18next",
 				"react-i18next",

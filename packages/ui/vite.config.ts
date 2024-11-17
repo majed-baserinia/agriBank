@@ -68,7 +68,6 @@ export default defineConfig({
 				"react",
 				/react\/*/,
 				"react-dom",
-				"react-router-dom",
 				"zustand",
 				"i18next",
 				"react-i18next",

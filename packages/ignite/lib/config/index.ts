@@ -7,15 +7,13 @@ import {
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
 import { initLanguagePacks } from "@htsc/i18n";
+import { useSearch } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
 
 export type Options = Pick<HandledConnectionProps, "onInitializationFailed">;
 
 export function useInitConfig({ onInitializationFailed }: Options) {
-	const [searchParams] = useSearchParams();
-
 	const { setSettings } = useInitialSettingStore();
 	const { init: initApi } = useApiConfig();
 	const { readyToLoad } = useHandledConnection({
@@ -30,6 +28,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 	});
 	const [configReady, seConfigReady] = useState(false);
 	const { i18n } = useTranslation();
+	const search = useSearch({ strict: false }) as { Theme?: string; Lang?: string };
 
 	const getConfig = useCallback(async () => {
 		try {
@@ -37,8 +36,9 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 			initApi({ baseUrl: apiConf.apiBaseUrl });
 
 			//read lang and theme from query string
-			const language = searchParams.get("Lang") ?? "fa-IR";
-			const themeName = searchParams.get("Theme") ?? "light";
+			const language = search.Lang ?? "fa-IR";
+			const themeName = search.Theme ?? "light";
+
 			await i18n.changeLanguage(language);
 
 			//get the theme and set the language

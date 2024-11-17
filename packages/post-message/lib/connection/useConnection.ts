@@ -1,6 +1,6 @@
 import { useMultipleInitRequest, type MultipleInitRequestEvents } from "$lib/init";
+import { useSearch } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 
 export type ConnectionProps<TData> = {
 	onIframeInitiated?: (data: TData) => void;
@@ -12,9 +12,9 @@ export function useConnection<TData>({
 	onGobackPressed,
 	onInitializationFailed
 }: ConnectionProps<TData>) {
-	const [searchParams] = useSearchParams();
+	const search = useSearch({ strict: false }) as { Auth?: string };
 	//we are checking the query string for 'Auth', in all situations it is true except the time that it is false
-	const auth = searchParams.get("Auth");
+	const auth = search.Auth;
 	const needsInitData = auth === "false" ? false : true;
 	const [receivedInitPostMessage, setReceivedInitPostMessage] = useState(false);
 

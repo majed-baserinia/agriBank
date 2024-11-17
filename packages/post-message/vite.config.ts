@@ -13,7 +13,7 @@ export default defineConfig({
 			fileName: "post-message"
 		},
 		rollupOptions: {
-			external: ["react", "react-router-dom"]
+			external: ["react", /@tanstack\/*/]
 		}
 	},
 	plugins: [tsconfigPaths(), dts()]
