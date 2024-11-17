@@ -49,7 +49,9 @@ export async function generateZodSchemas(config) {
 	});
 
 	console.log("writing zod schemas...", OUTPUT_SCHEMA_FILE_NAME);
-	await writeFile(SCHEMA_FILE_PATH, output, {
+
+	const header = `// @ts-nocheck`;
+	await writeFile(SCHEMA_FILE_PATH, `${header}\n${output}`, {
 		encoding: "utf-8"
 	});
 }
