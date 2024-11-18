@@ -6,20 +6,20 @@ import axios, { AxiosError, type AxiosResponse } from "axios";
 import axiosRetry from "axios-retry";
 import i18n from "i18next";
 
-const axiosInstance = axios.create({
+export const axiosForApi = axios.create({
 	headers: {
 		"Content-Type": "application/json"
 	}
 });
 
-axiosRetry(axiosInstance, {
+axiosRetry(axiosForApi, {
 	retries: 1,
 	retryCondition: (error) => {
 		return error.response?.status === 401;
 	}
 });
 
-axiosInstance.interceptors.request.use((config) => {
+axiosForApi.interceptors.request.use((config) => {
 	const authTokens = getAuthTokens();
 	if (authTokens) {
 		const { idToken } = authTokens;
@@ -30,7 +30,7 @@ axiosInstance.interceptors.request.use((config) => {
 	return config;
 });
 
-axiosInstance.interceptors.response.use(
+axiosForApi.interceptors.response.use(
 	(response: AxiosResponse) => response,
 	async <TResponse>(error: AxiosError) => {
 		const originalRequest = error.config;
@@ -41,8 +41,8 @@ axiosInstance.interceptors.response.use(
 			const refreshTokenValue = authTokens.refreshToken;
 			try {
 				const newIdToken = await refreshToken(refreshTokenValue!);
-				axiosInstance.defaults.headers.common["Authorization"] = `Bearer ${newIdToken}`;
-				return axiosInstance.request(originalRequest!);
+				axiosForApi.defaults.headers.common["Authorization"] = `Bearer ${newIdToken}`;
+				return axiosForApi.request(originalRequest!);
 			} catch (refreshError) {
 				clearAuth();
 				window.location.href = import.meta.env.BASE_URL;
