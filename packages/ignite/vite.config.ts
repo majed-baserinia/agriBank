@@ -23,6 +23,8 @@ export default defineConfig({
 				"react-dom",
 				/@tanstack\/*/,
 				"zustand",
+				"axios",
+				"axios-retry",
 				"i18next",
 				"react-i18next",
 				/@htsc\/*/,
