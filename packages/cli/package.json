@@ -18,7 +18,10 @@
 		"format": "prettier --write ."
 	},
 	"exports": {
-		".": "./dist/cli.js"
+		".": {
+			"import": "./dist/cli.js",
+			"types": "./dist/cli.d.ts"
+		}
 	},
 	"bin": {
 		"htsc": "./dist/cli.js"
