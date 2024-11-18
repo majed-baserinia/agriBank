@@ -1,8 +1,5 @@
----
-to: package.json
----
 {
-	"name": "<%= projectName %>",
+	"name": "default-htsc-template",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
