@@ -1,5 +1,8 @@
+---
+to: package.json
+---
 {
-	"name": "your-app-name",
+	"name": "<%= projectName %>",
 	"private": true,
 	"version": "0.0.0",
 	"type": "module",
@@ -8,7 +11,7 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"generate-client": "pnpm exec client-generator --out src/services/generated"
+		"generate-client": "pnpm exec htsc generate-clients --out src/services/generated"
 	},
 	"dependencies": {
 		"@emotion/cache": "^11.11.0",
@@ -42,7 +45,7 @@
 	},
 	"devDependencies": {
 		"@eslint/js": "^9.13.0",
-		"@htsc/client-generator": "0.0.1",
+		"@htsc/cli": "0.0.1",
 		"@openapitools/openapi-generator-cli": "^2.15.0",
 		"@tanstack/react-router": "^1.81.14",
 		"@tanstack/router-devtools": "^1.81.14",

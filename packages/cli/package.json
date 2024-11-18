@@ -1,0 +1,47 @@
+{
+	"name": "@htsc/cli",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "command line tools for creating and updating htsc apps",
+	"author": "@FoHoOV",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FoHoOV/htsc",
+		"directory": "packages/cli"
+	},
+	"scripts": {
+		"build": "vite build",
+		"dev-gen-clients": "vite build && node ./dist/cli.js generate-clients --url http://10.0.189.141:32104/swagger/v1/swagger.json --out ./src/generate-clients/.generated-clients/",
+		"dev-create-template": "vite build && node ./dist/cli.js create --out ./src/create-template/.created-template/",
+		"lint": "eslint .",
+		"format": "prettier --write ."
+	},
+	"exports": {
+		".": "./dist/cli.js"
+	},
+	"bin": {
+		"htsc": "./dist/cli.js"
+	},
+	"dependencies": {
+		"@apidevtools/swagger-parser": "^10.1.0",
+		"@openapitools/openapi-generator-cli": "^2.15.0",
+		"commander": "^12.1.0",
+		"ts-to-zod": "^3.13.0",
+		"openapi3-ts": "^4.4.0",
+		"typed-openapi": "^0.9.0",
+		"zod": "^3.23.8"
+	},
+	"devDependencies": {
+		"@types/node": "^22.8.2",
+		"@types/eslint__js": "^8.42.3",
+		"@typescript-eslint/eslint-plugin": "^8.8.1",
+		"@typescript-eslint/parser": "^8.1.1",
+		"eslint": "^9.12.0",
+		"typescript-eslint": "^8.8.1",
+		"eslint-plugin-n": "^17.11.1",
+		"vite": "^5.4.9",
+		"vite-plugin-dts": "^4.3.0",
+		"vite-tsconfig-paths": "^5.0.1"
+	}
+}

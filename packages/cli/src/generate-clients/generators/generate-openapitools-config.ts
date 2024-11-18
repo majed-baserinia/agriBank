@@ -1,9 +1,8 @@
 import { spawn } from "child_process";
+import type { optionsSchema } from "$/generate-clients/cli";
+import type { z } from "zod";
 
-/**
- * @param {import("zod").infer<typeof import("../cli.mjs").schema>} config
- */
-export async function generateAxiosClients(config) {
+export async function generateAxiosClients(config: z.infer<typeof optionsSchema>) {
 	return new Promise((resolve) => {
 		const cmd = spawn(
 			"pnpm",

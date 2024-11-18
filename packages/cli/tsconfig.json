@@ -5,10 +5,14 @@
 		"moduleResolution": "Bundler",
 		"allowJs": true,
 		"checkJs": true,
-		"noEmit": true,
+		"noEmit": false,
 		"target": "ES2022",
-		"strict": true
+		"strict": true,
+		"rootDir": ".",
+		"paths": {
+			"$/*": ["./src/*"]
+		}
 	},
 	"include": ["**/*"],
-	"exclude": ["node_modules", "dist"]
+	"exclude": ["node_modules", "dist", "./eslint.config.mjs"]
 }
