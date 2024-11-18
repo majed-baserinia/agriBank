@@ -9,6 +9,9 @@ import pluginRouter from "@tanstack/eslint-plugin-router";
 import fs from "fs";
 import globals from "globals";
 import tseslint from "typescript-eslint";
+import packageJson from "eslint-plugin-package-json/configs/recommended";
+import perfectionist from "eslint-plugin-perfectionist";
+import * as regexp from "eslint-plugin-regexp";
 
 /**
  * @type {{name: string, version: string} & Record<string, any>}
@@ -30,6 +33,9 @@ const plugin = {
 			pluginReact.configs.flat["jsx-runtime"],
 			pluginRouter.configs["flat/recommended"],
 			eslintPluginPrettierRecommended,
+			packageJson,
+			perfectionist.configs["recommended-natural"],
+			regexp.configs["flat/recommended"],
 			{
 				plugins: {
 					"react-hooks": reactHooks
@@ -58,7 +64,7 @@ const plugin = {
 				}
 			},
 			{
-				ignores: ["dist"]
+				ignores: ["dist", "node_modules", "pnpm-lock.yaml"]
 			},
 			{
 				rules: {
