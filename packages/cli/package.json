@@ -24,8 +24,7 @@
 		}
 	},
 	"bin": {
-		"htsc": "./dist/cli.js",
-		"_tshtsc": "./src/cli.ts"
+		"htsc": "./dist/cli.js"
 	},
 	"dependencies": {
 		"@apidevtools/swagger-parser": "^10.1.0",
