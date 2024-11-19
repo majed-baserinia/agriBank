@@ -19,8 +19,8 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 		onGobackPressed: () => {
 			const currentPath = match.pathname;
 			if (
-				currentPath === environment.VITE_BASE_URL ||
-				`${currentPath}/` === environment.VITE_BASE_URL
+				currentPath === environment.VITE_APP_BASE_URL ||
+				`${currentPath}/` === environment.VITE_APP_BASE_URL
 			) {
 				closeApp();
 			} else {
