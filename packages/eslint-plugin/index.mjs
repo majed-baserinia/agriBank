@@ -57,12 +57,14 @@ const plugin = {
 				}
 			},
 			{
-				ignores: ["dist/", "node_modules/", "pnpm-lock.yaml", "**/*.json", "**/*/.generated/"]
+				// TODO: enable json linting which includes package.json
+				ignores: ["dist/", "node_modules/", "pnpm-lock.yaml", "**/*/.generated/", "**/*.json"]
 			},
 			{
 				files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]
 			},
 			{
+				ignores: ["**/*.json"],
 				languageOptions: {
 					globals: globals.browser,
 					parserOptions: {
