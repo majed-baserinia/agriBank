@@ -15,8 +15,8 @@ export function Stepper(props: StepperProps) {
 				<Typography variant="bodySm">{text}</Typography>
 			</span>
 			<img
-				src={activeIcon}
 				alt="active icon"
+				src={activeIcon}
 			/>
 		</div>
 	);
@@ -35,17 +35,17 @@ export function Stepper(props: StepperProps) {
 					{list?.map((item, index) => {
 						return (
 							<li
-								key={index}
 								className={`group flex flex-1  shrink ${
 									index + 1 == list.length ? "basis-0" : "basis-full"
 								} items-center `}
+								key={index}
 							>
 								<span className="group  flex min-h-7 min-w-7 flex-col items-center gap-y-3 text-center text-xs">
 									{index < active ? (
 										<SvgToIcon
-											icon={completedIcon}
 											alt="completed icon"
 											height="32px"
+											icon={completedIcon}
 											width="32px"
 										/>
 									) : index === active ? (
@@ -63,8 +63,8 @@ export function Stepper(props: StepperProps) {
 									<span className="min-w-20 text-center text-sm font-medium">
 										<Typography
 											color={theme.palette.primary.main}
-											variant="bodySm"
 											fontWeight={index === active ? "bold" : undefined}
+											variant="bodySm"
 										>
 											{item}
 										</Typography>

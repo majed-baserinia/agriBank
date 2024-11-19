@@ -1,11 +1,11 @@
 export type Props = {
-	maxLength?: number;
-	onChange: (value: string) => void;
-	helperText?: string;
 	defaultValue?: string;
 	error?: boolean;
-	label: string;
 	handleResend: () => void;
+	helperText?: string;
+	label: string;
+	maxLength?: number;
+	onChange: (value: string) => void;
 	timerInSeconds?: {
 		timer: number;
 	};

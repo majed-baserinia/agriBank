@@ -1,13 +1,14 @@
-import Glide from "@glidejs/glide";
-import type { RefObject } from "react";
-import { useEffect, useState } from "react";
 import type { Callback, GlideEvents } from "$components/Carousel/events";
-import { addEventListener } from "$components/Carousel/events";
 import type { GlideOptions } from "$components/Carousel/options";
+import type { RefObject } from "react";
+
+import { addEventListener } from "$components/Carousel/events";
+import Glide from "@glidejs/glide";
+import { useEffect, useState } from "react";
 
 export function useInitializeGlider(
 	element: RefObject<HTMLElement>,
-	options: GlideOptions & GlideEvents
+	options: GlideEvents & GlideOptions
 ) {
 	const [glide, setGlide] = useState<Glide | null>(null);
 

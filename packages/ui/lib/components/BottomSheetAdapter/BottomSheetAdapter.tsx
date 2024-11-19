@@ -1,5 +1,6 @@
 import { useTheme } from "@mui/material";
 import Sheet from "react-modal-sheet";
+
 import type { Props } from "./types";
 
 export function BottomSheetAdapter(props: Props) {

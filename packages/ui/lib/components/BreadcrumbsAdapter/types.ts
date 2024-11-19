@@ -3,8 +3,8 @@ export type Props = {
 };
 
 type link = {
-	key: string;
-	title: string;
 	href: string;
+	key: string;
 	onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
+	title: string;
 };

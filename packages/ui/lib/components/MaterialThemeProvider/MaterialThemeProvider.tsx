@@ -1,18 +1,18 @@
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 import {
+	createTheme,
 	CssBaseline,
 	GlobalStyles,
-	ThemeProvider,
-	createTheme,
-	type ThemeOptions
+	type ThemeOptions,
+	ThemeProvider
 } from "@mui/material";
-
 import { deepmerge } from "@mui/utils";
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { prefixer } from "stylis";
 import rtlPlugin from "stylis-plugin-rtl";
+
 import type { Props } from "./types";
 
 export const MaterialThemeProvider = ({ theme, children }: Props) => {

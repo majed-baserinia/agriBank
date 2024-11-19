@@ -1,8 +1,8 @@
-export type StepperProps = { list: string[]; active: number };
+export type StepperProps = { active: number; list: string[] };
 
 export type step = {
-	index: number;
-	title: string;
 	active: boolean;
 	completed: boolean;
+	index: number;
+	title: string;
 };

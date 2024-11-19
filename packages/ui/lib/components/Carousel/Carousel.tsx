@@ -1,4 +1,5 @@
 import "@glidejs/glide/dist/css/glide.core.css";
+
 import { Root } from "./Root/Root";
 import { Slide } from "./Slide/Slide";
 

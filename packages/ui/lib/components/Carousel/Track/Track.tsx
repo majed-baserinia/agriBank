@@ -1,8 +1,8 @@
 import { Slides } from "$components/Carousel/Slide/Slides";
 
 export type Props = {
-	className?: string;
 	children: React.ReactNode;
+	className?: string;
 };
 
 export function Track({ className = "", children }: Props) {

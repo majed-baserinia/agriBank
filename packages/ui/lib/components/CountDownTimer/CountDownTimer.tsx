@@ -1,11 +1,11 @@
+import { useCountDownTimer } from "$lib/components/CountDownTimer/useCountDownTimer";
 import { Typography, useTheme } from "@mui/material";
 import { useEffect } from "react";
-import { useCountDownTimer } from "$lib/components/CountDownTimer/useCountDownTimer";
 
 export type Props = {
-	timerInSeconds: { timer: number } | undefined;
-	onCountDownStarted?: () => void;
 	onCountDownEnded?: () => void;
+	onCountDownStarted?: () => void;
+	timerInSeconds: { timer: number } | undefined;
 };
 
 export const CountDownTimer = ({ timerInSeconds, onCountDownStarted, onCountDownEnded }: Props) => {

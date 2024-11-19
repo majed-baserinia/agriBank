@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
 
 export type Props = {
-	label: string;
-	size?: "small" | "medium";
-	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
-	icon?: ReactNode;
-	color?: "primary" | "default" | "secondary" | "error" | "info" | "success" | "warning";
+	color?: "default" | "error" | "info" | "primary" | "secondary" | "success" | "warning";
 	count?: number;
-	variant?: "outlined" | "filled";
+	icon?: ReactNode;
+	label: string;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
+	size?: "medium" | "small";
+	variant?: "filled" | "outlined";
 };

@@ -35,8 +35,8 @@ export function ModalOrBottomSheet(props: Props) {
 			<Sheet.Container style={{ backgroundColor: theme.palette.background.paper, padding: "16px" }}>
 				<Sheet.Header style={{ marginBottom: "16px" }}>
 					<Typography
-						variant="bodyLg"
 						fontWeight={"bold"}
+						variant="bodyLg"
 					>
 						{title}
 					</Typography>
@@ -47,20 +47,20 @@ export function ModalOrBottomSheet(props: Props) {
 		</Sheet>
 	) : (
 		<Dialog
-			open={open}
-			onClose={() => setOpen(false)}
-			PaperProps={ModalpaperProps}
 			fullWidth
+			onClose={() => setOpen(false)}
+			open={open}
+			PaperProps={ModalpaperProps}
 		>
 			<DialogTitle>
 				<Grid
+					alignItems={"center"}
 					container
 					justifyContent={"space-between"}
-					alignItems={"center"}
 				>
 					<Typography
-						variant="bodyLg"
 						fontWeight={"bold"}
+						variant="bodyLg"
 					>
 						{title}
 					</Typography>

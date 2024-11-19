@@ -20,11 +20,11 @@ export function isInputTypeNumeric(type: InputType) {
 export function filter(
 	type: InputType,
 	value: string
-): { original: string; formatted: string; numeric: string } {
+): { formatted: string; numeric: string; original: string } {
 	const originalValue = persianToEnglishDigits(value);
 
 	// Remove non-numeric characters
-	const numericValue = originalValue.replace(/[^0-9]/g, "");
+	const numericValue = originalValue.replace(/\D/g, "");
 
 	if (type === "text" || type === "password") {
 		return { original: originalValue, formatted: originalValue, numeric: numericValue };

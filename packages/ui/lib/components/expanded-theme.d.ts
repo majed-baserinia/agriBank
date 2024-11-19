@@ -5,7 +5,6 @@ import "@material-ui/core/styles";
 
 declare module "@mui/material/styles" {
 	interface PaletteColor {
-		main: string;
 		"50": string;
 		"100": string;
 		"200": string;
@@ -17,45 +16,46 @@ declare module "@mui/material/styles" {
 		"800": string;
 		"900": string;
 		contrastText: string;
+		main: string;
 	}
 
 	interface BreakpointOverrides {
-		xs: true;
-		sm: true;
-		md: true;
 		lg: true;
-		xl: true;
+		md: true;
+		sm: true;
 		tablet: true;
+		xl: true;
+		xs: true;
 	}
 
 	interface TypographyVariants {
-		h1Sm: React.CSSProperties;
-		h1Md: React.CSSProperties;
-		h1Lg: React.CSSProperties;
-		bodyXs: React.CSSProperties;
-		bodySm: React.CSSProperties;
-		bodyMd: React.CSSProperties;
 		bodyLg: React.CSSProperties;
+		bodyMd: React.CSSProperties;
+		bodySm: React.CSSProperties;
+		bodyXs: React.CSSProperties;
+		h1Lg: React.CSSProperties;
+		h1Md: React.CSSProperties;
+		h1Sm: React.CSSProperties;
 	}
 	interface TypographyVariantsOptions {
-		h1Sm?: React.CSSProperties;
-		h1Md?: React.CSSProperties;
-		h1Lg?: React.CSSProperties;
-		bodyXs?: React.CSSProperties;
-		bodySm?: React.CSSProperties;
-		bodyMd?: React.CSSProperties;
 		bodyLg?: React.CSSProperties;
+		bodyMd?: React.CSSProperties;
+		bodySm?: React.CSSProperties;
+		bodyXs?: React.CSSProperties;
+		h1Lg?: React.CSSProperties;
+		h1Md?: React.CSSProperties;
+		h1Sm?: React.CSSProperties;
 	}
 }
 
 declare module "@mui/material/Typography" {
 	interface TypographyPropsVariantOverrides {
-		h1Sm: true;
-		h1Md: true;
-		h1Lg: true;
-		bodyXs: true;
-		bodySm: true;
-		bodyMd: true;
 		bodyLg: true;
+		bodyMd: true;
+		bodySm: true;
+		bodyXs: true;
+		h1Lg: true;
+		h1Md: true;
+		h1Sm: true;
 	}
 }

@@ -1,10 +1,9 @@
+import { ButtonAdapter } from "$lib/components/ButtonAdapter/ButtonAdapter";
+import { type AppAlert, clearAlert, useAlert } from "$lib/stores/alerts";
 import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { ButtonAdapter } from "$lib/components/ButtonAdapter/ButtonAdapter";
-
-import { clearAlert, useAlert, type AppAlert } from "$lib/stores/alerts";
 import { Icon } from "./Icon";
 
 export function Alerts() {
@@ -34,27 +33,27 @@ export function Alerts() {
 
 	return localAlerts.length > 0 ? (
 		<Dialog
+			fullWidth
+			maxWidth={"xs"}
 			onClose={() => handleClose()}
 			open={open}
 			PaperProps={{
 				sx: { padding: "32px", borderRadius: "24px" }
 			}}
-			maxWidth={"xs"}
-			fullWidth
 			// eslint-disable-next-line no-loss-of-precision
 			sx={{ zIndex: 9999999999999999 }}
 		>
 			<Grid
+				alignItems={"center"}
 				container
 				justifyContent={"center"}
-				alignItems={"center"}
 			>
 				<Icon type={capturedAlert.type} />
 			</Grid>
 			<DialogTitle sx={{ margin: "auto" }}>
 				<Typography
-					variant="bodyLg"
 					fontWeight={"bold"}
+					variant="bodyLg"
 				>
 					{t(capturedAlert.type)}
 				</Typography>
@@ -63,8 +62,8 @@ export function Alerts() {
 			<DialogContent sx={{ margin: "auto" }}>
 				{typeof capturedAlert.messageText === "string" ? (
 					<Typography
-						variant="bodySm"
 						sx={{ textAlign: "center" }}
+						variant="bodySm"
 					>
 						{capturedAlert.messageText}
 					</Typography>

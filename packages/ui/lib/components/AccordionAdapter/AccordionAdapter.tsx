@@ -1,5 +1,6 @@
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionDetails, AccordionSummary, useTheme } from "@mui/material";
+
 import type { Props } from "./types";
 
 export function AccordionAdapter(props: Props) {
@@ -19,8 +20,8 @@ export function AccordionAdapter(props: Props) {
 			}}
 		>
 			<AccordionSummary
-				expandIcon={<ExpandMoreIcon />}
 				aria-controls={`${id}-content`}
+				expandIcon={<ExpandMoreIcon />}
 				id={`${id}-header`}
 			>
 				{summery}

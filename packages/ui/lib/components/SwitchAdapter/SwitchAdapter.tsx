@@ -1,17 +1,19 @@
 import { FormLabel, Grid, Typography } from "@mui/material";
+
+import type { Props } from "./types";
+
 import { LargeSwitch } from "./LargeSwitch";
 import { SmallSwitch } from "./SmallSwitch";
-import type { Props } from "./types";
 
 export function SwitchAdapter(props: Props) {
 	const { type = "large", checked, onChange, label, spaceBetween, switchProps } = props;
 
 	return (
 		<Grid
-			container
 			alignItems={"center"}
-			justifyContent={spaceBetween ? "space-between" : "initial"}
+			container
 			gap={"8px"}
+			justifyContent={spaceBetween ? "space-between" : "initial"}
 		>
 			<FormLabel>
 				<Typography variant="bodySm">{label}</Typography>

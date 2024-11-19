@@ -23,10 +23,7 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 	return (
 		<Button
 			disabled={disabled}
-			variant={variant}
-			size={size}
 			disableRipple
-			onClick={(e) => onClick(e)}
 			endIcon={
 				endIcon ? (
 					endIcon
@@ -38,6 +35,8 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 					)
 				) : null
 			}
+			onClick={(e) => onClick(e)}
+			size={size}
 			startIcon={
 				startIcon ? (
 					startIcon
@@ -49,6 +48,7 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 					)
 				) : null
 			}
+			variant={variant}
 			{...muiButtonProps}
 		>
 			{children}

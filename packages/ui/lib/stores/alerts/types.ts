@@ -1,25 +1,25 @@
 import type { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type AppAlert = {
-	type: "success" | "info" | "warning" | "error";
-	messageText?: string | ReactNode;
-	hasConfirmAction?: boolean;
+	actions?: AlertActions;
 	confirmButtonText?: string;
+	hasConfirmAction?: boolean;
 	hasContinueAction?: boolean;
 	hasRefuseAction?: boolean;
-	actions?: AlertActions;
+	messageText?: ReactNode | string;
 	overrideActions?: (props: AccessApi) => ReactNode;
+	type: "error" | "info" | "success" | "warning";
 };
 
 type AlertActions = {
-	onRefuse?: () => void;
 	onCloseModal?: () => void;
 	onConfirm?: () => void;
 	onContinue?: () => void;
+	onRefuse?: () => void;
 };
 
 type AccessApi = {
+	clearAlerts: () => void;
 	open: boolean;
 	setOpen: Dispatch<SetStateAction<boolean>>;
-	clearAlerts: () => void;
 };

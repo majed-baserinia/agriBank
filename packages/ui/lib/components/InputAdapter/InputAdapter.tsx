@@ -1,12 +1,14 @@
-import { InputAdornment, TextField, useTheme } from "@mui/material";
 import type { ReactNode } from "react";
-import { useEffect, useState } from "react";
 
 import alertIcon from "$assets/icons/input/alertIcon.svg";
 import sucIcon from "$assets/icons/input/successIcon.svg";
 import { isInputTypeNumeric } from "$components/InputAdapter/utils";
 import { SvgToIcon } from "$components/SvgToIcon";
+import { InputAdornment, TextField, useTheme } from "@mui/material";
+import { useEffect, useState } from "react";
+
 import type { InputAdapterProps } from "./types";
+
 import { useFormatter } from "./useFormatter";
 
 const heightSizeList = {
@@ -53,13 +55,13 @@ export function InputAdapter(props: InputAdapterProps) {
 		setInternalEndIcon(
 			success ? (
 				<SvgToIcon
-					icon={sucIcon}
 					alt="success"
+					icon={sucIcon}
 				/>
 			) : error ? (
 				<SvgToIcon
-					icon={alertIcon}
 					alt="error"
+					icon={alertIcon}
 				/>
 			) : (
 				endIcon
@@ -107,51 +109,18 @@ export function InputAdapter(props: InputAdapterProps) {
 
 	return (
 		<TextField
-			inputRef={(input: HTMLInputElement) => {
-				if (input && focused) {
-					input.focus();
-				}
-			}}
-			color={success ? "success" : undefined}
-			variant="outlined"
-			dir={theme.direction}
-			fullWidth
 			autoComplete="off"
-			size="medium"
-			onFocus={() => setShrink(true)}
-			onBlur={() => (value ? setShrink(true) : setShrink(false))}
+			color={success ? "success" : undefined}
+			dir={theme.direction}
 			disabled={disabled}
-			type={type === "password" ? "password" : "text"}
-			label={
-				label ? (
-					<>
-						{isRequired ? (
-							<>
-								{label}
-								<span style={{ color: theme.palette.error.main }}> *</span>
-							</>
-						) : (
-							label
-						)}
-					</>
-				) : undefined
-			}
-			placeholder={placeholder}
-			value={value}
-			onChange={handleChange}
-			sx={{
-				"& .MuiOutlinedInput-root": {
-					height: heightSizeList[size]
-				},
-				"& .MuiOutlinedInput-root fieldset": {
-					borderWidth: success || error ? "2px" : "1px",
-					borderColor: success ? theme.palette.success[400] : null
-				},
-
-				...sx
-			}}
 			error={error}
+			fullWidth
 			helperText={helperText}
+			InputLabelProps={{
+				size: "small",
+				shrink: shrink,
+				style: labelStyle()
+			}}
 			InputProps={{
 				inputProps: {
 					inputMode: isInputTypeNumeric(type) ? "numeric" : undefined,
@@ -171,11 +140,44 @@ export function InputAdapter(props: InputAdapterProps) {
 					) : null,
 				...inputProps
 			}}
-			InputLabelProps={{
-				size: "small",
-				shrink: shrink,
-				style: labelStyle()
+			inputRef={(input: HTMLInputElement) => {
+				if (input && focused) {
+					input.focus();
+				}
 			}}
+			label={
+				label ? (
+					<>
+						{isRequired ? (
+							<>
+								{label}
+								<span style={{ color: theme.palette.error.main }}> *</span>
+							</>
+						) : (
+							label
+						)}
+					</>
+				) : undefined
+			}
+			onBlur={() => (value ? setShrink(true) : setShrink(false))}
+			onChange={handleChange}
+			onFocus={() => setShrink(true)}
+			placeholder={placeholder}
+			size="medium"
+			sx={{
+				"& .MuiOutlinedInput-root": {
+					height: heightSizeList[size]
+				},
+				"& .MuiOutlinedInput-root fieldset": {
+					borderWidth: success || error ? "2px" : "1px",
+					borderColor: success ? theme.palette.success[400] : null
+				},
+
+				...sx
+			}}
+			type={type === "password" ? "password" : "text"}
+			value={value}
+			variant="outlined"
 			{...muiTextFieldProps}
 		/>
 	);

@@ -1,10 +1,12 @@
 import type { AutocompleteRenderInputParams } from "@mui/material";
+
 import { CircularProgress, TextField, useTheme } from "@mui/material";
+
 import type { RenderInputProps } from "./types";
 
 export function RenderInput(props: {
-	params: AutocompleteRenderInputParams;
 	aditionalProps: RenderInputProps;
+	params: AutocompleteRenderInputParams;
 }) {
 	const { aditionalProps, params } = props;
 	const { error, label, isRequired, helperText, inputMode, loading, inputRef } = aditionalProps;
@@ -16,20 +18,6 @@ export function RenderInput(props: {
 			dir={theme.direction}
 			error={error}
 			helperText={helperText}
-			type="text"
-			inputRef={inputRef}
-			label={
-				<>
-					{isRequired ? (
-						<>
-							{label}
-							<span style={{ color: theme.palette.error.main }}> *</span>
-						</>
-					) : (
-						label
-					)}
-				</>
-			}
 			InputProps={{
 				onBlur: (e) => e.target.blur(),
 				inputMode: inputMode,
@@ -46,6 +34,20 @@ export function RenderInput(props: {
 					</>
 				)
 			}}
+			inputRef={inputRef}
+			label={
+				<>
+					{isRequired ? (
+						<>
+							{label}
+							<span style={{ color: theme.palette.error.main }}> *</span>
+						</>
+					) : (
+						label
+					)}
+				</>
+			}
+			type="text"
 		/>
 	);
 }

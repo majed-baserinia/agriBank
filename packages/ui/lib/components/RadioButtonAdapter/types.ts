@@ -1,7 +1,7 @@
 export type Props = {
 	checked: boolean;
-	value: string;
-	label: string;
 	disabled?: boolean;
+	label: string;
 	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	value: string;
 };

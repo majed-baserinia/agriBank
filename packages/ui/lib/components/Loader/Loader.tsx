@@ -1,12 +1,13 @@
 import logoLoader from "$assets/images/logo-loader.gif";
+
 import type { Props } from "./types";
 
 export const Loader = ({ showLoader }: Props) => {
 	if (!showLoader) return null;
 	return (
 		<div
-			id="Loader"
 			className="flex flex-col"
+			id="Loader"
 			style={{
 				width: "100%",
 				opacity: "1",
@@ -31,9 +32,9 @@ export const Loader = ({ showLoader }: Props) => {
 			>
 				<div>
 					<img
-						src={logoLoader}
 						alt="logoLoader"
 						className="col-12 m-0 p-0"
+						src={logoLoader}
 					/>
 				</div>
 			</div>

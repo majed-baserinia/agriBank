@@ -1,4 +1,5 @@
 import { FormControlLabel, Radio, Typography, useTheme } from "@mui/material";
+
 import type { Props } from "./types";
 
 export function RadioButtonAdapter(props: Props) {
@@ -7,6 +8,22 @@ export function RadioButtonAdapter(props: Props) {
 
 	return (
 		<FormControlLabel
+			control={
+				<Radio
+					checked={checked}
+					onChange={onChange}
+				/>
+			}
+			disabled={disabled}
+			label={
+				<Typography
+					fontWeight={"medium"}
+					variant="bodyMd"
+				>
+					{label}
+				</Typography>
+			}
+			labelPlacement="end"
 			sx={{
 				padding: "8px",
 				border: checked
@@ -17,23 +34,7 @@ export function RadioButtonAdapter(props: Props) {
 				marginLeft: "unset",
 				width: "100%"
 			}}
-			disabled={disabled}
 			value={value}
-			control={
-				<Radio
-					checked={checked}
-					onChange={onChange}
-				/>
-			}
-			label={
-				<Typography
-					variant="bodyMd"
-					fontWeight={"medium"}
-				>
-					{label}
-				</Typography>
-			}
-			labelPlacement="end"
 		/>
 	);
 }

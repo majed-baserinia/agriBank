@@ -7,6 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import { useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import type { Props } from "./types";
 
 export function TableAdapter<TColumnNames extends string>({
@@ -31,20 +32,20 @@ export function TableAdapter<TColumnNames extends string>({
 		<Paper sx={{ width: "100%", overflow: "hidden" }}>
 			<TableContainer sx={{ maxHeight: 590 }}>
 				<Table
-					stickyHeader
 					aria-label="sticky table"
+					stickyHeader
 				>
 					<TableHead>
 						<TableRow>
 							{columns.map((column, index) => (
 								<TableCell
-									key={index}
 									align={column.align}
+									key={index}
 									style={{ minWidth: column.minWidth }}
 								>
 									<Typography
-										variant="bodyMd"
 										fontWeight={"bold"}
+										variant="bodyMd"
 									>
 										{column.label != "" ? t(column.label, column.label) : ""}
 									</Typography>
@@ -58,15 +59,15 @@ export function TableAdapter<TColumnNames extends string>({
 							.map((row, index) => {
 								return (
 									<TableRow
-										tabIndex={-1}
 										key={index}
+										tabIndex={-1}
 									>
 										{columns.map((column, index) => {
 											const value = row[column.id];
 											return (
 												<TableCell
-													key={index}
 													align={column.align}
+													key={index}
 												>
 													<Typography variant="bodyMd">{value}</Typography>
 												</TableCell>
@@ -79,10 +80,10 @@ export function TableAdapter<TColumnNames extends string>({
 				</Table>
 				{!rowsData ? (
 					<Grid
-						sx={{ width: "100%" }}
-						container
 						alignContent={"center"}
+						container
 						justifyContent={"center"}
+						sx={{ width: "100%" }}
 					>
 						<CircularProgress size={"32px"} />
 					</Grid>
@@ -90,13 +91,13 @@ export function TableAdapter<TColumnNames extends string>({
 			</TableContainer>
 			{rowsData && rowsData.length > 1 ? (
 				<TablePagination
-					rowsPerPageOptions={[rowsPerPage.current]}
 					component="div"
 					count={rowsData.length}
-					rowsPerPage={rowsPerPage.current}
-					page={page}
-					onPageChange={handleChangePage}
 					labelDisplayedRows={() => ""}
+					onPageChange={handleChangePage}
+					page={page}
+					rowsPerPage={rowsPerPage.current}
+					rowsPerPageOptions={[rowsPerPage.current]}
 					//	onRowsPerPageChange={handleChangeRowsPerPage}
 				/>
 			) : null}

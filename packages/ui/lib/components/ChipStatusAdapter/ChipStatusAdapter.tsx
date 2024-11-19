@@ -1,7 +1,9 @@
 import { Chip, Typography, useTheme } from "@mui/material";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import "./styles.css";
+
 import type { Props } from "./types";
 
 export function ChipStatusAdapter(props: Props) {
@@ -52,13 +54,10 @@ export function ChipStatusAdapter(props: Props) {
 
 	return (
 		<Chip
-			size={size}
-			variant="filled"
-			sx={{ ...types[type], padding: "8px" }}
 			label={
 				<div
-					ref={containerRef}
 					className="moving-text-container"
+					ref={containerRef}
 					style={{ width: "100%", overflow: "hidden" }}
 				>
 					<Typography
@@ -69,13 +68,16 @@ export function ChipStatusAdapter(props: Props) {
 									: "moving-text-moveleftToRight"
 								: ""
 						}
-						variant="bodySm"
 						fontWeight={"medium"}
+						variant="bodySm"
 					>
 						{label}
 					</Typography>
 				</div>
 			}
+			size={size}
+			sx={{ ...types[type], padding: "8px" }}
+			variant="filled"
 		/>
 	);
 }

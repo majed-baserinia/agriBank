@@ -23,8 +23,8 @@ export function ModalOrPage(props: Props) {
 		<Grid sx={isMatched ? { ...gridStyle } : null}>{children}</Grid>
 	) : (
 		<Dialog
-			open={open}
 			onClose={() => setOpen(false)}
+			open={open}
 			PaperProps={ModalPaperProps}
 		>
 			{children}

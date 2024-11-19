@@ -2,16 +2,16 @@ import type { ButtonProps } from "@mui/material";
 import type { ReactNode } from "react";
 
 export type ButtonAdapterProps = {
-	variant?: "text" | "contained" | "outlined";
-	size?: Size;
-	disabled?: boolean;
 	backIcon?: boolean;
-	forwardIcon?: boolean;
-	startIcon?: ReactNode;
-	endIcon?: ReactNode;
 	children?: ReactNode | ReactNode[];
+	disabled?: boolean;
+	endIcon?: ReactNode;
+	forwardIcon?: boolean;
 	muiButtonProps?: ButtonProps;
 	onClick: (e: React.MouseEvent<HTMLElement>) => void;
+	size?: Size;
+	startIcon?: ReactNode;
+	variant?: "contained" | "outlined" | "text";
 };
 
-type Size = "medium" | "large" | "small";
+type Size = "large" | "medium" | "small";

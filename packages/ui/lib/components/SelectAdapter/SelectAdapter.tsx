@@ -1,5 +1,7 @@
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import type { SelectChangeEvent } from "@mui/material";
+import type { ReactElement, ReactNode, SyntheticEvent } from "react";
+
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import {
 	FormControl,
 	FormHelperText,
@@ -10,7 +12,6 @@ import {
 	useMediaQuery,
 	useTheme
 } from "@mui/material";
-import type { ReactElement, ReactNode, SyntheticEvent } from "react";
 import { useEffect, useState } from "react";
 
 import type { Props } from "./types";
@@ -108,15 +109,16 @@ export function SelectAdapter(props: Props) {
 					// we need one more rerender to apply the new styles correctly
 					// the key props is for forcing a rerender
 					key={`${open}-${matches}`}
-					size={size}
 					labelId="label"
+					size={size}
 					{...muiSelectProps}
-					disabled={disabled}
 					dir={theme.direction}
-					open={open}
-					onOpen={() => setOpen(true)}
-					onClose={(e) => handleClickedItem(e)}
-					value={selectedValue}
+					disabled={disabled}
+					error={error}
+					IconComponent={KeyboardArrowDownIcon}
+					inputProps={{
+						renderValue: renderValue ? (option: string) => option : undefined
+					}}
 					label={
 						label ? (
 							<>
@@ -131,16 +133,6 @@ export function SelectAdapter(props: Props) {
 							</>
 						) : undefined
 					}
-					onChange={(e, child) => handleChange(e, child)}
-					sx={{ "& .MuiSvgIcon-root": { color: theme.palette.grey[400] } }}
-					IconComponent={KeyboardArrowDownIcon}
-					error={error}
-					startAdornment={
-						icon ? <InputAdornment position="start">{icon}</InputAdornment> : undefined
-					}
-					inputProps={{
-						renderValue: renderValue ? (option: string) => option : undefined
-					}}
 					MenuProps={{
 						disablePortal: true,
 						dir: theme.direction,
@@ -154,6 +146,15 @@ export function SelectAdapter(props: Props) {
 							}
 						}
 					}}
+					onChange={(e, child) => handleChange(e, child)}
+					onClose={(e) => handleClickedItem(e)}
+					onOpen={() => setOpen(true)}
+					open={open}
+					startAdornment={
+						icon ? <InputAdornment position="start">{icon}</InputAdornment> : undefined
+					}
+					sx={{ "& .MuiSvgIcon-root": { color: theme.palette.grey[400] } }}
+					value={selectedValue}
 				>
 					{children}
 				</Select>

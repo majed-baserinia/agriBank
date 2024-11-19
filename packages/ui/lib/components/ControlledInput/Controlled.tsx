@@ -1,6 +1,7 @@
 import type React from "react";
 import type { ControllerRenderProps, FieldPath } from "react-hook-form";
-import { Controller, type Control, type FieldValues } from "react-hook-form";
+
+import { type Control, Controller, type FieldValues } from "react-hook-form";
 
 export type FormControlProps<TFieldValues extends FieldValues, TContext> = {
 	control: Control<TFieldValues, TContext>;

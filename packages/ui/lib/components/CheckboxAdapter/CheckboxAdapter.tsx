@@ -1,5 +1,7 @@
-import { Checkbox, FormControlLabel, FormGroup, useTheme } from "@mui/material";
 import type { ChangeEvent } from "react";
+
+import { Checkbox, FormControlLabel, FormGroup, useTheme } from "@mui/material";
+
 import type { Props } from "./types";
 
 export function CheckboxAdapter(props: Props) {
@@ -13,18 +15,18 @@ export function CheckboxAdapter(props: Props) {
 	return (
 		<FormGroup>
 			<FormControlLabel
-				disabled={disabled}
-				required={required}
 				control={
 					<Checkbox
-						sx={{ padding: "0" }}
-						size="small"
-						onChange={(e) => handleChange(e)}
 						checked={checked}
 						defaultChecked={defaultChecked}
+						onChange={(e) => handleChange(e)}
+						size="small"
+						sx={{ padding: "0" }}
 					/>
 				}
+				disabled={disabled}
 				label={label}
+				required={required}
 				sx={{
 					color: theme.palette.primary.main,
 					"&.Mui-checked": {

@@ -2,10 +2,10 @@ import type { SwitchProps } from "@mui/material";
 import type { ChangeEvent } from "react";
 
 export type Props = {
-	type?: "small" | "large";
 	checked: boolean;
-	onChange: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
 	label: string;
+	onChange: (event: ChangeEvent<HTMLInputElement>, checked: boolean) => void;
 	spaceBetween?: boolean;
 	switchProps?: SwitchProps;
+	type?: "large" | "small";
 };

@@ -1,9 +1,4 @@
-export type GlideOptions = Partial<Glide.Options> & {
-	/**
-	 * sets sensible defaults for the carousel root.
-	 * for instance sets the direction based on theme
-	 */
-	setDefaultOptions?: boolean;
+export type GlideOptions = {
 	/**
 	 * creates a focus effect on the active slide by reducing the opacity of none-active slides and
 	 * scaling the active one
@@ -11,10 +6,15 @@ export type GlideOptions = Partial<Glide.Options> & {
 	 */
 	focusActiveSlide?: {
 		enabled: true;
+		inactiveSlideOpacity?: number;
 		/**
 		 * the scaling factor of active element
 		 */
 		scalingFactor?: number;
-		inactiveSlideOpacity?: number;
 	};
-};
+	/**
+	 * sets sensible defaults for the carousel root.
+	 * for instance sets the direction based on theme
+	 */
+	setDefaultOptions?: boolean;
+} & Partial<Glide.Options>;

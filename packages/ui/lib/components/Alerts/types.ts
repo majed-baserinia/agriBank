@@ -1,3 +1,3 @@
 export type Props = {
-	type: "success" | "info" | "warning" | "error";
+	type: "error" | "info" | "success" | "warning";
 };

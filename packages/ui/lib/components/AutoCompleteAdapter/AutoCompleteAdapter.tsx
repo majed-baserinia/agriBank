@@ -1,12 +1,15 @@
+import type { AutocompleteInputChangeReason, Theme } from "@mui/material";
+import type { SyntheticEvent } from "react";
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import type { AutocompleteInputChangeReason, Theme } from "@mui/material";
 import { Autocomplete, Button, Grid, Popper, useMediaQuery, useTheme } from "@mui/material";
-import type { SyntheticEvent } from "react";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { RenderInput } from "./RenderInput";
+
 import type { Props } from "./types";
+
+import { RenderInput } from "./RenderInput";
 
 // TODO: may need to add card format and functionality to edit card number
 // there is already implemented in the chargeAccount repo
@@ -36,7 +39,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
 	const [open, setOpen] = useState(false);
-	const [value, setValue] = useState<string | T | null>(null);
+	const [value, setValue] = useState<null | string | T>(null);
 	const [inputValue, setInputValue] = useState("");
 	const inputRef = useRef();
 
@@ -70,7 +73,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		};
 	};
 
-	const onChangeHandler = (_: SyntheticEvent<Element, Event>, newValue: string | T | null) => {
+	const onChangeHandler = (_: SyntheticEvent<Element, Event>, newValue: null | string | T) => {
 		onChange(newValue);
 		setValue(newValue);
 
@@ -126,32 +129,30 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 			sx={open && matches ? { ...generateGridStyle(theme) } : null}
 		>
 			<Autocomplete
-				popupIcon={<KeyboardArrowDownIcon />}
-				freeSolo
 				disablePortal
-				options={options ?? []}
+				freeSolo
+				getOptionLabel={getOptionLabel}
+				inputValue={inputValue}
+				isOptionEqualToValue={isOptionEqualToValueFunction}
+				ListboxComponent={ListboxComponent}
 				loading={loading}
 				loadingText={t("loadingTextAutoComp")}
 				noOptionsText=""
-				open={open}
-				value={value}
-				inputValue={inputValue}
 				onChange={onChangeHandler}
+				onClose={() => {
+					if (!hasConfirmButton) {
+						setOpen(false);
+					}
+				}}
 				onInputChange={onInputChangeHandler}
-				getOptionLabel={getOptionLabel}
-				isOptionEqualToValue={isOptionEqualToValueFunction}
 				onOpen={() => {
 					if (matches) {
 						history.pushState(true, "inputOpen");
 					}
 					setOpen(true);
 				}}
-				onClose={() => {
-					if (!hasConfirmButton) {
-						setOpen(false);
-					}
-				}}
-				renderOption={renderOption}
+				open={open}
+				options={options ?? []}
 				PopperComponent={(props) => (
 					<Popper
 						{...props}
@@ -160,10 +161,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 						}}
 					/>
 				)}
-				ListboxComponent={ListboxComponent}
+				popupIcon={<KeyboardArrowDownIcon />}
 				renderInput={(params) => (
 					<RenderInput
-						params={params}
 						aditionalProps={{
 							inputRef: inputRef,
 							label: label,
@@ -173,24 +173,27 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 							isRequired: isRequired,
 							loading: loading
 						}}
+						params={params}
 					/>
 				)}
+				renderOption={renderOption}
+				value={value}
 			/>
 			<Grid>
 				{matches && open && hasConfirmButton ? (
 					<Button
-						sx={{
-							zIndex: "110010",
-							width: "100%"
-						}}
+						color="primary"
 						onClick={() => {
 							if (matches) {
 								history.back();
 							}
 							setOpen(false);
 						}}
+						sx={{
+							zIndex: "110010",
+							width: "100%"
+						}}
 						variant="contained"
-						color="primary"
 						{...muiButtonProps}
 					>
 						{t("confirm")}

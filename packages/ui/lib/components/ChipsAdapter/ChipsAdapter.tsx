@@ -1,7 +1,8 @@
 import { Chip, Grid, Typography, useTheme } from "@mui/material";
 
-import { CounterIcon } from "./CounterIcon";
 import type { Props } from "./types";
+
+import { CounterIcon } from "./CounterIcon";
 
 export function ChipsAdapter(props: Props) {
 	const {
@@ -42,15 +43,15 @@ export function ChipsAdapter(props: Props) {
 		<Chip
 			clickable
 			color={color}
+			deleteIcon={count ? <CounterIcon count={count} /> : undefined}
 			dir={theme.direction === "ltr" ? "rtl" : "ltr"}
-			size={size}
+			icon={icon ? <Grid>{icon}</Grid> : undefined}
 			label={<Typography variant="bodySm">{label}</Typography>}
-			variant="outlined"
 			onClick={(e) => onClick?.(e)}
 			onDelete={count ? () => {} : undefined}
-			deleteIcon={count ? <CounterIcon count={count} /> : undefined}
+			size={size}
 			sx={sx}
-			icon={icon ? <Grid>{icon}</Grid> : undefined}
+			variant="outlined"
 		/>
 	);
 }

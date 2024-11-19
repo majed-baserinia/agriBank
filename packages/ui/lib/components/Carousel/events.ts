@@ -1,19 +1,19 @@
 import type Glide from "@glidejs/glide";
 
 type DefaultEvents =
+	| "build.after"
+	| "build.before"
+	| "destroy"
+	| "mount.after"
+	| "mount.before"
+	| "pause"
+	| "play"
 	| "run.after"
 	| "run.before"
-	| "run.start"
 	| "run.end"
 	| "run.offset"
-	| "mount.before"
-	| "mount.after"
-	| "build.before"
-	| "build.after"
-	| "update"
-	| "destroy"
-	| "play"
-	| "pause";
+	| "run.start"
+	| "update";
 
 type MappedEvent<T extends string> = T extends `${infer X}.${infer Y}`
 	? `on${Capitalize<Y>}${Capitalize<X>}`

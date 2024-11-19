@@ -1,10 +1,10 @@
-export type Props<T extends { value: string; name: string }> = {
-	list: T[];
-	label: string;
-	breackpoint?: "md" | "sm" | "lg" | "xs";
+export type Props<T extends { name: string; value: string }> = {
+	breackpoint?: "lg" | "md" | "sm" | "xs";
 	defaultValue?: string;
-	onChange: (item: T) => void;
-	isRequired?: boolean;
 	error?: boolean;
 	helperText?: string;
+	isRequired?: boolean;
+	label: string;
+	list: T[];
+	onChange: (item: T) => void;
 };

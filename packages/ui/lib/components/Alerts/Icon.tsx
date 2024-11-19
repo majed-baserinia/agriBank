@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-
 import errorIcon from "$assets/icons/alerts/error.png";
 import infoIcon from "$assets/icons/alerts/info.png";
 import successIcon from "$assets/icons/alerts/success.png";
 import warningIcon from "$assets/icons/alerts/warning.png";
+import { useEffect, useState } from "react";
+
 import type { Props } from "./types";
 
 const iconMap = {
@@ -24,9 +24,9 @@ export function Icon(props: Props) {
 	return (
 		<>
 			<img
-				style={{ width: "64px", height: "64px" }}
-				src={selectedIcon}
 				alt={`${type} icon`}
+				src={selectedIcon}
+				style={{ width: "64px", height: "64px" }}
 			/>
 		</>
 	);

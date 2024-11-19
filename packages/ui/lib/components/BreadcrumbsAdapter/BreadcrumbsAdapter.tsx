@@ -1,8 +1,8 @@
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import { Breadcrumbs, Link, Typography, useMediaQuery, useTheme } from "@mui/material";
-
 import { useTranslation } from "react-i18next";
+
 import type { Props } from "./types";
 
 export function BreadcrumbsAdapter(props: Props) {
@@ -15,8 +15,8 @@ export function BreadcrumbsAdapter(props: Props) {
 
 	return (
 		<Breadcrumbs
+			aria-label="breadcrumb"
 			dir={theme.direction}
-			sx={{ marginBottom: "24px" }}
 			separator={
 				theme.direction == "ltr" ? (
 					<NavigateNextIcon fontSize="small" />
@@ -24,16 +24,16 @@ export function BreadcrumbsAdapter(props: Props) {
 					<NavigateBeforeIcon fontSize="small" />
 				)
 			}
-			aria-label="breadcrumb"
+			sx={{ marginBottom: "24px" }}
 		>
 			{breadcrumbs?.map((item, index) => {
 				if (breadcrumbs.length - 1 == index) {
 					return (
 						<Typography
-							key={item.key}
 							color="primary"
-							variant="bodyMd"
 							fontWeight={"bold"}
+							key={item.key}
+							variant="bodyMd"
 						>
 							{t(item.title, item.title)}
 						</Typography>
@@ -41,11 +41,11 @@ export function BreadcrumbsAdapter(props: Props) {
 				}
 				return (
 					<Link
-						underline="hover"
-						key={item.key}
 						color="inherit"
 						href={item.href}
+						key={item.key}
 						onClick={(e) => item.onClick?.(e)}
+						underline="hover"
 					>
 						<Typography variant="bodyMd">{t(item.title, item.title)}</Typography>
 					</Link>

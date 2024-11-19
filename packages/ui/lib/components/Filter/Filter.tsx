@@ -1,6 +1,3 @@
-import { Grid, MenuItem, Paper, Typography, useTheme } from "@mui/material";
-import { useState } from "react";
-
 import filterIcon from "$assets/icons/filter.svg";
 import { ButtonAdapter } from "$components/ButtonAdapter";
 import { ChipsAdapter } from "$components/ChipsAdapter";
@@ -8,6 +5,9 @@ import { SelectAdapter } from "$components/SelectAdapter";
 import { SvgToIcon } from "$components/SvgToIcon";
 import { ModalOrBottomSheet } from "$lib/components/ModalOrBottomSheet/ModalOrBottomSheet";
 import CloseIcon from "@mui/icons-material/Close";
+import { Grid, MenuItem, Paper, Typography, useTheme } from "@mui/material";
+import { useState } from "react";
+
 import type { Props } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -77,6 +77,7 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 		<Grid>
 			<Grid onClick={() => setOpen(!open)}>
 				<Paper
+					component="div"
 					elevation={0}
 					sx={{
 						minWidth: "200px",
@@ -87,33 +88,32 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 						borderRadius: "8px",
 						backgroundColor: "inherit"
 					}}
-					component="div"
 				>
 					<Grid
-						container
 						alignItems={"center"}
+						container
 						gap={"4px"}
 					>
 						<SvgToIcon
-							icon={filterIcon}
 							alt="filter"
+							icon={filterIcon}
 						/>
 						<Typography variant="bodySm">فیلتر</Typography>
 					</Grid>
 					<Grid
-						container
 						alignItems={"center"}
+						container
 						flexDirection={"row"}
-						wrap="nowrap"
 						gap={"4px"}
+						wrap="nowrap"
 					>
 						{inputValue.map((item) => {
 							return (
 								<ChipsAdapter
+									icon={<CloseIcon sx={{ width: "20px", height: "20px", margin: "0" }} />}
 									key={item}
 									label={item}
 									onClick={() => {}}
-									icon={<CloseIcon sx={{ width: "20px", height: "20px", margin: "0" }} />}
 								/>
 							);
 						})}
@@ -121,10 +121,10 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 				</Paper>
 			</Grid>
 			<ModalOrBottomSheet
-				title="فیلتر"
 				breackpoint="sm"
 				open={open}
 				setOpen={setOpen}
+				title="فیلتر"
 			>
 				<Grid
 					container
@@ -134,19 +134,19 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 					{filtersState.map((filter) => {
 						return (
 							<Grid
-								key={filter.label}
 								container
 								direction={"column"}
 								gap={"8px"}
+								key={filter.label}
 							>
 								<Typography variant="bodySm">{filter.filterTitle}</Typography>
 								<SelectAdapter
+									defaultValue={filter.list.find((item) => item.selected)?.value}
 									label={filter.label}
 									onChange={(value) => {
 										handleSelectChange(filter.label, value);
 									}}
 									renderValue
-									defaultValue={filter.list.find((item) => item.selected)?.value}
 								>
 									{filter.list.map((item) => {
 										return (
@@ -166,8 +166,8 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 						muiButtonProps={{
 							sx: { marginTop: "48px" }
 						}}
-						variant="contained"
 						onClick={handleSubmitFilterButton}
+						variant="contained"
 					>
 						efj
 					</ButtonAdapter>

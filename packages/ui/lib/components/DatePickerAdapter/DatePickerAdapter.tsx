@@ -1,19 +1,21 @@
+import type { Value } from "react-multi-date-picker";
+
+import { InputAdapter } from "$components/InputAdapter";
 import { useEffect, useRef, useState } from "react";
 import { default as persian, default as persian_ca } from "react-date-object/calendars/persian";
 import persian_en from "react-date-object/locales/persian_en";
 import persian_fa from "react-date-object/locales/persian_fa";
 import { useTranslation } from "react-i18next";
 import DatePicker, { DateObject } from "react-multi-date-picker";
+import Icon from "react-multi-date-picker/components/icon";
 import "react-multi-date-picker/styles/backgrounds/bg-brown.css";
 import "react-multi-date-picker/styles/backgrounds/bg-dark.css";
 import "react-multi-date-picker/styles/backgrounds/bg-gray.css";
 import "react-multi-date-picker/styles/layouts/mobile.css";
 import "react-multi-date-picker/styles/layouts/prime.css";
 
-import { InputAdapter } from "$components/InputAdapter";
-import type { Value } from "react-multi-date-picker";
-import Icon from "react-multi-date-picker/components/icon";
 import "./styles.css";
+
 import type { Props } from "./types";
 
 export function DatePickerAdapter(props: Props) {
@@ -49,26 +51,26 @@ export function DatePickerAdapter(props: Props) {
 
 	return (
 		<InputAdapter
-			label={label}
-			type="date"
 			defaultValue={value as string}
-			onChange={handleInputChange}
-			error={error}
-			helperText={helperText}
 			endIcon={
 				<DatePicker
+					calendar={i18n.language === "fa-IR" ? persian_ca : undefined}
+					className="primary rmdp-mobile"
+					format={"YYYY/MM/DD"}
+					inputMode="numeric"
+					locale={i18n.language === "fa-IR" ? persian_fa : undefined}
+					monthYearSeparator=" "
+					onChange={(value) => handleDatePickerChange(value)}
 					ref={datepicker}
 					render={<Icon />}
-					calendar={i18n.language === "fa-IR" ? persian_ca : undefined}
-					locale={i18n.language === "fa-IR" ? persian_fa : undefined}
 					value={value}
-					monthYearSeparator=" "
-					inputMode="numeric"
-					className="primary rmdp-mobile"
-					onChange={(value) => handleDatePickerChange(value)}
-					format={"YYYY/MM/DD"}
 				/>
 			}
+			error={error}
+			helperText={helperText}
+			label={label}
+			onChange={handleInputChange}
+			type="date"
 		/>
 	);
 }

@@ -1,32 +1,32 @@
 import type { InputProps, SxProps, TextFieldProps, Theme } from "@mui/material";
 
-export type InputType = "card" | "money" | "text" | "password" | "number" | "date";
+export type InputType = "card" | "date" | "money" | "number" | "password" | "text";
 
 export type InputAdapterProps = {
-	placeholder?: string;
+	defaultValue?: string;
 	disabled?: boolean;
-	sx?: SxProps;
+	endIcon?: React.ReactNode;
+	error?: boolean;
+	focused?: boolean;
+	helperText?: string;
+	icon?: React.ReactNode;
+	inputProps?: InputProps;
 	isRequired?: boolean;
 	label?: string;
-	icon?: React.ReactNode;
-	endIcon?: React.ReactNode;
-	type?: InputType;
-	defaultValue?: string;
-	onChange: (value: string) => void;
 	muiTextFieldProps?: TextFieldProps;
-	inputProps?: InputProps;
-	error?: boolean;
-	success?: boolean;
+	onChange: (value: string) => void;
+	placeholder?: string;
 	size?: Size;
-	helperText?: string;
-	focused?: boolean;
+	success?: boolean;
+	sx?: SxProps;
+	type?: InputType;
 };
 
-type Size = "md" | "lg" | "sm";
+type Size = "lg" | "md" | "sm";
 
 export type Styles = {
-	theme: Theme;
-	success: boolean;
 	error: boolean;
 	size: Size;
+	success: boolean;
+	theme: Theme;
 };

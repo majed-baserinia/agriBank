@@ -1,8 +1,8 @@
 import { useOptionsContext } from "$components/Carousel/Context/useOptionsContext";
 
 export type Props = {
-	className?: string;
 	children: React.ReactNode;
+	className?: string;
 };
 
 export function Slide({ className, children }: Props) {

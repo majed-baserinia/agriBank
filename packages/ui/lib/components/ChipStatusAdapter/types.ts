@@ -1,5 +1,5 @@
 export type Props = {
 	label: string;
-	type: "disabled" | "success" | "info" | "error" | "warning";
-	size?: "small" | "medium";
+	size?: "medium" | "small";
+	type: "disabled" | "error" | "info" | "success" | "warning";
 };

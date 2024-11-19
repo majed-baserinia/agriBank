@@ -4,7 +4,7 @@ export const formatToCard = (value: string) => {
 
 export const formatToMoney = (value: string) => {
 	// Format input as 3 digits from right separated by ","
-	const sanitizedInput = value.replace(/[^0-9]/g, "");
+	const sanitizedInput = value.replace(/\D/g, "");
 	const length = sanitizedInput.length;
 
 	if (length <= 3) {

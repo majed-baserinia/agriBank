@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
 export type Props = {
-	disabled?: boolean;
-	required?: boolean;
-	defaultChecked?: boolean;
 	checked: boolean;
+	defaultChecked?: boolean;
+	disabled?: boolean;
 	label?: ReactNode;
 	onChange: (checked: boolean) => void;
+	required?: boolean;
 };

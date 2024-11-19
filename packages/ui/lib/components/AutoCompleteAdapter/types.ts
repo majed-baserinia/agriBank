@@ -3,28 +3,28 @@ import type { HTMLAttributes, MutableRefObject, ReactNode } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Props<T extends Record<any, any>> = {
-	options?: T[];
-	label: string;
 	error?: boolean;
-	loading?: boolean;
-	isRequired?: boolean;
 	hasConfirmButton?: boolean;
 	helperText?: string;
-	onChange: (value: string | T | null) => void;
-	onInputChange: (value: string) => void;
-	inputMode?: "search" | "text" | "none" | "tel" | "url" | "email" | "numeric" | "decimal";
-	renderOption?: (props: HTMLAttributes<HTMLLIElement>, option: T | string) => ReactNode;
-	muiButtonProps?: ButtonProps;
-	valueToShowToInput: (option: T) => { text: string; icon?: ReactNode };
+	inputMode?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
 	isOptionEqualToValue: (option: T, value: T) => boolean;
+	isRequired?: boolean;
+	label: string;
+	loading?: boolean;
+	muiButtonProps?: ButtonProps;
+	onChange: (value: null | string | T) => void;
+	onInputChange: (value: string) => void;
+	options?: T[];
+	renderOption?: (props: HTMLAttributes<HTMLLIElement>, option: string | T) => ReactNode;
+	valueToShowToInput: (option: T) => { icon?: ReactNode; text: string };
 };
 
 export type RenderInputProps = {
 	error?: boolean;
-	label: string;
-	isRequired?: boolean;
-	loading?: boolean;
 	helperText?: string;
-	inputMode?: "search" | "text" | "none" | "tel" | "url" | "email" | "numeric" | "decimal";
+	inputMode?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
 	inputRef: MutableRefObject<undefined>;
+	isRequired?: boolean;
+	label: string;
+	loading?: boolean;
 };

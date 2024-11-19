@@ -38,18 +38,23 @@ export function TextAreaAdapter(props: TextareaAdapterProps) {
 
 	return (
 		<TextField
-			multiline
-			rows={rows}
-			color={success ? "success" : undefined}
-			variant="outlined"
-			dir={theme.direction}
-			fullWidth
 			autoComplete="off"
-			size="medium"
-			onFocus={() => setShrink(true)}
-			onBlur={() => (value ? setShrink(true) : setShrink(false))}
+			color={success ? "success" : undefined}
+			dir={theme.direction}
 			disabled={disabled}
-			type={"text"}
+			error={error}
+			fullWidth
+			helperText={helperText}
+			InputLabelProps={{
+				size: "small",
+				shrink: shrink
+			}}
+			InputProps={{
+				dir: theme.direction,
+				sx: { input: { color: theme.palette.grey[200] } },
+
+				...inputProps
+			}}
 			label={
 				<>
 					{isRequired ? (
@@ -62,9 +67,13 @@ export function TextAreaAdapter(props: TextareaAdapterProps) {
 					)}
 				</>
 			}
-			placeholder={placeholder}
-			value={value}
+			multiline
+			onBlur={() => (value ? setShrink(true) : setShrink(false))}
 			onChange={handleChange}
+			onFocus={() => setShrink(true)}
+			placeholder={placeholder}
+			rows={rows}
+			size="medium"
 			sx={{
 				"& .MuiOutlinedInput-root fieldset": {
 					borderWidth: success || error ? "2px" : "1px",
@@ -72,18 +81,9 @@ export function TextAreaAdapter(props: TextareaAdapterProps) {
 				},
 				...sx
 			}}
-			error={error}
-			helperText={helperText}
-			InputProps={{
-				dir: theme.direction,
-				sx: { input: { color: theme.palette.grey[200] } },
-
-				...inputProps
-			}}
-			InputLabelProps={{
-				size: "small",
-				shrink: shrink
-			}}
+			type={"text"}
+			value={value}
+			variant="outlined"
 			{...muiTextFieldProps}
 		/>
 	);

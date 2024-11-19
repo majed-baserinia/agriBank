@@ -12,9 +12,10 @@ import {
 } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import Sheet from "react-modal-sheet";
+
 import type { Props } from "./types";
 
-export function BottomSheetSelect<T extends { value: string; name: string }>(props: Props<T>) {
+export function BottomSheetSelect<T extends { name: string; value: string }>(props: Props<T>) {
 	const {
 		list,
 		label,
@@ -59,28 +60,28 @@ export function BottomSheetSelect<T extends { value: string; name: string }>(pro
 					}
 				</InputLabel>
 				<Select
-					labelId="label"
-					value={value}
+					error={error}
 					label={label}
+					labelId="label"
 					MenuProps={{
 						sx: { display: isMatched ? "none" : "unset" }
 					}}
 					onChange={() => {}}
-					open={open}
-					onOpen={() => setOpen(true)}
 					onClose={() => setOpen(false)}
-					error={error}
+					onOpen={() => setOpen(true)}
+					open={open}
+					value={value}
 				>
 					{list.map((item, index) => {
 						return (
 							<MenuItem
 								key={`${item.value}-${index}`}
-								value={item.value}
 								onClick={() => handlClickItem(item)}
+								value={item.value}
 							>
 								<Typography
-									variant="bodyMd"
 									fontWeight={"medium"}
+									variant="bodyMd"
 								>
 									{item.name}
 								</Typography>
@@ -110,12 +111,12 @@ export function BottomSheetSelect<T extends { value: string; name: string }>(pro
 											<Fragment key={`${item.value}-${index}`}>
 												<MenuItem
 													key={`${item.value}-${index}`}
-													value={item.value}
 													onClick={() => handlClickItem(item)}
+													value={item.value}
 												>
 													<Typography
-														variant="bodyMd"
 														fontWeight={"medium"}
+														variant="bodyMd"
 													>
 														{item.name}
 													</Typography>
