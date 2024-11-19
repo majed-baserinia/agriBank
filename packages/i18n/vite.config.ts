@@ -5,7 +5,6 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
 	build: {
-		sourcemap: true,
 		lib: {
 			entry: {
 				i18n: resolve(import.meta.dirname, "index.ts"),
@@ -18,6 +17,7 @@ export default defineConfig({
 				return `${entryName}.js`;
 			}
 		},
+		sourcemap: true,
 		rollupOptions: {
 			external: ["i18next"]
 		}

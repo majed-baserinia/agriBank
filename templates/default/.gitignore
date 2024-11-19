@@ -26,5 +26,4 @@ dist-ssr
 .env.production
 
 openapitools.json
-src/generated-clients
-src/services/generated
+src/services/.generated

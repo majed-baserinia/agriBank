@@ -1,4 +1,5 @@
 import "@htsc/i18n/types";
+
 import type FA_TRANSLATION from "./locals/fa/translation.json";
 
 declare module "i18next" {

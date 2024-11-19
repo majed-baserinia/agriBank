@@ -1,4 +1,5 @@
 import type { BaseLanguageOptions } from "$lib/i18n";
+
 import "i18next";
 
 export type ModifiedHTSCTypeOptions<T> = T extends { defaultNS: string }

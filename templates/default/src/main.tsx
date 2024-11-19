@@ -1,6 +1,6 @@
+import { RouterProvider } from "@tanstack/react-router";
 import ReactDOM from "react-dom/client";
 
-import { RouterProvider } from "@tanstack/react-router";
 import "./i18n";
 import "./index.css";
 import { router } from "./router";

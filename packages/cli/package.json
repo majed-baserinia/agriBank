@@ -12,8 +12,8 @@
 	},
 	"scripts": {
 		"build": "vite build",
-		"dev-gen-clients": "vite build && node ./dist/cli.js generate-clients --url http://10.0.189.141:32104/swagger/v1/swagger.json --out ./src/generate-clients/.generated-clients/",
-		"dev-create-template": "vite build && node ./dist/cli.js create --out ./src/create-template/.created-template/",
+		"dev-gen-clients": "vite build && node ./dist/cli.js generate-clients --url http://10.0.189.141:32104/swagger/v1/swagger.json --out ./src/generate-clients/.generated/",
+		"dev-create-template": "vite build && node ./dist/cli.js create --out ./src/create-template/.generated/",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
@@ -24,7 +24,8 @@
 		}
 	},
 	"bin": {
-		"htsc": "./dist/cli.js"
+		"htsc": "./dist/cli.js",
+		"_tshtsc": "./src/cli.ts"
 	},
 	"dependencies": {
 		"@apidevtools/swagger-parser": "^10.1.0",

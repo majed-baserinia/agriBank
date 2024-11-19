@@ -24,6 +24,9 @@ const plugin = {
 		version: pkg.version
 	},
 	configs: {
+		/**
+		 * @type {import("@typescript-eslint/utils/ts-eslint").FlatConfig.ConfigArray}
+		 */
 		"flat/recommended": tseslint.config(
 			pluginJs.configs.recommended,
 			...tseslint.configs.recommendedTypeChecked,
@@ -31,7 +34,7 @@ const plugin = {
 			pluginReact.configs.flat.recommended,
 			// @ts-expect-error
 			pluginReact.configs.flat["jsx-runtime"],
-			pluginRouter.configs["flat/recommended"],
+			...pluginRouter.configs["flat/recommended"],
 			eslintPluginPrettierRecommended,
 			packageJson,
 			perfectionist.configs["recommended-natural"],
@@ -53,8 +56,12 @@ const plugin = {
 					"react-refresh/only-export-components": "warn"
 				}
 			},
-
-			{ files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
+			{
+				ignores: ["dist/", "node_modules/", "pnpm-lock.yaml", "**/*.json", "**/*/.generated/"]
+			},
+			{
+				files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]
+			},
 			{
 				languageOptions: {
 					globals: globals.browser,
@@ -62,9 +69,6 @@ const plugin = {
 						tsconfigRootDir: import.meta.dirname
 					}
 				}
-			},
-			{
-				ignores: ["dist", "node_modules", "pnpm-lock.yaml"]
 			},
 			{
 				rules: {
@@ -117,7 +121,8 @@ const plugin = {
 							html: true
 						}
 					],
-					"prettier/prettier": "warn"
+					"prettier/prettier": "warn",
+					"perfectionist/sort-objects": "off"
 				}
 			}
 		)
