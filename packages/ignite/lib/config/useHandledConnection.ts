@@ -44,6 +44,6 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 
 	return {
 		...connection,
-		readyToLoad: paramConfig.Auth || connection.readyToLoad
+		readyToLoad: !paramConfig.Auth || connection.readyToLoad
 	};
 }

@@ -9,9 +9,12 @@ function createEnvFile(options: z.infer<typeof optionsSchema>) {
 }
 
 function setApplicationName(options: z.infer<typeof optionsSchema>) {
-	const path = join(options.out, "package.json");
-	const packageJson = fs.readFileSync(path, { encoding: "utf-8" });
-	fs.writeFileSync(path, packageJson.replace("<%= APP_NAME %>", options.appName));
+	const replaceApplicationName = (fileName: string) => {
+		const filePath = join(options.out, fileName);
+		const fileContent = fs.readFileSync(filePath, { encoding: "utf-8" });
+		fs.writeFileSync(filePath, fileContent.replace("{{APP_NAME}}", options.appName));
+	};
+	replaceApplicationName("package.json");
 }
 
 export function generate(options: z.infer<typeof optionsSchema>) {
