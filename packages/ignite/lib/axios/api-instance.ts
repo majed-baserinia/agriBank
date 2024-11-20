@@ -1,8 +1,8 @@
-import { clearAuth, getAuthTokens } from "$lib/auth";
-import { refreshToken } from "$lib/axios/login-instance";
-import { useInitialSettingStore } from "$lib/stores";
+import { clearAuth, getAuthTokens, saveAuthTokens } from "$lib/auth";
+import { axiosForLogin } from "$lib/axios/login-instance";
+import { useApiConfig, useInitialSettingStore } from "$lib/stores";
 import { sendPostMessage } from "@htsc/post-message";
-import axios, { AxiosError, type AxiosResponse } from "axios";
+import axios, { type AxiosError, type AxiosResponse } from "axios";
 import axiosRetry from "axios-retry";
 import i18n from "i18next";
 
@@ -32,7 +32,7 @@ axiosForApi.interceptors.request.use((config) => {
 
 axiosForApi.interceptors.response.use(
 	(response: AxiosResponse) => response,
-	async <TResponse>(error: AxiosError) => {
+	async (error: AxiosError) => {
 		const originalRequest = error.config;
 
 		const authTokens = getAuthTokens();
@@ -43,7 +43,7 @@ axiosForApi.interceptors.response.use(
 				const newIdToken = await refreshToken(refreshTokenValue!);
 				axiosForApi.defaults.headers.common["Authorization"] = `Bearer ${newIdToken}`;
 				return axiosForApi.request(originalRequest!);
-			} catch (refreshError) {
+			} catch (_refreshError) {
 				clearAuth();
 				window.location.href = import.meta.env.BASE_URL;
 			}
@@ -52,3 +52,20 @@ axiosForApi.interceptors.response.use(
 		return Promise.reject(error);
 	}
 );
+
+async function refreshToken(refreshToken: string): Promise<string | undefined> {
+	const authTokens = getAuthTokens();
+	const baseUrl = useApiConfig.getState().baseUrl;
+	axiosForLogin.defaults.headers.common["Authorization"] = `Bearer ${authTokens?.idToken}`;
+	const response = await axiosForLogin.post<{ idToken: string; refreshToken: string }>(
+		baseUrl + "/refreshtoken",
+		{
+			refreshToken: refreshToken
+		}
+	);
+
+	const newIdToken = response.data.idToken;
+	const newRefreshToken = response.data.refreshToken;
+	saveAuthTokens({ idToken: newIdToken, refreshToken: newRefreshToken });
+	return newIdToken;
+}

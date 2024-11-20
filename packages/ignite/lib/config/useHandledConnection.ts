@@ -1,6 +1,7 @@
+import { useSearchParamsConfigs } from "$lib/config/useSearchParamsConfigs";
 import { environment } from "$lib/env";
 import { type InitialSetting } from "$lib/stores";
-import { type ConnectionProps, closeApp, useConnection } from "@htsc/post-message";
+import { closeApp, useConnection, type ConnectionProps } from "@htsc/post-message";
 import { useMatch, useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
@@ -10,6 +11,7 @@ export type Props = Omit<ConnectionProps<InitialSetting>, "onInitializationFaile
 
 export function useHandledConnection({ onInitializationFailed, ...restProps }: Props) {
 	const navigate = useNavigate();
+	const paramConfig = useSearchParamsConfigs();
 	const match = useMatch({
 		strict: false
 	});
@@ -24,7 +26,7 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 			) {
 				closeApp();
 			} else {
-				navigate({ to: -1 });
+				void navigate({ to: -1 });
 				//send acknowledge to the parent
 				closeApp();
 			}
@@ -42,8 +44,6 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 
 	return {
 		...connection,
-		readyToLoad: environment.VITE_FORCE_IFRAME_READY
-			? environment.VITE_FORCE_IFRAME_READY
-			: connection.readyToLoad
+		readyToLoad: paramConfig.Auth || connection.readyToLoad
 	};
 }

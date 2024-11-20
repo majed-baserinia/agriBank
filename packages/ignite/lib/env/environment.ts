@@ -1,8 +1,7 @@
 import { z } from "zod";
 
 const envSchema = z.object({
-	VITE_APP_BASE_URL: z.string(),
-	VITE_FORCE_IFRAME_READY: z.boolean({ coerce: true }).optional().default(false)
+	VITE_APP_BASE_URL: z.string()
 });
 
 export const environment = envSchema.parse({

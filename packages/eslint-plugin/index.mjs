@@ -10,7 +10,6 @@ import fs from "fs";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 import packageJson from "eslint-plugin-package-json/configs/recommended";
-import perfectionist from "eslint-plugin-perfectionist";
 import * as regexp from "eslint-plugin-regexp";
 
 /**
@@ -37,7 +36,6 @@ const plugin = {
 			...pluginRouter.configs["flat/recommended"],
 			eslintPluginPrettierRecommended,
 			packageJson,
-			perfectionist.configs["recommended-natural"],
 			regexp.configs["flat/recommended"],
 			{
 				plugins: {
@@ -64,7 +62,6 @@ const plugin = {
 				files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]
 			},
 			{
-				ignores: ["**/*.json"],
 				languageOptions: {
 					globals: globals.browser,
 					parserOptions: {
