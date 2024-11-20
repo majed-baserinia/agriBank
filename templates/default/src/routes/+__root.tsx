@@ -37,17 +37,14 @@ function App() {
 	return (
 		<StrictMode>
 			<QueryClientProvider client={queryClient}>
-				{isReady ? (
-					<RootStyles>
-						<MaterialThemeProvider theme={theme}>
-							<Alerts />
-							<ScrollRestoration />
-							<Outlet />
-						</MaterialThemeProvider>
-					</RootStyles>
-				) : (
-					<Loader showLoader />
-				)}
+				<RootStyles>
+					<MaterialThemeProvider theme={theme}>
+						<Alerts />
+						<ScrollRestoration />
+						{isReady ? <Outlet /> : <Loader showLoader />}
+					</MaterialThemeProvider>
+				</RootStyles>
+
 				<TanStackRouterDevtools position="bottom-right" />
 				<ReactQueryDevtools />
 			</QueryClientProvider>
