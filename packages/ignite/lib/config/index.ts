@@ -4,10 +4,10 @@ import {
 	useHandledConnection,
 	type Props as HandledConnectionProps
 } from "$lib/config/useHandledConnection";
+import { useSearchParamsConfigs } from "$lib/config/useSearchParamsConfigs";
 import { useInitialSettingStore } from "$lib/stores";
 import { useApiConfig } from "$lib/stores/api/api";
 import { initLanguagePacks } from "@htsc/i18n";
-import { useSearch } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -28,7 +28,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 	});
 	const [configReady, seConfigReady] = useState(false);
 	const { i18n } = useTranslation();
-	const search = useSearch({ strict: false }) as { Theme?: string; Lang?: string };
+	const spConfig = useSearchParamsConfigs();
 
 	const getConfig = useCallback(async () => {
 		try {
@@ -36,8 +36,8 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 			initApi({ baseUrl: apiConf.apiBaseUrl });
 
 			//read lang and theme from query string
-			const language = search.Lang ?? "fa-IR";
-			const themeName = search.Theme ?? "light";
+			const language = spConfig.Lang;
+			const themeName = spConfig.Theme;
 
 			await i18n.changeLanguage(language);
 

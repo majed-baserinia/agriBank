@@ -12,6 +12,7 @@ export type Props = Omit<ConnectionProps<InitialSetting>, "onInitializationFaile
 export function useHandledConnection({ onInitializationFailed, ...restProps }: Props) {
 	const navigate = useNavigate();
 	const paramConfig = useSearchParamsConfigs();
+
 	const match = useMatch({
 		strict: false
 	});
@@ -20,10 +21,7 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 	const connection = useConnection<InitialSetting>({
 		onGobackPressed: () => {
 			const currentPath = match.pathname;
-			if (
-				currentPath === environment.VITE_APP_BASE_URL ||
-				`${currentPath}/` === environment.VITE_APP_BASE_URL
-			) {
+			if (currentPath === environment.BASE_URL || `${currentPath}/` === environment.BASE_URL) {
 				closeApp();
 			} else {
 				void navigate({ to: -1 });

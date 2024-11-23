@@ -8,6 +8,7 @@ export const router = createRouter({
 		queryClient: new QueryClient()
 	},
 	defaultPreload: "intent",
+	basepath: import.meta.env.BASE_URL,
 	routeTree
 });
 
