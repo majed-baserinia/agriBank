@@ -6,7 +6,9 @@ const apiConfigSchema = z.object({
 });
 
 export async function getApiConfig() {
-	const res = await fetch("/api-config.json");
+	const res = await fetch(
+		`${import.meta.dynamic.env.DEV ? import.meta.dynamic.env.BASE_URL : ""}/api-config.json`
+	);
 	const apiConf = apiConfigSchema.parse(await res.json());
 	return apiConf;
 }

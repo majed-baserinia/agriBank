@@ -1,22 +1,21 @@
 import { useSearch } from "@tanstack/react-router";
 import { z } from "zod";
 
-const schema = z.object({
-	Lang: z.string().optional().default("fa-IR"),
-	Theme: z.string().toLowerCase().optional().default("light"),
+export const searchParamsConfigSchema = z.object({
+	Lang: z.string({ coerce: true }).default("fa-IR"),
+	Theme: z.string({ coerce: true }).toLowerCase().default("light"),
 	/**
 	 * if the app requires a postmessage from parent or not, ie if its `false` we don't require a postmessage
 	 */
 	Auth: z
-		.string()
+		.string({ coerce: true })
 		.toLowerCase()
-		.optional()
 		.default("true")
-		.transform((value) => value === "true")
+		.transform((value) => value.toLowerCase() === "true")
 		.pipe(z.boolean())
 });
 
 export const useSearchParamsConfigs = () => {
 	const search = useSearch({ strict: false }) as unknown;
-	return schema.parse(search);
+	return searchParamsConfigSchema.parse(search);
 };
