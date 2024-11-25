@@ -17,6 +17,9 @@ export type Config = {
 };
 
 export function sparsCheckout({ repoUrl, sparsePath, tempDir, outDir, branch }: Config) {
+	if (fs.existsSync(outDir)) {
+		throw new Error(`${outDir} is not empty.`);
+	}
 	try {
 		console.log(`cloning only '${sparsePath}' from ${repoUrl}...`);
 
