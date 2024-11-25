@@ -15,6 +15,7 @@ import {
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { zodValidator } from "@tanstack/zod-adapter";
 import type { z } from "zod";
+
 export type RootContext = {
 	queryClient: QueryClient;
 };

@@ -46,7 +46,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 			await i18n.changeLanguage(language);
 
 			//get the theme and set the language
-			const theme = await getTheme(apiConf.ThemeRoute, themeName);
+			const theme = await getTheme(apiConf.themeUrl, themeName);
 
 			//set the settings {theme, language, idToken, refreshToken} to store
 			setSettings({

@@ -1,11 +1,12 @@
+import type { PostMessageTypes } from "$lib/utils";
 import { useEffect, useRef } from "react";
 
-type PostMessageProps<TRequest, TResponse> = {
+type PostMessageProps<TRequest extends PostMessageTypes, TResponse> = {
 	callback: (e: MessageEvent<TResponse>) => void;
 	message?: TRequest;
 };
 
-export default function usePostMessage<TRequest, TResponse>(
+export default function usePostMessage<TRequest extends PostMessageTypes, TResponse>(
 	props: PostMessageProps<TRequest, TResponse>
 ) {
 	const { callback, message } = props;

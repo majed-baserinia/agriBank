@@ -1,7 +1,11 @@
 # HTSC UI package built with react and MUI
 
-1. note about tailwind usage
-2. note that this doesn't bundle css files, and expects the consumer already has a bundler that can process CSS, also explain the reasons why
+Includes bunch of components to facilitate building UI apps for htsc. Note that you MUST use the components exported from here
+instead of importing the directly from `mui` (if their counter part exists).
+
+# Notes
+
+This expects the consumer to have a build process, this package does NOT bundle css files.
 
 TODO:
 

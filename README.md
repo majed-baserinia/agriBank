@@ -1,9 +1,12 @@
-# This is a collection of packages to build micro-fronts using a uniform ui/utilities.
+# HTSC
 
-These packages include:
+This is a collection of packages to build micro-fronts using a uniform ui/utilities, these packages include:
 
 1. ui: a collection of components mostly using mui.
 2. templates: starting templates for creating new micro front projects
-3. axios: exposes custom axios instance for each use case.
-4. post-message: makes it easy to communicate with super-app, which includes all supported messages.
-5. ignite: bootsraps your micro front app.
+3. post-message: makes it easy to communicate with super-app, which includes all supported messages.
+4. ignite: bootsraps and initializes your micro front app.
+5. linters and prettier config
+6. cli
+
+- you can see examples of integrating all these tools into one app in the `/templates/` folder.
