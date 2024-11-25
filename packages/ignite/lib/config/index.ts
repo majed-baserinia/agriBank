@@ -1,4 +1,4 @@
-import { getApiConfig } from "$lib/config/getApiConfig";
+import { getConfig } from "$lib/config/getConfig";
 import { getTheme } from "$lib/config/getTheme";
 import {
 	useHandledConnection,
@@ -8,8 +8,7 @@ import {
 	searchParamsConfigSchema,
 	useSearchParamsConfigs
 } from "$lib/config/useSearchParamsConfigs";
-import { useInitialSettingStore } from "$lib/stores";
-import { useApiConfig } from "$lib/stores/api/api";
+import { useApiConfig, useInitialSettingStore } from "$lib/stores";
 import { initLanguagePacks } from "@htsc/i18n";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -34,10 +33,10 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 	const [configReady, seConfigReady] = useState(false);
 	const { i18n } = useTranslation();
 
-	const getConfig = useCallback(async () => {
+	const memoizedGetConfig = useCallback(async () => {
 		try {
-			const apiConf = await getApiConfig();
-			initApi({ baseUrl: apiConf.apiBaseUrl });
+			const config = await getConfig();
+			initApi({ baseUrl: config.apiBaseUrl });
 
 			//read lang and theme from query string
 			const language = spConfig.Lang;
@@ -46,7 +45,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 			await i18n.changeLanguage(language);
 
 			//get the theme and set the language
-			const theme = await getTheme(apiConf.themeUrl, themeName);
+			const theme = await getTheme(config.themeUrl, themeName);
 
 			//set the settings {theme, language, idToken, refreshToken} to store
 			setSettings({
@@ -70,8 +69,8 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 	}, [i18n]);
 
 	useEffect(() => {
-		void getConfig();
-	}, [getConfig]);
+		void memoizedGetConfig();
+	}, [memoizedGetConfig]);
 
 	return configReady && readyToLoad;
 }
