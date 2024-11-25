@@ -24,6 +24,9 @@
 		"./utils": {
 			"import": "./dist/utils.js",
 			"types": "./dist/utils.d.ts"
+		},
+		"./assets/themes/default.json": {
+			"import": "./dist/themes/default.json"
 		}
 	},
 	"scripts": {
@@ -43,7 +46,7 @@
 		"@htsc/post-message": "0.0.1",
 		"@htsc/prettier-config": "0.0.1",
 		"@mui/icons-material": "^5.14.1",
-		"@mui/material": "^5.14.3",
+		"@mui/material": "^5.16.7",
 		"@mui/styled-engine-sc": "^5.12.0",
 		"@mui/utils": "^6.1.6",
 		"@types/glidejs__glide": "^3.6.5",

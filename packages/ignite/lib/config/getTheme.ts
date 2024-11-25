@@ -1,16 +1,24 @@
-import defaultTheme from "$lib/assets/default-theme.json";
+import { type ThemeOptions } from "@mui/material";
 
 export async function getTheme(themeUrl: string, themeName: string) {
 	try {
-		const url = `${themeUrl}${themeName ? themeName : "light"}.json`;
+		let theme: ThemeOptions;
+		if (import.meta.dynamic.env.DEV) {
+			// @ts-expect-error - this is json import so it has type errors, cuz there are not type decls for that
+			theme = (await import("@htsc/ui/assets/themes/default.json", {
+				with: { type: "json" }
+			})) as ThemeOptions;
+		} else {
+			theme = (await (await fetch("/default-theme.json")).json()) as ThemeOptions;
+		}
 
-		const rawRes = await fetch(url);
-		const res = (await rawRes.json()) as typeof defaultTheme;
-		const theme = { ...defaultTheme };
-		theme.palette = res.palette;
+		const url = `${themeUrl}${themeName ? themeName : "light"}.json`;
+		const customPalette = (await (await fetch(url)).json()) as ThemeOptions;
+
+		theme.palette = customPalette.palette;
 
 		return theme;
 	} catch (_) {
-		return defaultTheme;
+		return {};
 	}
 }

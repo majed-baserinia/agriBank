@@ -30,6 +30,7 @@
 		"@htsc/post-message": "0.0.1",
 		"@htsc/prettier-config": "0.0.1",
 		"@htsc/ui": "0.0.1",
+		"@mui/material": "^5.16.8",
 		"@tanstack/react-router": "^1.81.14",
 		"@types/node": "^22.8.4",
 		"@types/react": "^18.3.11",

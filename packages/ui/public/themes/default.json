@@ -13,7 +13,6 @@
 	},
 	"spacing": [0, 4, 8, 16, 32, 64],
 	"direction": "rtl",
-
 	"palette": {
 		"mode": "light",
 		"common": {
@@ -350,111 +349,63 @@
 	],
 	"typography": {
 		"htmlFontSize": 16,
-		"fontFamily": "inherit",
 		"fontSize": 14,
 		"fontWeightLight": 300,
 		"fontWeightRegular": 400,
 		"fontWeightMedium": 500,
 		"fontWeightBold": 700,
-		"h1": {
-			"fontFamily": "inherit",
-			"fontWeight": 300,
-			"fontSize": "6rem",
-			"lineHeight": 1.167,
-			"letterSpacing": "-0.01562em"
-		},
-		"h2": {
-			"fontFamily": "inherit",
-			"fontWeight": 300,
-			"fontSize": "3.75rem",
-			"lineHeight": 1.2,
-			"letterSpacing": "-0.00833em"
-		},
-		"h3": {
+		"h1Sm": {
 			"fontFamily": "inherit",
 			"fontWeight": 400,
-			"fontSize": "3rem",
-			"lineHeight": 1.167,
-			"letterSpacing": "0em"
+			"fontSize": "24px",
+			"lineHeight": "38.09px"
 		},
-		"h4": {
+		"h1Md": {
 			"fontFamily": "inherit",
 			"fontWeight": 400,
-			"fontSize": "2.125rem",
-			"lineHeight": 1.235,
-			"letterSpacing": "0.00735em"
+			"fontSize": "32px",
+			"lineHeight": "50.78px"
 		},
-		"h5": {
+		"h1Lg": {
 			"fontFamily": "inherit",
 			"fontWeight": 400,
-			"fontSize": "1.5rem",
-			"lineHeight": 1.334,
-			"letterSpacing": "0em"
+			"fontSize": "40px",
+			"lineHeight": "63.48px"
 		},
-		"h6": {
-			"fontFamily": "inherit",
-			"fontWeight": 500,
-			"fontSize": "1.25rem",
-			"lineHeight": 1.6,
-			"letterSpacing": "0.0075em"
-		},
-		"subtitle1": {
+		"bodyXs": {
 			"fontFamily": "inherit",
 			"fontWeight": 400,
-			"fontSize": "1rem",
-			"lineHeight": 1.75,
-			"letterSpacing": "0.00938em"
+			"fontSize": "10px",
+			"lineHeight": "15.87px"
 		},
-		"subtitle2": {
+		"bodySm": {
 			"fontFamily": "inherit",
-			"fontWeight": 500,
-			"fontSize": "0.875rem",
-			"lineHeight": 1.57,
-			"letterSpacing": "0.00714em"
+			"fontWeight": 400,
+			"fontSize": "12px",
+			"lineHeight": "19.04px"
+		},
+		"bodyMd": {
+			"fontFamily": "inherit",
+			"fontWeight": 400,
+			"fontSize": "14px",
+			"lineHeight": "22.22px"
+		},
+		"bodyLg": {
+			"fontFamily": "inherit",
+			"fontWeight": 400,
+			"fontSize": "16px",
+			"lineHeight": "25.39px"
 		},
 		"body1": {
 			"fontFamily": "inherit",
+			"fontSize": "14px",
 			"fontWeight": 400,
-			"fontSize": "1rem",
-			"lineHeight": 1.5,
-			"letterSpacing": "0.00938em"
-		},
-		"body2": {
-			"fontFamily": "inherit",
-			"fontWeight": 400,
-			"fontSize": "0.875rem",
-			"lineHeight": 1.43,
-			"letterSpacing": "0.01071em"
-		},
-		"button": {
-			"fontFamily": "inherit",
-			"fontWeight": 500,
-			"fontSize": "0.875rem",
-			"lineHeight": 1.75,
-			"letterSpacing": "0.02857em",
-			"textTransform": "uppercase"
+			"lineHeight": "normal"
 		},
 		"caption": {
 			"fontFamily": "inherit",
-			"fontWeight": 400,
-			"fontSize": "0.75rem",
-			"lineHeight": 1.66,
-			"letterSpacing": "0.03333em"
-		},
-		"overline": {
-			"fontFamily": "inherit",
-			"fontWeight": 400,
-			"fontSize": "0.75rem",
-			"lineHeight": 2.66,
-			"letterSpacing": "0.08333em",
-			"textTransform": "uppercase"
-		},
-		"inherit": {
-			"fontFamily": "inherit",
-			"fontWeight": "inherit",
-			"fontSize": "inherit",
-			"lineHeight": "inherit",
-			"letterSpacing": "inherit"
+			"fontSize": "14px",
+			"lineHeight": "19.04px"
 		}
 	},
 	"transitions": {

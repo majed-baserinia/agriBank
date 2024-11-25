@@ -69,14 +69,12 @@ export const MaterialThemeProvider = ({ theme, children }: Props) => {
 						fontSize: "16px",
 						lineHeight: "25.39px"
 					},
-
 					body1: {
 						fontFamily: "inherit",
 						fontSize: "14px",
 						fontWeight: 400,
 						lineHeight: "normal"
 					},
-
 					caption: {
 						fontFamily: "inherit",
 						fontSize: "14px",
