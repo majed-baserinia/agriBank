@@ -8,6 +8,7 @@
 	"contributors": [
 		"@SaeedMohammadiha"
 	],
+	"packageManager": "pnpm@9.4.0",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/FoHoOV/htsc"

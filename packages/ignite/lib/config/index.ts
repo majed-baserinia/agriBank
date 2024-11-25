@@ -19,7 +19,9 @@ export type Options = Pick<HandledConnectionProps, "onInitializationFailed">;
 export function useInitConfig({ onInitializationFailed }: Options) {
 	const { setSettings } = useInitialSettingStore();
 	const { init: initApi } = useApiConfig();
+	const spConfig = useSearchParamsConfigs();
 	const { readyToLoad } = useHandledConnection({
+		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
 			setSettings({
 				idToken: data.idToken,
@@ -31,7 +33,6 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 	});
 	const [configReady, seConfigReady] = useState(false);
 	const { i18n } = useTranslation();
-	const spConfig = useSearchParamsConfigs();
 
 	const getConfig = useCallback(async () => {
 		try {

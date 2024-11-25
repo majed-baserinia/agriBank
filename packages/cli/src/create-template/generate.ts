@@ -14,7 +14,7 @@ function setApplicationName(options: z.infer<typeof optionsSchema>) {
 		const fileContent = fs.readFileSync(filePath, { encoding: "utf-8" });
 		fs.writeFileSync(
 			filePath,
-			fileContent.replace("{{APP_NAME}}", formatter ? formatter(options.appName) : options.appName)
+			fileContent.replace("__APP_NAME__", formatter ? formatter(options.appName) : options.appName)
 		);
 	};
 	replaceApplicationName("package.json");

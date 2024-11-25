@@ -16,5 +16,5 @@ export default defineConfig({
 		}),
 		react()
 	],
-	base: `/{{APP_NAME}}`
+	base: `/__APP_NAME__`
 });

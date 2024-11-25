@@ -14,7 +14,7 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { zodValidator } from "@tanstack/zod-adapter";
-
+import type { z } from "zod";
 export type RootContext = {
 	queryClient: QueryClient;
 };
@@ -25,9 +25,9 @@ export const Route = createRootRouteWithContext<RootContext>()({
 	search: {
 		middlewares: [
 			retainSearchParams(
-				Object.keys(
-					searchParamsConfigSchema.shape
-				) as (keyof (typeof searchParamsConfigSchema)["shape"])[]
+				Object.keys(searchParamsConfigSchema.shape) as (keyof z.infer<
+					typeof searchParamsConfigSchema
+				>)[]
 			)
 		]
 	}

@@ -10,9 +10,9 @@ export const searchParamsConfigSchema = z.object({
 	Auth: z
 		.string({ coerce: true })
 		.toLowerCase()
-		.default("true")
-		.transform((value) => value.toLowerCase() === "true")
+		.transform((value) => value === "true")
 		.pipe(z.boolean())
+		.default("true")
 });
 
 export const useSearchParamsConfigs = () => {
