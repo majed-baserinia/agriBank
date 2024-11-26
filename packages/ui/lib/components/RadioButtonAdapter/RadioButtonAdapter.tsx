@@ -17,23 +17,31 @@ export function RadioButtonAdapter(props: Props) {
 			disabled={disabled}
 			label={
 				<Typography
-					fontWeight={"medium"}
 					variant="bodyMd"
+					sx={{
+						fontWeight: "medium"
+					}}
 				>
 					{label}
 				</Typography>
 			}
 			labelPlacement="end"
-			sx={{
-				padding: "8px",
-				border: checked
-					? `1px solid ${theme.palette.primary.main}`
-					: `1px solid ${theme.palette.grey[200]}`,
-				borderRadius: "16px",
-				marginRight: "unset",
-				marginLeft: "unset",
-				width: "100%"
-			}}
+			sx={[
+				{
+					padding: "8px",
+					borderRadius: "16px",
+					marginRight: "unset",
+					marginLeft: "unset",
+					width: "100%"
+				},
+				checked
+					? {
+							border: `1px solid ${theme.palette.primary.main}`
+						}
+					: {
+							border: `1px solid ${theme.palette.grey[200]}`
+						}
+			]}
 			value={value}
 		/>
 	);

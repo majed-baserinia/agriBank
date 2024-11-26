@@ -68,8 +68,10 @@ export function ChipStatusAdapter(props: Props) {
 									: "moving-text-moveleftToRight"
 								: ""
 						}
-						fontWeight={"medium"}
 						variant="bodySm"
+						sx={{
+							fontWeight: "medium"
+						}}
 					>
 						{label}
 					</Typography>

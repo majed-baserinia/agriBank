@@ -31,9 +31,11 @@ export function BreadcrumbsAdapter(props: Props) {
 					return (
 						<Typography
 							color="primary"
-							fontWeight={"bold"}
 							key={item.key}
 							variant="bodyMd"
+							sx={{
+								fontWeight: "bold"
+							}}
 						>
 							{t(item.title, item.title)}
 						</Typography>

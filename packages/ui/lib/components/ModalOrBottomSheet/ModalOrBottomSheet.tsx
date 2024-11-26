@@ -35,8 +35,10 @@ export function ModalOrBottomSheet(props: Props) {
 			<Sheet.Container style={{ backgroundColor: theme.palette.background.paper, padding: "16px" }}>
 				<Sheet.Header style={{ marginBottom: "16px" }}>
 					<Typography
-						fontWeight={"bold"}
 						variant="bodyLg"
+						sx={{
+							fontWeight: "bold"
+						}}
 					>
 						{title}
 					</Typography>
@@ -54,13 +56,17 @@ export function ModalOrBottomSheet(props: Props) {
 		>
 			<DialogTitle>
 				<Grid
-					alignItems={"center"}
 					container
-					justifyContent={"space-between"}
+					sx={{
+						alignItems: "center",
+						justifyContent: "space-between"
+					}}
 				>
 					<Typography
-						fontWeight={"bold"}
 						variant="bodyLg"
+						sx={{
+							fontWeight: "bold"
+						}}
 					>
 						{title}
 					</Typography>

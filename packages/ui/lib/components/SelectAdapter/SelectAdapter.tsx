@@ -96,9 +96,16 @@ export function SelectAdapter(props: Props) {
 	return (
 		<Grid
 			container
-			flexDirection={"column"}
-			justifyContent={"space-between"}
-			sx={{ ...(open && matches ? gridStyle : {}), transition: "width 0.2s ease-out" }}
+			sx={[
+				{
+					flexDirection: "column",
+					justifyContent: "space-between"
+				},
+				{
+					transition: "width 0.2s ease-out"
+				},
+				open && matches ? gridStyle : {}
+			]}
 		>
 			<FormControl
 				fullWidth

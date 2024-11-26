@@ -5,7 +5,7 @@ import { SelectAdapter } from "$components/SelectAdapter";
 import { SvgToIcon } from "$components/SvgToIcon";
 import { ModalOrBottomSheet } from "$lib/components/ModalOrBottomSheet/ModalOrBottomSheet";
 import CloseIcon from "@mui/icons-material/Close";
-import { Grid, MenuItem, Paper, Typography, useTheme } from "@mui/material";
+import { Grid, MenuItem, Paper, Typography } from "@mui/material";
 import { useState } from "react";
 
 import type { Props } from "./types";
@@ -13,7 +13,7 @@ import type { Props } from "./types";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 	const { data, filters, getFilteredData } = props;
-	const theme = useTheme();
+
 	const [open, setOpen] = useState(false);
 	const [inputValue, setInputValue] = useState<string[]>([]);
 	const [filtersState, setFiltersState] = useState(filters);
@@ -79,7 +79,7 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 				<Paper
 					component="div"
 					elevation={0}
-					sx={{
+					sx={(theme) => ({
 						minWidth: "200px",
 						display: "flex",
 						alignItems: "center",
@@ -87,12 +87,14 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 						border: `1px solid ${theme.palette.grey[100]}`,
 						borderRadius: "8px",
 						backgroundColor: "inherit"
-					}}
+					})}
 				>
 					<Grid
-						alignItems={"center"}
 						container
-						gap={"4px"}
+						sx={{
+							alignItems: "center",
+							gap: "4px"
+						}}
 					>
 						<SvgToIcon
 							alt="filter"
@@ -101,11 +103,13 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 						<Typography variant="bodySm">فیلتر</Typography>
 					</Grid>
 					<Grid
-						alignItems={"center"}
 						container
-						flexDirection={"row"}
-						gap={"4px"}
 						wrap="nowrap"
+						sx={{
+							alignItems: "center",
+							flexDirection: "row",
+							gap: "4px"
+						}}
 					>
 						{inputValue.map((item) => {
 							return (
@@ -129,15 +133,19 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 				<Grid
 					container
 					direction={"column"}
-					gap={"16px"}
+					sx={{
+						gap: "16px"
+					}}
 				>
 					{filtersState.map((filter) => {
 						return (
 							<Grid
 								container
 								direction={"column"}
-								gap={"8px"}
 								key={filter.label}
+								sx={{
+									gap: "8px"
+								}}
 							>
 								<Typography variant="bodySm">{filter.filterTitle}</Typography>
 								<SelectAdapter

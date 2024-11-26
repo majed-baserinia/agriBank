@@ -44,8 +44,10 @@ export function TableAdapter<TColumnNames extends string>({
 									style={{ minWidth: column.minWidth }}
 								>
 									<Typography
-										fontWeight={"bold"}
 										variant="bodyMd"
+										sx={{
+											fontWeight: "bold"
+										}}
 									>
 										{column.label != "" ? t(column.label, column.label) : ""}
 									</Typography>
@@ -80,10 +82,12 @@ export function TableAdapter<TColumnNames extends string>({
 				</Table>
 				{!rowsData ? (
 					<Grid
-						alignContent={"center"}
 						container
-						justifyContent={"center"}
-						sx={{ width: "100%" }}
+						sx={{
+							alignContent: "center",
+							justifyContent: "center",
+							width: "100%"
+						}}
 					>
 						<CircularProgress size={"32px"} />
 					</Grid>

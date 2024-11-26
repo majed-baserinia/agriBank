@@ -52,7 +52,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		return () => {
 			window.removeEventListener("popstate", handlePopState);
 		};
-	}, []);
+	}, [matches]);
 
 	const handlePopState = (event: PopStateEvent) => {
 		event.preventDefault();
@@ -124,9 +124,13 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	return (
 		<Grid
 			container
-			flexDirection={"column"}
-			justifyContent={"space-between"}
-			sx={open && matches ? { ...generateGridStyle(theme) } : null}
+			sx={[
+				{
+					flexDirection: "column",
+					justifyContent: "space-between"
+				},
+				open && matches ? { ...generateGridStyle(theme) } : null
+			]}
 		>
 			<Autocomplete
 				disablePortal
@@ -134,7 +138,6 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				getOptionLabel={getOptionLabel}
 				inputValue={inputValue}
 				isOptionEqualToValue={isOptionEqualToValueFunction}
-				ListboxComponent={ListboxComponent}
 				loading={loading}
 				loadingText={t("loadingTextAutoComp")}
 				noOptionsText=""
@@ -153,14 +156,6 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				}}
 				open={open}
 				options={options ?? []}
-				PopperComponent={(props) => (
-					<Popper
-						{...props}
-						sx={{
-							boxShadow: matches ? 0 : 3
-						}}
-					/>
-				)}
 				popupIcon={<KeyboardArrowDownIcon />}
 				renderInput={(params) => (
 					<RenderInput
@@ -178,6 +173,27 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				)}
 				renderOption={renderOption}
 				value={value}
+				slots={{
+					popper: (props) => (
+						<Popper
+							{...props}
+							sx={[
+								matches
+									? {
+											boxShadow: 0
+										}
+									: {
+											boxShadow: 3
+										}
+							]}
+						/>
+					)
+				}}
+				slotProps={{
+					listbox: {
+						component: ListboxComponent
+					}
+				}}
 			/>
 			<Grid>
 				{matches && open && hasConfirmButton ? (

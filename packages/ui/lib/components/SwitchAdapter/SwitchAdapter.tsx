@@ -10,10 +10,12 @@ export function SwitchAdapter(props: Props) {
 
 	return (
 		<Grid
-			alignItems={"center"}
 			container
-			gap={"8px"}
-			justifyContent={spaceBetween ? "space-between" : "initial"}
+			sx={{
+				alignItems: "center",
+				gap: "8px",
+				justifyContent: spaceBetween ? "space-between" : "initial"
+			}}
 		>
 			<FormLabel>
 				<Typography variant="bodySm">{label}</Typography>

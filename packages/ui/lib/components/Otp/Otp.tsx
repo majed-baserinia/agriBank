@@ -37,12 +37,11 @@ export function Otp(props: Props) {
 				onChange={(value) => onChange(value)}
 				type="number"
 			/>
-
 			<Grid
-				alignItems={"baseline"}
 				container
-				gap={8}
 				sx={{
+					alignItems: "baseline",
+					gap: 8,
 					marginTop: "8px"
 				}}
 			>

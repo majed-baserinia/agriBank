@@ -80,8 +80,10 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 								value={item.value}
 							>
 								<Typography
-									fontWeight={"medium"}
 									variant="bodyMd"
+									sx={{
+										fontWeight: "medium"
+									}}
 								>
 									{item.name}
 								</Typography>
@@ -115,8 +117,10 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 													value={item.value}
 												>
 													<Typography
-														fontWeight={"medium"}
 														variant="bodyMd"
+														sx={{
+															fontWeight: "medium"
+														}}
 													>
 														{item.name}
 													</Typography>

@@ -44,16 +44,20 @@ export function Alerts() {
 			sx={{ zIndex: 9999999999999999 }}
 		>
 			<Grid
-				alignItems={"center"}
 				container
-				justifyContent={"center"}
+				sx={{
+					alignItems: "center",
+					justifyContent: "center"
+				}}
 			>
 				<Icon type={capturedAlert.type} />
 			</Grid>
 			<DialogTitle sx={{ margin: "auto" }}>
 				<Typography
-					fontWeight={"bold"}
 					variant="bodyLg"
+					sx={{
+						fontWeight: "bold"
+					}}
 				>
 					{t(capturedAlert.type)}
 				</Typography>

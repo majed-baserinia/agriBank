@@ -74,13 +74,25 @@ export function TextAreaAdapter(props: TextareaAdapterProps) {
 			placeholder={placeholder}
 			rows={rows}
 			size="medium"
-			sx={{
-				"& .MuiOutlinedInput-root fieldset": {
-					borderWidth: success || error ? "2px" : "1px",
-					borderColor: success ? theme.palette.success[400] : null
+			sx={[
+				{
+					"& .MuiOutlinedInput-root fieldset": {
+						borderWidth: success || error ? "2px" : "1px"
+					},
+					...sx
 				},
-				...sx
-			}}
+				success
+					? {
+							"& .MuiOutlinedInput-root fieldset": {
+								borderColor: theme.palette.success[400]
+							}
+						}
+					: {
+							"& .MuiOutlinedInput-root fieldset": {
+								borderColor: null
+							}
+						}
+			]}
 			type={"text"}
 			value={value}
 			variant="outlined"
