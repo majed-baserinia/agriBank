@@ -4,6 +4,7 @@ const envSchema = z.object({
 	BASE_URL: z.string()
 });
 
-export const environment = envSchema.parse({
-	...import.meta.dynamic.env
-});
+export const environment = () =>
+	envSchema.parse({
+		...import.meta.dynamic.env
+	});
