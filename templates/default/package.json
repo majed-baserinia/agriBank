@@ -46,6 +46,7 @@
 	"devDependencies": {
 		"@eslint/js": "^9.13.0",
 		"@htsc/cli": "0.0.1",
+		"@htsc/vite-plugin": "0.0.1",
 		"@openapitools/openapi-generator-cli": "^2.15.0",
 		"@tanstack/router-plugin": "1.81.9",
 		"@tanstack/router-devtools": "^1.82.2",
