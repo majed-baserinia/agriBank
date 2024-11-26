@@ -1,1 +1,1 @@
-export * from "./public-dir-proxy";
+export * from "./htsc-plugin";
