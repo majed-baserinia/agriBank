@@ -8,5 +8,6 @@ This is a collection of packages to build micro-fronts using a uniform ui/utilit
 4. ignite: bootsraps and initializes your micro front app.
 5. linters and prettier config
 6. cli
+7. vite plugin
 
 - you can see examples of integrating all these tools into one app in the `/templates/` folder.
