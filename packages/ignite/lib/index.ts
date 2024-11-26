@@ -5,6 +5,7 @@ export * from "./axios";
 export * from "./config";
 export * from "./env";
 export * from "./stores";
+export * from "./vite-plugins";
 
 /**
  * initializes the app, including the theme, language and the api config
