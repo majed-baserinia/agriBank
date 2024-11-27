@@ -24,14 +24,14 @@ function changeRequestPathOfSharedPublicFiles(
 	extraFiles?: string[]
 ) {
 	const files = [
-		"config.xml",
+		"config.json",
 		"compatibility.js",
 		"browserUpdate.js",
 		"default-theme.json",
 		...(extraFiles ?? [])
 	];
 	server.middlewares.use((req, _, next) => {
-		if (req.url && files.some((fileName) => req.url?.startsWith(`/${fileName}`))) {
+		if (req.url && files.some((fileName) => req.url === `/${fileName}`)) {
 			req.url = `${server.config.base}${req.url}`;
 		}
 		next();

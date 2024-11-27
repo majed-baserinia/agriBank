@@ -1,0 +1,18 @@
+{
+	"configurations": [
+		{
+			"name": "chrome:templates/default",
+			"request": "launch",
+			"type": "chrome",
+			"url": "http://localhost:5173",
+			"webRoot": "${workspaceFolder}/templates/default"
+		},
+		{
+			"name": "pnpm:dev:templates/default",
+			"request": "launch",
+			"type": "node-terminal",
+			"cwd": "${workspaceFolder}/templates/default",
+			"command": "pnpm run dev"
+		}
+	]
+}
