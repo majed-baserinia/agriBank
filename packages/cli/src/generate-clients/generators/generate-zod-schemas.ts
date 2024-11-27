@@ -6,10 +6,10 @@ import type { z } from "zod";
 import type { optionsSchema } from "$/generate-clients/cli";
 import type { OpenAPIObject } from "openapi3-ts/oas31";
 
-async function runTypedOpenApi(config: z.infer<typeof optionsSchema>) {
+async function runTypedOpenApi(config: z.infer<typeof optionsSchema> & { specPath: string }) {
 	const now = new Date();
 
-	const openApiDoc = (await SwaggerParser.bundle(config.url)) as OpenAPIObject;
+	const openApiDoc = (await SwaggerParser.bundle(config.specPath)) as OpenAPIObject;
 
 	const ctx = mapOpenApiEndpoints(openApiDoc);
 	console.log(`Found ${ctx.endpointList.length} endpoints`);
@@ -20,7 +20,9 @@ async function runTypedOpenApi(config: z.infer<typeof optionsSchema>) {
 	return content;
 }
 
-export async function generateZodSchemas(config: z.infer<typeof optionsSchema>) {
+export async function generateZodSchemas(
+	config: z.infer<typeof optionsSchema> & { specPath: string }
+) {
 	const contents = await runTypedOpenApi(config);
 
 	const groups = Array.from(

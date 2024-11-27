@@ -5,7 +5,8 @@ import { generate } from "./generate";
 export const optionsSchema = z.object({
 	url: z.string(),
 	out: z.string(),
-	axiosVersion: z.string()
+	axiosVersion: z.string(),
+	removeEndpointPrefix: z.string().optional()
 });
 
 /**
@@ -21,6 +22,12 @@ export function setupCommand() {
 		)
 		.addOption(new Option("--axios-version <string>", "axios version").default("1.7.0"))
 		.addOption(new Option("--out <string>", "output directory").default("src/generated-clients"))
+		.addOption(
+			new Option(
+				"--remove-endpoint-prefix <string>",
+				"removes a prefix from endpoints, ie turns /x/path to /path"
+			)
+		)
 		.addHelpText(
 			"afterAll",
 			"\n* in order to ignore generating some apis or models, consider using the `.openapi-generator-ignore` file"

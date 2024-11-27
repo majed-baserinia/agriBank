@@ -3,6 +3,8 @@ import { generateAxiosClients } from "./generators/generate-openapitools-config.
 import { generateZodSchemas } from "./generators/generate-zod-schemas.js";
 import type { z } from "zod";
 import type { optionsSchema } from "./cli.js";
+import { writeOpenApiSpec } from "$/generate-clients/get-openapi-spec.js";
+import { join } from "path";
 
 export async function generate(config: z.infer<typeof optionsSchema>) {
 	console.log("Generating clients! @FoHoOV");
@@ -16,6 +18,17 @@ export async function generate(config: z.infer<typeof optionsSchema>) {
 		recursive: true
 	});
 
-	await generateAxiosClients(config);
-	await generateZodSchemas(config);
+	await using specPath = await writeOpenApiSpec({
+		output: "spec.json",
+		tempDir: join(config.out, ".tmp"),
+		url: config.url,
+		removeEndpointPrefix: config.removeEndpointPrefix
+	});
+
+	if (!specPath.outputFilePath) {
+		throw new Error("failed to write spec file (or transform it)");
+	}
+
+	await generateAxiosClients({ ...config, specPath: specPath.outputFilePath });
+	await generateZodSchemas({ ...config, specPath: specPath.outputFilePath });
 }
