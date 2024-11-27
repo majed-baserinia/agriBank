@@ -34,20 +34,6 @@
 	} else {
 		textMessage = fa;
 	}
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	var $buoop = {
-		required: { e: 100, f: 95, o: 100, s: 13, c: 95 },
-		insecure: true,
-		api: 2024.02,
-		no_permanent_hide: true,
-
-		text: {
-			msg: " ",
-			insecure: " ",
-			msgmore: textMessage
-		},
-		noclose: true
-	};
 	function $buo_f() {
 		var e = document.createElement("script");
 		e.src = "/browserUpdate.js";

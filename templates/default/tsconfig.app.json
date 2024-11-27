@@ -27,5 +27,12 @@
 			"$/*": ["./src/*"]
 		}
 	},
-	"include": ["src/**/*.js", "src/**/*.ts", "src/**/*.mjs", "src/**/*.tsx", "src/**/*.jsx"]
+	"include": [
+		"src/**/*.js",
+		"src/**/*.ts",
+		"src/**/*.mjs",
+		"src/**/*.tsx",
+		"src/**/*.jsx",
+		"public/**/*.js"
+	]
 }
