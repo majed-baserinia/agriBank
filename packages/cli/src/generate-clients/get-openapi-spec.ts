@@ -12,20 +12,53 @@ type Config = {
 	output: string;
 	tempDir: string;
 	removeEndpointPrefix?: string;
+	replaceEndpointRegex?: [RegExp, string];
 };
 
 type Spec = { [key: string]: Spec };
 
-function replacePrefixes(spec: Spec, prefixToReplace: string) {
-	console.log("removing prefix from api endpoints", prefixToReplace);
+function loopOverPaths(
+	spec: Spec,
+	callback: (paths: Spec, kvp: { key: string; value: Spec }) => void
+) {
 	const paths = spec["paths"];
 	Object.entries(paths).forEach(([key, value]) => {
-		if (key.startsWith(prefixToReplace)) {
-			delete paths[key];
-			paths[key.replace(prefixToReplace, "")] = value;
+		callback(paths, { key, value });
+	});
+}
+
+function removePrefixes(spec: Spec, prefixToReplace: string) {
+	console.log("removing prefix from api endpoints", prefixToReplace);
+	loopOverPaths(spec, (paths, { key, value }) => {
+		if (!key.startsWith(prefixToReplace)) {
+			return;
 		}
+		delete paths[key];
+		paths[key.replace(prefixToReplace, "")] = value;
 	});
 	return spec;
+}
+
+function replacePrefixes(spec: Spec, regex: RegExp, replacer: string) {
+	console.log("replacing prefix from api endpoints", `from ${regex} to ${replacer}`);
+	loopOverPaths(spec, (paths, { key, value }) => {
+		if (!regex.test(key)) {
+			return;
+		}
+		delete paths[key];
+		paths[key.replace(regex, replacer)] = value;
+	});
+	return spec;
+}
+
+function modifySpec(spec: Spec, config: Config) {
+	const replaced = config.replaceEndpointRegex
+		? replacePrefixes(spec, config.replaceEndpointRegex[0], config.replaceEndpointRegex[1])
+		: spec;
+
+	return config.removeEndpointPrefix
+		? removePrefixes(replaced, config.removeEndpointPrefix)
+		: replaced;
 }
 
 /**
@@ -36,10 +69,7 @@ export async function writeOpenApiSpec(config: Config) {
 	let path: string | undefined = undefined;
 	try {
 		const spec = (await (await fetch(config.url)).json()) as Spec;
-
-		const modified = config.removeEndpointPrefix
-			? replacePrefixes(spec, config.removeEndpointPrefix)
-			: spec;
+		const modified = modifySpec(spec, config);
 
 		await mkdir(config.tempDir, {
 			recursive: true

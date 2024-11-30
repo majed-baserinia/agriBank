@@ -6,7 +6,21 @@ export const optionsSchema = z.object({
 	url: z.string(),
 	out: z.string(),
 	axiosVersion: z.string(),
-	removeEndpointPrefix: z.string().optional()
+	removeEndpointPrefix: z.string().optional(),
+	replaceEndpointRegex: z
+		.string()
+		.optional()
+		.refine((v) => v === undefined || v.split(",").length == 2, {
+			message: "this prop should have two values separated by comma"
+		})
+		.transform((v) => {
+			return v?.split(",").map((v, i) => {
+				if (i == 0) {
+					return RegExp(v.trim(), "g");
+				}
+				return v.trim();
+			}) as [RegExp, string];
+		})
 });
 
 /**
@@ -28,12 +42,18 @@ export function setupCommand() {
 				"removes a prefix from endpoints, ie turns /x/path to /path"
 			)
 		)
+		.addOption(
+			new Option(
+				"--replace-endpoint-regex <regex>, <string>",
+				"replaces regex <regex> with replace value <string>, runs before remove-endpoint-prefix command, ie --replace-endpoint-regex /api/,/account-report-service/"
+			)
+		)
 		.addHelpText(
 			"afterAll",
 			"\n* in order to ignore generating some apis or models, consider using the `.openapi-generator-ignore` file"
 		)
 		.action((options) => {
-			call(optionsSchema.parse(options));
+			call(options);
 		});
 	program.addCommand(command);
 	return command;

@@ -22,7 +22,8 @@ export async function generate(config: z.infer<typeof optionsSchema>) {
 		output: "spec.json",
 		tempDir: join(config.out, ".tmp"),
 		url: config.url,
-		removeEndpointPrefix: config.removeEndpointPrefix
+		removeEndpointPrefix: config.removeEndpointPrefix,
+		replaceEndpointRegex: config.replaceEndpointRegex
 	});
 
 	if (!specPath.outputFilePath) {
