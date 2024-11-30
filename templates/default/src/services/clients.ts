@@ -1,8 +1,8 @@
-// import { useApiConfig } from "@htsc/ignite";
-// import axios, { type AxiosInstance } from "axios";
+// import { axios, useApiConfig } from "@htsc/ignite";
+// import { type AxiosInstance } from "axios";
 
-// import { AccountApi, Configuration } from "./generated";
-// import type { BaseAPI } from "./generated/base";
+// import { AccountApi, Configuration } from "./.generated";
+// import type { BaseAPI } from "./.generated/base";
 
 // /**
 //  * you custom configurations
@@ -18,9 +18,9 @@
 // 		return new ApiClass(
 // 			new Configuration({ basePath: useApiConfig.getState().baseUrl, ...config }),
 // 			undefined,
-// 			axiosInstance ?? axios
+// 			axiosInstance
 // 		) as InstanceType<T>;
 // 	};
 // };
 
-// export const AccountsClient = generateClient(AccountApi);
+// export const AccountsClient = generateClient(AccountApi, axios.api);
