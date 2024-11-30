@@ -8,7 +8,7 @@
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",
 		"preview": "vite preview",
-		"generate-client": "pnpm exec htsc generate-clients --out src/services/.generated"
+		"generate-clients": "pnpm exec htsc generate-clients --out src/services/.generated"
 	},
 	"dependencies": {
 		"@emotion/cache": "^11.11.0",
