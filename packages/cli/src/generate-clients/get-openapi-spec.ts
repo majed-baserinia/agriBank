@@ -17,6 +17,7 @@ type Config = {
 type Spec = { [key: string]: Spec };
 
 function replacePrefixes(spec: Spec, prefixToReplace: string) {
+	console.log("removing prefix from api endpoints", prefixToReplace);
 	const paths = spec["paths"];
 	Object.entries(paths).forEach(([key, value]) => {
 		if (key.startsWith(prefixToReplace)) {

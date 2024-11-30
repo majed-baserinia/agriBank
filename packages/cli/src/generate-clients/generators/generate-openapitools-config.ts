@@ -19,7 +19,7 @@ export async function generateAxiosClients(
 				"--input-spec",
 				config.specPath,
 				"--additional-properties",
-				`supportsES6=true,axiosVersion=${config.axiosVersion},useSingleRequestParameter=false,legacyDiscriminatorBehavior=false,useSingleRequestParameter=true,modelPackage=models,apiPackage=apis,withSeparateModelsAndApi=true`
+				`supportsES6=true,axiosVersion=${config.axiosVersion},ensureUniqueParams=true,legacyDiscriminatorBehavior=false,modelPackage=models,apiPackage=apis,withSeparateModelsAndApi=true`
 			],
 			{
 				shell: true
