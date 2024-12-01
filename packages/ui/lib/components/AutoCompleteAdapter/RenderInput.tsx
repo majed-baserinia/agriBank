@@ -1,7 +1,7 @@
 import type { AutocompleteRenderInputParams } from "@mui/material";
 
 import { CircularProgress, TextField, useTheme } from "@mui/material";
-
+import { FocusEvent, MouseEvent, useState } from 'react';
 import type { RenderInputProps } from "./types";
 
 export function RenderInput(props: {
@@ -9,8 +9,9 @@ export function RenderInput(props: {
 	params: AutocompleteRenderInputParams;
 }) {
 	const { aditionalProps, params } = props;
-	const { error, label, isRequired, helperText, inputMode, loading, inputRef } = aditionalProps;
+	const { error, label, isRequired, helperText, inputMode, loading, inputRef, icon } = aditionalProps;
 	const theme = useTheme();
+	const [focusedCounter, setFocusedCounter] = useState(0);
 
 	return (
 		<TextField
@@ -19,9 +20,26 @@ export function RenderInput(props: {
 			error={error}
 			helperText={helperText}
 			InputProps={{
-				onBlur: (e) => e.target.blur(),
+				onMouseDown: (e) => {
+					if (focusedCounter < 2) {
+						setFocusedCounter((prev) => ++prev);
+					}
+					if (focusedCounter === 1) {
+						return;
+					}
+					params.inputProps.onMouseDown?.(e as MouseEvent<HTMLInputElement>);
+				},
+
+				onBlur: (e) => {
+					setFocusedCounter(0);
+					e.target.blur();
+					params.inputProps.onBlur?.(e as FocusEvent<HTMLInputElement, Element>);
+				},
+				readOnly: focusedCounter < 2,
+				
 				inputMode: inputMode,
 				...params.InputProps,
+				startAdornment: icon,
 				endAdornment: (
 					<>
 						{loading ? (

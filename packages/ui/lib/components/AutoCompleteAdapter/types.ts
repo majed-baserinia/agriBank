@@ -17,6 +17,9 @@ export type Props<T extends Record<any, any>> = {
 	options?: T[];
 	renderOption?: (props: HTMLAttributes<HTMLLIElement>, option: string | T) => ReactNode;
 	valueToShowToInput: (option: T) => { icon?: ReactNode; text: string };
+	icon?: ReactNode;
+	defaultValue?: string | T;
+	type?: 'card';
 };
 
 export type RenderInputProps = {

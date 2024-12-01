@@ -216,6 +216,29 @@ export const MaterialThemeProvider = ({ theme, children }: Props) => {
 								]
 							}
 						}
+					},
+					MuiAutocomplete: {
+						styleOverrides: {
+							root: {
+								'& .MuiInputBase-root': {
+									height: '48px'
+								},
+								variants: [
+									{
+										props: { size: 'small' },
+										style: {
+											height: '40px'
+										}
+									},
+									{
+										props: { size: 'medium' },
+										style: {
+											height: '48px'
+										}
+									}
+								]
+							}
+						}
 					}
 				}
 			},

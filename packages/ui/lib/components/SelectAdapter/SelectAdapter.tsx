@@ -28,7 +28,7 @@ export function SelectAdapter(props: Props) {
 		defaultValue = "",
 		muiSelectProps,
 		size = "medium",
-		renderValue = false,
+		renderValue,
 		isRequired = false
 	} = props;
 	const theme = useTheme();
@@ -124,7 +124,7 @@ export function SelectAdapter(props: Props) {
 					error={error}
 					IconComponent={KeyboardArrowDownIcon}
 					inputProps={{
-						renderValue: renderValue ? (option: string) => option : undefined
+						renderValue
 					}}
 					label={
 						label ? (

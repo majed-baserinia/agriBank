@@ -20,6 +20,7 @@ export type InputAdapterProps = {
 	success?: boolean;
 	sx?: SxProps;
 	type?: InputType;
+	maxLength?: number;
 };
 
 type Size = "lg" | "md" | "sm";

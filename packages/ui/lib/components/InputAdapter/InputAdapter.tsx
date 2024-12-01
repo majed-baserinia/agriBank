@@ -35,7 +35,8 @@ export function InputAdapter(props: InputAdapterProps) {
 		success = false,
 		size = "md",
 		helperText,
-		focused
+		focused,
+		maxLength
 	} = props;
 
 	const theme = useTheme();
@@ -126,6 +127,7 @@ export function InputAdapter(props: InputAdapterProps) {
 					inputMode: isInputTypeNumeric(type) ? "numeric" : undefined,
 					className: `${isInputTypeNumeric(type) && theme.direction === "rtl" ? "text-right" : ""}`,
 					...(isInputTypeNumeric(type) && theme.direction === "rtl" ? { dir: "ltr" } : {})
+					maxLength: maxLength
 				},
 				sx: {
 					input: {

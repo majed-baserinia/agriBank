@@ -6,6 +6,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Autocomplete, Button, Grid, Popper, useMediaQuery, useTheme } from "@mui/material";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { formatToCardDynamically } from "lib/utils/formatters/formatInput"
 
 import type { Props } from "./types";
 
@@ -31,7 +32,10 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		onInputChange,
 		muiButtonProps,
 		valueToShowToInput,
-		isOptionEqualToValue
+		isOptionEqualToValue,
+		icon,
+		defaultValue,
+		type
 	} = props;
 
 	const { t } = useTranslation("base");
@@ -43,6 +47,13 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	const [inputValue, setInputValue] = useState("");
 	const inputRef = useRef();
 
+	useEffect(() => {
+		if (defaultValue) {
+			setValue(defaultValue);
+		}
+	}, [defaultValue]);
+
+	
 	useEffect(() => {
 		//logic for "go back" button on browser to prevent
 		if (matches) {
@@ -104,6 +115,10 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 
 	// read the docs in mui
 	const getOptionLabel = (option: string | T) => {
+		if (type === 'card' && typeof option === 'string') {
+			return formatToCardDynamically(option);
+		}
+
 		if (typeof option === "string") {
 			return option;
 		}
@@ -133,6 +148,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 			]}
 		>
 			<Autocomplete
+			
 				disablePortal
 				freeSolo
 				getOptionLabel={getOptionLabel}
@@ -166,7 +182,8 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 							helperText: helperText,
 							inputMode: inputMode,
 							isRequired: isRequired,
-							loading: loading
+							loading: loading,
+							icon: icon
 						}}
 						params={params}
 					/>

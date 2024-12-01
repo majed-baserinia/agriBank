@@ -2,6 +2,18 @@ export const formatToCard = (value: string) => {
 	return value.replace(/(\d{4})/g, "$1-").slice(0, 19);
 };
 
+export const formatToCardDynamically = (value: string) => {
+	const digits = value.replace(/[^0-9]/g, '');
+
+	// Add dashes every 4 digits
+	const formatted =
+		digits
+			.match(/.{1,4}/g) // Match groups of up to 4 digits
+			?.join('-') || ''; // Join the groups with dashes
+
+	return formatted;
+};
+
 export const formatToMoney = (value: string) => {
 	// Format input as 3 digits from right separated by ","
 	const sanitizedInput = value.replace(/\D/g, "");
