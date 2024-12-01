@@ -16,6 +16,7 @@ export async function generateAxiosClients(
 				config.out,
 				"--generator-name",
 				"typescript-axios",
+				...[config.skipSpecValidations ? "--skip-validate-spec" : ""],
 				"--input-spec",
 				config.specPath,
 				"--additional-properties",
@@ -36,7 +37,7 @@ export async function generateAxiosClients(
 
 		cmd.on("close", (code) => {
 			if (code !== 0) {
-				console.error("An error happened while generating axios clients");
+				console.error("An error happened while using openapitools generator");
 				throw new Error("application with exit code: " + code);
 			}
 			resolve(undefined);

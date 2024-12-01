@@ -20,7 +20,8 @@ export const optionsSchema = z.object({
 				}
 				return v.trim();
 			}) as [RegExp, string];
-		})
+		}),
+	skipSpecValidations: z.boolean({ coerce: true }).optional()
 });
 
 /**
@@ -46,6 +47,12 @@ export function setupCommand() {
 			new Option(
 				"--replace-endpoint-regex <regex>, <string>",
 				"replaces regex <regex> with replace value <string>, runs before remove-endpoint-prefix command, ie --replace-endpoint-regex /api/,/account-report-service/"
+			)
+		)
+		.addOption(
+			new Option(
+				"--skip-spec-validations <string>",
+				"see https://openapi-generator.tech/docs/configuration/ and search for skip-validate-spec"
 			)
 		)
 		.addHelpText(
