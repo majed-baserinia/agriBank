@@ -86,6 +86,9 @@ export async function writeOpenApiSpec(config: Config) {
 		path = outFilePath;
 
 		console.log("successfully wrote openapi spec to", outFilePath);
+	} catch (e) {
+		console.error(e);
+		throw e;
 	} finally {
 		return {
 			outputFilePath: path,
