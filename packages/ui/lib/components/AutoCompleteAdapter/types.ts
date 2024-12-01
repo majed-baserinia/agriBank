@@ -19,7 +19,7 @@ export type Props<T extends Record<any, any>> = {
 	valueToShowToInput: (option: T) => { icon?: ReactNode; text: string };
 	icon?: ReactNode;
 	defaultValue?: string | T;
-	type?: 'card';
+	type?: "card";
 };
 
 export type RenderInputProps = {
@@ -30,4 +30,5 @@ export type RenderInputProps = {
 	isRequired?: boolean;
 	label: string;
 	loading?: boolean;
+	icon: ReactNode;
 };

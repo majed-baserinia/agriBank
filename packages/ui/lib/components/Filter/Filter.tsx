@@ -12,7 +12,7 @@ import type { Props } from "./types";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
-	const { data, filters, getFilteredData } = props;
+	const { data, filters, getFilteredData, renderValue } = props;
 
 	const [open, setOpen] = useState(false);
 	const [inputValue, setInputValue] = useState<string[]>([]);
@@ -154,7 +154,7 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 									onChange={(value) => {
 										handleSelectChange(filter.label, value);
 									}}
-									renderValue
+									renderValue={renderValue}
 								>
 									{filter.list.map((item) => {
 										return (

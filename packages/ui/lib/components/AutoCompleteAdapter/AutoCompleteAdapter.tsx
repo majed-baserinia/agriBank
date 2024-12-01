@@ -4,9 +4,9 @@ import type { SyntheticEvent } from "react";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { Autocomplete, Button, Grid, Popper, useMediaQuery, useTheme } from "@mui/material";
+import { formatToCardDynamically } from "lib/utils/formatters/formatInput";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { formatToCardDynamically } from "lib/utils/formatters/formatInput"
 
 import type { Props } from "./types";
 
@@ -53,7 +53,6 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		}
 	}, [defaultValue]);
 
-	
 	useEffect(() => {
 		//logic for "go back" button on browser to prevent
 		if (matches) {
@@ -115,7 +114,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 
 	// read the docs in mui
 	const getOptionLabel = (option: string | T) => {
-		if (type === 'card' && typeof option === 'string') {
+		if (type === "card" && typeof option === "string") {
 			return formatToCardDynamically(option);
 		}
 
@@ -148,7 +147,6 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 			]}
 		>
 			<Autocomplete
-			
 				disablePortal
 				freeSolo
 				getOptionLabel={getOptionLabel}
@@ -175,7 +173,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				popupIcon={<KeyboardArrowDownIcon />}
 				renderInput={(params) => (
 					<RenderInput
-						aditionalProps={{
+						additionalProps={{
 							inputRef: inputRef,
 							label: label,
 							error: error,

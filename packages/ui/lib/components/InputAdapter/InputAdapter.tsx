@@ -126,7 +126,7 @@ export function InputAdapter(props: InputAdapterProps) {
 				inputProps: {
 					inputMode: isInputTypeNumeric(type) ? "numeric" : undefined,
 					className: `${isInputTypeNumeric(type) && theme.direction === "rtl" ? "text-right" : ""}`,
-					...(isInputTypeNumeric(type) && theme.direction === "rtl" ? { dir: "ltr" } : {})
+					...(isInputTypeNumeric(type) && theme.direction === "rtl" ? { dir: "ltr" } : {}),
 					maxLength: maxLength
 				},
 				sx: {
