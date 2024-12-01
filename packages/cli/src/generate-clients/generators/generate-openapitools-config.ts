@@ -1,10 +1,7 @@
 import { spawn } from "child_process";
-import type { optionsSchema } from "$/generate-clients/cli";
-import type { z } from "zod";
+import type { ConfigWithModifiedSpec } from "$/generate-clients/generators/types";
 
-export async function generateAxiosClients(
-	config: z.infer<typeof optionsSchema> & { specPath: string }
-) {
+export async function generateAxiosClients(config: ConfigWithModifiedSpec) {
 	return new Promise((resolve) => {
 		const cmd = spawn(
 			"pnpm",
@@ -18,7 +15,7 @@ export async function generateAxiosClients(
 				"typescript-axios",
 				...[config.skipSpecValidations ? "--skip-validate-spec" : ""],
 				"--input-spec",
-				config.specPath,
+				config.modifiedSpecPath,
 				"--additional-properties",
 				`supportsES6=true,axiosVersion=${config.axiosVersion},ensureUniqueParams=true,legacyDiscriminatorBehavior=false,modelPackage=models,apiPackage=apis,withSeparateModelsAndApi=true`
 			],

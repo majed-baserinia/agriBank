@@ -21,15 +21,13 @@ export async function generate(config: z.infer<typeof optionsSchema>) {
 	await using specPath = await writeOpenApiSpec({
 		output: "spec.json",
 		tempDir: join(config.out, ".tmp"),
-		url: config.url,
-		removeEndpointPrefix: config.removeEndpointPrefix,
-		replaceEndpointRegex: config.replaceEndpointRegex
+		...config
 	});
 
 	if (!specPath.outputFilePath) {
 		throw new Error("failed to write spec file (or transform it)");
 	}
 
-	await generateAxiosClients({ ...config, specPath: specPath.outputFilePath });
-	await generateZodSchemas({ ...config, specPath: specPath.outputFilePath });
+	await generateAxiosClients({ ...config, modifiedSpecPath: specPath.outputFilePath });
+	await generateZodSchemas({ ...config, modifiedSpecPath: specPath.outputFilePath });
 }

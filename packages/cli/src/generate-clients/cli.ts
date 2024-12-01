@@ -2,10 +2,18 @@ import { program, Option, Command } from "commander";
 import { z } from "zod";
 import { generate } from "./generate";
 
+export const customOperationCommands = ["tag", "last-segment", "method"] as const;
+export const customOperationFormatters = ["camelcase", "snakecase", "pascalcase"] as const;
+
 export const optionsSchema = z.object({
 	url: z.string(),
 	out: z.string(),
 	axiosVersion: z.string(),
+	/**
+	 * if api ends points start with `removeEndpointPrefix` it will replace the path with an empty string
+	 * @example
+	 * /api/something/something-else -> /something/something-else
+	 */
 	removeEndpointPrefix: z.string().optional(),
 	replaceEndpointRegex: z
 		.string()
@@ -21,7 +29,38 @@ export const optionsSchema = z.object({
 				return v.trim();
 			}) as [RegExp, string];
 		}),
-	skipSpecValidations: z.boolean({ coerce: true }).optional()
+	skipSpecValidations: z.boolean({ coerce: true }).optional(),
+	customizeOperationId: z
+		.string()
+		.optional()
+		.refine(
+			(v) =>
+				v === undefined ||
+				v.split("_").every((cmd) => {
+					const sp = cmd.split(":");
+					if (!customOperationCommands.some((cmd) => cmd == sp[0])) {
+						return false;
+					}
+					if (sp[1] && !customOperationFormatters.some((cmd) => cmd == sp[1])) {
+						return false;
+					}
+
+					return true;
+				}),
+			{
+				message: `invalid format, correct format is any combinations of commands=${customOperationCommands} joined with '_' and formatters=${JSON.stringify(customOperationFormatters)} appended with ':'`
+			}
+		)
+		.transform((v) => {
+			type Commands = (typeof customOperationCommands)[number];
+			type Formatters = (typeof customOperationFormatters)[number];
+
+			return v?.split("_").map((v) => v.split(":")) as (
+				| [`${Commands}`, `${Formatters}`]
+				| [`${Commands}`]
+			)[];
+		}),
+	overwriteExistingOperationIds: z.boolean({ coerce: true }).optional()
 });
 
 /**
@@ -51,8 +90,22 @@ export function setupCommand() {
 		)
 		.addOption(
 			new Option(
-				"--skip-spec-validations <string>",
+				"--skip-spec-validations <boolean>",
 				"see https://openapi-generator.tech/docs/configuration/ and search for skip-validate-spec"
+			)
+		)
+		.addOption(
+			new Option(
+				"--customize-operation-id <boolean>",
+				`modify operationId of spec, with any combinations of ${JSON.stringify(customOperationFormatters)}. For POST /api/Account/inquiry-account-balance/{account} we can do m_ls_m:camelcase which will generate postInquiryAccountBalancePost. Current available formatters are ${JSON.stringify(customOperationFormatters)}.
+				note that, methods with existing operationIds are ignored, if you want to modify them use it in combination with '--overwrite-existing-operation-ids'
+				`
+			)
+		)
+		.addOption(
+			new Option(
+				"--overwrite-existing-operation-ids",
+				"if needed, used in combination with '--customize-operation-id'."
 			)
 		)
 		.addHelpText(

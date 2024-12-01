@@ -2,14 +2,13 @@ import { writeFile, mkdir } from "fs/promises";
 import { join } from "path";
 import { mapOpenApiEndpoints, generateFile } from "typed-openapi";
 import SwaggerParser from "@apidevtools/swagger-parser";
-import type { z } from "zod";
-import type { optionsSchema } from "$/generate-clients/cli";
 import type { OpenAPIObject } from "openapi3-ts/oas31";
+import type { ConfigWithModifiedSpec } from "$/generate-clients/generators/types";
 
-async function runTypedOpenApi(config: z.infer<typeof optionsSchema> & { specPath: string }) {
+async function runTypedOpenApi(config: ConfigWithModifiedSpec) {
 	const now = new Date();
 
-	const openApiDoc = (await SwaggerParser.bundle(config.specPath)) as OpenAPIObject;
+	const openApiDoc = (await SwaggerParser.bundle(config.modifiedSpecPath)) as OpenAPIObject;
 
 	const ctx = mapOpenApiEndpoints(openApiDoc);
 	console.log(`Found ${ctx.endpointList.length} endpoints`);
@@ -20,9 +19,7 @@ async function runTypedOpenApi(config: z.infer<typeof optionsSchema> & { specPat
 	return content;
 }
 
-export async function generateZodSchemas(
-	config: z.infer<typeof optionsSchema> & { specPath: string }
-) {
+export async function generateZodSchemas(config: ConfigWithModifiedSpec) {
 	const contents = await runTypedOpenApi(config);
 
 	const groups = Array.from(

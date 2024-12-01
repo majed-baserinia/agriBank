@@ -1,57 +1,60 @@
-import { mkdir, rm, rmdir, writeFile } from "fs/promises";
+import type { customOperationFormatters, optionsSchema } from "$/generate-clients/cli";
+import { mkdir, rm, writeFile } from "fs/promises";
 import { join } from "path";
+import type { z } from "zod";
+import SwaggerParser from "@apidevtools/swagger-parser";
+import type {
+	OpenAPIObject,
+	OperationObject,
+	PathItemObject,
+	PathsObject
+} from "openapi3-ts/oas31";
 
 type Config = {
-	url: string;
-	/**
-	 * if api ends points start with `removeEndpointPrefix` it will replace the path with an empty string
-	 * @example
-	 * with removeEndpointPrefix = /api
-	 * /api/something/something-else -> /something/something-else
-	 */
 	output: string;
 	tempDir: string;
-	removeEndpointPrefix?: string;
-	replaceEndpointRegex?: [RegExp, string];
-};
-
-type Spec = { [key: string]: Spec };
+} & z.infer<typeof optionsSchema>;
 
 function loopOverPaths(
-	spec: Spec,
-	callback: (paths: Spec, kvp: { key: string; value: Spec }) => void
+	spec: OpenAPIObject,
+	callback: (paths: PathsObject, kvp: { path: string; value: PathItemObject }) => void
 ) {
 	const paths = spec["paths"];
-	Object.entries(paths).forEach(([key, value]) => {
-		callback(paths, { key, value });
+
+	if (!paths) {
+		return;
+	}
+
+	Object.entries(paths).forEach(([path, value]) => {
+		callback(paths, { path, value });
 	});
 }
 
-function removePrefixes(spec: Spec, prefixToReplace: string) {
+function removePrefixes(spec: OpenAPIObject, prefixToReplace: string) {
 	console.log("removing prefix from api endpoints", prefixToReplace);
-	loopOverPaths(spec, (paths, { key, value }) => {
-		if (!key.startsWith(prefixToReplace)) {
+	loopOverPaths(spec, (paths, { path, value }) => {
+		if (!path.startsWith(prefixToReplace)) {
 			return;
 		}
-		delete paths[key];
-		paths[key.replace(prefixToReplace, "")] = value;
+		delete paths[path];
+		paths[path.replace(prefixToReplace, "")] = value;
 	});
 	return spec;
 }
 
-function replacePrefixes(spec: Spec, regex: RegExp, replacer: string) {
+function replacePrefixes(spec: OpenAPIObject, regex: RegExp, replacer: string) {
 	console.log("replacing prefix from api endpoints", `from ${regex} to ${replacer}`);
-	loopOverPaths(spec, (paths, { key, value }) => {
-		if (!regex.test(key)) {
+	loopOverPaths(spec, (paths, { path, value }) => {
+		if (!regex.test(path)) {
 			return;
 		}
-		delete paths[key];
-		paths[key.replace(regex, replacer)] = value;
+		delete paths[path];
+		paths[path.replace(regex, replacer)] = value;
 	});
 	return spec;
 }
 
-function modifySpec(spec: Spec, config: Config) {
+function modifySpec(spec: OpenAPIObject, config: Config) {
 	const replaced = config.replaceEndpointRegex
 		? replacePrefixes(spec, config.replaceEndpointRegex[0], config.replaceEndpointRegex[1])
 		: spec;
@@ -61,6 +64,74 @@ function modifySpec(spec: Spec, config: Config) {
 		: replaced;
 }
 
+function writeCustomOperationIds(spec: OpenAPIObject, config: Config) {
+	if (!config.customizeOperationId) {
+		return;
+	}
+
+	console.log("adding operation ids");
+
+	const format = (str: string, format: (typeof customOperationFormatters)[number] | undefined) => {
+		if (!format) {
+			return str;
+		}
+
+		return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function (match, index) {
+			if (+match === 0) return ""; // or if (/\s+/.test(match)) for white spaces
+
+			if (format === "camelcase") {
+				return index === 0 ? match.toLowerCase() : match.toUpperCase();
+			}
+
+			if (format === "snakecase") {
+				return index === 0 ? match.toLowerCase() : "-" + match.toLowerCase();
+			}
+
+			if (format === "pascalcase") {
+				return match.toUpperCase();
+			}
+
+			throw new Error(`unhandled format: ${format}`);
+		});
+	};
+
+	const httpMethods = ["put", "post", "get", "patch", "options", "delete"];
+	loopOverPaths(spec, (_, { path, value }) => {
+		Object.entries(value).forEach(([method, item]) => {
+			if (!httpMethods.includes(method)) {
+				return;
+			}
+			const casted = item as OperationObject;
+
+			if (casted.operationId && !config.overwriteExistingOperationIds) {
+				return;
+			}
+
+			const tag = casted.tags?.at(0) ?? "";
+			const lastNoneParamSegment = path
+				.split("/")
+				.findLast((segment) => !segment.includes("{") && !segment.includes("}"));
+
+			const newOperationId = config.customizeOperationId.reduce((prev, [command, formatter]) => {
+				if (command === "tag") {
+					prev += format(tag, formatter);
+				}
+				if (command == "last-segment") {
+					prev += format(lastNoneParamSegment ?? "ERROR_NO_KNOWN_LAST_SEGMENT", formatter);
+				}
+
+				if (command === "method") {
+					prev += format(method, formatter);
+				}
+
+				return prev;
+			}, "");
+
+			casted.operationId = newOperationId;
+		});
+	});
+}
+
 /**
  * @param config
  * @returns path to the file created
@@ -68,8 +139,9 @@ function modifySpec(spec: Spec, config: Config) {
 export async function writeOpenApiSpec(config: Config) {
 	let path: string | undefined = undefined;
 	try {
-		const spec = (await (await fetch(config.url)).json()) as Spec;
+		const spec = (await SwaggerParser.bundle(config.url)) as OpenAPIObject;
 		const modified = modifySpec(spec, config);
+		writeCustomOperationIds(modified, config);
 
 		await mkdir(config.tempDir, {
 			recursive: true
