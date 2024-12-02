@@ -13,6 +13,7 @@ function Index() {
 	return (
 		<>
 			<ButtonAdapter
+				variant="contained"
 				onClick={() => {
 					pushAlert({
 						messageText: t("hi"),

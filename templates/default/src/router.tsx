@@ -3,9 +3,11 @@ import { createRouter } from "@tanstack/react-router";
 
 import { routeTree } from "./routeTree.gen";
 
+export const queryClient = new QueryClient();
+
 export const router = createRouter({
 	context: {
-		queryClient: new QueryClient()
+		queryClient
 	},
 	defaultPreload: "intent",
 	basepath: import.meta.env.BASE_URL,
