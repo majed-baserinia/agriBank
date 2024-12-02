@@ -1,4 +1,5 @@
 import { spawn } from "child_process";
+import { resolve as resolvePath } from "path";
 import type { ConfigWithModifiedSpec } from "$/generate-clients/generators/types";
 
 export async function generateAxiosClients(config: ConfigWithModifiedSpec) {
@@ -13,6 +14,7 @@ export async function generateAxiosClients(config: ConfigWithModifiedSpec) {
 				config.out,
 				"--generator-name",
 				"typescript-axios",
+				`-t ${resolvePath(import.meta.dirname, "templates")}`,
 				...[config.skipSpecValidations ? "--skip-validate-spec" : ""],
 				"--input-spec",
 				config.modifiedSpecPath,
