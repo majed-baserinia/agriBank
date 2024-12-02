@@ -48,6 +48,7 @@ export default defineConfig({
 			entry: {
 				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),
 				tailwindConfig: resolve(import.meta.dirname, "tailwind.base.config.js"),
+				"expanded-theme": resolve(import.meta.dirname, "lib/components/expanded-theme.ts"),
 				...componentEntries,
 				...storeEntries
 			},
@@ -74,6 +75,7 @@ export default defineConfig({
 				/@htsc\/*/,
 				"@glidejs/glide",
 				/@mui\/*/,
+				/@material-ui\/*/,
 				/@emotion\/*/,
 				"stylis",
 				"stylis-plugin-rtl",

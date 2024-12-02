@@ -59,3 +59,5 @@ declare module "@mui/material/Typography" {
 		h1Sm: true;
 	}
 }
+
+export {};

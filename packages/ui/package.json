@@ -13,6 +13,10 @@
 			"import": "./dist/components/*/index.js",
 			"types": "./dist/components/*/index.d.ts"
 		},
+		"./expanded-theme": {
+			"import": "./dist/expanded-theme.js",
+			"types": "./dist/components/expanded-theme.d.ts"
+		},
 		"./stores/*": {
 			"import": "./dist/stores/*/index.js",
 			"types": "./dist/stores/*/index.d.ts"
