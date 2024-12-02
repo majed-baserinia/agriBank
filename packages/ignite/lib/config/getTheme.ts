@@ -2,12 +2,15 @@ import { type ThemeOptions } from "@mui/material";
 
 export async function getTheme(themeUrl: string, themeName: string) {
 	try {
-		let theme: ThemeOptions;
+		let theme: ThemeOptions = {};
+
 		if (import.meta.dynamic.env.DEV) {
 			// @ts-expect-error - this is json import so it has type errors, cuz there are not type decls for that
-			theme = (await import("@htsc/ui/assets/themes/default.json", {
-				with: { type: "json" }
-			})) as ThemeOptions;
+			theme = (
+				await import("@htsc/ui/assets/themes/default.json", {
+					with: { type: "json" }
+				})
+			).default as ThemeOptions;
 		} else {
 			theme = (await (await fetch("/default-theme.json")).json()) as ThemeOptions;
 		}
@@ -18,7 +21,8 @@ export async function getTheme(themeUrl: string, themeName: string) {
 		theme.palette = customPalette.palette;
 
 		return theme;
-	} catch (_) {
+	} catch (error) {
+		console.error("error while fetching theme", error);
 		return {};
 	}
 }

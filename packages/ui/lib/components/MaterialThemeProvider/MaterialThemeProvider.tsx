@@ -220,20 +220,20 @@ export const MaterialThemeProvider = ({ theme, children }: Props) => {
 					MuiAutocomplete: {
 						styleOverrides: {
 							root: {
-								'& .MuiInputBase-root': {
-									height: '48px'
+								"& .MuiInputBase-root": {
+									height: "48px"
 								},
 								variants: [
 									{
-										props: { size: 'small' },
+										props: { size: "small" },
 										style: {
-											height: '40px'
+											height: "40px"
 										}
 									},
 									{
-										props: { size: 'medium' },
+										props: { size: "medium" },
 										style: {
-											height: '48px'
+											height: "48px"
 										}
 									}
 								]
