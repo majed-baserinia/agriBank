@@ -47,6 +47,7 @@ function App() {
 		}
 	});
 	const theme = useInitialSettingStore((state) => state.settings.theme);
+	// useInitClients(); uncomment this and whats in services/clients in case of using `@htsc/cli generate-clients`
 
 	return (
 		<QueryClientProvider client={queryClient}>

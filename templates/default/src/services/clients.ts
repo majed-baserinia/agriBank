@@ -1,26 +1,20 @@
+// you can uncomment these in case of using @htsc/cli generate-clients command
+
 // import { axios, useApiConfig } from "@htsc/ignite";
-// import { type AxiosInstance } from "axios";
 
-// import { AccountApi, Configuration } from "./.generated";
-// import type { BaseAPI } from "./.generated/base";
+// import { Configuration } from "$/services/.generated/configuration";
+// import { useEffect } from "react";
+// import { updateGlobalConfiguration } from "./.generated/base";
 
-// /**
-//  * you custom configurations
-//  */
-// type ConfigurationOptions = {};
+// export function useInitClients() {
+// 	const baseUrl = useApiConfig((s) => s.baseUrl);
 
-// export const generateClient = <T extends typeof BaseAPI>(
-// 	ApiClass: T,
-// 	axiosInstance?: AxiosInstance,
-// 	config?: ConfigurationOptions
-// ) => {
-// 	return () => {
-// 		return new ApiClass(
-// 			new Configuration({ basePath: useApiConfig.getState().baseUrl, ...config }),
-// 			undefined,
-// 			axiosInstance
-// 		) as InstanceType<T>;
-// 	};
-// };
-
-// export const AccountsClient = generateClient(AccountApi, axios.api);
+// 	useEffect(() => {
+// 		updateGlobalConfiguration(
+// 			new Configuration({
+// 				axiosInstance: axios.api,
+// 				basePath: baseUrl
+// 			})
+// 		);
+// 	}, [baseUrl]);
+// }

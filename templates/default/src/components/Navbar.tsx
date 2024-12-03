@@ -6,7 +6,9 @@ export function Navbar() {
 		<Grid2
 			container
 			flexDirection={"row"}
-			gap={2}
+			gap={20}
+			padding={5}
+			marginBottom={10}
 		>
 			<Link
 				component={"span"}
@@ -19,7 +21,7 @@ export function Navbar() {
 				component={"span"}
 				variant="h6"
 			>
-				<RouterLink to="/info">service call</RouterLink>
+				<RouterLink to="/service-call">service call</RouterLink>
 			</Link>
 		</Grid2>
 	);
