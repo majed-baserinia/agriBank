@@ -6,6 +6,13 @@ export default tseslint.config(
 	nodePlugin.configs["flat/recommended"],
 	nodePlugin.configs["flat/recommended-module"],
 	{
+		settings: {
+			node: {
+				convertPath: {
+					"src/**/*.ts": ["^src/(.+?)\\.ts$", "dist/$1.js"]
+				}
+			}
+		},
 		rules: {
 			"n/no-missing-import": [
 				"warn",
@@ -28,5 +35,5 @@ export default tseslint.config(
 			]
 		}
 	},
-	{ ignores: [".generated/", "dist/"] }
+	{ ignores: ["**/.generated/", "dist/"] }
 );
