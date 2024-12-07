@@ -19,6 +19,9 @@ export function setupCommand() {
 				"you application name which will also be used in the url"
 			).makeOptionMandatory()
 		)
+		.addOption(
+			new Option("--template <string>", "which template to use").default("tanstack-router")
+		)
 		.addOption(new Option("--out <string>", "output directory").default("./"))
 		.action((options) => {
 			call(options);
