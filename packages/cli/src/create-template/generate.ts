@@ -26,7 +26,7 @@ export function generate(options: z.infer<typeof optionsSchema>) {
 		branch: "main",
 		outDir: options.out,
 		repoUrl: "https://github.com/FoHoOV/htsc.git",
-		sparsePath: "templates/default",
+		sparsePath: `templates/${options.template}`,
 		tempDir: "./htsc-tmp"
 	});
 	// createEnvFile(options);

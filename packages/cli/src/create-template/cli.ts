@@ -4,6 +4,7 @@ import { generate } from "./generate";
 
 export const optionsSchema = z.object({
 	out: z.string(),
+	template: z.literal("tanstack-router").default("tanstack-router"),
 	appName: z.string()
 });
 
