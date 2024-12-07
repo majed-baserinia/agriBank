@@ -8,6 +8,11 @@
 		"url": "git+https://github.com/FoHoOV/htsc",
 		"directory": "packages/ui"
 	},
+	"files": [
+		"dist/",
+		"package.json",
+		"README.md"
+	],
 	"exports": {
 		"./components/*": {
 			"import": "./dist/components/*/index.js",

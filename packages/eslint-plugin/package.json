@@ -17,7 +17,10 @@
 		}
 	},
 	"files": [
-		"./index.mjs"
+		"index.mjs",
+		"dist/",
+		"README.md",
+		"package.json"
 	],
 	"scripts": {
 		"build": "tsc",

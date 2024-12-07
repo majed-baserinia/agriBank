@@ -10,6 +10,11 @@
 		"url": "git+https://github.com/FoHoOV/htsc",
 		"directory": "packages/vite-plugin"
 	},
+	"files": [
+		"dist/",
+		"package.json",
+		"README.md"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/vite-htsc-plugin.js",

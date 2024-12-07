@@ -10,6 +10,11 @@
 		"url": "git+https://github.com/FoHoOV/htsc",
 		"directory": "packages/ignite"
 	},
+	"files": [
+		"dist/",
+		"package.json",
+		"README.md"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/ignite.js",
