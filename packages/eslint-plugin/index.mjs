@@ -13,7 +13,7 @@ import packageJson from "eslint-plugin-package-json/configs/recommended";
 import * as regexp from "eslint-plugin-regexp";
 
 /**
- * @type {{name: string, version: string} & Record<string, any>}
+ * @type {Record<string, any>}
  */
 const pkg = JSON.parse(fs.readFileSync(new URL("./package.json", import.meta.url), "utf8"));
 
