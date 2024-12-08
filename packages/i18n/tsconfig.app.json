@@ -1,0 +1,15 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"moduleResolution": "Bundler",
+		"baseUrl": ".",
+
+		"allowJs": true,
+		"checkJs": true,
+
+		"paths": {
+			"$lib/*": ["./lib/*"]
+		}
+	},
+	"include": ["./lib", "./index.ts"]
+}

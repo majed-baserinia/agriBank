@@ -1,18 +1,9 @@
 {
-	"extends": "../../tsconfig.base.json",
+	"files": [],
 	"compilerOptions": {
-		"lib": ["DOM", "DOM.Iterable", "ESNext"],
-		"allowJs": true,
-
-		"moduleResolution": "Bundler",
-		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
-
-		"noEmit": true,
-		"jsx": "react-jsx",
-		"paths": {
-			"$lib/*": ["./lib/*"]
-		}
+		"strict": true,
+		"baseUrl": "."
 	},
-	"include": ["./lib", "./index.ts"],
+	"references": [{ "path": "./tsconfig.app.json" }, { "path": "./tsconfig.node.json" }],
 	"exclude": ["node_modules", "dist"]
 }

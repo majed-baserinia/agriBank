@@ -6,8 +6,11 @@
 		"moduleResolution": "Bundler",
 		"baseUrl": "." /* Base directory to resolve non-absolute module names. */,
 
-		"noEmit": true
+		"noEmit": true,
+		"jsx": "react-jsx",
+		"paths": {
+			"$lib/*": ["./lib/*"]
+		}
 	},
-	"include": ["./index.ts", "./htsc-plugin.ts"],
-	"exclude": ["node_modules", "dist"]
+	"include": ["./lib", "./index.ts"]
 }

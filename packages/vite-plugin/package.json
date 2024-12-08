@@ -23,7 +23,8 @@
 	},
 	"scripts": {
 		"build": "tsc && vite build",
-		"lint": "prettier && eslint ."
+		"lint": "eslint .",
+		"format": "prettier --write ."
 	},
 	"devDependencies": {
 		"@types/node": "^22.8.4",

@@ -1,0 +1,16 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"target": "ES2022",
+		"lib": ["ESNext"],
+		"module": "ESNext",
+		"noEmit": true,
+
+		"allowJs": true,
+		"checkJs": true,
+
+		"moduleResolution": "Bundler",
+		"baseUrl": "."
+	},
+	"include": ["./vite.config.ts", "./eslint.config.mjs", "./prettier.config.mjs"]
+}

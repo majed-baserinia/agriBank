@@ -4,7 +4,6 @@
 		"target": "ES2022",
 		"lib": ["ESNext"],
 		"module": "ESNext",
-		"skipLibCheck": true,
 
 		/* Bundler mode */
 		"moduleResolution": "Bundler",
