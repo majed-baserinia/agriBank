@@ -106,5 +106,8 @@
 	},
 	"sideEffects": [
 		"**/*.css"
-	]
+	],
+	"publishConfig": {
+		"access": "public"
+	}
 }
