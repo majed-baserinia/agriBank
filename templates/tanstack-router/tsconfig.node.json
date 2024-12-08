@@ -27,5 +27,6 @@
 		"./tailwind.config.js",
 		"./eslint.config.mjs",
 		"./prettier.config.mjs"
-	]
+	],
+	"exclude": ["node_modules", "dist"]
 }
