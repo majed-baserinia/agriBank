@@ -9,4 +9,4 @@
 "@agribank/ui": patch
 ---
 
-renamed all occurrences of htsc to agribank
+chore: renamed all occurrences of htsc to agribank
