@@ -11,11 +11,12 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 import packageJson from "eslint-plugin-package-json/configs/recommended";
 import * as regexp from "eslint-plugin-regexp";
+import path from "path";
 
 /**
  * @type {Record<string, any>}
  */
-const pkg = JSON.parse(fs.readFileSync(new URL("./package.json", import.meta.url), "utf8"));
+const pkg = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), "package.json"), "utf8"));
 
 const plugin = {
 	meta: {
@@ -65,7 +66,7 @@ const plugin = {
 				languageOptions: {
 					globals: globals.browser,
 					parserOptions: {
-						tsconfigRootDir: import.meta.dirname,
+						tsconfigRootDir: process.cwd(),
 						projectService: true
 					}
 				}
