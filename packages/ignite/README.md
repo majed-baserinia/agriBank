@@ -14,7 +14,7 @@ all of these happen by calling the `useInit` hook which returns the `ready` bool
 # Examples:
 
 ```ts
-import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@htsc/ignite";
+import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
 function App() {
 	const isReady = useInit({
 		onInitializationFailed: (message) => {

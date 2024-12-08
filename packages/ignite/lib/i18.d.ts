@@ -1,4 +1,4 @@
-import type { BaseLanguageOptions } from "@htsc/i18n";
+import type { BaseLanguageOptions } from "@agribank/i18n";
 import "i18next";
 
 declare module "i18next" {

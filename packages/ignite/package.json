@@ -1,5 +1,5 @@
 {
-	"name": "@htsc/ignite",
+	"name": "@agribank/ignite",
 	"version": "0.0.1",
 	"type": "module",
 	"description": "includes all communication protocols with super app",
@@ -30,11 +30,11 @@
 		"zod": "^3.23.8"
 	},
 	"devDependencies": {
-		"@htsc/eslint-plugin": "0.0.1",
-		"@htsc/i18n": "0.0.1",
-		"@htsc/post-message": "0.0.1",
-		"@htsc/prettier-config": "0.0.1",
-		"@htsc/ui": "0.0.1",
+		"@agribank/eslint-plugin": "0.0.1",
+		"@agribank/i18n": "0.0.1",
+		"@agribank/post-message": "0.0.1",
+		"@agribank/prettier-config": "0.0.1",
+		"@agribank/ui": "0.0.1",
 		"@mui/material": "^6.1.8",
 		"@tanstack/react-router": "^1.81.14",
 		"@types/node": "^22.8.4",
@@ -54,9 +54,9 @@
 		"zustand": "^4.3.8"
 	},
 	"peerDependencies": {
-		"@htsc/i18n": "0.0.1",
-		"@htsc/post-message": "0.0.1",
-		"@htsc/ui": "0.0.1",
+		"@agribank/i18n": "0.0.1",
+		"@agribank/post-message": "0.0.1",
+		"@agribank/ui": "0.0.1",
 		"@tanstack/react-router": "^1.81.14",
 		"axios": "^1.7.7",
 		"axios-retry": "^4.5.0",

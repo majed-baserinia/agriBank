@@ -1,1 +1,1 @@
-import "@htsc/i18n/types";
+import "@agribank/i18n/types";

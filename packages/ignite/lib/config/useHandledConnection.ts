@@ -1,7 +1,7 @@
 import { useSearchParamsConfigs } from "$lib/config/useSearchParamsConfigs";
 import { environment } from "$lib/env";
 import { type InitialSetting } from "$lib/stores";
-import { closeApp, useConnection, type ConnectionProps } from "@htsc/post-message";
+import { closeApp, useConnection, type ConnectionProps } from "@agribank/post-message";
 import { useMatch, useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 

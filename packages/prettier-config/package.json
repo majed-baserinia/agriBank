@@ -1,5 +1,5 @@
 {
-	"name": "@htsc/prettier-config",
+	"name": "@agribank/prettier-config",
 	"version": "0.0.1",
 	"type": "module",
 	"description": "set of prettier rules applied to htsc apps",

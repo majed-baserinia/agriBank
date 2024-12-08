@@ -1,1 +1,1 @@
-import "@htsc/ui/expanded-theme";
+import "@agribank/ui/expanded-theme";

@@ -27,7 +27,7 @@ export default defineConfig({
 				"axios-retry",
 				"i18next",
 				"react-i18next",
-				/@htsc\/*/,
+				/@agribank\/*/,
 				"zod"
 			]
 		}

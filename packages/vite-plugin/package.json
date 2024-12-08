@@ -1,5 +1,5 @@
 {
-	"name": "@htsc/vite-plugin",
+	"name": "@agribank/vite-plugin",
 	"version": "0.0.1",
 	"type": "module",
 	"description": "htsc vite plugin",
@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@types/node": "^22.8.4",
-		"@htsc/prettier-config": "0.0.1",
+		"@agribank/prettier-config": "0.0.1",
 		"eslint": "^9.12.0",
 		"eslint-plugin-eslint-plugin": "^6.3.1",
 		"eslint-plugin-n": "^17.11.1",

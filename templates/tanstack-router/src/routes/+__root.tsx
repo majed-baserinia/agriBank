@@ -1,9 +1,9 @@
-import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@htsc/ignite";
-import { Alerts } from "@htsc/ui/components/Alerts";
-import { Loader } from "@htsc/ui/components/Loader";
-import { MaterialThemeProvider } from "@htsc/ui/components/MaterialThemeProvider";
-import { RootStyles } from "@htsc/ui/components/RootStyles";
-import { pushAlert } from "@htsc/ui/stores/alerts";
+import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
+import { Alerts } from "@agribank/ui/components/Alerts";
+import { Loader } from "@agribank/ui/components/Loader";
+import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
+import { RootStyles } from "@agribank/ui/components/RootStyles";
+import { pushAlert } from "@agribank/ui/stores/alerts";
 import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
@@ -47,7 +47,7 @@ function App() {
 		}
 	});
 	const theme = useInitialSettingStore((state) => state.settings.theme);
-	// useInitClients(); uncomment this and whats in services/clients in case of using `@htsc/cli generate-clients`
+	// useInitClients(); uncomment this and whats in services/clients in case of using `@agribank/cli generate-clients`
 
 	return (
 		<QueryClientProvider client={queryClient}>

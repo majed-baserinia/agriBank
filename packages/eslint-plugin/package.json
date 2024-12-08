@@ -1,5 +1,5 @@
 {
-	"name": "@htsc/eslint-plugin",
+	"name": "@agribank/eslint-plugin",
 	"version": "0.0.1",
 	"type": "module",
 	"description": "set of eslint rules applied to htsc apps",

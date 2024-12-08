@@ -1,7 +1,7 @@
 import { clearAuth, getAuthTokens, saveAuthTokens } from "$lib/auth";
 import { axiosForLogin } from "$lib/axios/login-instance";
 import { useApiConfig, useInitialSettingStore } from "$lib/stores";
-import { sendPostMessage } from "@htsc/post-message";
+import { sendPostMessage } from "@agribank/post-message";
 import axios, { type AxiosError, type AxiosResponse } from "axios";
 import axiosRetry from "axios-retry";
 import i18n from "i18next";

@@ -1,4 +1,4 @@
-import htscPrettierConfig from "@htsc/prettier-config";
+import htscPrettierConfig from "@agribank/prettier-config";
 
 /**
  * @type {import("prettier").Config}

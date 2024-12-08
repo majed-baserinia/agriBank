@@ -7,7 +7,7 @@ export async function getTheme(themeUrl: string, themeName: string) {
 		if (import.meta.dynamic.env.DEV) {
 			// @ts-expect-error - this is json import so it has type errors, cuz there are not type decls for that
 			theme = (
-				await import("@htsc/ui/assets/themes/default.json", {
+				await import("@agribank/ui/assets/themes/default.json", {
 					with: { type: "json" }
 				})
 			).default as ThemeOptions;

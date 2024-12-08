@@ -1,4 +1,4 @@
-import { htscPlugin } from "@htsc/vite-plugin";
+import { htscPlugin } from "@agribank/vite-plugin";
 import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";

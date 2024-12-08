@@ -7,12 +7,12 @@ This a command line application that facilitates creating htsc apps, to see all 
 # Example usage
 
 ```bash
-pnpm i @htsc/cli
+pnpm i @agribank/cli
 pnpm exec htsc --help
 ```
 
 or
 
 ```bash
-pnpm dlx @htsc/cli --help
+pnpm dlx @agribank/cli --help
 ```

@@ -7,7 +7,7 @@ htsc apps use `react-i18next` for i18, and this package includes the base langua
 For a type-safe experience with `i18next` and our base language packs add this your d.ts file
 
 ```ts
-import "@htsc/i18n/types";
+import "@agribank/i18n/types";
 
 import type YOUR_LANG_PACK from "./locals/[lang]/translation.json";
 

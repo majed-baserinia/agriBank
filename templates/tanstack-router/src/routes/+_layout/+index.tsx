@@ -1,5 +1,5 @@
-import { ButtonAdapter } from "@htsc/ui/components/ButtonAdapter";
-import { pushAlert } from "@htsc/ui/stores/alerts";
+import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
+import { pushAlert } from "@agribank/ui/stores/alerts";
 import { createFileRoute } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 

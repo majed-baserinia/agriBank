@@ -9,7 +9,7 @@ import {
 	useSearchParamsConfigs
 } from "$lib/config/useSearchParamsConfigs";
 import { useApiConfig, useInitialSettingStore } from "$lib/stores";
-import { initLanguagePacks } from "@htsc/i18n";
+import { initLanguagePacks } from "@agribank/i18n";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 

@@ -1,7 +1,7 @@
 {
 	"name": "htsc-monorepo",
 	"version": "0.0.1",
-	"description": "monorepo for @htsc",
+	"description": "monorepo for @agribank",
 	"private": true,
 	"type": "module",
 	"author": "@FoHoOV",

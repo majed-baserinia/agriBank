@@ -1,4 +1,4 @@
-import "@htsc/i18n/types";
+import "@agribank/i18n/types";
 
 import type FA_TRANSLATION from "./locals/fa/translation.json";
 

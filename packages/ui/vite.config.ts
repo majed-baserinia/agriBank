@@ -72,7 +72,7 @@ export default defineConfig({
 				"zustand",
 				"i18next",
 				"react-i18next",
-				/@htsc\/*/,
+				/@agribank\/*/,
 				"@glidejs/glide",
 				/@mui\/*/,
 				/@material-ui\/*/,
