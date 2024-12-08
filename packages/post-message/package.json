@@ -7,7 +7,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FoHoOV/htsc",
+		"url": "git+https://github.com/FoHoOV/agribank",
 		"directory": "packages/post-message"
 	},
 	"files": [

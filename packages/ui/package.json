@@ -5,7 +5,7 @@
 	"description": "set of components to build react apps with",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FoHoOV/htsc",
+		"url": "git+https://github.com/FoHoOV/agribank",
 		"directory": "packages/ui"
 	},
 	"files": [

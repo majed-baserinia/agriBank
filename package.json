@@ -11,7 +11,7 @@
 	"packageManager": "pnpm@9.4.0",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/FoHoOV/htsc"
+		"url": "git+https://github.com/FoHoOV/agribank"
 	},
 	"license": "MIT",
 	"scripts": {

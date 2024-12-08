@@ -9,7 +9,7 @@ permissions: {}
 jobs:
   release:
     # prevents this action from running on forks
-    if: github.repository == 'FoHoOV/htsc'
+    if: github.repository == 'FoHoOV/agribank'
     permissions:
       contents: write # to create release (changesets/action)
       id-token: write # OpenID Connect token needed for provenance
