@@ -54,7 +54,7 @@ jobs:
       - name: Install dependencies
         run: |
           pnpm install --frozen-lockfile
-          pnpm install playwright
+          pnpm install -w playwright
           pnpm exec playwright install chromium
 
       - name: Run Tests
