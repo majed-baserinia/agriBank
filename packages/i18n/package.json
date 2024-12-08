@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/i18n",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"description": "includes all communication protocols with super app",
 	"author": "@FoHoOV",
@@ -31,8 +31,8 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@agribank/eslint-plugin": "0.0.1",
-		"@agribank/prettier-config": "0.0.1",
+		"@agribank/eslint-plugin": "0.0.2",
+		"@agribank/prettier-config": "0.0.2",
 		"i18next": "^23.2.5",
 		"eslint": "^9.12.0",
 		"prettier": "^3.3.3",
