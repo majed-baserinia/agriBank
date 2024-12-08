@@ -4,7 +4,7 @@ export async function getTheme(themeUrl: string, themeName: string) {
 	try {
 		const theme = await getBaseTheme();
 		const palette = await getCustomPalette(themeUrl, themeName);
-		theme.palette = palette;
+		theme.palette = palette && Object.keys(palette).length > 0 ? palette : theme.palette;
 		return theme;
 	} catch (error) {
 		console.error("error while creating theme with custom palette", error);
