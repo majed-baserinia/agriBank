@@ -8,6 +8,8 @@ on:
 permissions: {}
 jobs:
   release:
+    # prevents this action from running on forks
+    if: github.repository == 'FoHoOV/htsc'
     permissions:
       contents: write # to create release (changesets/action)
       id-token: write # OpenID Connect token needed for provenance
@@ -27,7 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version: 21.x
           cache: pnpm
 
       - name: Install
@@ -40,8 +42,8 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          version: pnpm exec changeset version
-          publish: pnpm exec changeset publish
+          version: pnpm exec changeset version && pnpm changeset tag && git push --follow-tags
+          publish: pnpm changeset tag && pnpm changeset publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
