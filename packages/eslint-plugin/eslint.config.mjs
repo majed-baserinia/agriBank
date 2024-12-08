@@ -1,6 +1,9 @@
+// @ts-check
+// @ts-expect-error
 import parser from "@typescript-eslint/parser";
 // @ts-expect-error
 import eslintPlugin from "eslint-plugin-eslint-plugin";
+// @ts-expect-error
 import nodePlugin from "eslint-plugin-n";
 import tseslint from "typescript-eslint";
 

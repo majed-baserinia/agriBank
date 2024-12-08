@@ -16,5 +16,5 @@ export default defineConfig({
 			external: ["react"]
 		}
 	},
-	plugins: [tsconfigPaths(), dts()]
+	plugins: [tsconfigPaths(), dts({ tsconfigPath: "./tsconfig.app.json" })]
 });

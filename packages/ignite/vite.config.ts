@@ -35,6 +35,7 @@ export default defineConfig({
 	plugins: [
 		tsconfigPaths(),
 		dts({
+			tsconfigPath: "./tsconfig.app.json",
 			insertTypesEntry: true
 		})
 	]

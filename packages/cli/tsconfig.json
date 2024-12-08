@@ -13,6 +13,6 @@
 			"$/*": ["./src/*"]
 		}
 	},
-	"include": ["**/*"],
-	"exclude": ["node_modules", "dist", "./eslint.config.mjs"]
+	"include": ["./src/**/*.ts"],
+	"exclude": ["node_modules", "dist", ".generated", "./eslint.config.mjs", "./vite.config.ts"]
 }

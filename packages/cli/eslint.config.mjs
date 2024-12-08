@@ -10,7 +10,8 @@ export default tseslint.config(
 			node: {
 				convertPath: {
 					"src/**/*.ts": ["^src/(.+?)\\.ts$", "dist/$1.js"]
-				}
+				},
+				tryExtensions: [".js", ".ts"]
 			}
 		},
 		rules: {

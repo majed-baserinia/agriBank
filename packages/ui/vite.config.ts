@@ -87,5 +87,5 @@ export default defineConfig({
 			]
 		}
 	},
-	plugins: [react(), tsconfigPaths(), libInjectCss(), dts()]
+	plugins: [react(), tsconfigPaths(), libInjectCss(), dts({ tsconfigPath: "./tsconfig.app.json" })]
 });

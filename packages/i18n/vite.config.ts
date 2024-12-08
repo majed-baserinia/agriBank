@@ -22,5 +22,5 @@ export default defineConfig({
 			external: ["i18next"]
 		}
 	},
-	plugins: [tsconfigPaths(), dts()]
+	plugins: [tsconfigPaths(), dts({ tsconfigPath: "./tsconfig.app.json" })]
 });
