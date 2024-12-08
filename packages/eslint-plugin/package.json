@@ -2,7 +2,7 @@
 	"name": "@agribank/eslint-plugin",
 	"version": "0.0.1",
 	"type": "module",
-	"description": "set of eslint rules applied to htsc apps",
+	"description": "set of eslint rules applied to agribank apps",
 	"author": "@FoHoOV",
 	"license": "MIT",
 	"repository": {

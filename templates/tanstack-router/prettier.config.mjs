@@ -1,10 +1,10 @@
-import { htscPrettierConfig } from "@agribank/prettier-config";
+import { agribankPrettierConfig } from "@agribank/prettier-config";
 
 /**
  * @type {import("prettier").Config}
  */
 const config = {
-	...htscPrettierConfig
+	...agribankPrettierConfig
 };
 
 export default config;

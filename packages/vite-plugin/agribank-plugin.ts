@@ -38,9 +38,9 @@ function changeRequestPathOfSharedPublicFiles(
 	});
 }
 
-export function htscPlugin(config: Config): Plugin {
+export function agribankPlugin(config: Config): Plugin {
 	return {
-		name: "vite-htsc-plugin",
+		name: "vite-agribank-plugin",
 		configureServer(server) {
 			if (!config.public.modes.dev) {
 				return;

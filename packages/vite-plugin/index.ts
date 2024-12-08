@@ -1,1 +1,1 @@
-export * from "./htsc-plugin";
+export * from "./agribank-plugin";

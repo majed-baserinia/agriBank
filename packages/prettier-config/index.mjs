@@ -1,7 +1,7 @@
 /**
  * @type {import("prettier").Config}
  */
-export const htscPrettierConfig = {
+export const agribankPrettierConfig = {
 	plugins: [
 		"prettier-plugin-organize-attributes",
 		"prettier-plugin-organize-imports",
@@ -23,4 +23,4 @@ export const htscPrettierConfig = {
 	singleAttributePerLine: true
 };
 
-export default htscPrettierConfig;
+export default agribankPrettierConfig;

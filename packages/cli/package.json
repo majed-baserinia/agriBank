@@ -2,7 +2,7 @@
 	"name": "@agribank/cli",
 	"version": "0.0.1",
 	"type": "module",
-	"description": "command line tools for creating and updating htsc apps",
+	"description": "command line tools for creating and updating agribank apps",
 	"author": "@FoHoOV",
 	"license": "MIT",
 	"repository": {
@@ -29,7 +29,7 @@
 		"package.json"
 	],
 	"bin": {
-		"htsc": "./dist/cli.js"
+		"agribank": "./dist/cli.js"
 	},
 	"dependencies": {
 		"@apidevtools/swagger-parser": "^10.1.0",

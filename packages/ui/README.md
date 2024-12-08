@@ -1,6 +1,6 @@
-# HTSC UI package built with react and MUI
+# agribank UI package built with react and MUI
 
-Includes bunch of components to facilitate building UI apps for htsc. Note that you MUST use the components exported from here
+Includes bunch of components to facilitate building UI apps for agribank. Note that you MUST use the components exported from here
 instead of importing the directly from `mui` (if their counter part exists).
 
 # Notes

@@ -1,6 +1,6 @@
 # I18n
 
-htsc apps use `react-i18next` for i18, and this package includes the base language packs that other apps can use.
+agribank apps use `react-i18next` for i18, and this package includes the base language packs that other apps can use.
 
 # Types
 
@@ -12,7 +12,7 @@ import "@agribank/i18n/types";
 import type YOUR_LANG_PACK from "./locals/[lang]/translation.json";
 
 declare module "i18next" {
-	interface HTSCTypeOptions {
+	interface AGRIBankTypeOptions {
 		defaultNS: "translation"; // or whatever you like
 		resources: {
 			translation: typeof YOUR_LANG_PACK;
@@ -21,6 +21,6 @@ declare module "i18next" {
 }
 ```
 
-As you can see, instead of `CustomTypeOptions` you can use `HTSCTypeOptions` to add your types on top of this package.
+As you can see, instead of `CustomTypeOptions` you can use `AGRIBankTypeOptions` to add your types on top of this package.
 
 - Read [the official i18next docs](https://www.i18next.com/overview/typescript#custom-type-options) for more info on `CustomTypeOptions`.

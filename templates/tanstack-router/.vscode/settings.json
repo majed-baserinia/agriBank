@@ -1,6 +1,6 @@
 {
 	"typescript.tsdk": "node_modules\\typescript\\lib",
-	"cSpell.words": ["htsc"],
+	"cSpell.words": ["agribank"],
 	"files.watcherExclude": {
 		"**/routeTree.gen.ts": true
 	}

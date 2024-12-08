@@ -27,7 +27,7 @@ export function generate(options: z.infer<typeof optionsSchema>) {
 		outDir: options.out,
 		repoUrl: "https://github.com/FoHoOV/agribank.git",
 		sparsePath: `templates/${options.template}`,
-		tempDir: "./htsc-tmp"
+		tempDir: "./agribank-tmp"
 	});
 	// createEnvFile(options);
 	setApplicationName(options);

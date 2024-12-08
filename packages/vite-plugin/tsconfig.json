@@ -8,6 +8,6 @@
 
 		"noEmit": true
 	},
-	"include": ["./index.ts", "./htsc-plugin.ts"],
+	"include": ["./index.ts", "./agribank-plugin.ts"],
 	"exclude": ["node_modules", "dist"]
 }

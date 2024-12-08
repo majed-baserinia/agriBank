@@ -7,13 +7,13 @@ Our shared prettier config that each app should apply. Not using this config mig
 prettier.config.mjs
 
 ```js
-import { htscPrettierConfig } from "@agribank/prettier-config";
+import agribankPrettierConfig from "@agribank/prettier-config";
 
 /**
  * @type {import("prettier").Config}
  */
 const config = {
-	...htscPrettierConfig
+	...agribankPrettierConfig
 };
 
 export default config;

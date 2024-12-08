@@ -2,7 +2,7 @@
 	"name": "@agribank/vite-plugin",
 	"version": "0.0.1",
 	"type": "module",
-	"description": "htsc vite plugin",
+	"description": "agribank vite plugin",
 	"author": "@FoHoOV",
 	"license": "MIT",
 	"repository": {
@@ -17,7 +17,7 @@
 	],
 	"exports": {
 		".": {
-			"import": "./dist/vite-htsc-plugin.js",
+			"import": "./dist/vite-agribank-plugin.js",
 			"types": "./dist/index.d.ts"
 		}
 	},

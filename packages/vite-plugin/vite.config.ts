@@ -10,8 +10,8 @@ export default defineConfig({
 		lib: {
 			entry: resolve(import.meta.dirname, "index.ts"),
 			formats: ["es"],
-			name: "vite-htsc-plugin",
-			fileName: "vite-htsc-plugin"
+			name: "vite-agribank-plugin",
+			fileName: "vite-agribank-plugin"
 		},
 		rollupOptions: {
 			external: ["vite"]
