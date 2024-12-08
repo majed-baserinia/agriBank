@@ -3,13 +3,13 @@ export const formatToCard = (value: string) => {
 };
 
 export const formatToCardDynamically = (value: string) => {
-	const digits = value.replace(/[^0-9]/g, '');
+	const digits = value.replace(/\D/g, "");
 
 	// Add dashes every 4 digits
 	const formatted =
 		digits
 			.match(/.{1,4}/g) // Match groups of up to 4 digits
-			?.join('-') || ''; // Join the groups with dashes
+			?.join("-") || ""; // Join the groups with dashes
 
 	return formatted;
 };
@@ -34,6 +34,7 @@ export const persianToEnglishDigits = (str: string) => {
 	const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
 	const englishDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
+	// eslint-disable-next-line regexp/no-obscure-range
 	return str.replace(/[۰-۹]/g, (match) => englishDigits[persianDigits.indexOf(match)]);
 };
 

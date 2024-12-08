@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21.x
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Build
+        if: (${{ success() }} || ${{ failure() }}) # ensures this step runs even if previous steps fail
+        run: pnpm run build
+
+      - name: Format
+        if: (${{ success() }} || ${{ failure() }}) # ensures this step runs even if previous steps fail
+        run: pnpm run format && { [ "`git status --porcelain=v1`" == "" ] || (echo "please run pnpm run format locally and push your changes"; git diff; exit 1); }
+
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 21.x
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Install dependencies
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm install playwright
+          pnpm exec playwright install chromium
+
+      - name: Run Tests
+        run: |
+          pnpm run test:unit 
+          pnpm run test:integration
