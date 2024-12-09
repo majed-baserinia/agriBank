@@ -32,6 +32,11 @@
 		"src/**/*.mjs",
 		"src/**/*.tsx",
 		"src/**/*.jsx",
+		"tests/**/*.js",
+		"tests/**/*.ts",
+		"tests/**/*.mjs",
+		"tests/**/*.tsx",
+		"tests/**/*.jsx",
 		"public/**/*.js"
 	],
 	"exclude": ["node_modules", "dist"]

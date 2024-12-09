@@ -16,6 +16,12 @@
 			"name": "chrome:dev",
 			"url": "http://localhost:5173/<your-app-base-url>/",
 			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"command": "pnpm exec playwright codegen",
+			"name": "pnpm:playwright:codegen",
+			"request": "launch",
+			"type": "node-terminal"
 		}
 	]
 }

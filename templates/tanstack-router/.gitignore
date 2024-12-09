@@ -28,3 +28,7 @@ dist-ssr
 
 openapitools.json
 src/services/.generated
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

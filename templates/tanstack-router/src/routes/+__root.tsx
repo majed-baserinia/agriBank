@@ -59,7 +59,7 @@ function App() {
 				</MaterialThemeProvider>
 			</RootStyles>
 
-			<TanStackRouterDevtools position="bottom-right" />
+			<TanStackRouterDevtools position="bottom-left" />
 			<ReactQueryDevtools />
 		</QueryClientProvider>
 	);
