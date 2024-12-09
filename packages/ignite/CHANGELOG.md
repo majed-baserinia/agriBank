@@ -1,5 +1,15 @@
 # @agribank/ignite
 
+## 0.0.3
+
+### Patch Changes
+
+- 4e6a080: chore: add keywords for npm and update readme files
+- Updated dependencies [4e6a080]
+  - @agribank/post-message@0.0.3
+  - @agribank/i18n@0.0.3
+  - @agribank/ui@0.0.3
+
 ## 0.0.2
 
 ### Patch Changes
