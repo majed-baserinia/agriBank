@@ -10,6 +10,14 @@
 		"url": "git+https://github.com/FoHoOV/agribank",
 		"directory": "packages/eslint-plugin"
 	},
+	"contributors": [
+		"@FoHoOV",
+		"@SaeedMohammadiha"
+	],
+	"keywords": [
+		"agribank",
+		"htsc"
+	],
 	"exports": {
 		".": {
 			"import": "./dist/index.mjs",

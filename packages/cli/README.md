@@ -1,8 +1,8 @@
-# Client generator
+# agribank CLI
 
-This a command line application that facilitates creating agribank apps, to see all options use `--help`
+This is a command line application that facilitates creating agribank apps, to see all options use `--help`
 
-- OpenApiTools (which generated the clients) requires [java](https://www.oracle.com/java/technologies/downloads/) installed on your machine.
+- OpenApiTools (which generates the clients) requires [java](https://www.oracle.com/java/technologies/downloads/) installed on your machine.
 
 # Example usage
 

@@ -10,6 +10,14 @@
 		"url": "git+https://github.com/FoHoOV/agribank",
 		"directory": "packages/cli"
 	},
+	"contributors": [
+		"@FoHoOV",
+		"@SaeedMohammadiha"
+	],
+	"keywords": [
+		"agribank",
+		"htsc"
+	],
 	"scripts": {
 		"build": "tsc && vite build",
 		"dev-gen-clients": "vite build && node ./dist/cli.js generate-clients --url http://10.0.189.141:32104/swagger/v1/swagger.json --out ./src/generate-clients/.generated/ --replace-endpoint-regex /api/,/account-report-service/ --customize-operation-id method_last-segment:pascalcase --skip-spec-validations true",

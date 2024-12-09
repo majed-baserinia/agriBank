@@ -4,7 +4,7 @@ agribank apps use `react-i18next` for i18, and this package includes the base la
 
 # Types
 
-For a type-safe experience with `i18next` and our base language packs add this your d.ts file
+For a type-safe experience with `i18next` add this your d.ts file
 
 ```ts
 import "@agribank/i18n/types";

@@ -10,6 +10,14 @@
 		"url": "git+https://github.com/FoHoOV/agribank",
 		"directory": "packages/ignite"
 	},
+	"contributors": [
+		"@FoHoOV",
+		"@SaeedMohammadiha"
+	],
+	"keywords": [
+		"agribank",
+		"htsc"
+	],
 	"files": [
 		"dist/",
 		"package.json",

@@ -10,6 +10,14 @@
 		"url": "git+https://github.com/FoHoOV/agribank",
 		"directory": "packages/prettier-config"
 	},
+	"contributors": [
+		"@FoHoOV",
+		"@SaeedMohammadiha"
+	],
+	"keywords": [
+		"agribank",
+		"htsc"
+	],
 	"scripts": {
 		"lint": "eslint .",
 		"format": "prettier --write ."
