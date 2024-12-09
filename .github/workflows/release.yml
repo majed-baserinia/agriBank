@@ -75,7 +75,7 @@ jobs:
         run: pnpm install --lockfile-only
 
       - name: Commit lock file
-        uses: stefanzweifel/git-auto-commit-action@5
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update pnpm.lock file"
           branch: changeset-release/main
