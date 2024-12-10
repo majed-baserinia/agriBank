@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/vite-plugin",
-	"version": "0.0.3",
+	"version": "0.1.0",
 	"type": "module",
 	"description": "agribank vite plugin",
 	"author": "@FoHoOV",
@@ -38,7 +38,7 @@
 		"@types/node": "^22.8.4",
 		"@types/eslint__js": "^8.42.3",
 		"@agribank/prettier-config": "0.0.3",
-		"@agribank/ui": "0.0.3",
+		"@agribank/ui": "0.0.4",
 		"eslint": "^9.12.0",
 		"eslint-plugin-eslint-plugin": "^6.3.1",
 		"eslint-plugin-n": "^17.11.1",
@@ -51,7 +51,7 @@
 	},
 	"peerDependencies": {
 		"vite": "^5.4.9",
-		"@agribank/ui": "0.0.3"
+		"@agribank/ui": "0.0.4"
 	},
 	"publishConfig": {
 		"access": "public"

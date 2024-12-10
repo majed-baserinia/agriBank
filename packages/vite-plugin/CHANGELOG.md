@@ -1,5 +1,15 @@
 # @agribank/vite-plugin
 
+## 0.1.0
+
+### Minor Changes
+
+- 73e085d: feat: redirect requests to default-theme in dev and preview mode only through our vite-plugin
+
+### Patch Changes
+
+- @agribank/ui@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes

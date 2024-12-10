@@ -1,5 +1,12 @@
 # @agribank/i18n
 
+## 0.0.4
+
+### Patch Changes
+
+- 73e085d: chore: updated package description
+- 73e085d: feat: redirect requests to default-theme in dev and preview mode only through our vite-plugin
+
 ## 0.0.3
 
 ### Patch Changes

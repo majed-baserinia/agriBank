@@ -1,5 +1,13 @@
 # @agribank/ui
 
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [73e085d]
+- Updated dependencies [73e085d]
+  - @agribank/i18n@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes

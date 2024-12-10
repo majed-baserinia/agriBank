@@ -1,5 +1,15 @@
 # @agribank/ignite
 
+## 0.0.4
+
+### Patch Changes
+
+- 73e085d: feat: redirect requests to default-theme in dev and preview mode only through our vite-plugin
+- Updated dependencies [73e085d]
+- Updated dependencies [73e085d]
+  - @agribank/i18n@0.0.4
+  - @agribank/ui@0.0.4
+
 ## 0.0.3
 
 ### Patch Changes
