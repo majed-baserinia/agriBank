@@ -2,7 +2,7 @@
 	"name": "@agribank/i18n",
 	"version": "0.0.3",
 	"type": "module",
-	"description": "includes all communication protocols with super app",
+	"description": "base language pack and options",
 	"author": "@FoHoOV",
 	"license": "MIT",
 	"repository": {

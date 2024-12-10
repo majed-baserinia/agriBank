@@ -14,20 +14,7 @@ export async function getTheme(themeUrl: string, themeName: string) {
 
 export async function getBaseTheme() {
 	try {
-		let theme: ThemeOptions = {};
-
-		if (import.meta.dynamic.env.DEV) {
-			// @ts-expect-error - this is json import so it has type errors, cuz there are not type decls for that
-			theme = (
-				await import("@agribank/ui/assets/themes/default.json", {
-					with: { type: "json" }
-				})
-			).default as ThemeOptions;
-		} else {
-			theme = (await (await fetch("/default-theme.json")).json()) as ThemeOptions;
-		}
-
-		return theme;
+		return (await (await fetch("/default-theme.json")).json()) as ThemeOptions;
 	} catch (error) {
 		console.error("error while fetching theme", error);
 		return {};

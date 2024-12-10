@@ -5,7 +5,7 @@ export default tseslint.config(...agribankESLint.configs["flat/recommended"], {
 	languageOptions: {
 		parserOptions: {
 			tsconfigRootDir: import.meta.dirname,
-			project: "./tsconfig.eslint.json"
+			project: "./tsconfig.json"
 		}
 	}
 });

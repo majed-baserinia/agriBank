@@ -23,16 +23,25 @@ function changeRequestPathOfSharedPublicFiles(
 	server: PreviewServer | ViteDevServer,
 	extraFiles?: string[]
 ) {
-	const files = [
-		"config.json",
-		"compatibility.js",
-		"browserUpdate.js",
-		"default-theme.json",
-		...(extraFiles ?? [])
-	];
-	server.middlewares.use((req, _, next) => {
-		if (req.url && files.some((fileName) => req.url === `/${fileName}`)) {
-			req.url = `${server.config.base}${req.url}`;
+	const files = ["config.json", "compatibility.js", "browserUpdate.js", ...(extraFiles ?? [])];
+	server.middlewares.use(async (req, res, next) => {
+		if (!req.url) {
+			return next();
+		}
+
+		const url = new URL(`https://localhost${req.url}`);
+		if (files.some((fileName) => url.pathname === `/${fileName}`)) {
+			req.url = `${server.config.base}${req.url.substring(1)}`;
+		} else if (url.pathname === `/default-theme.json`) {
+			const theme = (
+				await import("@agribank/ui/assets/themes/default.json", {
+					with: { type: "json" }
+				})
+			).default;
+			res.setHeader("content-type", "application/json");
+			res.write(JSON.stringify(theme));
+			res.end();
+			return;
 		}
 		next();
 	});

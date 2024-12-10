@@ -449,6 +449,12 @@ importers:
       '@agribank/prettier-config':
         specifier: 0.0.3
         version: link:../prettier-config
+      '@agribank/ui':
+        specifier: 0.0.3
+        version: link:../ui
+      '@types/eslint__js':
+        specifier: ^8.42.3
+        version: 8.42.3
       '@types/node':
         specifier: ^22.8.4
         version: 22.8.4

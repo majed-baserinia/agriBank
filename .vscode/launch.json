@@ -1,18 +1,18 @@
 {
 	"configurations": [
 		{
-			"name": "chrome:templates/default",
+			"name": "chrome:templates/tanstack-router",
 			"request": "launch",
 			"type": "chrome",
 			"url": "http://localhost:5173",
-			"webRoot": "${workspaceFolder}/templates/default"
+			"webRoot": "${workspaceFolder}/templates/tanstack-router"
 		},
 		{
-			"name": "pnpm:dev:templates/default",
+			"name": "pnpm:dev:templates/tanstack-router",
 			"request": "launch",
 			"type": "node-terminal",
-			"cwd": "${workspaceFolder}/templates/default",
-			"command": "pnpm run dev"
+			"cwd": "${workspaceFolder}/templates/tanstack-router",
+			"command": "pnpm run dev --force"
 		}
 	]
 }
