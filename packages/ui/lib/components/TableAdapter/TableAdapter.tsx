@@ -4,107 +4,93 @@ import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
-import TablePagination from "@mui/material/TablePagination";
-import { useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { TablePagination } from "./TablePagination";
+import type { Props } from "./type";
 
-import type { Props } from "./types";
-
-export function TableAdapter<TColumnNames extends string>({
+export default function TableAdapter<TColumnNames extends string>({
 	columns,
-	rowsData
+	activePageRows,
+	activePageIndex,
+	onNavigating,
+	isNextButtonDisabled,
+	totalNumberOfItems,
+	itemsPerPage = 10
 }: Props<TColumnNames>) {
-	const { t } = useTranslation();
-	const rowsPerPage = useRef(50);
-	const [page, setPage] = useState(0);
-	//const [rowsPerPage, setRowsPerPage] = useState(10);
-
-	const handleChangePage = (_: unknown, newPage: number) => {
-		setPage(newPage);
-	};
-
-	// const handleChangeRowsPerPage = (event: ChangeEvent<HTMLInputElement>) => {
-	// 	setRowsPerPage(+event.target.value);
-	// 	setPage(0);
-	// };
-
 	return (
-		<Paper sx={{ width: "100%", overflow: "hidden" }}>
-			<TableContainer sx={{ maxHeight: 590 }}>
-				<Table
-					aria-label="sticky table"
-					stickyHeader
-				>
-					<TableHead>
-						<TableRow>
-							{columns.map((column, index) => (
-								<TableCell
-									align={column.align}
-									key={index}
-									style={{ minWidth: column.minWidth }}
-								>
-									<Typography
-										variant="bodyMd"
-										sx={{
-											fontWeight: "bold"
-										}}
+		<>
+			<Paper sx={{ width: "100%", overflow: "hidden" }}>
+				<TableContainer sx={{ maxHeight: 590 }}>
+					<Table
+						stickyHeader
+						aria-label="sticky table"
+					>
+						<TableHead>
+							<TableRow>
+								{columns.map((column, index) => (
+									<TableCell
+										key={index}
+										align={column.align}
+										style={{ minWidth: column.minWidth }}
 									>
-										{column.label != "" ? t(column.label, column.label) : ""}
-									</Typography>
-								</TableCell>
-							))}
-						</TableRow>
-					</TableHead>
-					<TableBody>
-						{rowsData
-							?.slice(page * rowsPerPage.current, page * rowsPerPage.current + rowsPerPage.current)
-							.map((row, index) => {
+										<Typography
+											variant="bodyMd"
+											fontWeight={"bold"}
+										>
+											{column.label ?? ""}
+										</Typography>
+									</TableCell>
+								))}
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{activePageRows?.map((row, index) => {
 								return (
 									<TableRow
-										key={index}
 										tabIndex={-1}
+										key={index}
 									>
 										{columns.map((column, index) => {
 											const value = row[column.id];
 											return (
 												<TableCell
-													align={column.align}
 													key={index}
+													align={column.align}
 												>
-													<Typography variant="bodyMd">{value}</Typography>
+													<Typography
+														component={"div"}
+														variant="bodyMd"
+													>
+														{value}
+													</Typography>
 												</TableCell>
 											);
 										})}
 									</TableRow>
 								);
 							})}
-					</TableBody>
-				</Table>
-				{!rowsData ? (
-					<Grid
-						container
-						sx={{
-							alignContent: "center",
-							justifyContent: "center",
-							width: "100%"
-						}}
-					>
-						<CircularProgress size={"32px"} />
-					</Grid>
-				) : null}
-			</TableContainer>
-			{rowsData && rowsData.length > 1 ? (
+						</TableBody>
+					</Table>
+					{!activePageRows ? (
+						<Grid
+							sx={{ width: "100%" }}
+							container
+							alignContent={"center"}
+							justifyContent={"center"}
+						>
+							<CircularProgress size={"32px"} />
+						</Grid>
+					) : null}
+				</TableContainer>
+			</Paper>
+			{activePageRows && (
 				<TablePagination
-					component="div"
-					count={rowsData.length}
-					labelDisplayedRows={() => ""}
-					onPageChange={handleChangePage}
-					page={page}
-					rowsPerPage={rowsPerPage.current}
-					rowsPerPageOptions={[rowsPerPage.current]}
-					//	onRowsPerPageChange={handleChangeRowsPerPage}
+					activePageIndex={activePageIndex}
+					onNavigating={onNavigating}
+					disableNextButton={isNextButtonDisabled}
+					itemsPerPage={itemsPerPage}
+					totalNumberOfItems={totalNumberOfItems ?? -1}
 				/>
-			) : null}
-		</Paper>
+			)}
+		</>
 	);
 }

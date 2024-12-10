@@ -1,2 +1,3 @@
 export * from "./TableAdapter";
-export * from "./types";
+export * from "./TablePagination";
+export * from "./type";
