@@ -2,7 +2,10 @@ import logoLoader from "$assets/images/logo-loader.gif";
 
 import type { Props } from "./types";
 
-export const Loader = ({ showLoader }: Props) => {
+/**
+ * controlled from props
+ */
+export const Controlled = ({ showLoader }: Props) => {
 	if (!showLoader) return null;
 	return (
 		<div

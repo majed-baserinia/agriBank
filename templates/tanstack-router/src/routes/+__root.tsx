@@ -1,6 +1,6 @@
 import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
 import { Alerts } from "@agribank/ui/components/Alerts";
-import { Loader } from "@agribank/ui/components/Loader";
+import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
 import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
 import { RootStyles } from "@agribank/ui/components/RootStyles";
 import { pushAlert } from "@agribank/ui/stores/alerts";
@@ -46,6 +46,7 @@ function App() {
 			return false;
 		}
 	});
+	useLoadingHandler(!isReady);
 	const theme = useInitialSettingStore((state) => state.settings.theme);
 	// useInitClients(); uncomment this and whats in services/clients in case of using `@agribank/cli generate-clients`
 
@@ -55,7 +56,8 @@ function App() {
 				<MaterialThemeProvider theme={theme}>
 					<Alerts />
 					<ScrollRestoration />
-					{isReady ? <Outlet /> : <Loader showLoader />}
+					<Loader.UnControlled />
+					{isReady ? <Outlet /> : <></>}
 				</MaterialThemeProvider>
 			</RootStyles>
 
