@@ -16,6 +16,7 @@
 		"jsx": "react-jsx",
 		"baseUrl": ".",
 
+		"skipLibCheck": true,
 		"paths": {
 			"$lib/*": ["./lib/*"],
 			"$stores/*": ["./lib/stores/*"],

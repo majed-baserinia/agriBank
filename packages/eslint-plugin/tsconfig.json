@@ -1,6 +1,7 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
 		"rootDir": ".",
 		"allowJs": true,
 		"checkJs": true,

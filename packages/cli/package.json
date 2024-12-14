@@ -19,7 +19,7 @@
 		"htsc"
 	],
 	"scripts": {
-		"build": "tsc && vite build",
+		"build": "tsc --build && vite build",
 		"dev-gen-clients": "vite build && node ./dist/cli.js generate-clients --url http://10.0.189.141:32104/swagger/v1/swagger.json --out ./src/generate-clients/.generated/ --replace-endpoint-regex /api/,/account-report-service/ --customize-operation-id method_last-segment:pascalcase --skip-spec-validations true",
 		"dev-create-template": "vite build && node ./dist/cli.js create --out ./src/create-template/.generated/",
 		"lint": "eslint .",

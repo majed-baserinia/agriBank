@@ -30,7 +30,7 @@
 		"package.json"
 	],
 	"scripts": {
-		"build": "tsc",
+		"build": "tsc --build",
 		"lint": "eslint ."
 	},
 	"dependencies": {

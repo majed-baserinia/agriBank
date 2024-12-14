@@ -1,14 +1,16 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
+		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 		"target": "ES2022",
-		"lib": ["ESNext"],
+		"lib": ["ESNext", "WebWorker"],
 		"module": "ESNext",
 		"noEmit": true,
 
 		"allowJs": true,
 		"checkJs": true,
 
+		"skipLibCheck": true,
 		"moduleResolution": "Bundler",
 		"baseUrl": "."
 	},
