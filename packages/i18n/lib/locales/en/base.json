@@ -81,5 +81,7 @@
 	"network-error": "network error. try again.",
 	"confirm": "confirm",
 	"loading-text-auto-comp": "loading...",
-	"init-error-text": "there is a problem with loading the app, please try again later"
+	"init-error-text": "there is a problem with loading the app, please try again later",
+	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
+	"xpage-number": "page {{xpage}}"
 }

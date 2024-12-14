@@ -33,7 +33,7 @@
 	"Noor": "نور",
 	"Saderat": "صادرات",
 	"continue": "ادامه",
-	"sendAgain": "ارسال مجدد",
+	"send-again": "ارسال مجدد",
 	"end": "پایان",
 	"i-understand": "متوجه شدم",
 	"info": "اطلاعیه",
@@ -81,5 +81,7 @@
 	"refuse": "انصراف",
 	"confirm": "تایید",
 	"init-error-text": "مشتری گرامی، خطایی در اجرای برنامه رخ داد، لطفا مجددا تلاش کنید.",
-	"loading-text-auto-comp": "در حال دریافت ..."
+	"loading-text-auto-comp": "در حال دریافت ...",
+	"xpage-of-xtotal-pages": "صفحه {{xpage}} از {{xtotal}}",
+	"xpage-number": "صفحه {{xpage}}"
 }
