@@ -29,6 +29,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
+          node-version: "21.0.x"
           cache: pnpm
 
       - name: Install
@@ -69,6 +70,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
+          node-version: "21.0.x"
           cache: pnpm
 
       - name: Update lock file
