@@ -41,6 +41,7 @@
 	"warning": "warning",
 	"success": "success",
 	"unknown": "unknown",
+	"rejected": "rejected",
 	"description": "description",
 	"inquiry": "inquiry",
 	"first": "first",
