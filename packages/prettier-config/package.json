@@ -24,7 +24,7 @@
 		"format": "prettier --write ."
 	},
 	"files": [
-		"index.mjs",
+		"dist/",
 		"package.json",
 		"README.md"
 	],
