@@ -19,6 +19,7 @@
 		"htsc"
 	],
 	"scripts": {
+		"build": "tsc --build",
 		"lint": "eslint .",
 		"format": "prettier --write ."
 	},
@@ -28,7 +29,10 @@
 		"README.md"
 	],
 	"exports": {
-		".": "./index.mjs"
+		".": {
+			"import": "./dist/index.mjs",
+			"types": "./dist/index.d.mts"
+		}
 	},
 	"dependencies": {
 		"prettier-plugin-organize-attributes": "^1.0.0",

@@ -1,13 +1,16 @@
 {
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-		"lib": ["ES2022"],
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
 		"moduleResolution": "Node",
 		"allowJs": true,
 		"checkJs": true,
-		"noEmit": true,
+		"noEmit": false,
+		"declaration": true,
+		"declarationMap": true,
 		"target": "ES2022",
-		"strict": true
+		"strict": true,
+		"outDir": "./dist"
 	},
-	"include": ["**/*"]
+	"include": ["./index.mjs"]
 }
