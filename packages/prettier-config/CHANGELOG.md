@@ -1,5 +1,11 @@
 # @agribank/prettier-config
 
+## 0.0.4
+
+### Patch Changes
+
+- 429b415: feat: add types for prettier config
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @agribank/ui
 
+## 0.1.0
+
+### Minor Changes
+
+- 7438f2e: feat: custom pagination for <TableAdapter> component to allow easier infinite scroll + pagination of unknown number of pages
+- 79bf2e0: feat: add controlled/uncontrolled loaders, uncontrolled loader reads from useLoader store which can be modified globally
+
+### Patch Changes
+
+- 9997afd: chore: update language pack
+- 63f9727: fix: rename exported types for name-clashing
+- Updated dependencies [9997afd]
+  - @agribank/i18n@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes

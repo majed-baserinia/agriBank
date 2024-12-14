@@ -1,5 +1,11 @@
 # @agribank/cli
 
+## 0.0.4
+
+### Patch Changes
+
+- f762810: fix: use new operator to create configuration object of client-generator
+
 ## 0.0.3
 
 ### Patch Changes

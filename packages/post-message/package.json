@@ -36,7 +36,7 @@
 	},
 	"devDependencies": {
 		"@agribank/eslint-plugin": "0.0.3",
-		"@agribank/prettier-config": "0.0.3",
+		"@agribank/prettier-config": "0.0.4",
 		"@types/react": "^18.3.11",
 		"@vitejs/plugin-react": "^4.3.3",
 		"eslint": "^9.12.0",

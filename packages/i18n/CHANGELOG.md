@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.0.5
+
+### Patch Changes
+
+- 9997afd: chore: update language pack
+
 ## 0.0.4
 
 ### Patch Changes

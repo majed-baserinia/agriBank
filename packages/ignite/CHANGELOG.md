@@ -1,5 +1,18 @@
 # @agribank/ignite
 
+## 1.0.0
+
+### Patch Changes
+
+- 9997afd: chore: update language pack
+- Updated dependencies [7438f2e]
+- Updated dependencies [79bf2e0]
+- Updated dependencies [9997afd]
+- Updated dependencies [63f9727]
+  - @agribank/ui@0.1.0
+  - @agribank/i18n@0.0.5
+  - @agribank/post-message@0.0.3
+
 ## 0.0.4
 
 ### Patch Changes
