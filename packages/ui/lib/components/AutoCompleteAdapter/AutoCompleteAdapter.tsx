@@ -153,7 +153,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				inputValue={inputValue}
 				isOptionEqualToValue={isOptionEqualToValueFunction}
 				loading={loading}
-				loadingText={t("loadingTextAutoComp")}
+				loadingText={t("loading-text-auto-comp")}
 				noOptionsText=""
 				onChange={onChangeHandler}
 				onClose={() => {

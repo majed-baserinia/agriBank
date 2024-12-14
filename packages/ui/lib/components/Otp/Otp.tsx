@@ -50,7 +50,7 @@ export function Otp(props: Props) {
 					variant="bodySm"
 				>
 					<Grid container>
-						{t("timer")}
+						{t("remaining-time")}
 						<CountDownTimer
 							onCountDownEnded={() => {
 								setIsCountDownTimerCounting(false);
@@ -73,7 +73,7 @@ export function Otp(props: Props) {
 					onClick={handleResend}
 					size="small"
 				>
-					{t("sendAgain")}
+					{t("send-again")}
 				</ButtonAdapter>
 			</Grid>
 		</>

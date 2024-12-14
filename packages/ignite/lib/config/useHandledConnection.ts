@@ -30,7 +30,7 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 			}
 		},
 		onInitializationFailed: () => {
-			const errorMessage = t("initErrorText");
+			const errorMessage = t("init-error-text");
 			if (onInitializationFailed?.(errorMessage) === false) {
 				return false;
 			}

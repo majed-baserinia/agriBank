@@ -92,7 +92,7 @@ export function Alerts() {
 							>
 								{capturedAlert.confirmButtonText
 									? capturedAlert.confirmButtonText
-									: t("IUnderstand")}
+									: t("i-understand")}
 							</ButtonAdapter>
 						) : null}
 						{capturedAlert?.hasContinueAction ? (
