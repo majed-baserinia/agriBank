@@ -2,7 +2,7 @@
 /* eslint-disable */
 {{>licenseInfo}}
 
-import type { Configuration } from './configuration';
+import { Configuration } from "./configuration";
 // Some imports not used depending on template conditions
 // @ts-ignore
 import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
@@ -31,7 +31,10 @@ export interface RequestArgs {
     options: RawAxiosRequestConfig;
 }
 
-export const DEFAULT_GLOBAL_CONFIG: Configuration = { basePath: BASE_PATH, axiosInstance: globalAxios };
+export const DEFAULT_GLOBAL_CONFIG = new Configuration({
+	basePath: BASE_PATH,
+	axiosInstance: globalAxios
+});
 
 export function updateGlobalConfiguration(config: Configuration) {
 	Object.assign(DEFAULT_GLOBAL_CONFIG, {...DEFAULT_GLOBAL_CONFIG, config})
