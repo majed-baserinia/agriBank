@@ -1,3 +1,7 @@
 export * from "./TableAdapter";
-export * from "./TablePagination";
+export {
+	TablePagination,
+	type NavigationAction,
+	type Props as TablePaginationProps
+} from "./TablePagination";
 export * from "./type";
