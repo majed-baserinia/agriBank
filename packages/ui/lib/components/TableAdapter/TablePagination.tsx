@@ -27,7 +27,7 @@ export function TablePagination({
 	onNavigating,
 	disableNextButton = false
 }: Props) {
-	const { t } = useTranslation();
+	const { t } = useTranslation("base");
 
 	return (
 		<Grid
