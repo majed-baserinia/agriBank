@@ -2,4 +2,4 @@
 "@agribank/ui": patch
 ---
 
-fix(ui): add other import formats like require for tailwind since postcss expects require to work
+fix(ui): correctly map ui package exports to their types

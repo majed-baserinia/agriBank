@@ -24,7 +24,7 @@
 	"exports": {
 		"./components/*": {
 			"import": "./dist/components/*/index.js",
-			"types": "./dist/components/*/index.d.ts"
+			"types": "./dist/lib/components/*/index.d.ts"
 		},
 		"./expanded-theme": {
 			"import": "./dist/expanded-theme.js",
