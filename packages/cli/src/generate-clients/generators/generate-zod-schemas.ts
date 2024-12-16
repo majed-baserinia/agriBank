@@ -15,7 +15,7 @@ async function runTypedOpenApi(config: ConfigWithModifiedSpec) {
 
 	const content = generateFile({ ...ctx, runtime: "zod" });
 
-	console.log(`Done in ${new Date().getTime() - now.getTime()}ms !`);
+	console.log(`Done in ${new Date().getTime() - now.getTime()}ms!`);
 	return content;
 }
 

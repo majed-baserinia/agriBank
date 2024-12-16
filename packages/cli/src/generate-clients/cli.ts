@@ -10,7 +10,7 @@ export const optionsSchema = z.object({
 	out: z.string(),
 	axiosVersion: z.string(),
 	/**
-	 * if api ends points start with `removeEndpointPrefix` it will replace the path with an empty string
+	 * if api endpoints start with `removeEndpointPrefix` it will replace the path with an empty string
 	 * @example
 	 * /api/something/something-else -> /something/something-else
 	 */
