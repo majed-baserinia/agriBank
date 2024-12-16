@@ -1,6 +1,6 @@
 # Prettier
 
-Our shared prettier config that each app should apply. Not using this config might result in CI/CD errors.
+agribank shared prettier config that each app should apply. Not using this config might result in CI/CD errors.
 
 # Example
 
