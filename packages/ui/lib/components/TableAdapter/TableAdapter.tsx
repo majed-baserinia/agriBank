@@ -7,7 +7,7 @@ import TableHead from "@mui/material/TableHead";
 import { TablePagination } from "./TablePagination";
 import type { Props } from "./type";
 
-export default function TableAdapter<TColumnNames extends string>({
+export function TableAdapter<TColumnNames extends string>({
 	columns,
 	activePageRows,
 	activePageIndex,
