@@ -1,5 +1,15 @@
 # @agribank/ui
 
+## 0.1.1
+
+### Patch Changes
+
+- 5a83d3c: fix(ui): access base language pack for table pagination
+- 537ba84: chore(ui): add named export and types for tailwindConfig
+- e58b6b4: fix(ui): correctly map ui package exports to their types
+- 6db5098: fix(ui): export tableadapter as named export instead of default export
+  - @agribank/i18n@0.0.5
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,5 +1,17 @@
 # @agribank/ignite
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [5a83d3c]
+- Updated dependencies [537ba84]
+- Updated dependencies [e58b6b4]
+- Updated dependencies [6db5098]
+  - @agribank/ui@0.1.1
+  - @agribank/i18n@0.0.5
+  - @agribank/post-message@0.0.3
+
 ## 1.0.0
 
 ### Patch Changes

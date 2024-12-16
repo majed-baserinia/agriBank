@@ -1,5 +1,11 @@
 # @agribank/prettier-config
 
+## 0.0.5
+
+### Patch Changes
+
+- 3ce1ba9: fix(prettier-config): include dist in files property of package.json file
+
 ## 0.0.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @agribank/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- 148329f: fix(cli): spread updated config into current config for client-generator
+
 ## 0.0.4
 
 ### Patch Changes
