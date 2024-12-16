@@ -36,6 +36,8 @@
 		},
 		"./tailwind-config": {
 			"import": "./dist/tailwindConfig.js",
+			"default": "./dist/tailwindConfig.js",
+			"require": "./dist/tailwindConfig.js",
 			"types": "./dist/tailwind.base.config.d.ts"
 		},
 		"./utils": {
