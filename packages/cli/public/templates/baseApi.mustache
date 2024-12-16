@@ -37,7 +37,7 @@ export const DEFAULT_GLOBAL_CONFIG = new Configuration({
 });
 
 export function updateGlobalConfiguration(config: Configuration) {
-	Object.assign(DEFAULT_GLOBAL_CONFIG, {...DEFAULT_GLOBAL_CONFIG, config})
+	Object.assign(DEFAULT_GLOBAL_CONFIG, {...DEFAULT_GLOBAL_CONFIG, ...config})
 }
 
 /**
