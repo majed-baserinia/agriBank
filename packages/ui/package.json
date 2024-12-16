@@ -28,11 +28,11 @@
 		},
 		"./expanded-theme": {
 			"import": "./dist/expanded-theme.js",
-			"types": "./dist/components/expanded-theme.d.ts"
+			"types": "./dist/lib/components/expanded-theme.d.ts"
 		},
 		"./stores/*": {
 			"import": "./dist/stores/*/index.js",
-			"types": "./dist/stores/*/index.d.ts"
+			"types": "./dist/lib/stores/*/index.d.ts"
 		},
 		"./tailwind-config": {
 			"import": "./dist/tailwindConfig.js",
@@ -42,7 +42,7 @@
 		},
 		"./utils": {
 			"import": "./dist/utils.js",
-			"types": "./dist/utils.d.ts"
+			"types": "./dist/lib/index.d.ts"
 		},
 		"./assets/themes/default.json": {
 			"import": "./dist/themes/default.json"
