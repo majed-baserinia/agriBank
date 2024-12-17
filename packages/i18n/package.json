@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/i18n",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"type": "module",
 	"description": "base language pack and options",
 	"author": "@FoHoOV",
@@ -40,8 +40,8 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@agribank/eslint-plugin": "0.0.3",
-		"@agribank/prettier-config": "0.0.5",
+		"@agribank/eslint-plugin": "0.0.4",
+		"@agribank/prettier-config": "0.0.6",
 		"i18next": "^23.2.5",
 		"eslint": "^9.12.0",
 		"prettier": "^3.3.3",

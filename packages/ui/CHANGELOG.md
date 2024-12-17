@@ -1,5 +1,16 @@
 # @agribank/ui
 
+## 0.1.2
+
+### Patch Changes
+
+- 12d5e6b: fix: add @agribank/ui dist to tailwind config
+- edcb88e: fix(ui): made onChange optional
+- eea27b3: fix(ui): correct control buttons based on direction
+- c6004b8: chore: add changelog to files prop of package.json
+- Updated dependencies [c6004b8]
+  - @agribank/i18n@0.0.6
+
 ## 0.1.1
 
 ### Patch Changes

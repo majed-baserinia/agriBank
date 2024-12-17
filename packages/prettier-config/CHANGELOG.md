@@ -1,5 +1,11 @@
 # @agribank/prettier-config
 
+## 0.0.6
+
+### Patch Changes
+
+- c6004b8: chore: add changelog to files prop of package.json
+
 ## 0.0.5
 
 ### Patch Changes

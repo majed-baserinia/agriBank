@@ -168,10 +168,10 @@ importers:
   packages/i18n:
     devDependencies:
       '@agribank/eslint-plugin':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../eslint-plugin
       '@agribank/prettier-config':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../prettier-config
       eslint:
         specifier: ^9.12.0
@@ -202,19 +202,19 @@ importers:
         version: 3.23.8
     devDependencies:
       '@agribank/eslint-plugin':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../eslint-plugin
       '@agribank/i18n':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../i18n
       '@agribank/post-message':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../post-message
       '@agribank/prettier-config':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../ui
       '@mui/material':
         specifier: ^6.1.8
@@ -271,10 +271,10 @@ importers:
   packages/post-message:
     devDependencies:
       '@agribank/eslint-plugin':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../eslint-plugin
       '@agribank/prettier-config':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../prettier-config
       '@types/react':
         specifier: ^18.3.11
@@ -348,13 +348,13 @@ importers:
         version: 3.4.14
     devDependencies:
       '@agribank/eslint-plugin':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../eslint-plugin
       '@agribank/i18n':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../i18n
       '@agribank/prettier-config':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../prettier-config
       '@emotion/cache':
         specifier: ^11.11.0
@@ -450,10 +450,10 @@ importers:
   packages/vite-plugin:
     devDependencies:
       '@agribank/prettier-config':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../ui
       '@types/eslint__js':
         specifier: ^8.42.3
@@ -492,19 +492,19 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/eslint-plugin':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../../packages/eslint-plugin
       '@agribank/i18n':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: 1.0.1
+        specifier: 1.0.2
         version: link:../../packages/ignite
       '@agribank/post-message':
-        specifier: 0.0.3
+        specifier: 0.0.4
         version: link:../../packages/post-message
       '@agribank/ui':
-        specifier: 0.1.1
+        specifier: 0.1.2
         version: link:../../packages/ui
       '@emotion/cache':
         specifier: ^11.11.0
@@ -571,13 +571,13 @@ importers:
         version: 4.5.5(@types/react@18.3.12)(react@18.3.1)
     devDependencies:
       '@agribank/cli':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../../packages/cli
       '@agribank/prettier-config':
-        specifier: 0.0.5
+        specifier: 0.0.6
         version: link:../../packages/prettier-config
       '@agribank/vite-plugin':
-        specifier: 1.0.1
+        specifier: 1.0.2
         version: link:../../packages/vite-plugin
       '@eslint/js':
         specifier: ^9.13.0

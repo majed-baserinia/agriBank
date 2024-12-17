@@ -1,5 +1,11 @@
 # @agribank/post-message
 
+## 0.0.4
+
+### Patch Changes
+
+- c6004b8: chore: add changelog to files prop of package.json
+
 ## 0.0.3
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @agribank/vite-plugin
 
+## 1.0.2
+
+### Patch Changes
+
+- c6004b8: chore: add changelog to files prop of package.json
+- Updated dependencies [12d5e6b]
+- Updated dependencies [edcb88e]
+- Updated dependencies [eea27b3]
+- Updated dependencies [c6004b8]
+  - @agribank/ui@0.1.2
+
 ## 1.0.1
 
 ### Patch Changes
