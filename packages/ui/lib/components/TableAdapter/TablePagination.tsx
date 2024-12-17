@@ -1,5 +1,5 @@
 import { NavigateBefore, NavigateNext } from "@mui/icons-material";
-import { IconButton, Typography } from "@mui/material";
+import { Grid2, IconButton, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { useTranslation } from "react-i18next";
 
@@ -60,8 +60,10 @@ export function TablePagination({
 							xpage: activePageIndex + 1
 						})}
 			</Typography>
-			<div
-				className="flex gap-2"
+			<Grid2
+				container
+				gap={10}
+				flexDirection={(theme) => (theme.direction === "rtl" ? "row-reverse" : "row")}
 				aria-label="actions"
 			>
 				<IconButton
@@ -101,7 +103,7 @@ export function TablePagination({
 				>
 					<NavigateBefore />
 				</IconButton>
-			</div>
+			</Grid2>
 		</Grid>
 	);
 }

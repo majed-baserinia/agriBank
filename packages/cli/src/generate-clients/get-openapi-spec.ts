@@ -116,6 +116,7 @@ function writeCustomOperationIds(spec: OpenAPIObject, config: Config) {
 				if (command === "tag") {
 					prev += format(tag, formatter);
 				}
+
 				if (command == "last-segment") {
 					prev += format(lastNoneParamSegment ?? "ERROR_NO_KNOWN_LAST_SEGMENT", formatter);
 				}
