@@ -47,7 +47,7 @@ export function SelectAdapter(props: Props) {
 			setOpen(true);
 		} else {
 			setSelectedValue(e.target.value as string);
-			onChange(e.target.value as string);
+			onChange?.(e.target.value as string);
 		}
 	};
 
