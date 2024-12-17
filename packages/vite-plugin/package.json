@@ -21,7 +21,8 @@
 	"files": [
 		"dist/",
 		"package.json",
-		"README.md"
+		"README.md",
+		"CHANGELOG.md"
 	],
 	"exports": {
 		".": {

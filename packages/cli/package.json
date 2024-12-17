@@ -34,7 +34,8 @@
 	"files": [
 		"dist/",
 		"README.md",
-		"package.json"
+		"package.json",
+		"CHANGELOG.md"
 	],
 	"bin": {
 		"agribank": "./dist/cli.js"
