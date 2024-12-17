@@ -72,6 +72,14 @@ const plugin = {
 				}
 			},
 			{
+				settings: {
+					react: {
+						version: "detect",
+						defaultVersion: "18"
+					}
+				}
+			},
+			{
 				rules: {
 					"react-refresh/only-export-components": "warn",
 					"no-unused-expressions": "off",
