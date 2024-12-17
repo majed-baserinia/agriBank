@@ -11,7 +11,7 @@ export type Props = {
 	isRequired?: boolean;
 	label?: string;
 	muiSelectProps?: SelectProps;
-	onChange: (value: string) => void;
+	onChange?: (value: string) => void;
 	renderValue?: (option: string) => ReactNode;
 	size?: "medium" | "small";
 };
