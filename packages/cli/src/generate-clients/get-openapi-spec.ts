@@ -56,7 +56,10 @@ function replacePrefixes(spec: OpenAPIObject, regex: RegExp, replacer: string) {
 
 function modifySpec(spec: OpenAPIObject, config: Config) {
 	const replaced = config.replaceEndpointRegex
-		? replacePrefixes(spec, config.replaceEndpointRegex[0], config.replaceEndpointRegex[1])
+		? config.replaceEndpointRegex.reduce(
+				(prevSpec, pair) => replacePrefixes(prevSpec, pair[0], pair[1]),
+				spec
+			)
 		: spec;
 
 	return config.removeEndpointPrefix

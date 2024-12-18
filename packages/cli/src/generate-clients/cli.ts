@@ -16,18 +16,20 @@ export const optionsSchema = z.object({
 	 */
 	removeEndpointPrefix: z.string().optional(),
 	replaceEndpointRegex: z
-		.string()
+		.array(z.string())
 		.optional()
-		.refine((v) => v === undefined || v.split(",").length == 2, {
+		.refine((value) => value === undefined || value.every((pair) => pair.split(",").length == 2), {
 			message: "this prop should have two values separated by comma"
 		})
-		.transform((v) => {
-			return v?.split(",").map((v, i) => {
-				if (i == 0) {
-					return RegExp(v.trim(), "g");
-				}
-				return v.trim();
-			}) as [RegExp, string];
+		.transform((value) => {
+			return value?.map((pair) =>
+				pair?.split(",").map((v, i) => {
+					if (i == 0) {
+						return RegExp(v.trim(), "g");
+					}
+					return v.trim();
+				})
+			) as [RegExp, string][];
 		}),
 	skipSpecValidations: z.boolean({ coerce: true }).optional(),
 	customizeOperationId: z
@@ -84,8 +86,8 @@ export function setupCommand() {
 		)
 		.addOption(
 			new Option(
-				"--replace-endpoint-regex <regex>, <string>",
-				"replaces regex <regex> with replace value <string>, runs before remove-endpoint-prefix command, ie --replace-endpoint-regex /api/,/account-report-service/"
+				"--replace-endpoint-regex <pair...>",
+				"replaces regex with replace value, runs before remove-endpoint-prefix command, ie --replace-endpoint-regex /api/,/account-report-service/"
 			)
 		)
 		.addOption(
