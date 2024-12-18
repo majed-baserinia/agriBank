@@ -3,9 +3,9 @@ import activeIcon from "$assets/icons/stepper/active.svg";
 import { SvgToIcon } from "$components/SvgToIcon";
 import { Grid, Typography, useTheme } from "@mui/material";
 
-import type { StepperProps } from "./types";
+import type { Props } from "./types";
 
-export function Stepper(props: StepperProps) {
+export function Stepper(props: Props) {
 	const { list, active } = props;
 	const theme = useTheme();
 
