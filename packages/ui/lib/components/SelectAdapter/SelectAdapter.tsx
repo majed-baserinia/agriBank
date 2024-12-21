@@ -1,8 +1,7 @@
-import type { SelectChangeEvent } from "@mui/material";
-import type { ReactElement, ReactNode, SyntheticEvent } from "react";
-
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 import {
+	type SelectChangeEvent,
 	FormControl,
 	FormHelperText,
 	Grid,
@@ -12,8 +11,7 @@ import {
 	useMediaQuery,
 	useTheme
 } from "@mui/material";
-import { useEffect, useState } from "react";
-
+import { type ReactElement, type ReactNode, type SyntheticEvent, useEffect, useState } from "react";
 import type { Props } from "./types";
 
 export function SelectAdapter(props: Props) {
@@ -38,6 +36,7 @@ export function SelectAdapter(props: Props) {
 
 	useEffect(() => {
 		setSelectedValue(defaultValue);
+		onChange?.(defaultValue);
 	}, [defaultValue]);
 
 	//const handleChange = (event:ChangeEvent<{ value: unknown}>) => {
