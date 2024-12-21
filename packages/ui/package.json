@@ -43,7 +43,7 @@
 		},
 		"./utils": {
 			"import": "./dist/utils.js",
-			"types": "./dist/lib/index.d.ts"
+			"types": "./dist/lib/utils/index.d.ts"
 		},
 		"./assets/themes/default.json": {
 			"import": "./dist/themes/default.json"
