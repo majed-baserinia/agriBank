@@ -1,12 +1,6 @@
-export type InitialSetting = {
-	language: "fa-IR" | "en-GB";
-	themeName: string;
-	theme: object;
-	idToken?: string;
-	refreshToken?: string;
-	osType: number;
-	[key: string]: unknown;
-};
+import type { PostMessageOutputSubType } from "node_modules/@agribank/post-message";
+
+export type InitialSetting = PostMessageOutputSubType<"iFrameReady", "initiateIFrame">;
 
 export type InitialSettingStore = {
 	settings: InitialSetting;

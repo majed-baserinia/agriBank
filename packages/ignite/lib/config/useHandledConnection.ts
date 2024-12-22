@@ -1,7 +1,12 @@
 import { useSearchParamsConfigs } from "$lib/config/useSearchParamsConfigs";
 import { environment } from "$lib/env";
 import { type InitialSetting } from "$lib/stores";
-import { closeApp, useConnection, type ConnectionProps } from "@agribank/post-message";
+import {
+	closeApp,
+	sendPostMessage,
+	useConnection,
+	type ConnectionProps
+} from "@agribank/post-message";
 import { useMatch, useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
@@ -22,7 +27,7 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 		onGobackPressed: () => {
 			const currentPath = match.pathname;
 			if (currentPath === environment().BASE_URL || `${currentPath}/` === environment().BASE_URL) {
-				closeApp();
+				sendPostMessage("isFinishedBack", "true");
 			} else {
 				void navigate({ to: -1 });
 				//send acknowledge to the parent
