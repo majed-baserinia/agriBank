@@ -1,81 +1,99 @@
-import refreshIcon from "$assets/icons/refresh-alert.svg";
-import { ButtonAdapter } from "$components/ButtonAdapter";
-import { CountDownTimer } from "$components/CountDownTimer";
 import { InputAdapter } from "$components/InputAdapter";
-import { SvgToIcon } from "$components/SvgToIcon";
-import { Grid, Typography } from "@mui/material";
-import { useState } from "react";
+import { ButtonAdapter } from "$lib/components/ButtonAdapter";
+import { CountDownTimer, useCountDownTimer } from "$lib/components/CountDownTimer";
+import CachedIcon from "@mui/icons-material/Cached";
+import CloseIcon from "@mui/icons-material/Close";
+import { Grid2, IconButton, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-
 import type { Props } from "./types";
 
-export function Otp(props: Props) {
-	const {
-		maxLength = 8,
-		onChange,
-		helperText,
-		error,
-		label,
-		handleResend,
-		timerInSeconds,
-		defaultValue
-	} = props;
+export function Otp({ handleSend, sendOnLoad, onChange }: Props) {
 	const { t } = useTranslation("base");
-	const [IsCountDownTimerCounting, setIsCountDownTimerCounting] = useState<boolean>();
+
+	const [maxLength, setMaxLength] = useState(8);
+	const [value, setValue] = useState("");
+	const [isResendDisabled, setIsResendDisabled] = useState(false);
+	const [hasSentSmsAtLeastOnce, setHasSentSmsAtLeastOnce] = useState(false);
+	const { countDownTimer, setCountDownTimer, isTimerCounting } = useCountDownTimer({
+		initialValue: -1,
+		onCountDownEnded: () => {
+			setIsResendDisabled(false);
+		}
+	});
+
+	async function sendSms() {
+		setHasSentSmsAtLeastOnce(true);
+		setIsResendDisabled(true);
+		const { maxLength, timer } = await handleSend();
+		setCountDownTimer(timer ?? 120);
+		setMaxLength(maxLength ?? 8);
+	}
+
+	useEffect(() => {
+		if (!sendOnLoad) {
+			return;
+		}
+		void sendSms();
+	}, []);
 
 	return (
-		<>
+		<Grid2>
 			<InputAdapter
-				defaultValue={defaultValue}
-				error={error}
-				helperText={helperText}
-				isRequired
-				label={label}
-				muiTextFieldProps={{
-					inputProps: { maxLength: maxLength }
+				label={t("activation-code")}
+				onChange={(value) => {
+					setValue(value);
+					onChange?.(value);
 				}}
-				onChange={(value) => onChange(value)}
 				type="number"
+				defaultValue={value}
+				maxLength={maxLength}
+				endIcon={
+					value.length > 0 && (
+						<IconButton
+							aria-label="clear otp"
+							onClick={() => {
+								setValue("");
+							}}
+						>
+							<CloseIcon />
+						</IconButton>
+					)
+				}
 			/>
-			<Grid
+			<Grid2
 				container
+				justifyContent={"space-between"}
+				alignItems={"center"}
 				sx={{
-					alignItems: "baseline",
-					gap: 8,
-					marginTop: "8px"
+					marginTop: 2,
+					width: "100%",
+					direction: (theme) => `${theme.direction} /* @noflip */`
 				}}
 			>
-				<Typography
-					hidden={!IsCountDownTimerCounting}
-					variant="bodySm"
+				<Grid2
+					container
+					flexDirection={"row"}
+					gap={10}
 				>
-					<Grid container>
-						{t("remaining-time")}
-						<CountDownTimer
-							onCountDownEnded={() => {
-								setIsCountDownTimerCounting(false);
-							}}
-							onCountDownStarted={() => {
-								setIsCountDownTimerCounting(true);
-							}}
-							timerInSeconds={timerInSeconds}
-						/>
-					</Grid>
-				</Typography>
+					{isTimerCounting && (
+						<>
+							<Typography variant="bodySm">{t("remaining-time")}</Typography>
+							<CountDownTimer
+								timerInSeconds={countDownTimer}
+								isTimerCounting={isTimerCounting}
+							/>
+						</>
+					)}
+				</Grid2>
 				<ButtonAdapter
-					disabled={IsCountDownTimerCounting}
-					endIcon={
-						<SvgToIcon
-							alt="refresh"
-							icon={refreshIcon}
-						/>
-					}
-					onClick={handleResend}
-					size="small"
+					onClick={sendSms}
+					disabled={isResendDisabled}
+					endIcon={<CachedIcon />}
 				>
-					{t("send-again")}
+					{hasSentSmsAtLeastOnce ? t("xsend-again", { xsend: t("send") }) : t("send")}
 				</ButtonAdapter>
-			</Grid>
-		</>
+			</Grid2>
+		</Grid2>
 	);
 }

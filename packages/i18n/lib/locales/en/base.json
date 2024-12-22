@@ -33,7 +33,8 @@
 	"Kosar": "Kosar",
 	"Noor": "Noor",
 	"continue": "continue",
-	"send-again": "send again",
+	"send": "send",
+	"xsend-again": "{{xsend}} again",
 	"end": "end",
 	"i-understand": "I understand",
 	"info": "info",
@@ -87,5 +88,6 @@
 	"loading-text-auto-comp": "loading...",
 	"init-error-text": "there is a problem with loading the app, please try again later",
 	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
-	"xpage-number": "page {{xpage}}"
+	"xpage-number": "page {{xpage}}",
+	"activation-code": "activation code"
 }

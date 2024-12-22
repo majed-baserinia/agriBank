@@ -1,33 +1,21 @@
-import { useCountDownTimer } from "$lib/components/CountDownTimer/useCountDownTimer";
 import { Typography, useTheme } from "@mui/material";
-import { useEffect } from "react";
 
 export type Props = {
-	onCountDownEnded?: () => void;
-	onCountDownStarted?: () => void;
-	timerInSeconds: { timer: number } | undefined;
+	isTimerCounting: boolean;
+	timerInSeconds: number | undefined;
 };
 
-export const CountDownTimer = ({ timerInSeconds, onCountDownStarted, onCountDownEnded }: Props) => {
-	const { countDownTimer, setCountDownTimer, isTimerCounting } = useCountDownTimer({
-		initialValue: timerInSeconds?.timer,
-		onCountDownStarted: onCountDownStarted,
-		onCountDownEnded: onCountDownEnded
-	});
+/**
+ * use with `useCountDownTimer` hook
+ */
+export const CountDownTimer = ({ timerInSeconds, isTimerCounting }: Props) => {
 	const theme = useTheme();
-	useEffect(() => {
-		if (timerInSeconds === undefined) {
-			return;
-		}
-		setCountDownTimer(timerInSeconds.timer);
-	}, [timerInSeconds]);
-
 	return (
 		<span
 			className={`px-2 ${!isTimerCounting ? "hidden" : ""}`}
 			style={{ color: theme.palette.text.secondary }}
 		>
-			<Typography variant="bodySm">{beautifyTime(countDownTimer ?? 0)}</Typography>
+			<Typography variant="bodySm">{beautifyTime(timerInSeconds ?? 0)}</Typography>
 		</span>
 	);
 };

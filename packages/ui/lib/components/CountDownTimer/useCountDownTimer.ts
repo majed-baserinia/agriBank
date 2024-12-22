@@ -1,10 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 
 export type CountDownTimerProps = {
-	initialValue: number | undefined; // what timer should start with
-	minTimerValue?: number; // when timer should stop counting down and clear the interval
-	onCountDownEnded?: () => void; // when we clear the interval and stop counting
-	onCountDownStarted?: () => void; // when countdown has started
+	/**
+	 *  what timer should start with
+	 */
+	initialValue: number | undefined;
+	/**
+	 * when timer should stop counting down and clear the interval
+	 */
+	minTimerValue?: number;
+	/**
+	 * event fired when we clear the interval and stop counting
+	 */
+	onCountDownEnded?: () => void;
+	/**
+	 * event fired when countdown has started
+	 */
+	onCountDownStarted?: () => void;
 };
 
 export const useCountDownTimer = ({

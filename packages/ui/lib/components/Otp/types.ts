@@ -1,12 +1,7 @@
+type SendReturnType = { timer: number; maxLength: number };
 export type Props = {
-	defaultValue?: string;
-	error?: boolean;
-	handleResend: () => void;
-	helperText?: string;
-	label: string;
-	maxLength?: number;
+	handleSend: () => SendReturnType | Promise<SendReturnType>;
+	sendOnLoad?: boolean;
+	label?: string;
 	onChange: (value: string) => void;
-	timerInSeconds?: {
-		timer: number;
-	};
 };
