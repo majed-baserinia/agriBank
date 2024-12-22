@@ -1,6 +1,7 @@
 import { InputAdapter } from "$components/InputAdapter";
 import { ButtonAdapter } from "$lib/components/ButtonAdapter";
 import { CountDownTimer, useCountDownTimer } from "$lib/components/CountDownTimer";
+import { usePostMessage } from "@agribank/post-message";
 import CachedIcon from "@mui/icons-material/Cached";
 import CloseIcon from "@mui/icons-material/Close";
 import { Grid2, IconButton, Typography } from "@mui/material";
@@ -19,6 +20,13 @@ export function Otp({ handleSend, sendOnLoad, onChange }: Props) {
 		initialValue: -1,
 		onCountDownEnded: () => {
 			setIsResendDisabled(false);
+		}
+	});
+	usePostMessage({
+		message: { type: "GetOTP", input: { OTPLen: "8", ReadMode: "UserConsent" } },
+		callback: (e) => {
+			setValue(e.data.data.OTP);
+			onChange(e.data.data.OTP);
 		}
 	});
 
