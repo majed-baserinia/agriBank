@@ -1,24 +1,27 @@
-import type { PostMessageTypes } from "$lib/utils";
+import {
+	sendPostMessageRaw,
+	type PostMessageInput,
+	type PostMessageOutput,
+	type PostMessageTypes
+} from "$lib/utils";
 import { useEffect, useRef } from "react";
 
-type PostMessageProps<TRequest extends PostMessageTypes, TResponse> = {
+type PostMessageRawProps<TRequest, TResponse> = {
 	callback: (e: MessageEvent<TResponse>) => void;
 	message?: TRequest;
 };
-
-export default function usePostMessage<TRequest extends PostMessageTypes, TResponse>(
-	props: PostMessageProps<TRequest, TResponse>
-) {
-	const { callback, message } = props;
+export function usePostMessageRaw<TRequest, TResponse>({
+	callback,
+	message
+}: PostMessageRawProps<TRequest, TResponse>) {
 	const hasSentAlready = useRef(false);
-
 	useEffect(() => {
 		if (!hasSentAlready.current) {
 			hasSentAlready.current = true;
 			window.addEventListener("message", callback, false);
 
 			if (message) {
-				window.parent.postMessage(message, "*");
+				sendPostMessageRaw(message);
 			}
 		}
 
@@ -26,4 +29,16 @@ export default function usePostMessage<TRequest extends PostMessageTypes, TRespo
 			window.removeEventListener("message", callback);
 		};
 	}, []);
+}
+
+export type PostMessageProps<TType extends PostMessageTypes["type"]> = PostMessageRawProps<
+	{ type: TType; input: PostMessageInput<TType> },
+	NoInfer<PostMessageOutput<TType>>
+>;
+
+export function usePostMessage<TType extends PostMessageTypes["type"]>({
+	callback,
+	message
+}: PostMessageProps<TType>) {
+	return usePostMessageRaw({ callback, message });
 }

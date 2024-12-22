@@ -1,13 +1,16 @@
 import { useMultipleInitRequest, type MultipleInitRequestEvents } from "$lib/init";
+import type { PostMessageOutput, PostMessageType } from "$lib/utils";
 import { useEffect, useState } from "react";
 
-export type ConnectionProps<TData> = {
+type InitiateIFrameOutputType = PostMessageType<"iFrameReady">["output"];
+
+export type ConnectionProps<TData extends InitiateIFrameOutputType> = {
 	needsInitData: boolean;
-	onIframeInitiated?: (data: TData) => void;
+	onIframeInitiated?: (data: Extract<TData, { type: "initiateIFrame" }>["data"]) => void;
 	onGobackPressed?: () => void;
 } & MultipleInitRequestEvents;
 
-export function useConnection<TData>({
+export function useConnection<TData extends InitiateIFrameOutputType = InitiateIFrameOutputType>({
 	needsInitData,
 	onIframeInitiated,
 	onGobackPressed,
@@ -23,7 +26,12 @@ export function useConnection<TData>({
 		onInitializationFailed: onInitializationFailed
 	});
 
-	const onReceivePostMessage = (event: MessageEvent<{ type: string; data: TData }>) => {
+	const onReceivePostMessage = <TType extends PostMessageOutput<"iFrameReady">["type"]>(
+		event: MessageEvent<{
+			type: TType;
+			data: Extract<TData, { type: TType }>["data"];
+		}>
+	) => {
 		const type = event.data.type;
 
 		if (type === "initiateIFrame") {
@@ -34,7 +42,7 @@ export function useConnection<TData>({
 		}
 	};
 
-	const initiateIFrameHandler = (data: TData) => {
+	const initiateIFrameHandler = (data: Extract<TData, { type: "initiateIFrame" }>["data"]) => {
 		setReceivedInitPostMessage(true);
 		onIframeInitiated?.(data);
 	};

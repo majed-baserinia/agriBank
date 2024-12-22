@@ -353,6 +353,9 @@ importers:
       '@agribank/i18n':
         specifier: 0.0.6
         version: link:../i18n
+      '@agribank/post-message':
+        specifier: 0.0.4
+        version: link:../post-message
       '@agribank/prettier-config':
         specifier: 0.0.6
         version: link:../prettier-config
