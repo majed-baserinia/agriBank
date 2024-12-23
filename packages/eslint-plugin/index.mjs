@@ -6,6 +6,7 @@ import reactHooks from "eslint-plugin-react-hooks";
 // @ts-expect-error
 import reactRefresh from "eslint-plugin-react-refresh";
 import pluginRouter from "@tanstack/eslint-plugin-router";
+import pluginQuery from "@tanstack/eslint-plugin-query";
 import fs from "fs";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -35,6 +36,7 @@ const plugin = {
 			// @ts-expect-error
 			pluginReact.configs.flat["jsx-runtime"],
 			...pluginRouter.configs["flat/recommended"],
+			...pluginQuery.configs["flat/recommended"],
 			eslintPluginPrettierRecommended,
 			packageJson,
 			regexp.configs["flat/recommended"],
