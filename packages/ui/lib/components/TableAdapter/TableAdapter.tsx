@@ -14,12 +14,17 @@ export function TableAdapter<TColumnNames extends string>({
 	onNavigating,
 	isNextButtonDisabled,
 	totalNumberOfItems,
+	muiPaperProps,
+	muiTableProps,
 	itemsPerPage = 10
 }: Props<TColumnNames>) {
 	return (
 		<>
-			<Paper sx={{ width: "100%", overflow: "hidden" }}>
-				<TableContainer sx={{ maxHeight: 590 }}>
+			<Paper
+				{...muiPaperProps}
+				sx={{ width: "100%", overflow: "hidden", ...muiPaperProps?.sx }}
+			>
+				<TableContainer {...muiTableProps}>
 					<Table
 						stickyHeader
 						aria-label="sticky table"

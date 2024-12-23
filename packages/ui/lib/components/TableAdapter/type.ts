@@ -1,3 +1,4 @@
+import type { PaperProps, TableProps } from "@mui/material";
 import type { ReactNode } from "react";
 import type { NavigationAction } from "./TablePagination";
 
@@ -21,4 +22,6 @@ export type Props<TColumnNames extends string> = {
 	itemsPerPage?: number;
 	isNextButtonDisabled?: boolean;
 	activePageIndex: number;
+	muiPaperProps?: PaperProps;
+	muiTableProps?: TableProps;
 };
