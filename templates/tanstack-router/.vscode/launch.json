@@ -14,7 +14,7 @@
 			"type": "chrome",
 			"request": "launch",
 			"name": "chrome:dev",
-			"url": "http://localhost:5173/<your-app-base-url>/",
+			"url": "http://localhost:5173/__APP_NAME__/",
 			"webRoot": "${workspaceFolder}"
 		},
 		{
