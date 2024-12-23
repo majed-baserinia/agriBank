@@ -17,7 +17,7 @@ export type Config = {
 };
 
 export function sparsCheckout({ repoUrl, sparsePath, tempDir, outDir, branch }: Config) {
-	if (fs.existsSync(outDir)) {
+	if (fs.existsSync(outDir) && fs.readdirSync(outDir).length > 0) {
 		throw new Error(`${outDir} is not empty.`);
 	}
 	try {
