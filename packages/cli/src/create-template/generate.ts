@@ -19,6 +19,7 @@ function setApplicationName(options: z.infer<typeof optionsSchema>) {
 	};
 	replaceApplicationName("package.json");
 	replaceApplicationName("vite.config.ts", (v) => `/${v}`);
+	replaceApplicationName("tests/example.spec.ts");
 }
 
 export function generate(options: z.infer<typeof optionsSchema>) {
