@@ -75,8 +75,7 @@ export function Otp({ handleSend, sendOnLoad, onChange }: Props) {
 				alignItems={"center"}
 				sx={{
 					marginTop: 2,
-					width: "100%",
-					direction: (theme) => `${theme.direction} /* @noflip */`
+					width: "100%"
 				}}
 			>
 				<Grid2
