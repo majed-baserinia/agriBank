@@ -497,9 +497,6 @@ importers:
 
   templates/tanstack-router:
     dependencies:
-      '@agribank/eslint-plugin':
-        specifier: 0.0.4
-        version: link:../../packages/eslint-plugin
       '@agribank/i18n':
         specifier: 0.0.6
         version: link:../../packages/i18n
@@ -579,6 +576,9 @@ importers:
       '@agribank/cli':
         specifier: 0.0.6
         version: link:../../packages/cli
+      '@agribank/eslint-plugin':
+        specifier: 0.0.4
+        version: link:../../packages/eslint-plugin
       '@agribank/prettier-config':
         specifier: 0.0.6
         version: link:../../packages/prettier-config

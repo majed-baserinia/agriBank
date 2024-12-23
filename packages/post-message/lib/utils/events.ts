@@ -10,9 +10,6 @@ export type PostMessageTypes =
 				| {
 						type: "initiateIFrame";
 						data: {
-							language: "fa-IR" | "en-GB";
-							themeName: string;
-							theme: object;
 							idToken?: string;
 							refreshToken?: string;
 							osType: number;

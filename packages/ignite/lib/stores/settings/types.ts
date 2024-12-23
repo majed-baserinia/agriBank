@@ -1,6 +1,11 @@
-import type { PostMessageOutputSubType } from "node_modules/@agribank/post-message";
+import type { PostMessageOutputSubType } from "@agribank/post-message";
+import type { ThemeOptions } from "@mui/material";
 
-export type InitialSetting = PostMessageOutputSubType<"iFrameReady", "initiateIFrame">;
+export type InitialSetting = PostMessageOutputSubType<"iFrameReady", "initiateIFrame"> & {
+	language: "fa-IR" | "en-GB";
+	themeName: string;
+	theme: ThemeOptions;
+};
 
 export type InitialSettingStore = {
 	settings: InitialSetting;

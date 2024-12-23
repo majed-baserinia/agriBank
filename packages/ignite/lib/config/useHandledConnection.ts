@@ -1,6 +1,6 @@
 import { useSearchParamsConfigs } from "$lib/config/useSearchParamsConfigs";
 import { environment } from "$lib/env";
-import { type InitialSetting } from "$lib/stores";
+import type { InitialSetting } from "$lib/stores";
 import {
 	closeApp,
 	sendPostMessage,
@@ -10,7 +10,12 @@ import {
 import { useMatch, useNavigate } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
-export type Props = Omit<ConnectionProps<InitialSetting>, "onInitializationFailed"> & {
+type ConnectionType = {
+	type: "initiateIFrame";
+	data: InitialSetting;
+};
+
+export type Props = Omit<ConnectionProps<ConnectionType>, "onInitializationFailed"> & {
 	onInitializationFailed?: (errorMessage: string) => boolean;
 };
 
@@ -23,7 +28,7 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 	});
 	const { t } = useTranslation("base");
 
-	const connection = useConnection<InitialSetting>({
+	const connection = useConnection<ConnectionType>({
 		onGobackPressed: () => {
 			const currentPath = match.pathname;
 			if (currentPath === environment().BASE_URL || `${currentPath}/` === environment().BASE_URL) {

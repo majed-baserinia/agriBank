@@ -19,6 +19,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 	const { setSettings } = useInitialSettingStore();
 	const { init: initApi } = useApiConfig();
 	const spConfig = useSearchParamsConfigs();
+
 	const { readyToLoad } = useHandledConnection({
 		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
