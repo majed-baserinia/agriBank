@@ -1,5 +1,25 @@
 # @agribank/ignite
 
+## 2.0.0
+
+### Minor Changes
+
+- 3dc3a3a: feat: add otp component
+
+### Patch Changes
+
+- e7174c6: fix(post-message): remove redundant types and fix useConnection types
+- Updated dependencies [e7174c6]
+- Updated dependencies [4546540]
+- Updated dependencies [ef2bbf8]
+- Updated dependencies [b168acf]
+- Updated dependencies [4a7a5b6]
+- Updated dependencies [3dc3a3a]
+- Updated dependencies [e3daa8b]
+  - @agribank/post-message@0.1.0
+  - @agribank/ui@1.0.0
+  - @agribank/i18n@0.1.0
+
 ## 1.0.2
 
 ### Patch Changes

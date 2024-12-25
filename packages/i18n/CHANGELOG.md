@@ -1,5 +1,16 @@
 # @agribank/i18n
 
+## 0.1.0
+
+### Minor Changes
+
+- 3dc3a3a: feat: add otp component
+- e3daa8b: feat(i18n): add more words to base i18n package
+
+### Patch Changes
+
+- b168acf: chore: add more words and remove reverse-rtl from table pagination
+
 ## 0.0.6
 
 ### Patch Changes

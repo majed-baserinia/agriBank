@@ -1,5 +1,15 @@
 # @agribank/post-message
 
+## 0.1.0
+
+### Minor Changes
+
+- 3dc3a3a: feat: add otp component
+
+### Patch Changes
+
+- e7174c6: fix(post-message): remove redundant types and fix useConnection types
+
 ## 0.0.4
 
 ### Patch Changes

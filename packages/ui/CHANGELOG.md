@@ -1,5 +1,22 @@
 # @agribank/ui
 
+## 1.0.0
+
+### Minor Changes
+
+- 4a7a5b6: feat(ui): customize table paper/table props
+- 3dc3a3a: feat: add otp component
+
+### Patch Changes
+
+- 4546540: fix(ui): fire onChange event with SelectAdapter
+- ef2bbf8: fix(ui): use noflip on global styles for rtl/ltr
+- b168acf: chore: add more words and remove reverse-rtl from table pagination
+- Updated dependencies [b168acf]
+- Updated dependencies [3dc3a3a]
+- Updated dependencies [e3daa8b]
+  - @agribank/i18n@0.1.0
+
 ## 0.1.2
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @agribank/eslint-plugin
 
+## 0.1.0
+
+### Minor Changes
+
+- 3fc8347: feat(eslint): added react-query linter
+
 ## 0.0.4
 
 ### Patch Changes

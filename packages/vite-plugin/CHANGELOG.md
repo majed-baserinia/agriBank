@@ -1,5 +1,16 @@
 # @agribank/vite-plugin
 
+## 2.0.0
+
+### Patch Changes
+
+- Updated dependencies [4546540]
+- Updated dependencies [ef2bbf8]
+- Updated dependencies [b168acf]
+- Updated dependencies [4a7a5b6]
+- Updated dependencies [3dc3a3a]
+  - @agribank/ui@1.0.0
+
 ## 1.0.2
 
 ### Patch Changes

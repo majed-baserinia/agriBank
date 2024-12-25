@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/cli",
-	"version": "0.0.6",
+	"version": "0.1.0",
 	"type": "module",
 	"description": "command line tools for creating and updating agribank apps",
 	"author": "@FoHoOV",

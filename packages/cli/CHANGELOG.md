@@ -1,5 +1,17 @@
 # @agribank/cli
 
+## 0.1.0
+
+### Minor Changes
+
+- 449b13a: feat(cli): make replace-regex array, so that we can pass multiple regexes
+
+### Patch Changes
+
+- 8ca7fb0: fix(cli): replace app_name in launch configurations
+- 27b0b38: fix(cli): correctly check for empty folder
+- b4ae8bc: fix(cli): replace **APP_NAME** with appName in tests folder
+
 ## 0.0.6
 
 ### Patch Changes
