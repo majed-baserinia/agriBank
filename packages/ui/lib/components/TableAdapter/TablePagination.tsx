@@ -63,7 +63,7 @@ export function TablePagination({
 			<Grid2
 				container
 				gap={10}
-				flexDirection={(theme) => (theme.direction === "rtl" ? "row-reverse" : "row")}
+				flexDirection={"row"}
 				aria-label="actions"
 			>
 				<IconButton
