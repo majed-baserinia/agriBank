@@ -43,6 +43,7 @@
 	"success": "موفق",
 	"rejected": "رد شده",
 	"unknown": "نامشخص",
+	"action-completed-successfully": "عملیات با موفقیت انجام گردید",
 	"description": "شرح",
 	"inquiry": "استعلام",
 	"first": "اول",
@@ -89,5 +90,6 @@
 	"loading-text-auto-comp": "در حال دریافت ...",
 	"xpage-of-xtotal-pages": "صفحه {{xpage}} از {{xtotal}}",
 	"xpage-number": "صفحه {{xpage}}",
-	"activation-code": "کد فعال سازی"
+	"activation-code": "کد فعال سازی",
+	"go-back": "بازگشت"
 }

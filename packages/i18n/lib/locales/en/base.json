@@ -43,6 +43,7 @@
 	"success": "success",
 	"unknown": "unknown",
 	"rejected": "rejected",
+	"action-completed-successfully": "action completed successfully",
 	"description": "description",
 	"inquiry": "inquiry",
 	"first": "first",
@@ -89,5 +90,6 @@
 	"init-error-text": "there is a problem with loading the app, please try again later",
 	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
 	"xpage-number": "page {{xpage}}",
-	"activation-code": "activation code"
+	"activation-code": "activation code",
+	"go-back": "go back"
 }
