@@ -91,5 +91,6 @@
 	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
 	"xpage-number": "page {{xpage}}",
 	"activation-code": "activation code",
-	"go-back": "go back"
+	"go-back": "go back",
+	"validation-error": "validation error"
 }

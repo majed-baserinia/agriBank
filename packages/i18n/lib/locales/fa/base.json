@@ -91,5 +91,6 @@
 	"xpage-of-xtotal-pages": "صفحه {{xpage}} از {{xtotal}}",
 	"xpage-number": "صفحه {{xpage}}",
 	"activation-code": "کد فعال سازی",
-	"go-back": "بازگشت"
+	"go-back": "بازگشت",
+	"validation-error": "از صحت داده های ورودی اطمینان حاصل فرمایید"
 }
