@@ -1,0 +1,68 @@
+{
+	"name": "@agribank/baran-api-client",
+	"version": "0.0.1",
+	"type": "module",
+	"description": "clients for baran apis that handle the standard baran errors and response models",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/FoHoOV/agribank",
+		"directory": "packages/baran-api-client"
+	},
+	"contributors": [
+		"@FoHoOV",
+		"@SaeedMohammadiha"
+	],
+	"keywords": [
+		"agribank",
+		"htsc"
+	],
+	"files": [
+		"dist/",
+		"package.json",
+		"README.md",
+		"CHANGELOG.md"
+	],
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/lib/components/*/index.d.ts"
+		}
+	},
+	"scripts": {
+		"build": "tsc --build && vite build",
+		"dev": "vite",
+		"format": "prettier --write .",
+		"lint": "eslint ."
+	},
+	"devDependencies": {
+		"@agribank/eslint-plugin": "0.1.0",
+		"@agribank/i18n": "0.1.0",
+		"@types/react": "^18.3.11",
+		"@types/node": "^22.8.2",
+		"@typescript-eslint/eslint-plugin": "^8.8.1",
+		"@typescript-eslint/parser": "^8.1.1",
+		"@vitejs/plugin-react": "^4.3.3",
+		"axios": "^1.7.7",
+		"react": "^18.3.1",
+		"zod": "^3.23.8",
+		"i18next": "^23.2.5",
+		"prettier": "^3.3.3",
+		"typescript": "~5.6.2",
+		"eslint": "^9.12.0",
+		"eslint-plugin-n": "^17.11.1",
+		"typescript-eslint": "^8.8.1",
+		"vite": "^5.4.9",
+		"vite-plugin-dts": "^4.3.0",
+		"vite-tsconfig-paths": "^5.0.1"
+	},
+	"peerDependencies": {
+		"@agribank/i18n": "0.1.0",
+		"axios": "^1.7.7",
+		"zod": "^3.23.8",
+		"react": "^18.3.1",
+		"i18next": "^23.2.5"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
+}

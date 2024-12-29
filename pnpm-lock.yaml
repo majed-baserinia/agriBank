@@ -43,6 +43,66 @@ importers:
         specifier: ^8.8.1
         version: 8.11.0(eslint@9.13.0(jiti@2.4.0))(typescript@5.6.3)
 
+  packages/baran-api-client:
+    devDependencies:
+      '@agribank/eslint-plugin':
+        specifier: 0.1.0
+        version: link:../eslint-plugin
+      '@agribank/i18n':
+        specifier: 0.1.0
+        version: link:../i18n
+      '@types/node':
+        specifier: ^22.8.2
+        version: 22.10.1
+      '@types/react':
+        specifier: ^18.3.11
+        version: 18.3.12
+      '@typescript-eslint/eslint-plugin':
+        specifier: ^8.8.1
+        version: 8.11.0(@typescript-eslint/parser@8.11.0(eslint@9.13.0(jiti@2.4.0))(typescript@5.6.3))(eslint@9.13.0(jiti@2.4.0))(typescript@5.6.3)
+      '@typescript-eslint/parser':
+        specifier: ^8.1.1
+        version: 8.11.0(eslint@9.13.0(jiti@2.4.0))(typescript@5.6.3)
+      '@vitejs/plugin-react':
+        specifier: ^4.3.3
+        version: 4.3.3(vite@5.4.10(@types/node@22.10.1)(terser@5.36.0))
+      axios:
+        specifier: ^1.7.7
+        version: 1.7.7
+      eslint:
+        specifier: ^9.12.0
+        version: 9.13.0(jiti@2.4.0)
+      eslint-plugin-n:
+        specifier: ^17.11.1
+        version: 17.11.1(eslint@9.13.0(jiti@2.4.0))
+      i18next:
+        specifier: ^23.2.5
+        version: 23.16.4
+      prettier:
+        specifier: ^3.3.3
+        version: 3.4.2
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      typescript-eslint:
+        specifier: ^8.8.1
+        version: 8.11.0(eslint@9.13.0(jiti@2.4.0))(typescript@5.6.3)
+      vite:
+        specifier: ^5.4.9
+        version: 5.4.10(@types/node@22.10.1)(terser@5.36.0)
+      vite-plugin-dts:
+        specifier: ^4.3.0
+        version: 4.3.0(@types/node@22.10.1)(rollup@4.27.4)(typescript@5.6.3)(vite@5.4.10(@types/node@22.10.1)(terser@5.36.0))
+      vite-tsconfig-paths:
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.6.3)(vite@5.4.10(@types/node@22.10.1)(terser@5.36.0))
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+
   packages/cli:
     dependencies:
       '@apidevtools/swagger-parser':
@@ -6062,7 +6122,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.8.4
+      '@types/node': 22.10.1
 
   '@types/hoist-non-react-statics@3.3.5':
     dependencies:
