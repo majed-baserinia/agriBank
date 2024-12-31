@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Props } from "./types";
 
-export function Otp({ handleSend, sendOnLoad, onChange }: Props) {
+export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props) {
 	const { t } = useTranslation("base");
 
 	const [maxLength, setMaxLength] = useState(8);
@@ -75,6 +75,7 @@ export function Otp({ handleSend, sendOnLoad, onChange }: Props) {
 						</IconButton>
 					)
 				}
+				{...agriInputProps}
 			/>
 			<Grid2
 				container

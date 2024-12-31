@@ -1,3 +1,5 @@
+import type { InputAdapterProps } from "$lib/components/InputAdapter";
+
 type SendReturnType = { timer?: number; maxLength?: number } | false;
 export type Props = {
 	/**
@@ -8,4 +10,5 @@ export type Props = {
 	sendOnLoad?: boolean;
 	label?: string;
 	onChange: (value: string) => void;
+	agriInputProps?: InputAdapterProps;
 };
