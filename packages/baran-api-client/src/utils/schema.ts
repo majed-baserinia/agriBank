@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export function createBaranErrorSchema<TRequestSchema extends z.AnyZodObject>(
-	responseSchema: TRequestSchema
+	requestSchema: TRequestSchema
 ) {
 	return z.object({
 		type: z.string(),
@@ -9,7 +9,7 @@ export function createBaranErrorSchema<TRequestSchema extends z.AnyZodObject>(
 		status: z.number(),
 		detail: z.string(),
 		errors: z.record(
-			responseSchema.keyof() as unknown as z.ZodEnum<
+			requestSchema.keyof() as unknown as z.ZodEnum<
 				[Exclude<keyof z.infer<TRequestSchema>, number | symbol>]
 			>,
 			z.string().array()

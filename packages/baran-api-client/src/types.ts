@@ -1,4 +1,4 @@
-import type { BaranApiParser } from "$/constants";
+import { BaranApiParser } from "$/constants";
 import type { parseBaranErrorResponse } from "$/utils/error";
 import type { BaranError } from "$/utils/schema";
 import type { AxiosResponse } from "axios";
@@ -57,6 +57,8 @@ export type Result<TRequestSchema extends z.AnyZodObject, TResponseSchema extend
 	[BaranApiParser]: true;
 };
 
+export type AnyResult = Result<z.AnyZodObject, z.ZodTypeAny>;
+
 export type Request<TRequestSchema extends z.AnyZodObject, TResponseSchema extends z.ZodTypeAny> = (
 	params: z.infer<TRequestSchema>
 ) => Promise<Response<TResponseSchema>>;
@@ -70,3 +72,15 @@ export type Options<TRequestSchema extends z.AnyZodObject, TResponseSchema exten
 	responseSchema: TResponseSchema;
 	params: z.infer<TRequestSchema>;
 };
+
+export function isBaranClientResult<
+	TRequestSchema extends z.AnyZodObject = z.AnyZodObject,
+	TResponseSchema extends z.ZodTypeAny = z.ZodTypeAny
+>(response: unknown): response is Result<TRequestSchema, TResponseSchema> {
+	return (
+		response !== null &&
+		typeof response === "object" &&
+		BaranApiParser in response &&
+		response[BaranApiParser] === true
+	);
+}

@@ -9,15 +9,21 @@ export default defineConfig({
 		emptyOutDir: true,
 		sourcemap: true,
 		lib: {
-			entry: resolve(import.meta.dirname, "./src/index.ts"),
+			entry: {
+				"baran-api-client": resolve(import.meta.dirname, "./src/index.ts"),
+				"baran-api-client-react": resolve(import.meta.dirname, "./src/react/index.ts")
+			},
 			formats: ["es"],
 			name: "baran-api-client",
-			fileName: "baran-api-client"
+			fileName: (_, fileName) => {
+				return `${fileName}.js`;
+			}
 		},
 		rollupOptions: {
 			external: [
 				"react",
-				/react\/*/,
+				/^react\/*/,
+				"!src/react",
 				"react-dom",
 				/@tanstack\/*/,
 				"zustand",

@@ -1,0 +1,75 @@
+import { useBaranInfiniteQuery } from "$/react/hooks/useBaranInfiniteQuery";
+import type { Result } from "$/types";
+import type {
+	DefaultError,
+	InfiniteData,
+	Optional,
+	QueryClient,
+	QueryKey,
+	UndefinedInitialDataInfiniteOptions
+} from "@tanstack/react-query";
+import { z } from "zod";
+
+const metaData = z.object({
+	pageSize: z.number().optional(),
+	currentPage: z.number().optional(),
+	totalPages: z.number().optional(),
+	totalCount: z.number().optional(),
+	hasPrevious: z.boolean().optional(),
+	hasNext: z.boolean().optional(),
+	hasPages: z.boolean().optional()
+});
+const _data = z.object({
+	items: z.union([z.array(z.any()), z.null()]).optional(),
+	metaData: metaData.optional()
+});
+
+type Response = Result<z.AnyZodObject, typeof _data>;
+
+/**
+ * if your defined getNextPageParam returns any value that is not undefined,
+ * it will return that instead, otherwise it will handle its own version of getNextPageParams
+ */
+export const useStandardBaranInfiniteQuery = <
+	TQueryFnData extends Response,
+	TError = DefaultError,
+	TData = InfiniteData<TQueryFnData>,
+	TQueryKey extends QueryKey = QueryKey
+>(
+	options: Optional<
+		UndefinedInitialDataInfiniteOptions<TQueryFnData, TError, TData, TQueryKey, number>,
+		"getNextPageParam"
+	>,
+	queryClient?: QueryClient
+) => {
+	return useBaranInfiniteQuery<TQueryFnData, TError, TData, TQueryKey, number>(
+		{
+			...options,
+			getNextPageParam: (lastPage, allPages) => {
+				if (!lastPage.response) {
+					throw new Error();
+				}
+				const nextPageNumber = lastPage ? (lastPage.response?.metaData?.currentPage ?? 0) + 1 : 1;
+				const alreadyFetchedNextPage = allPages.find(
+					(page) => page.response?.metaData?.currentPage === nextPageNumber
+				);
+
+				if (alreadyFetchedNextPage && (alreadyFetchedNextPage.response?.items?.length ?? 0) === 0) {
+					return undefined;
+				}
+
+				if (
+					allPages
+						.toSorted(
+							(a, b) => a.response!.metaData!.currentPage! - b.response!.metaData!.currentPage!
+						)
+						.at(-1)?.response?.metaData?.hasNext === false
+				) {
+					return undefined;
+				}
+				return nextPageNumber;
+			}
+		},
+		queryClient
+	);
+};

@@ -1,5 +1,3 @@
-import { BaranApiParser } from "$/constants";
-import type { ErrorResult } from "$/types";
 import { createBaranErrorSchema } from "$/utils/schema";
 import type { z } from "zod";
 
@@ -20,18 +18,4 @@ export async function parseBaranErrorResponse<TRequestSchema extends z.AnyZodObj
 	}
 
 	return parsedValidationError.data;
-}
-
-export function isBaranError<TRequestSchema extends z.AnyZodObject = z.AnyZodObject>(
-	error: unknown
-): error is ErrorResult<TRequestSchema> {
-	return (
-		error !== null &&
-		typeof error === "object" &&
-		"type" in error &&
-		"message" in error &&
-		"details" in error &&
-		BaranApiParser in error &&
-		error[BaranApiParser] === true
-	);
 }
