@@ -51,11 +51,22 @@ export type StrictResult<
 	[BaranApiParser]: true;
 };
 
-export type Result<TRequestSchema extends z.AnyZodObject, TResponseSchema extends z.ZodTypeAny> = {
+export type RelaxedResult<
+	TRequestSchema extends z.AnyZodObject,
+	TResponseSchema extends z.ZodTypeAny
+> = {
 	response: SuccessResult<TResponseSchema> | null;
 	error: ErrorResult<TRequestSchema> | null;
 	[BaranApiParser]: true;
 };
+
+export type Result<
+	TRequestSchema extends z.AnyZodObject,
+	TResponseSchema extends z.ZodTypeAny,
+	TIsStrict extends boolean = false
+> = TIsStrict extends true
+	? StrictResult<TRequestSchema, TResponseSchema>
+	: RelaxedResult<TRequestSchema, TResponseSchema>;
 
 export type AnyResult = Result<z.AnyZodObject, z.ZodTypeAny>;
 
@@ -67,10 +78,20 @@ export type Response<TResponseSchema extends z.ZodTypeAny> = AxiosResponse<
 	SuccessResult<TResponseSchema>
 >;
 
-export type Options<TRequestSchema extends z.AnyZodObject, TResponseSchema extends z.ZodTypeAny> = {
+export type ValidationError<TRequestSchema extends z.AnyZodObject> = Extract<
+	ErrorResult<TRequestSchema>,
+	{ type: "ServerSideValidationError" } | { type: "ClientSideValidationError" }
+>["details"];
+
+export type Options<
+	TRequestSchema extends z.AnyZodObject,
+	TResponseSchema extends z.ZodTypeAny,
+	TIsStrict extends boolean = false
+> = {
 	requestSchema: TRequestSchema;
 	responseSchema: TResponseSchema;
-	params: z.infer<TRequestSchema>;
+	params: z.infer<NoInfer<TRequestSchema>>;
+	strict?: TIsStrict;
 };
 
 export function isBaranClientResult<

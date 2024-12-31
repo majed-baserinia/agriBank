@@ -6,13 +6,13 @@ import type { AxiosResponse } from "axios";
 import i18next from "i18next";
 import type { z } from "zod";
 
-export async function callApiStrict<
+async function _callApiStrict<
 	TRequestSchema extends z.AnyZodObject,
 	TResponseSchema extends z.ZodTypeAny
 >(
 	request: Request<TRequestSchema, TResponseSchema>,
-	options: Options<TRequestSchema, TResponseSchema>
-): Promise<StrictResult<TRequestSchema, TResponseSchema>> {
+	options: Options<TRequestSchema, TResponseSchema, true>
+): Promise<Result<TRequestSchema, TResponseSchema, true>> {
 	try {
 		const parsedParams = options.requestSchema.safeParse(options.params);
 		if (!parsedParams.success) {
@@ -39,7 +39,7 @@ export async function callApiStrict<
 			};
 		}
 
-		return generateErrorResponse(response, options);
+		return _generateErrorResponseStrict(response, options);
 	} catch (e) {
 		console.error(e);
 		return {
@@ -55,27 +55,12 @@ export async function callApiStrict<
 	}
 }
 
-export async function callApi<
-	TRequestSchema extends z.AnyZodObject,
-	TResponseSchema extends z.ZodTypeAny
->(
-	request: Request<TRequestSchema, TResponseSchema>,
-	options: Options<TRequestSchema, TResponseSchema>
-): Promise<Result<TRequestSchema, TResponseSchema>> {
-	const result = await callApiStrict(request, options);
-	return {
-		error: result.error ?? null,
-		response: result.response ?? null,
-		[BaranApiParser]: true
-	};
-}
-
-async function generateErrorResponse<
+async function _generateErrorResponseStrict<
 	TRequestSchema extends z.AnyZodObject,
 	TResponseSchema extends z.ZodTypeAny
 >(
 	response: AxiosResponse<any>,
-	options: Options<TRequestSchema, TResponseSchema>
+	options: Options<TRequestSchema, TResponseSchema, true>
 ): Promise<StrictResult<TRequestSchema, TResponseSchema>> {
 	const standardServerError = await parseBaranErrorResponse(response.data, options.requestSchema);
 
@@ -115,6 +100,25 @@ async function generateErrorResponse<
 			raw: standardServerError
 		},
 		response: null,
+		[BaranApiParser]: true
+	};
+}
+
+export async function callApi<
+	TRequestSchema extends z.AnyZodObject,
+	TResponseSchema extends z.ZodTypeAny,
+	TIsStrict extends boolean = false
+>(
+	request: Request<TRequestSchema, TResponseSchema>,
+	options: Options<TRequestSchema, TResponseSchema, TIsStrict>
+): Promise<Result<TRequestSchema, TResponseSchema, TIsStrict>> {
+	const result = await _callApiStrict(request, { ...options, strict: true });
+	if (options.strict) {
+		return result;
+	}
+	return {
+		error: result.error ?? null,
+		response: result.response ?? null,
 		[BaranApiParser]: true
 	};
 }
