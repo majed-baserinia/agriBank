@@ -33,9 +33,16 @@ export function Otp({ handleSend, sendOnLoad, onChange }: Props) {
 	async function sendSms() {
 		setHasSentSmsAtLeastOnce(true);
 		setIsResendDisabled(true);
-		const { maxLength, timer } = await handleSend();
-		setCountDownTimer(timer ?? 120);
-		setMaxLength(maxLength ?? 8);
+
+		const result = await handleSend();
+
+		if (typeof result === "boolean") {
+			setIsResendDisabled(false);
+			return;
+		}
+
+		setCountDownTimer(result.timer ?? 120);
+		setMaxLength(result.maxLength ?? 8);
 	}
 
 	useEffect(() => {
