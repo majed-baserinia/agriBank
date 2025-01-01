@@ -7,7 +7,12 @@ import "./i18n";
 import "./index.css";
 import { queryClient, router } from "./router";
 
-const root = document.getElementById("root")!;
+const root = document.getElementById("root");
+
+if (!root) {
+	throw new Error("element with id='root' not found: cannot render the app!");
+}
+
 ReactDOM.createRoot(root).render(
 	<StrictMode>
 		<QueryClientProvider client={queryClient}>
