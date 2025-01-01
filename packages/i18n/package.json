@@ -42,16 +42,18 @@
 	"devDependencies": {
 		"@agribank/eslint-plugin": "0.1.0",
 		"@agribank/prettier-config": "0.0.6",
-		"i18next": "^23.2.5",
 		"eslint": "^9.12.0",
+		"i18next": "^23.2.5",
 		"prettier": "^3.3.3",
 		"typescript": "~5.6.2",
 		"vite": "^5.4.9",
 		"vite-plugin-dts": "^4.3.0",
-		"vite-tsconfig-paths": "^5.0.1"
+		"vite-tsconfig-paths": "^5.0.1",
+		"zod-i18n-map": "^2.27.0"
 	},
 	"peerDependencies": {
-		"i18next": "^23.2.5"
+		"i18next": "^23.2.5",
+		"zod-i18n-map": "^2.27.0"
 	},
 	"publishConfig": {
 		"access": "public"

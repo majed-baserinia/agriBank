@@ -13,13 +13,12 @@ export default defineConfig({
 			formats: ["es"],
 			name: "i18n",
 			fileName: (_, entryName) => {
-				console.log(entryName);
 				return `${entryName}.js`;
 			}
 		},
 		sourcemap: true,
 		rollupOptions: {
-			external: ["i18next"]
+			external: ["i18next", "zod-i18n-map"]
 		}
 	},
 	plugins: [tsconfigPaths(), dts({ tsconfigPath: "./tsconfig.app.json" })]

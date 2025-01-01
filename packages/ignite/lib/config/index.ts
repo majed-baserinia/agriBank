@@ -12,6 +12,8 @@ import { useApiConfig, useInitialSettingStore } from "$lib/stores";
 import { initLanguagePacks } from "@agribank/i18n";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { z } from "zod";
+import { zodI18nMap } from "zod-i18n-map";
 
 export type Options = Pick<HandledConnectionProps, "onInitializationFailed">;
 
@@ -67,6 +69,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 
 	useEffect(() => {
 		initLanguagePacks(i18n);
+		z.setErrorMap(zodI18nMap);
 	}, [i18n]);
 
 	useEffect(() => {

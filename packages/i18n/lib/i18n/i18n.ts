@@ -1,6 +1,7 @@
 import BASE_EN_TRANSLATION from "$lib/locales/en/base.json";
 import BASE_FA_TRANSLATION from "$lib/locales/fa/base.json";
 import { type i18n } from "i18next";
+import ZOD_FA_TRANSLATION from "zod-i18n-map/locales/fa/zod.json";
 
 export type BaseLanguageOptions = {
 	defaultNS: "base";
@@ -18,6 +19,7 @@ export function initLanguagePacks(instance: i18n) {
 	const _callback = () => {
 		void instance.addResourceBundle("en-GB", "base", BASE_EN_TRANSLATION);
 		void instance.addResourceBundle("fa-IR", "base", BASE_FA_TRANSLATION);
+		void instance.addResourceBundle("fa-IR", "zod", ZOD_FA_TRANSLATION);
 	};
 	if (instance.isInitialized) {
 		_callback();
