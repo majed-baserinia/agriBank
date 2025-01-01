@@ -13,9 +13,5 @@ export async function parseBaranErrorResponse<TRequestSchema extends z.AnyZodObj
 		return null;
 	}
 
-	if (parsedValidationError.data.errors === undefined) {
-		return null;
-	}
-
 	return parsedValidationError.data;
 }

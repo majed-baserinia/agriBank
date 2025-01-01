@@ -26,6 +26,8 @@ export default defineConfig({
 				"!src/react",
 				"react-dom",
 				/@tanstack\/*/,
+				/react-hook-form/,
+				/react-hook-form\/*/,
 				"zustand",
 				"axios",
 				"axios-retry",

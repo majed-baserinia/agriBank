@@ -8,12 +8,28 @@ export function createBaranErrorSchema<TRequestSchema extends z.AnyZodObject>(
 		title: z.string(),
 		status: z.number(),
 		detail: z.string(),
-		errors: z.record(
-			requestSchema.keyof() as unknown as z.ZodEnum<
-				[Exclude<keyof z.infer<TRequestSchema>, number | symbol>]
-			>,
-			z.string().array()
-		)
+		errors: z
+			.preprocess(
+				(v) => {
+					if (typeof v !== "object" || v === null) {
+						return v;
+					}
+					return Object.entries(v).reduce((prev, [key, value]) => {
+						const keys = Object.keys(requestSchema.keyof().Values);
+						const target = keys.find(
+							(transformedKey) => transformedKey.toLowerCase().trim() === key.toLowerCase().trim()
+						);
+						return { ...prev, [target ?? key]: value as unknown };
+					}, {});
+				},
+				z.record(
+					requestSchema.keyof().optional() as unknown as z.ZodEnum<
+						[Exclude<keyof z.infer<TRequestSchema>, number | symbol>]
+					>,
+					z.string().array()
+				)
+			)
+			.optional()
 	});
 }
 
