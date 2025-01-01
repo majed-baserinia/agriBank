@@ -10,5 +10,5 @@ export type Props = {
 	sendOnLoad?: boolean;
 	label?: string;
 	onChange: (value: string) => void;
-	agriInputProps?: InputAdapterProps;
+	agriInputProps?: Partial<InputAdapterProps>;
 };
