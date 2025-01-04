@@ -133,7 +133,18 @@ const plugin = {
 						}
 					],
 					"prettier/prettier": "warn",
-					"perfectionist/sort-objects": "off"
+					"perfectionist/sort-objects": "off",
+					"no-restricted-imports": [
+						"error",
+						{
+							patterns: [
+								{
+									group: ["$/features/*/*"],
+									message: "only import from index file of features are allowed"
+								}
+							]
+						}
+					]
 				}
 			}
 		)
