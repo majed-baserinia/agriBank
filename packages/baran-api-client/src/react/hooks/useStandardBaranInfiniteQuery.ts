@@ -24,7 +24,7 @@ const _data = z.object({
 	metaData: metaData.optional()
 });
 
-type Response = Result<z.AnyZodObject, typeof _data>;
+export type Response = Result<z.AnyZodObject, typeof _data>;
 
 /**
  * if your defined getNextPageParam returns any value that is not undefined,
@@ -46,9 +46,6 @@ export const useStandardBaranInfiniteQuery = <
 		{
 			...options,
 			getNextPageParam: (lastPage, allPages) => {
-				if (!lastPage.response) {
-					throw new Error();
-				}
 				const nextPageNumber = lastPage ? (lastPage.response?.metaData?.currentPage ?? 0) + 1 : 1;
 				const alreadyFetchedNextPage = allPages.find(
 					(page) => page.response?.metaData?.currentPage === nextPageNumber

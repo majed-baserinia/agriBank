@@ -1,4 +1,4 @@
-import { alertBaranError } from "$/react/alert/baran-error-alert";
+import { alertBaranError } from "$/react/utils/baran-error-alert";
 import { useInfiniteQuery, type SkipToken } from "@tanstack/react-query";
 
 export const useBaranInfiniteQuery = ((options, queryClient?) => {

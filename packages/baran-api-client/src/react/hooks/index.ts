@@ -1,1 +1,1 @@
-export * from "./useStandardBaranInfiniteQuery";
+export { useStandardBaranInfiniteQuery } from "./useStandardBaranInfiniteQuery";
