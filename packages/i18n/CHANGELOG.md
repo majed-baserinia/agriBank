@@ -1,5 +1,16 @@
 # @agribank/i18n
 
+## 0.2.0
+
+### Minor Changes
+
+- 41831c6: feat(i18n, ignite): add zod translations
+
+### Patch Changes
+
+- aeeb6a3: fix(ignite): use correct types after updating tanstack-router
+- 3df1c6b: chore(i18n): add more words
+
 ## 0.1.0
 
 ### Minor Changes

@@ -1,5 +1,23 @@
 # @agribank/ignite
 
+## 3.0.0
+
+### Minor Changes
+
+- 41831c6: feat(i18n, ignite): add zod translations
+- c20443e: chore(ignite): updated tanstack router versions
+
+### Patch Changes
+
+- Updated dependencies [41831c6]
+- Updated dependencies [aeeb6a3]
+- Updated dependencies [8d7b236]
+- Updated dependencies [38620ca]
+- Updated dependencies [3df1c6b]
+  - @agribank/i18n@0.2.0
+  - @agribank/ui@2.0.0
+  - @agribank/post-message@0.1.0
+
 ## 2.0.0
 
 ### Minor Changes

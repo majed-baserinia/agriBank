@@ -1,5 +1,19 @@
 # @agribank/ui
 
+## 2.0.0
+
+### Minor Changes
+
+- 38620ca: feat(ui): add error components
+
+### Patch Changes
+
+- 8d7b236: feat(ui): allow otp to cancel pending request and modify its inputadapter props
+- Updated dependencies [41831c6]
+- Updated dependencies [aeeb6a3]
+- Updated dependencies [3df1c6b]
+  - @agribank/i18n@0.2.0
+
 ## 1.0.0
 
 ### Minor Changes

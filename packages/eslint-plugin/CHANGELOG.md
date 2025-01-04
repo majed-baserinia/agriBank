@@ -1,5 +1,11 @@
 # @agribank/eslint-plugin
 
+## 0.2.0
+
+### Minor Changes
+
+- ca6d7a6: feat(eslint-plugin): disallow nested imports from features
+
 ## 0.1.0
 
 ### Minor Changes
