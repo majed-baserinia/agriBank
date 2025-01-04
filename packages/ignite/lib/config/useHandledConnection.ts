@@ -7,7 +7,7 @@ import {
 	useConnection,
 	type ConnectionProps
 } from "@agribank/post-message";
-import { useMatch, useNavigate } from "@tanstack/react-router";
+import { useCanGoBack, useMatch, useRouter } from "@tanstack/react-router";
 import { useTranslation } from "react-i18next";
 
 type ConnectionType = {
@@ -20,9 +20,10 @@ export type Props = Omit<ConnectionProps<ConnectionType>, "onInitializationFaile
 };
 
 export function useHandledConnection({ onInitializationFailed, ...restProps }: Props) {
-	const navigate = useNavigate();
-	const paramConfig = useSearchParamsConfigs();
+	const router = useRouter();
+	const canGoBack = useCanGoBack();
 
+	const paramConfig = useSearchParamsConfigs();
 	const match = useMatch({
 		strict: false
 	});
@@ -31,10 +32,14 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 	const connection = useConnection<ConnectionType>({
 		onGobackPressed: () => {
 			const currentPath = match.pathname;
-			if (currentPath === environment().BASE_URL || `${currentPath}/` === environment().BASE_URL) {
+			if (
+				currentPath === environment().BASE_URL ||
+				`${currentPath}/` === environment().BASE_URL ||
+				!canGoBack
+			) {
 				sendPostMessage("isFinishedBack", "true");
 			} else {
-				void navigate({ to: -1 });
+				(router.history as History).back();
 				//send acknowledge to the parent
 				closeApp();
 			}
