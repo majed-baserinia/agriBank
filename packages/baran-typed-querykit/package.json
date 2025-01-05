@@ -1,12 +1,12 @@
 {
-	"name": "@agribank/baran-api-client",
-	"version": "1.0.0",
+	"name": "@agribank/baran-typed-querykit",
+	"version": "0.0.1",
 	"type": "module",
-	"description": "clients for baran apis that handle the standard baran errors and response models",
+	"description": "utilities for calling baran apis that handle the common baran errors and response models",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/baran-api-client"
+		"directory": "packages/baran-typed-querykit"
 	},
 	"contributors": [
 		"@FoHoOV",
@@ -24,11 +24,11 @@
 	],
 	"exports": {
 		".": {
-			"import": "./dist/baran-api-client.js",
+			"import": "./dist/baran-typed-querykit.js",
 			"types": "./dist/index.d.ts"
 		},
 		"./react": {
-			"import": "./dist/baran-api-client-react.js",
+			"import": "./dist/baran-typed-querykit-react.js",
 			"types": "./dist/react/index.d.ts"
 		}
 	},
