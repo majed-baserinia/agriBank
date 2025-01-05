@@ -1,5 +1,11 @@
 # @agribank/ignite
 
+## 4.0.2
+
+### Patch Changes
+
+- 92f33a1: chore: renamed default-theme to base.json
+
 ## 4.0.1
 
 ### Patch Changes

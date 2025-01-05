@@ -576,7 +576,7 @@ importers:
         specifier: ^0.2.1
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: link:../../packages/ignite
       '@agribank/post-message':
         specifier: ^0.1.1
@@ -658,7 +658,7 @@ importers:
         specifier: ^0.0.6
         version: link:../../packages/prettier-config
       '@agribank/vite-plugin':
-        specifier: ^4.0.1
+        specifier: ^4.0.2
         version: link:../../packages/vite-plugin
       '@eslint/js':
         specifier: ^9.13.0
