@@ -2,7 +2,7 @@ import { type ThemeOptions } from "@mui/material";
 
 export async function getTheme(themeUrl: string, themeName: string) {
 	try {
-		const theme = await getBaseTheme();
+		const theme = await getBaseTheme(themeUrl);
 		const palette = await getCustomPalette(themeUrl, themeName);
 		theme.palette = palette && Object.keys(palette).length > 0 ? palette : theme.palette;
 		return theme;
@@ -12,9 +12,11 @@ export async function getTheme(themeUrl: string, themeName: string) {
 	}
 }
 
-export async function getBaseTheme() {
+export async function getBaseTheme(themeUrl: string) {
 	try {
-		return (await (await fetch("/default-theme.json")).json()) as ThemeOptions;
+		return (await (
+			await fetch(`${themeUrl}base.json?ignite-base-theme=true`)
+		).json()) as ThemeOptions;
 	} catch (error) {
 		console.error("error while fetching theme", error);
 		return {};

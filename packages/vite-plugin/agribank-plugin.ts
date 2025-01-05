@@ -32,7 +32,7 @@ function changeRequestPathOfSharedPublicFiles(
 		const url = new URL(`https://localhost${req.url}`);
 		if (files.some((fileName) => url.pathname === `/${fileName}`)) {
 			req.url = `${server.config.base}${req.url.substring(1)}`;
-		} else if (url.pathname === `/default-theme.json`) {
+		} else if (url.pathname.endsWith("/base.json?ignite-base-theme=true")) {
 			const theme = (
 				await import("@agribank/ui/assets/themes/default.json", {
 					with: { type: "json" }
