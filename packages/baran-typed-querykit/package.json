@@ -2,7 +2,7 @@
 	"name": "@agribank/baran-typed-querykit",
 	"version": "1.0.0",
 	"type": "module",
-	"description": "utilities for calling baran apis that handle the common baran errors and response models",
+	"description": "Utilities for handling common baran api errors and typing the response models",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/FoHoOV/agribank",
@@ -39,9 +39,9 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@agribank/eslint-plugin": "0.2.0",
-		"@agribank/i18n": "0.2.0",
-		"@agribank/ui": "2.1.0",
+		"@agribank/eslint-plugin": "^0.2.0",
+		"@agribank/i18n": "^0.2.0",
+		"@agribank/ui": "^2.1.0",
 		"@tanstack/react-query": "^5.62.3",
 		"@types/react": "^18.3.11",
 		"@types/node": "^22.8.2",
@@ -63,8 +63,8 @@
 		"vite-tsconfig-paths": "^5.0.1"
 	},
 	"peerDependencies": {
-		"@agribank/i18n": "0.2.0",
-		"@agribank/ui": "2.1.0",
+		"@agribank/i18n": "^0.2.0",
+		"@agribank/ui": "^2.1.0",
 		"@tanstack/react-query": "^5.62.3",
 		"react-hook-form": "^7.45.0",
 		"axios": "^1.7.7",

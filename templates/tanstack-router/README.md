@@ -7,6 +7,7 @@
    1. uncomment code in services/clients
    2. uncomment `useInitClients` in +root.tsx
    3. if you don't want to use our `client-generator` you can simply remove these lines
+5. if you are dealing with baran apis you can optionally install the `@agribank/baran-typed-querykit` package which types the response models and provides utilities for calling out to baran apis.
 
 # Notes
 

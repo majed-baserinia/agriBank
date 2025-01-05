@@ -70,4 +70,4 @@ export function useCancelRequest() {
 	});
 ```
 
-client side validations and server side validations reside in the `validationError` property (with the type of `requestSchema`).
+client side validations and server side validations reside in the `validationError` property (typed as `requestSchema`).
