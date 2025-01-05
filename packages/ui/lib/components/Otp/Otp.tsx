@@ -76,6 +76,12 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 					)
 				}
 				{...agriInputProps}
+				sx={{
+					"& input": {
+						letterSpacing: "10px"
+					},
+					...agriInputProps?.sx
+				}}
 			/>
 			<Grid2
 				container
