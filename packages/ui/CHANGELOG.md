@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 2.1.0
+
+### Minor Changes
+
+- 200f698: feat(ui): add spaces between otp passcodes
+
 ## 2.0.0
 
 ### Minor Changes

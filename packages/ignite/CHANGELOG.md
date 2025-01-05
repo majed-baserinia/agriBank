@@ -1,5 +1,12 @@
 # @agribank/ignite
 
+## 4.0.0
+
+### Patch Changes
+
+- Updated dependencies [200f698]
+  - @agribank/ui@2.1.0
+
 ## 3.0.0
 
 ### Minor Changes

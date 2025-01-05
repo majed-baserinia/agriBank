@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ignite",
-	"version": "3.0.0",
+	"version": "4.0.0",
 	"type": "module",
 	"description": "includes all communication protocols with super app",
 	"author": "@FoHoOV",
@@ -43,7 +43,7 @@
 		"@agribank/i18n": "0.2.0",
 		"@agribank/post-message": "0.1.0",
 		"@agribank/prettier-config": "0.0.6",
-		"@agribank/ui": "2.0.0",
+		"@agribank/ui": "2.1.0",
 		"@mui/material": "^6.1.8",
 		"@tanstack/react-router": "^1.95.0",
 		"@types/node": "^22.8.4",
@@ -66,7 +66,7 @@
 	"peerDependencies": {
 		"@agribank/i18n": "0.2.0",
 		"@agribank/post-message": "0.1.0",
-		"@agribank/ui": "2.0.0",
+		"@agribank/ui": "2.1.0",
 		"@tanstack/react-router": "^1.95.0",
 		"axios": "^1.7.7",
 		"axios-retry": "^4.5.0",
