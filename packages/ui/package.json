@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ui",
-	"version": "2.1.0",
+	"version": "2.1.1",
 	"type": "module",
 	"description": "set of components to build react apps with",
 	"repository": {
@@ -58,8 +58,8 @@
 	},
 	"devDependencies": {
 		"@agribank/eslint-plugin": "^0.2.0",
-		"@agribank/i18n": "^0.2.0",
-		"@agribank/post-message": "^0.1.0",
+		"@agribank/i18n": "^0.2.1",
+		"@agribank/post-message": "^0.1.1",
 		"@agribank/prettier-config": "^0.0.6",
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
@@ -93,7 +93,7 @@
 		"zustand": "^4.3.8"
 	},
 	"peerDependencies": {
-		"@agribank/i18n": "^0.2.0",
+		"@agribank/i18n": "^0.2.1",
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",

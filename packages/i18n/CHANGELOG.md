@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.2.1
+
+### Patch Changes
+
+- 26a9caf: chore: use ranged versions for @agribank packages to prevent breaking changes on each patch update
+
 ## 0.2.0
 
 ### Minor Changes

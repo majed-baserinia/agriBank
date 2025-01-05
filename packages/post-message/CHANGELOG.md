@@ -1,5 +1,11 @@
 # @agribank/post-message
 
+## 0.1.1
+
+### Patch Changes
+
+- 26a9caf: chore: use ranged versions for @agribank packages to prevent breaking changes on each patch update
+
 ## 0.1.0
 
 ### Minor Changes

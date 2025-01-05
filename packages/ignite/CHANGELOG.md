@@ -1,5 +1,15 @@
 # @agribank/ignite
 
+## 4.0.1
+
+### Patch Changes
+
+- 26a9caf: chore: use ranged versions for @agribank packages to prevent breaking changes on each patch update
+- Updated dependencies [26a9caf]
+  - @agribank/post-message@0.1.1
+  - @agribank/i18n@0.2.1
+  - @agribank/ui@2.1.1
+
 ## 4.0.0
 
 ### Patch Changes
