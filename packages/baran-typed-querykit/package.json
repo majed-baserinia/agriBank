@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-typed-querykit",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
 	"description": "utilities for calling baran apis that handle the common baran errors and response models",
 	"repository": {
