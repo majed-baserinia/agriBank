@@ -45,7 +45,7 @@ axiosForApi.interceptors.response.use(
 				return axiosForApi.request(originalRequest!);
 			} catch (_refreshError) {
 				clearAuth();
-				window.location.href = import.meta.env.BASE_URL;
+				window.location.href = import.meta.dynamic.env.BASE_URL ?? "";
 			}
 			sendPostMessage("tokenIsNotValid", "true");
 		}
