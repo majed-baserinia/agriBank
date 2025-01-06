@@ -32,9 +32,9 @@ function changeRequestPathOfSharedPublicFiles(
 		const url = new URL(`https://localhost${req.url}`);
 		if (files.some((fileName) => url.pathname === `/${fileName}`)) {
 			req.url = `${server.config.base}${req.url.substring(1)}`;
-		} else if (url.pathname.startsWith("/@local/base-theme/")) {
+		} else if (url.pathname.endsWith(`${server.config.base}@local/base-theme/base-theme.json`)) {
 			req.url = `${server.config.base}base-theme.json`;
-		} else if (url.pathname.startsWith("/@agribank/base-theme/")) {
+		} else if (url.pathname.endsWith(`${server.config.base}@agribank/base-theme/base-theme.json`)) {
 			const theme = (
 				await import("@agribank/ui/assets/themes/base.json", {
 					with: { type: "json" }
