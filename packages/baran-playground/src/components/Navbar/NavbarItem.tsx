@@ -33,7 +33,7 @@ export function NavbarItem({ text, icon, isOpen, onClick }: Props) {
 				>
 					{icon}
 				</ListItemIcon>
-				{!isOpen && (
+				{isOpen && (
 					<ListItemText
 						sx={{
 							paddingLeft: 8

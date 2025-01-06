@@ -14,6 +14,9 @@ import { Route as rootRoute } from "./routes/+__root";
 import { Route as LayoutImport } from "./routes/+_layout";
 import { Route as LayoutIndexImport } from "./routes/+_layout/+index";
 import { Route as LayoutEnvironmentIndexImport } from "./routes/+_layout/+$environment/+index";
+import { Route as LayoutPlaygroundLoginIndexImport } from "./routes/+_layout/+playground/+login/+index";
+import { Route as LayoutPlaygroundEnvironmentIndexImport } from "./routes/+_layout/+playground/+environment/+index";
+import { Route as LayoutPlaygroundAppsIndexImport } from "./routes/+_layout/+playground/+apps/+index";
 import { Route as LayoutEnvironmentAppIndexImport } from "./routes/+_layout/+$environment/+$app/+index";
 
 // Create/Update Routes
@@ -32,6 +35,27 @@ const LayoutIndexRoute = LayoutIndexImport.update({
 const LayoutEnvironmentIndexRoute = LayoutEnvironmentIndexImport.update({
   id: "/$environment/",
   path: "/$environment/",
+  getParentRoute: () => LayoutRoute,
+} as any);
+
+const LayoutPlaygroundLoginIndexRoute = LayoutPlaygroundLoginIndexImport.update(
+  {
+    id: "/playground/login/",
+    path: "/playground/login/",
+    getParentRoute: () => LayoutRoute,
+  } as any,
+);
+
+const LayoutPlaygroundEnvironmentIndexRoute =
+  LayoutPlaygroundEnvironmentIndexImport.update({
+    id: "/playground/environment/",
+    path: "/playground/environment/",
+    getParentRoute: () => LayoutRoute,
+  } as any);
+
+const LayoutPlaygroundAppsIndexRoute = LayoutPlaygroundAppsIndexImport.update({
+  id: "/playground/apps/",
+  path: "/playground/apps/",
   getParentRoute: () => LayoutRoute,
 } as any);
 
@@ -73,6 +97,27 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof LayoutEnvironmentAppIndexImport;
       parentRoute: typeof LayoutImport;
     };
+    "/_layout/playground/apps/": {
+      id: "/_layout/playground/apps/";
+      path: "/playground/apps";
+      fullPath: "/playground/apps";
+      preLoaderRoute: typeof LayoutPlaygroundAppsIndexImport;
+      parentRoute: typeof LayoutImport;
+    };
+    "/_layout/playground/environment/": {
+      id: "/_layout/playground/environment/";
+      path: "/playground/environment";
+      fullPath: "/playground/environment";
+      preLoaderRoute: typeof LayoutPlaygroundEnvironmentIndexImport;
+      parentRoute: typeof LayoutImport;
+    };
+    "/_layout/playground/login/": {
+      id: "/_layout/playground/login/";
+      path: "/playground/login";
+      fullPath: "/playground/login";
+      preLoaderRoute: typeof LayoutPlaygroundLoginIndexImport;
+      parentRoute: typeof LayoutImport;
+    };
   }
 }
 
@@ -82,12 +127,18 @@ interface LayoutRouteChildren {
   LayoutIndexRoute: typeof LayoutIndexRoute;
   LayoutEnvironmentIndexRoute: typeof LayoutEnvironmentIndexRoute;
   LayoutEnvironmentAppIndexRoute: typeof LayoutEnvironmentAppIndexRoute;
+  LayoutPlaygroundAppsIndexRoute: typeof LayoutPlaygroundAppsIndexRoute;
+  LayoutPlaygroundEnvironmentIndexRoute: typeof LayoutPlaygroundEnvironmentIndexRoute;
+  LayoutPlaygroundLoginIndexRoute: typeof LayoutPlaygroundLoginIndexRoute;
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
   LayoutIndexRoute: LayoutIndexRoute,
   LayoutEnvironmentIndexRoute: LayoutEnvironmentIndexRoute,
   LayoutEnvironmentAppIndexRoute: LayoutEnvironmentAppIndexRoute,
+  LayoutPlaygroundAppsIndexRoute: LayoutPlaygroundAppsIndexRoute,
+  LayoutPlaygroundEnvironmentIndexRoute: LayoutPlaygroundEnvironmentIndexRoute,
+  LayoutPlaygroundLoginIndexRoute: LayoutPlaygroundLoginIndexRoute,
 };
 
 const LayoutRouteWithChildren =
@@ -98,12 +149,18 @@ export interface FileRoutesByFullPath {
   "/": typeof LayoutIndexRoute;
   "/$environment": typeof LayoutEnvironmentIndexRoute;
   "/$environment/$app": typeof LayoutEnvironmentAppIndexRoute;
+  "/playground/apps": typeof LayoutPlaygroundAppsIndexRoute;
+  "/playground/environment": typeof LayoutPlaygroundEnvironmentIndexRoute;
+  "/playground/login": typeof LayoutPlaygroundLoginIndexRoute;
 }
 
 export interface FileRoutesByTo {
   "/": typeof LayoutIndexRoute;
   "/$environment": typeof LayoutEnvironmentIndexRoute;
   "/$environment/$app": typeof LayoutEnvironmentAppIndexRoute;
+  "/playground/apps": typeof LayoutPlaygroundAppsIndexRoute;
+  "/playground/environment": typeof LayoutPlaygroundEnvironmentIndexRoute;
+  "/playground/login": typeof LayoutPlaygroundLoginIndexRoute;
 }
 
 export interface FileRoutesById {
@@ -112,19 +169,38 @@ export interface FileRoutesById {
   "/_layout/": typeof LayoutIndexRoute;
   "/_layout/$environment/": typeof LayoutEnvironmentIndexRoute;
   "/_layout/$environment/$app/": typeof LayoutEnvironmentAppIndexRoute;
+  "/_layout/playground/apps/": typeof LayoutPlaygroundAppsIndexRoute;
+  "/_layout/playground/environment/": typeof LayoutPlaygroundEnvironmentIndexRoute;
+  "/_layout/playground/login/": typeof LayoutPlaygroundLoginIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "" | "/" | "/$environment" | "/$environment/$app";
+  fullPaths:
+    | ""
+    | "/"
+    | "/$environment"
+    | "/$environment/$app"
+    | "/playground/apps"
+    | "/playground/environment"
+    | "/playground/login";
   fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/$environment" | "/$environment/$app";
+  to:
+    | "/"
+    | "/$environment"
+    | "/$environment/$app"
+    | "/playground/apps"
+    | "/playground/environment"
+    | "/playground/login";
   id:
     | "__root__"
     | "/_layout"
     | "/_layout/"
     | "/_layout/$environment/"
-    | "/_layout/$environment/$app/";
+    | "/_layout/$environment/$app/"
+    | "/_layout/playground/apps/"
+    | "/_layout/playground/environment/"
+    | "/_layout/playground/login/";
   fileRoutesById: FileRoutesById;
 }
 
@@ -154,7 +230,10 @@ export const routeTree = rootRoute
       "children": [
         "/_layout/",
         "/_layout/$environment/",
-        "/_layout/$environment/$app/"
+        "/_layout/$environment/$app/",
+        "/_layout/playground/apps/",
+        "/_layout/playground/environment/",
+        "/_layout/playground/login/"
       ]
     },
     "/_layout/": {
@@ -167,6 +246,18 @@ export const routeTree = rootRoute
     },
     "/_layout/$environment/$app/": {
       "filePath": "+_layout/+$environment/+$app/+index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/playground/apps/": {
+      "filePath": "+_layout/+playground/+apps/+index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/playground/environment/": {
+      "filePath": "+_layout/+playground/+environment/+index.tsx",
+      "parent": "/_layout"
+    },
+    "/_layout/playground/login/": {
+      "filePath": "+_layout/+playground/+login/+index.tsx",
       "parent": "/_layout"
     }
   }
