@@ -1,5 +1,5 @@
 import type { ValidationError } from "$/types";
-import type { FieldPath, FieldValues, UseFormReturn } from "react-hook-form";
+import type { FieldPath, FieldValues, Path, UseFormReturn } from "react-hook-form";
 import type { z } from "zod";
 
 export function setBaranErrorsToForm<
@@ -13,7 +13,8 @@ export function setBaranErrorsToForm<
 				validationError?: ValidationError<TRequestSchema>;
 		  }
 		| undefined,
-	form: UseFormReturn<TFieldValues, TContext, TTransformedValues>
+	form: UseFormReturn<TFieldValues, TContext, TTransformedValues>,
+	path?: Path<TFieldValues>
 ) {
 	return (
 		data?.validationError &&
@@ -21,7 +22,7 @@ export function setBaranErrorsToForm<
 			if (!errors) {
 				return;
 			}
-			form.setError(key as FieldPath<TFieldValues>, {
+			form.setError(((path ? path + "." : "") + key) as FieldPath<TFieldValues>, {
 				message: errors[0],
 				type: "root.api"
 			});
