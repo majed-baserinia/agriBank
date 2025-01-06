@@ -14,7 +14,7 @@ export type InputAdapterProps = {
 	isRequired?: boolean;
 	label?: string;
 	muiTextFieldProps?: TextFieldProps;
-	onChange: (value: string) => void;
+	onChange?: (value: string) => void;
 	placeholder?: string;
 	size?: Size;
 	success?: boolean;
