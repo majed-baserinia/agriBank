@@ -1,5 +1,5 @@
-import { BoxAdapter } from "$lib/components/BoxAdapter";
 import { ButtonAdapter } from "$lib/components/ButtonAdapter";
+import { PaperAdapter } from "$lib/components/PaperAdapter";
 import ErrorIcon from "@mui/icons-material/Error";
 import { Grid2, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
@@ -8,7 +8,7 @@ import type { Props } from "./types";
 export function GenericError({ title, message, reset }: Props) {
 	const { t } = useTranslation("base");
 	return (
-		<BoxAdapter muiPaperProps={{ sx: { width: "100%", height: "100%" } }}>
+		<PaperAdapter muiPaperProps={{ sx: { width: "100%", height: "100%" } }}>
 			<Grid2
 				container
 				gap={20}
@@ -42,6 +42,6 @@ export function GenericError({ title, message, reset }: Props) {
 					{t("go-back")}{" "}
 				</ButtonAdapter>
 			</Grid2>
-		</BoxAdapter>
+		</PaperAdapter>
 	);
 }

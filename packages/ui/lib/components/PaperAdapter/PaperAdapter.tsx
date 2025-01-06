@@ -2,7 +2,7 @@ import { Paper, useTheme } from "@mui/material";
 
 import type { Props } from "./types";
 
-export function BoxAdapter(props: Props) {
+export function PaperAdapter(props: Props) {
 	const { children, fullWidthBreakpoint = "sm", muiPaperProps } = props;
 	const theme = useTheme();
 

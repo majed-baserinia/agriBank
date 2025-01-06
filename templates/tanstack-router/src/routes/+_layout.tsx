@@ -1,7 +1,7 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 import { Navbar } from "$/components/Navbar";
-import { BoxAdapter } from "@agribank/ui/components/BoxAdapter";
+import { PaperAdapter } from "@agribank/ui/components/PaperAdapter";
 
 export const Route = createFileRoute("/_layout")({
 	component: Layout
@@ -10,10 +10,10 @@ export const Route = createFileRoute("/_layout")({
 function Layout() {
 	return (
 		<>
-			<BoxAdapter>
+			<PaperAdapter>
 				<Navbar />
 				<Outlet />
-			</BoxAdapter>
+			</PaperAdapter>
 		</>
 	);
 }
