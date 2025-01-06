@@ -45,8 +45,8 @@
 			"import": "./dist/utils.js",
 			"types": "./dist/lib/utils/index.d.ts"
 		},
-		"./assets/themes/default.json": {
-			"import": "./dist/themes/default.json"
+		"./assets/themes/base.json": {
+			"import": "./dist/themes/base.json"
 		}
 	},
 	"scripts": {
