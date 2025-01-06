@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const apiConfigSchema = z.object({
+const configSchema = z.object({
 	apiBaseUrl: z.string().url(),
 	paletteUrl: z.string().url(),
 	baseThemeUrl: z.union([
@@ -10,8 +10,10 @@ const apiConfigSchema = z.object({
 	])
 });
 
+export type Config = z.infer<typeof configSchema>;
+
 export async function getConfig() {
 	const res = await fetch(`/config.json`);
-	const apiConf = apiConfigSchema.parse(await res.json());
+	const apiConf = configSchema.parse(await res.json());
 	return apiConf;
 }

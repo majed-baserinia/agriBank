@@ -1,4 +1,4 @@
-import { getConfig } from "$lib/config/getConfig";
+import { getConfig, type Config } from "$lib/config/getConfig";
 import { getTheme } from "$lib/config/getTheme";
 import {
 	useHandledConnection,
@@ -15,9 +15,11 @@ import { useTranslation } from "react-i18next";
 import { z } from "zod";
 import { zodI18nMap } from "zod-i18n-map";
 
-export type Options = Pick<HandledConnectionProps, "onInitializationFailed">;
+export type Options = Pick<HandledConnectionProps, "onInitializationFailed"> & {
+	configOverrides?: Partial<Config>;
+};
 
-export function useInitConfig({ onInitializationFailed }: Options) {
+export function useInitConfig({ onInitializationFailed, configOverrides }: Options) {
 	const { setSettings } = useInitialSettingStore();
 	const { init: initApi } = useApiConfig();
 	const spConfig = useSearchParamsConfigs();
@@ -38,7 +40,7 @@ export function useInitConfig({ onInitializationFailed }: Options) {
 
 	const memoizedGetConfig = useCallback(async () => {
 		try {
-			const config = await getConfig();
+			const config = { ...(await getConfig()), ...configOverrides };
 			initApi({ baseUrl: config.apiBaseUrl });
 
 			//read lang and theme from query string
