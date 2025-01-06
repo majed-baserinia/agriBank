@@ -13,6 +13,13 @@
 			"type": "node-terminal",
 			"cwd": "${workspaceFolder}/templates/tanstack-router",
 			"command": "pnpm run dev --force"
+		},
+		{
+			"name": "pnpm:dev:baran-playground",
+			"request": "launch",
+			"type": "node-terminal",
+			"cwd": "${workspaceFolder}/packages/baran-playground",
+			"command": "pnpm run dev --force"
 		}
 	]
 }
