@@ -1,4 +1,5 @@
 import { useInitClients } from "$/services";
+import { useSettingsStore } from "$/stores/settings";
 import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
 import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
@@ -24,7 +25,7 @@ export const Route = createRootRouteWithContext<RootContext>()({
 	component: App,
 	validateSearch: (param) => {
 		return searchParamsConfigSchema.parse({
-			Lang: "en-US",
+			Lang: "en-GB",
 			Auth: "false",
 			Theme: "dark",
 			...param
@@ -43,6 +44,7 @@ export const Route = createRootRouteWithContext<RootContext>()({
 
 function App() {
 	const { queryClient } = Route.useRouteContext();
+	const settings = useSettingsStore();
 	const isReady = useInit({
 		onInitializationFailed: (message) => {
 			pushAlert({
@@ -51,7 +53,8 @@ function App() {
 				type: "error"
 			});
 			return false;
-		}
+		},
+		configOverrides: { apiBaseUrl: settings.baseUrl }
 	});
 	useLoadingHandler(!isReady);
 	const theme = useInitialSettingStore((state) => state.settings.theme);

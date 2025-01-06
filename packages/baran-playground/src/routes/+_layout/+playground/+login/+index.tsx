@@ -1,3 +1,4 @@
+import { Login } from "$/features/login";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout/playground/login/")({
@@ -5,5 +6,5 @@ export const Route = createFileRoute("/_layout/playground/login/")({
 });
 
 function RouteComponent() {
-	return <div>login and see current user data</div>;
+	return <Login />;
 }

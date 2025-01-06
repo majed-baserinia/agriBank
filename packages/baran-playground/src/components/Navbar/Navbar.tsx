@@ -67,7 +67,15 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 			</Paper>
 			<Box
 				component="main"
-				sx={{ flexGrow: 1, p: 3 }}
+				sx={{
+					flexGrow: 1,
+					flexShrink: 0,
+					flexBasis: 0,
+					p: 0,
+					overflowY: "auto",
+					overflowX: "hidden",
+					boxSizing: "border-box"
+				}}
 			>
 				{children}
 			</Box>

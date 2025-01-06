@@ -45,6 +45,9 @@ importers:
 
   packages/baran-playground:
     dependencies:
+      '@agribank/baran-typed-querykit':
+        specifier: ^1.0.1
+        version: link:../baran-typed-querykit
       '@agribank/i18n':
         specifier: ^0.2.1
         version: link:../i18n
@@ -96,6 +99,9 @@ importers:
       i18next:
         specifier: ^23.2.5
         version: 23.16.4
+      immer:
+        specifier: ^10.1.1
+        version: 10.1.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -119,7 +125,7 @@ importers:
         version: 3.23.8
       zustand:
         specifier: ^4.3.8
-        version: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+        version: 4.5.5(@types/react@18.3.12)(immer@10.1.1)(react@18.3.1)
     devDependencies:
       '@agribank/cli':
         specifier: ^0.1.0
@@ -501,7 +507,7 @@ importers:
         version: 2.27.0(i18next@23.16.4)(zod@3.23.8)
       zustand:
         specifier: ^4.3.8
-        version: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+        version: 4.5.5(@types/react@18.3.12)(immer@10.1.1)(react@18.3.1)
 
   packages/post-message:
     devDependencies:
@@ -683,7 +689,7 @@ importers:
         version: 5.0.1(typescript@5.6.3)(vite@5.4.10(@types/node@22.10.1)(terser@5.36.0))
       zustand:
         specifier: ^4.3.8
-        version: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+        version: 4.5.5(@types/react@18.3.12)(immer@10.1.1)(react@18.3.1)
 
   packages/vite-plugin:
     devDependencies:
@@ -803,7 +809,7 @@ importers:
         version: 3.23.8
       zustand:
         specifier: ^4.3.8
-        version: 4.5.5(@types/react@18.3.12)(react@18.3.1)
+        version: 4.5.5(@types/react@18.3.12)(immer@10.1.1)(react@18.3.1)
     devDependencies:
       '@agribank/cli':
         specifier: ^0.1.0
@@ -3309,6 +3315,9 @@ packages:
   ignore@5.3.2:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
+
+  immer@10.1.1:
+    resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -7769,6 +7778,8 @@ snapshots:
 
   ignore@5.3.2: {}
 
+  immer@10.1.1: {}
+
   import-fresh@3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -9426,9 +9437,10 @@ snapshots:
 
   zod@3.23.8: {}
 
-  zustand@4.5.5(@types/react@18.3.12)(react@18.3.1):
+  zustand@4.5.5(@types/react@18.3.12)(immer@10.1.1)(react@18.3.1):
     dependencies:
       use-sync-external-store: 1.2.2(react@18.3.1)
     optionalDependencies:
       '@types/react': 18.3.12
+      immer: 10.1.1
       react: 18.3.1
