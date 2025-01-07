@@ -69,6 +69,26 @@ export const useSettingsStore = create<State & Actions>()(
 					state.user = { ...state.user, ...user };
 				});
 			},
+			setLoginRequest(request) {
+				set((state) => {
+					state.user.input = { ...state.user.input, login: request };
+				});
+			},
+			setPreRegisterRequest(request) {
+				set((state) => {
+					state.user.input = { ...state.user.input, preRegister: request };
+				});
+			},
+			setVerifyRegisterRequest(request) {
+				set((state) => {
+					state.user.input = { ...state.user.input, verifyRegister: request };
+				});
+			},
+			setRegisterRequest(request) {
+				set((state) => {
+					state.user.input = { ...state.user.input, register: request };
+				});
+			},
 			setLoginResponse(response) {
 				set((state) => {
 					state.user.output = { ...state.user.output, login: response };

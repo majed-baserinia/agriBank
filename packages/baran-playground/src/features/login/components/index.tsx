@@ -12,10 +12,10 @@ import { Register } from "./Register";
 import { Result } from "./Result";
 
 export const schema = z.object({
-	preRegister: PreRegisterCommand,
-	verifyRegister: VerifyRegisterOtpCommand,
-	register: RegisterCommand,
-	login: LoginRequestCommand
+	preRegister: PreRegisterCommand.optional(),
+	verifyRegister: VerifyRegisterOtpCommand.optional(),
+	register: RegisterCommand.optional(),
+	login: LoginRequestCommand.optional()
 });
 
 export type RegisterInput = z.infer<typeof schema>;

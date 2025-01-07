@@ -8,6 +8,7 @@ import { Otp as AgriOtp } from "@agribank/ui/components/Otp";
 import { Box, Grid2 } from "@mui/material";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
+import { useLogin } from "../services/login";
 import { usePreRegister } from "../services/pre-register";
 import { useRegister } from "../services/register";
 import { useVerifyRegister } from "../services/verify-register";
@@ -20,42 +21,22 @@ export function Register() {
 	const { mutateAsync: postPreRegister, isPending: isSendingOtpPending } = usePreRegister();
 	const { mutateAsync: postVerifyRegister, isPending: isVerifyPending } = useVerifyRegister();
 	const { mutateAsync: postRegister, isPending: isRegisterPending } = useRegister();
+	const { mutateAsync: postLogin, isPending: isLoginPending } = useLogin();
 
 	const settings = useSettingsStore();
-	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending);
+	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending || isLoginPending);
 
 	function getOtpData() {
 		return { otpCode: otp, ...form.getValues().preRegister };
 	}
 
-	async function handleVerifyOtp() {
-		const otpResult = await postVerifyRegister(getOtpData());
-		if (otpResult.error) {
-			setBaranErrorsToForm(otpResult, form);
-			return;
-		}
-		settings.setVerifyRegisterRequest(getOtpData());
-		settings.setVerifyRegisterResponse(otpResult.response!);
-
-		const registerResult = await postRegister({
-			...form.getValues().register,
-			keyToken: settings.user.output?.verifyRegister?.keyToken
-		});
-		if (registerResult.error) {
-			setBaranErrorsToForm(registerResult, form);
-			return;
-		}
-		settings.setRegisterRequest(form.getValues().register);
-		settings.setRegisterResponse(registerResult.response!);
-	}
-
 	function handleSendOtp() {
 		return new Promise<PreRegisterOutputDto | null>((resolve, reject) => {
-			form.handleSubmit(
+			void form.handleSubmit(
 				async (data) => {
-					const result = await postPreRegister(data.preRegister);
+					const result = await postPreRegister(data.preRegister!);
 					if (result.error) {
-						setBaranErrorsToForm(result, form);
+						setBaranErrorsToForm(result, form, "preRegister");
 						resolve(null);
 						return;
 					}
@@ -63,9 +44,47 @@ export function Register() {
 					settings.setPreRegisterRequest(data.preRegister);
 					settings.setPreRegisterResponse(result.response!);
 				},
-				() => reject(new Error("form validation error"))
-			);
+				(e) => {
+					console.error(e);
+					reject(new Error("form validation error"));
+				}
+			)();
 		});
+	}
+
+	async function handleVerifyOtp() {
+		console.log(form.getValues());
+		const verifyRegisterResult = await postVerifyRegister(getOtpData());
+		if (verifyRegisterResult.error) {
+			setBaranErrorsToForm(verifyRegisterResult, form, "verifyRegister");
+			return;
+		}
+		settings.setVerifyRegisterRequest(getOtpData());
+		settings.setVerifyRegisterResponse(verifyRegisterResult.response!);
+
+		form.setValue("register.password", form.getValues().login?.password);
+		form.setValue("register.confirmPassword", form.getValues().login?.password);
+		form.setValue("register.keyToken", verifyRegisterResult.response?.keyToken);
+		const registerResult = await postRegister({
+			...form.getValues().register
+		});
+		if (registerResult.error) {
+			setBaranErrorsToForm(registerResult, form, "register");
+			setBaranErrorsToForm(registerResult, form, "login");
+			return;
+		}
+		settings.setRegisterRequest(form.getValues().register);
+		settings.setRegisterResponse(registerResult.response!);
+
+		const loginResult = await postLogin({
+			...form.getValues().login!
+		});
+		if (loginResult.error) {
+			setBaranErrorsToForm(loginResult, form, "login");
+			return;
+		}
+		settings.setLoginRequest(form.getValues().login);
+		settings.setLoginResponse(loginResult.response!);
 	}
 
 	return (
@@ -169,8 +188,12 @@ export function Register() {
 					<AgriOtp
 						sendOnLoad={false}
 						handleSend={async () => {
-							const result = await handleSendOtp();
-							return result ? { maxLength: result.codeLength, timer: result.lifeTime } : false;
+							try {
+								const result = await handleSendOtp();
+								return result ? { maxLength: result.codeLength, timer: result.lifeTime } : false;
+							} catch (_e) {
+								return false;
+							}
 						}}
 						agriInputProps={{
 							helperText: form.formState.errors.verifyRegister?.otpCode?.message,

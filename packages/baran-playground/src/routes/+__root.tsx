@@ -15,6 +15,7 @@ import {
 	ScrollRestoration
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+import { SnackbarProvider } from "notistack";
 import type { z } from "zod";
 
 export type RootContext = {
@@ -64,10 +65,12 @@ function App() {
 		<QueryClientProvider client={queryClient}>
 			<RootStyles>
 				<MaterialThemeProvider theme={theme}>
-					<Alerts />
-					<ScrollRestoration />
-					<Loader.UnControlled />
-					{isReady ? <Outlet /> : <></>}
+					<SnackbarProvider>
+						<Alerts />
+						<ScrollRestoration />
+						<Loader.UnControlled />
+						{isReady ? <Outlet /> : <></>}
+					</SnackbarProvider>
 				</MaterialThemeProvider>
 			</RootStyles>
 
