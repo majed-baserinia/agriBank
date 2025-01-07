@@ -39,7 +39,7 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 			>
 				<List>
 					<NavbarItem
-						text="open"
+						text="close"
 						icon={<MenuIcon />}
 						isOpen={isOpen}
 						onClick={() => setIsOpen((prev) => !prev)}
