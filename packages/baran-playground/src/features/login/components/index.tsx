@@ -1,3 +1,4 @@
+import { RefreshLogin } from "$/features/login/components/RefreshLogin";
 import {
 	PreRegisterCommand,
 	RegisterCommand,
@@ -38,12 +39,18 @@ export function Login() {
 				</Typography>
 				<Register />
 				<Divider sx={{ marginBottom: 20, marginTop: 20 }} />
-				<Typography
-					variant="h1Md"
-					marginBottom={5}
+				<Grid2
+					container
+					alignItems={"center"}
 				>
-					Registration result
-				</Typography>
+					<Typography
+						variant="h1Md"
+						marginBottom={5}
+					>
+						Registration result
+					</Typography>
+					<RefreshLogin />
+				</Grid2>
 				<Result />
 			</Grid2>
 		</FormProvider>

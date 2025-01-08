@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout/")({
@@ -5,5 +6,5 @@ export const Route = createFileRoute("/_layout/")({
 });
 
 function RouteComponent() {
-	return <div>contains the toolbar with empty content (saying open drawer?)</div>;
+	return <Typography>select something from toolbar</Typography>;
 }

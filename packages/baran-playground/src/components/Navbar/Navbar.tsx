@@ -76,6 +76,8 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 			<Box
 				component="main"
 				sx={{
+					maxHeight: "100%",
+					maxWidth: "100%",
 					flexGrow: 1,
 					flexShrink: 0,
 					flexBasis: 0,

@@ -1,3 +1,4 @@
+import { useAppStore } from "$/stores";
 import { callApi } from "@agribank/baran-typed-querykit";
 import { baranMutateFn } from "@agribank/baran-typed-querykit/react";
 import { axios, useApiConfig } from "@agribank/ignite";
@@ -18,6 +19,8 @@ export type LoginRequest = z.infer<typeof requestSchema>;
 
 export function useLogin() {
 	const baseUrl = useApiConfig((state) => state.baseUrl);
+	const store = useAppStore();
+
 	return useMutation({
 		mutationFn: baranMutateFn({
 			async fn(data: LoginRequest) {
@@ -34,6 +37,14 @@ export function useLogin() {
 					}
 				);
 			}
-		})
+		}),
+		onSuccess(result, variables) {
+			if (result.error) {
+				return;
+			}
+
+			store.setLoginRequest(variables);
+			store.setLoginResponse(result.response);
+		}
 	});
 }

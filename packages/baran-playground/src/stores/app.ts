@@ -1,3 +1,4 @@
+import { createApplicationsSlice } from "$/features/apps/stores/applications";
 import { createEnvironmentSlice } from "$/features/environment/stores/index";
 import { createLoginSlice } from "$/features/login";
 import type { AppStore, CustomAppActions, Mutators } from "$/stores/types";
@@ -10,6 +11,7 @@ export const useAppStore = create<AppStore & CustomAppActions, Mutators>(
 		immer((set, get, ...params) => ({
 			...createLoginSlice(set, get, ...params),
 			...createEnvironmentSlice(set, get, ...params),
+			...createApplicationsSlice(set, get, ...params),
 			reset() {
 				get().resetEnvironment();
 				get().resetUser();

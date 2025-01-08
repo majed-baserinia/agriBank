@@ -11,7 +11,9 @@ export function Result() {
 		>
 			<Box>
 				<Typography variant="bodyLg">id token:</Typography>
-				<pre>{environmentUser.output?.login?.idToken}</pre>
+				<pre className="max-w-[30ch] whitespace-pre-wrap break-words md:max-w-[90ch] lg:max-w-[120ch]">
+					{environmentUser.output?.login?.idToken}
+				</pre>
 			</Box>
 			<Box>
 				<Typography variant="bodyLg">refresh token:</Typography>

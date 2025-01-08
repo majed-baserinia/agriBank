@@ -1,5 +1,5 @@
+import { useCurrentEnvironmentUser } from "$/features/login";
 import type { PreRegisterOutputDto } from "$/services/.generated/customer-management/zod/schemas";
-import { useAppStore } from "$/stores/app";
 import { setBaranErrorsToForm } from "@agribank/baran-typed-querykit/react";
 import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
 import { Controlled } from "@agribank/ui/components/ControlledInput";
@@ -22,11 +22,9 @@ export function Register() {
 	const { mutateAsync: postVerifyRegister, isPending: isVerifyPending } = useVerifyRegister();
 	const { mutateAsync: postRegister, isPending: isRegisterPending } = useRegister();
 	const { mutateAsync: postLogin, isPending: isLoginPending } = useLogin();
+	const user = useCurrentEnvironmentUser();
 
-	const settings = useAppStore();
 	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending || isLoginPending);
-
-	const environmentUser = settings.user[settings.environment];
 
 	function getOtpData() {
 		return { otpCode: otp, ...form.getValues().preRegister };
@@ -43,8 +41,6 @@ export function Register() {
 						return;
 					}
 					resolve(result.response);
-					settings.setPreRegisterRequest(data.preRegister);
-					settings.setPreRegisterResponse(result.response!);
 				},
 				(e) => {
 					console.error(e);
@@ -61,8 +57,6 @@ export function Register() {
 			setBaranErrorsToForm(verifyRegisterResult, form, "verifyRegister");
 			return;
 		}
-		settings.setVerifyRegisterRequest(getOtpData());
-		settings.setVerifyRegisterResponse(verifyRegisterResult.response!);
 
 		form.setValue("register.password", form.getValues().login?.password);
 		form.setValue("register.confirmPassword", form.getValues().login?.password);
@@ -76,8 +70,6 @@ export function Register() {
 			setBaranErrorsToForm(registerResult, form, "login");
 			return;
 		}
-		settings.setRegisterRequest(form.getValues().register);
-		settings.setRegisterResponse(registerResult.response!);
 
 		const loginResult = await postLogin({
 			...form.getValues().login!
@@ -86,8 +78,6 @@ export function Register() {
 			setBaranErrorsToForm(loginResult, form, "login");
 			return;
 		}
-		settings.setLoginRequest(form.getValues().login);
-		settings.setLoginResponse(loginResult.response!);
 	}
 
 	return (
@@ -109,7 +99,7 @@ export function Register() {
 					type="number"
 					helperText={form.formState.errors.preRegister?.accOrCifNum?.message}
 					error={!!form.formState.errors.preRegister?.accOrCifNum?.message}
-					defaultValue={environmentUser.input?.preRegister?.accOrCifNum ?? ""}
+					defaultValue={user.input?.preRegister?.accOrCifNum ?? ""}
 					sx={{
 						flexGrow: 1
 					}}
@@ -121,7 +111,7 @@ export function Register() {
 					type="date"
 					helperText={form.formState.errors.preRegister?.birthDate?.message}
 					error={!!form.formState.errors.preRegister?.birthDate?.message}
-					defaultValue={environmentUser.input?.preRegister?.birthDate ?? ""}
+					defaultValue={user.input?.preRegister?.birthDate ?? ""}
 					sx={{
 						flexGrow: 1
 					}}
@@ -140,7 +130,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.preRegister?.nationalCode?.message}
 					error={!!form.formState.errors.preRegister?.nationalCode?.message}
-					defaultValue={environmentUser.input?.preRegister?.nationalCode ?? ""}
+					defaultValue={user.input?.preRegister?.nationalCode ?? ""}
 				/>
 				<Controlled.Input
 					control={form.control}
@@ -149,7 +139,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.preRegister?.smsHashCode?.message}
 					error={!!form.formState.errors.preRegister?.smsHashCode?.message}
-					defaultValue={environmentUser.input?.preRegister?.smsHashCode ?? ""}
+					defaultValue={user.input?.preRegister?.smsHashCode ?? ""}
 				/>
 			</Grid2>
 			<Grid2
@@ -165,7 +155,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.login?.username?.message}
 					error={!!form.formState.errors.login?.password?.message}
-					defaultValue={environmentUser.input?.login?.username ?? ""}
+					defaultValue={user.input?.login?.username ?? ""}
 				/>
 				<Controlled.Input
 					control={form.control}
@@ -174,7 +164,7 @@ export function Register() {
 					type="password"
 					helperText={form.formState.errors.login?.password?.message}
 					error={!!form.formState.errors.login?.password?.message}
-					defaultValue={environmentUser.input?.login?.password ?? ""}
+					defaultValue={user.input?.login?.password ?? ""}
 				/>
 			</Grid2>
 			<Grid2

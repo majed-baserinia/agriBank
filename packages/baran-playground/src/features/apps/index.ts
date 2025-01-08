@@ -1,3 +1,3 @@
-export { Login, schema } from "./components";
+export * from "./components";
 export * from "./hooks";
 export * from "./stores";

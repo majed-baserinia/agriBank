@@ -1,3 +1,4 @@
+import { Apps } from "$/features/apps";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout/playground/apps/")({
@@ -5,5 +6,5 @@ export const Route = createFileRoute("/_layout/playground/apps/")({
 });
 
 function RouteComponent() {
-	return <div>define/remove/select apps</div>;
+	return <Apps />;
 }
