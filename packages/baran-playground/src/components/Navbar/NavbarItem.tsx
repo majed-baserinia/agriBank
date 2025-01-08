@@ -1,4 +1,5 @@
-import { ListItem, ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { NavbarItemRaw } from "$/components/Navbar/NavbarItemRaw";
+import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import type React from "react";
 
 type Props = {
@@ -10,19 +11,8 @@ type Props = {
 
 export function NavbarItem({ text, icon, isOpen, onClick }: Props) {
 	return (
-		<ListItem
-			disablePadding
-			sx={{ display: "block" }}
-		>
-			<ListItemButton
-				sx={[
-					{
-						minHeight: 48,
-						px: 2.5
-					}
-				]}
-				onClick={onClick}
-			>
+		<NavbarItemRaw>
+			<ListItemButton onClick={onClick}>
 				<ListItemIcon
 					sx={[
 						{
@@ -42,6 +32,6 @@ export function NavbarItem({ text, icon, isOpen, onClick }: Props) {
 					/>
 				)}
 			</ListItemButton>
-		</ListItem>
+		</NavbarItemRaw>
 	);
 }

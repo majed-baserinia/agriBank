@@ -1,8 +1,8 @@
-import { useSettingsStore } from "$/stores/settings";
+import { useAppStore } from "$/stores/app";
 import { Box, Grid2, Typography } from "@mui/material";
 
 export function Result() {
-	const settings = useSettingsStore();
+	const settings = useAppStore();
 	return (
 		<Grid2
 			container

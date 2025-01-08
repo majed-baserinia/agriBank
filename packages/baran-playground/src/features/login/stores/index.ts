@@ -4,7 +4,7 @@ import type {
 	RegisterOutputDto,
 	VerifyRegisterOtpOutputDto
 } from "$/services";
-import type { Mutators, SettingsStore } from "$/stores/settings";
+import type { AppStore, Mutators } from "$/stores/types";
 import type { z } from "zod";
 import type { StateCreator } from "zustand";
 
@@ -48,7 +48,7 @@ export type LoginSlice = State & Actions;
 
 const initial = { user: {} };
 
-export const createLoginSlice: StateCreator<SettingsStore, Mutators, [], LoginSlice> = (set) => ({
+export const createLoginSlice: StateCreator<AppStore, Mutators, [], LoginSlice> = (set) => ({
 	...initial,
 	setUser(user) {
 		set((state) => {
@@ -95,7 +95,7 @@ export const createLoginSlice: StateCreator<SettingsStore, Mutators, [], LoginSl
 			state.user.output = { ...state.user.output, register: response };
 		});
 	},
-	resetUser: () => {
+	resetUser() {
 		set(initial);
 	}
 });

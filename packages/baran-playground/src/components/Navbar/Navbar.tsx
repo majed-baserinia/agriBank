@@ -1,4 +1,6 @@
 import { NavbarItem } from "$/components/Navbar/NavbarItem";
+import { NavbarItemRaw } from "$/components/Navbar/NavbarItemRaw";
+import { Toggle } from "$/features/environment";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AppsIcon from "@mui/icons-material/Apps";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
@@ -64,6 +66,12 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 					/>
 				</List>
 				<Divider />
+
+				<List sx={{ marginTop: "auto" }}>
+					<NavbarItemRaw>
+						<Toggle orientation="vertical" />
+					</NavbarItemRaw>
+				</List>
 			</Paper>
 			<Box
 				component="main"

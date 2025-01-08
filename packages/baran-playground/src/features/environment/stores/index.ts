@@ -1,14 +1,9 @@
-import type { Mutators, SettingsStore } from "$/stores/settings";
+import type { AppStore, Mutators } from "$/stores/types";
 import type { StateCreator } from "zustand";
-
-type Environments = "pilot" | "test";
+import type { Environments } from "../utils/environment-to-url";
 
 type State = {
 	environment: Environments;
-	/**
-	 * derived from environment
-	 */
-	baseUrl: string;
 };
 
 type Actions = {
@@ -20,22 +15,16 @@ export type EnvironmentSlice = State & Actions;
 
 const initial = { environment: "test" } as const;
 
-export const createEnvironmentSlice: StateCreator<SettingsStore, Mutators, [], EnvironmentSlice> = (
-	set,
-	get
+export const createEnvironmentSlice: StateCreator<AppStore, Mutators, [], EnvironmentSlice> = (
+	set
 ) => ({
 	...initial,
-	get baseUrl() {
-		return get().environment === "pilot"
-			? "https://dgbankmb-pilot.bki.ir"
-			: "https://digitalbanking-tst.bki.ir";
-	},
 	setEnvironment(environment) {
 		set((state) => {
 			state.environment = environment;
 		});
 	},
-	resetEnvironment: () => {
+	resetEnvironment() {
 		set(initial);
 	}
 });

@@ -1,3 +1,4 @@
+import { Environment } from "$/features/environment";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout/playground/environment/")({
@@ -5,5 +6,5 @@ export const Route = createFileRoute("/_layout/playground/environment/")({
 });
 
 function RouteComponent() {
-	return <div>change environments and see their urls</div>;
+	return <Environment />;
 }

@@ -1,5 +1,6 @@
+import { convert } from "$/features/environment";
 import { useInitClients } from "$/services";
-import { useSettingsStore } from "$/stores/settings";
+import { useAppStore } from "$/stores/app";
 import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
 import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
@@ -16,6 +17,7 @@ import {
 } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { SnackbarProvider } from "notistack";
+import { useMemo } from "react";
 import type { z } from "zod";
 
 export type RootContext = {
@@ -43,9 +45,17 @@ export const Route = createRootRouteWithContext<RootContext>()({
 	}
 });
 
+function useConfigOverrides() {
+	const settings = useAppStore();
+	const configOverrides = useMemo(() => {
+		return { apiBaseUrl: convert(settings.environment) };
+	}, [settings.environment]);
+	return configOverrides;
+}
+
 function App() {
 	const { queryClient } = Route.useRouteContext();
-	const settings = useSettingsStore();
+	const configOverrides = useConfigOverrides();
 	const isReady = useInit({
 		onInitializationFailed: (message) => {
 			pushAlert({
@@ -55,7 +65,7 @@ function App() {
 			});
 			return false;
 		},
-		configOverrides: { apiBaseUrl: settings.baseUrl }
+		configOverrides
 	});
 	useLoadingHandler(!isReady);
 	const theme = useInitialSettingStore((state) => state.settings.theme);

@@ -1,5 +1,5 @@
 import type { PreRegisterOutputDto } from "$/services/.generated/customer-management/zod/schemas";
-import { useSettingsStore } from "$/stores/settings";
+import { useAppStore } from "$/stores/app";
 import { setBaranErrorsToForm } from "@agribank/baran-typed-querykit/react";
 import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
 import { Controlled } from "@agribank/ui/components/ControlledInput";
@@ -23,7 +23,7 @@ export function Register() {
 	const { mutateAsync: postRegister, isPending: isRegisterPending } = useRegister();
 	const { mutateAsync: postLogin, isPending: isLoginPending } = useLogin();
 
-	const settings = useSettingsStore();
+	const settings = useAppStore();
 	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending || isLoginPending);
 
 	function getOtpData() {
