@@ -9,21 +9,17 @@ type PublicState = {
 };
 
 type Actions = {
-	init: (config: PublicState) => void;
+	update: (config: PublicState) => void;
 };
 
 type ApiConfig = PublicState & PrivateState & Actions;
 
-export const useApiConfig = create<ApiConfig>((set, get) => ({
+export const useApiConfig = create<ApiConfig>((set) => ({
 	isInitialized: false,
 	baseUrl: "",
-	init: (config) => {
-		if (get().isInitialized) {
-			console.warn("trying to re-initialize api config");
-			return;
-		}
+	update: (config) => {
 		set((prev) => {
-			return { ...prev, ...config };
+			return { ...prev, ...config, isInitialized: true };
 		});
 	}
 }));

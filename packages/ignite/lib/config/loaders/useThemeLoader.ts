@@ -1,4 +1,5 @@
 import { type ThemeOptions } from "@mui/material";
+import { useEffect, useState } from "react";
 
 export async function getTheme(baseThemeUrl: string, paletteUrl: string, themeName: string) {
 	try {
@@ -31,4 +32,27 @@ export async function getCustomPalette(paletteUrl: string, themeName: string) {
 		console.error("error while fetching palette", error);
 		return {};
 	}
+}
+
+export function useThemeLoader(
+	baseThemeUrl: string | undefined,
+	paletteUrl: string | undefined,
+	themeName: string | undefined
+) {
+	const [theme, setTheme] = useState<ThemeOptions>();
+
+	useEffect(() => {
+		if (!baseThemeUrl || !paletteUrl || !themeName) {
+			return;
+		}
+		getTheme(baseThemeUrl, paletteUrl, themeName)
+			.then((theme) => {
+				setTheme(theme);
+			})
+			.catch((e) => {
+				throw new Error("cannot load theme", { cause: e });
+			});
+	}, [baseThemeUrl, paletteUrl, themeName]);
+
+	return { theme, isThemeLoaded: theme !== undefined };
 }

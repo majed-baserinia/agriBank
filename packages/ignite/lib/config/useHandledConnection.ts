@@ -1,4 +1,4 @@
-import { useSearchParamsConfigs } from "$lib/config/useSearchParamsConfigs";
+import { useSearchParamsConfigLoader } from "$lib/config/loaders/useSearchParamsConfigLoader";
 import { environment } from "$lib/env";
 import type { InitialSetting } from "$lib/stores";
 import {
@@ -23,7 +23,7 @@ export function useHandledConnection({ onInitializationFailed, ...restProps }: P
 	const router = useRouter();
 	const canGoBack = useCanGoBack();
 
-	const paramConfig = useSearchParamsConfigs();
+	const paramConfig = useSearchParamsConfigLoader();
 	const match = useMatch({
 		strict: false
 	});

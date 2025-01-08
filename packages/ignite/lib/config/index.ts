@@ -1,19 +1,14 @@
-import { getConfig, type Config } from "$lib/config/getConfig";
-import { getTheme } from "$lib/config/getTheme";
+import { type Config } from "$lib/config/loaders/useConfigLoader";
+import {
+	searchParamsConfigSchema,
+	useSearchParamsConfigLoader
+} from "$lib/config/loaders/useSearchParamsConfigLoader";
 import {
 	useHandledConnection,
 	type Props as HandledConnectionProps
 } from "$lib/config/useHandledConnection";
-import {
-	searchParamsConfigSchema,
-	useSearchParamsConfigs
-} from "$lib/config/useSearchParamsConfigs";
-import { useApiConfig, useInitialSettingStore } from "$lib/stores";
-import { initLanguagePacks } from "@agribank/i18n";
-import { useCallback, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { z } from "zod";
-import { zodI18nMap } from "zod-i18n-map";
+import { useLoadAllConfigurations } from "$lib/config/useLoadAllConfigurations";
+import { useInitialSettingStore, type AcceptedLanguages } from "$lib/stores";
 
 export type Options = Pick<HandledConnectionProps, "onInitializationFailed"> & {
 	configOverrides?: Partial<Config>;
@@ -21,9 +16,19 @@ export type Options = Pick<HandledConnectionProps, "onInitializationFailed"> & {
 
 export function useInitConfig({ onInitializationFailed, configOverrides }: Options) {
 	const { setSettings } = useInitialSettingStore();
-	const { init: initApi } = useApiConfig();
-	const spConfig = useSearchParamsConfigs();
+	const spConfig = useSearchParamsConfigLoader();
 
+	const isConfigReady = useLoadAllConfigurations({
+		spConfig,
+		configOverrides,
+		onConfigurationsInitialized: ({ theme, themeName, language }) => {
+			setSettings({
+				theme: theme,
+				language: language as AcceptedLanguages,
+				themeName: themeName
+			});
+		}
+	});
 	const { readyToLoad } = useHandledConnection({
 		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
@@ -35,50 +40,8 @@ export function useInitConfig({ onInitializationFailed, configOverrides }: Optio
 		},
 		onInitializationFailed
 	});
-	const [configReady, seConfigReady] = useState(false);
-	const { i18n } = useTranslation();
 
-	const memoizedGetConfig = useCallback(async () => {
-		try {
-			const config = { ...(await getConfig()), ...configOverrides };
-			initApi({ baseUrl: config.apiBaseUrl });
-
-			//read lang and theme from query string
-			const language = spConfig.Lang;
-			const themeName = spConfig.Theme;
-
-			await i18n.changeLanguage(language);
-
-			//get the theme and set the language
-			const theme = await getTheme(config.baseThemeUrl, config.paletteUrl, themeName);
-
-			//set the settings {theme, language, idToken, refreshToken} to store
-			setSettings({
-				theme: theme,
-				themeName: themeName,
-				language: language as "fa-IR" | "en-GB"
-			});
-
-			seConfigReady(true);
-		} catch (err) {
-			//TODO: add a convenient alert for this
-			//probably send a postmessage to parent
-			alert("can't initiate app");
-			console.error(err);
-		}
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [initApi, setSettings]);
-
-	useEffect(() => {
-		initLanguagePacks(i18n);
-		z.setErrorMap(zodI18nMap);
-	}, [i18n]);
-
-	useEffect(() => {
-		void memoizedGetConfig();
-	}, [memoizedGetConfig]);
-
-	return configReady && readyToLoad;
+	return isConfigReady && readyToLoad;
 }
 
 export { searchParamsConfigSchema };

@@ -15,7 +15,9 @@ export const searchParamsConfigSchema = z.object({
 		.default("true")
 });
 
-export const useSearchParamsConfigs = () => {
+export type SearchParamsConfig = z.infer<typeof searchParamsConfigSchema>;
+
+export const useSearchParamsConfigLoader = () => {
 	const search = useSearch({ strict: false }) as unknown;
 	return searchParamsConfigSchema.parse(search);
 };
