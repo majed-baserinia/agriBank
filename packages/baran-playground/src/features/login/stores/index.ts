@@ -1,3 +1,4 @@
+import type { Environments } from "$/features/environment";
 import type { schema } from "$/features/login";
 import type {
 	PreRegisterOutputDto,
@@ -18,12 +19,14 @@ type Tokens = {
 };
 
 type User = {
-	input?: PartialLoginInput;
-	output?: {
-		preRegister?: PreRegisterOutputDto;
-		verifyRegister?: VerifyRegisterOtpOutputDto;
-		register?: RegisterOutputDto;
-		login?: Tokens;
+	[key in Environments]: {
+		input?: PartialLoginInput;
+		output?: {
+			preRegister?: PreRegisterOutputDto;
+			verifyRegister?: VerifyRegisterOtpOutputDto;
+			register?: RegisterOutputDto;
+			login?: Tokens;
+		};
 	};
 };
 
@@ -46,9 +49,9 @@ type Actions = {
 
 export type LoginSlice = State & Actions;
 
-const initial = { user: {} };
+const initial: State = { user: { pilot: {}, test: {} } };
 
-export const createLoginSlice: StateCreator<AppStore, Mutators, [], LoginSlice> = (set) => ({
+export const createLoginSlice: StateCreator<AppStore, Mutators, [], LoginSlice> = (set, get) => ({
 	...initial,
 	setUser(user) {
 		set((state) => {
@@ -57,42 +60,66 @@ export const createLoginSlice: StateCreator<AppStore, Mutators, [], LoginSlice> 
 	},
 	setLoginRequest(request) {
 		set((state) => {
-			state.user.input = { ...state.user.input, login: request };
+			state.user[get().environment].input = {
+				...state.user[get().environment].input,
+				login: request
+			};
 		});
 	},
 	setPreRegisterRequest(request) {
 		set((state) => {
-			state.user.input = { ...state.user.input, preRegister: request };
+			state.user[get().environment].input = {
+				...state.user[get().environment].input,
+				preRegister: request
+			};
 		});
 	},
 	setVerifyRegisterRequest(request) {
 		set((state) => {
-			state.user.input = { ...state.user.input, verifyRegister: request };
+			state.user[get().environment].input = {
+				...state.user[get().environment].input,
+				verifyRegister: request
+			};
 		});
 	},
 	setRegisterRequest(request) {
 		set((state) => {
-			state.user.input = { ...state.user.input, register: request };
+			state.user[get().environment].input = {
+				...state.user[get().environment].input,
+				register: request
+			};
 		});
 	},
 	setLoginResponse(response) {
 		set((state) => {
-			state.user.output = { ...state.user.output, login: response };
+			state.user[get().environment].output = {
+				...state.user[get().environment].output,
+				login: response
+			};
 		});
 	},
 	setPreRegisterResponse(response) {
 		set((state) => {
-			state.user.output = { ...state.user.output, preRegister: response };
+			state.user[get().environment].output = {
+				...state.user[get().environment].output,
+				preRegister: response
+			};
 		});
 	},
 	setVerifyRegisterResponse(response) {
 		set((state) => {
-			state.user.output = { ...state.user.output, verifyRegister: response };
+			state.user[get().environment].output = {
+				...state.user[get().environment].output,
+				verifyRegister: response
+			};
 		});
 	},
 	setRegisterResponse(response) {
 		set((state) => {
-			state.user.output = { ...state.user.output, register: response };
+			state.user[get().environment].output = {
+				...state.user[get().environment].output,
+				register: response
+			};
 		});
 	},
 	resetUser() {

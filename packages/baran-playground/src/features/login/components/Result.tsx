@@ -3,6 +3,7 @@ import { Box, Grid2, Typography } from "@mui/material";
 
 export function Result() {
 	const settings = useAppStore();
+	const environmentUser = settings.user[settings.environment];
 	return (
 		<Grid2
 			container
@@ -10,11 +11,11 @@ export function Result() {
 		>
 			<Box>
 				<Typography variant="bodyLg">id token:</Typography>
-				<pre>{settings.user.output?.login?.idToken}</pre>
+				<pre>{environmentUser.output?.login?.idToken}</pre>
 			</Box>
 			<Box>
 				<Typography variant="bodyLg">refresh token:</Typography>
-				<pre>{settings.user.output?.login?.refreshToken}</pre>
+				<pre>{environmentUser.output?.login?.refreshToken}</pre>
 			</Box>
 		</Grid2>
 	);

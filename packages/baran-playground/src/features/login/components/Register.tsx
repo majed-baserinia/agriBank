@@ -26,6 +26,8 @@ export function Register() {
 	const settings = useAppStore();
 	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending || isLoginPending);
 
+	const environmentUser = settings.user[settings.environment];
+
 	function getOtpData() {
 		return { otpCode: otp, ...form.getValues().preRegister };
 	}
@@ -107,7 +109,7 @@ export function Register() {
 					type="number"
 					helperText={form.formState.errors.preRegister?.accOrCifNum?.message}
 					error={!!form.formState.errors.preRegister?.accOrCifNum?.message}
-					defaultValue={settings.user.input?.preRegister?.accOrCifNum ?? ""}
+					defaultValue={environmentUser.input?.preRegister?.accOrCifNum ?? ""}
 					sx={{
 						flexGrow: 1
 					}}
@@ -119,7 +121,7 @@ export function Register() {
 					type="date"
 					helperText={form.formState.errors.preRegister?.birthDate?.message}
 					error={!!form.formState.errors.preRegister?.birthDate?.message}
-					defaultValue={settings.user.input?.preRegister?.birthDate ?? ""}
+					defaultValue={environmentUser.input?.preRegister?.birthDate ?? ""}
 					sx={{
 						flexGrow: 1
 					}}
@@ -138,7 +140,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.preRegister?.nationalCode?.message}
 					error={!!form.formState.errors.preRegister?.nationalCode?.message}
-					defaultValue={settings.user.input?.preRegister?.nationalCode ?? ""}
+					defaultValue={environmentUser.input?.preRegister?.nationalCode ?? ""}
 				/>
 				<Controlled.Input
 					control={form.control}
@@ -147,7 +149,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.preRegister?.smsHashCode?.message}
 					error={!!form.formState.errors.preRegister?.smsHashCode?.message}
-					defaultValue={settings.user.input?.preRegister?.smsHashCode ?? ""}
+					defaultValue={environmentUser.input?.preRegister?.smsHashCode ?? ""}
 				/>
 			</Grid2>
 			<Grid2
@@ -163,7 +165,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.login?.username?.message}
 					error={!!form.formState.errors.login?.password?.message}
-					defaultValue={settings.user.input?.login?.username ?? ""}
+					defaultValue={environmentUser.input?.login?.username ?? ""}
 				/>
 				<Controlled.Input
 					control={form.control}
@@ -172,7 +174,7 @@ export function Register() {
 					type="password"
 					helperText={form.formState.errors.login?.password?.message}
 					error={!!form.formState.errors.login?.password?.message}
-					defaultValue={settings.user.input?.login?.password ?? ""}
+					defaultValue={environmentUser.input?.login?.password ?? ""}
 				/>
 			</Grid2>
 			<Grid2

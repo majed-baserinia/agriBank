@@ -13,7 +13,7 @@ type Actions = {
 
 export type EnvironmentSlice = State & Actions;
 
-const initial = { environment: "test" } as const;
+const initial: State = { environment: "test" };
 
 export const createEnvironmentSlice: StateCreator<AppStore, Mutators, [], EnvironmentSlice> = (
 	set
