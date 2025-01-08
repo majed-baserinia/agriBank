@@ -46,13 +46,6 @@ export function InputAdapter(props: InputAdapterProps) {
 	const [internalEndIcon, setInternalEndIcon] = useState<ReactNode>(null);
 
 	useEffect(() => {
-		const defVal = format(defaultValue).formatted;
-
-		setValue(defVal);
-		if (defVal) {
-			setShrink(true);
-		}
-
 		setInternalEndIcon(
 			success ? (
 				<SvgToIcon
@@ -68,7 +61,18 @@ export function InputAdapter(props: InputAdapterProps) {
 				endIcon
 			)
 		);
-	}, [success, error, defaultValue, endIcon]);
+	}, [success, error, endIcon]);
+
+	useEffect(() => {
+		const defVal = format(defaultValue).formatted;
+
+		setValue(defVal);
+		if (defVal) {
+			setShrink(true);
+		}
+
+		onChange?.(defVal);
+	}, [defaultValue]);
 
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const result = format(event.target.value);
@@ -85,7 +89,7 @@ export function InputAdapter(props: InputAdapterProps) {
 		});
 
 		setValue(result.formatted);
-		onChange(type === "card" || type === "money" ? result.numeric : result.formatted);
+		onChange?.(type === "card" || type === "money" ? result.numeric : result.formatted);
 	};
 
 	const labelStyle = () => {
