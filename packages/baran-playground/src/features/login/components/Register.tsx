@@ -66,7 +66,8 @@ export function Register() {
 		form.setValue("register.confirmPassword", form.getValues().login?.password);
 		form.setValue("register.keyToken", verifyRegisterResult.response?.keyToken);
 		const registerResult = await postRegister({
-			...form.getValues().register
+			...form.getValues().register,
+			preservePreviousPassword: false
 		});
 		if (registerResult.error) {
 			setBaranErrorsToForm(registerResult, form, "register");

@@ -3,6 +3,7 @@ import { baranMutateFn } from "@agribank/baran-typed-querykit/react";
 import { axios, useApiConfig } from "@agribank/ignite";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
+import { headers } from "./headers";
 
 export const requestSchema = z.object({
 	username: z.string(),
@@ -23,7 +24,8 @@ export function useLogin() {
 				return await callApi(
 					(param: LoginRequest) =>
 						axios.login.post("/login", param, {
-							baseURL: baseUrl
+							baseURL: baseUrl,
+							headers
 						}),
 					{
 						params: data,
