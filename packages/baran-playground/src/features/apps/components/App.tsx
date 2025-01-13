@@ -1,19 +1,20 @@
-import { EditableInput } from "$/features/apps/components/EditableInput";
-import { appSchema } from "$/features/apps/utils";
 import { useAppStore } from "$/stores";
 import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
 import { zodResolver } from "@hookform/resolvers/zod";
-import EditIcon from "@mui/icons-material/Edit";
+import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 import { Card, CardActionArea, CardContent, Grid2, IconButton } from "@mui/material";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import type { z } from "zod";
 import { useSelectedApplication } from "../hooks";
 import { type Application } from "../stores";
+import { appSchema } from "../utils";
+import { EditableInput } from "./EditableInput";
 
 type Props = {
 	app: Application;
 };
+
 export function App({ app }: Props) {
 	const form = useForm<z.infer<typeof appSchema>>({
 		resolver: zodResolver(appSchema)
@@ -25,6 +26,10 @@ export function App({ app }: Props) {
 
 	function handleEdit() {
 		setIsEditing(true);
+	}
+
+	function handleRemove() {
+		store.removeApplication(app.title);
 	}
 
 	function handleSave(editedApp: Application) {
@@ -94,14 +99,24 @@ export function App({ app }: Props) {
 
 					<Grid2>
 						{!isEditing ? (
-							<IconButton
-								aria-label="edit"
-								title="edit"
-								color="primary"
-								onClick={handleEdit}
-							>
-								<EditIcon />
-							</IconButton>
+							<Grid2 container>
+								<IconButton
+									aria-label="edit"
+									title="edit"
+									color="primary"
+									onClick={handleEdit}
+								>
+									<EditIcon />
+								</IconButton>
+								<IconButton
+									aria-label="remove"
+									title="remove"
+									color="error"
+									onClick={handleRemove}
+								>
+									<DeleteIcon />
+								</IconButton>
+							</Grid2>
 						) : (
 							<Grid2
 								container

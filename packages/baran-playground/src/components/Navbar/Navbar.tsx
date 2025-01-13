@@ -1,10 +1,12 @@
 import { NavbarItem } from "$/components/Navbar/NavbarItem";
 import { NavbarItemRaw } from "$/components/Navbar/NavbarItemRaw";
+import { navigateToActiveApplication } from "$/features/apps";
 import { Toggle } from "$/features/environment";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AppsIcon from "@mui/icons-material/Apps";
+import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
 import MenuIcon from "@mui/icons-material/Menu";
+import WebIcon from "@mui/icons-material/Web";
 import { Grid2, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
@@ -60,7 +62,7 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 					/>
 					<NavbarItem
 						text="application"
-						icon={<AppsIcon />}
+						icon={<AppRegistrationIcon />}
 						isOpen={isOpen}
 						onClick={() => changePage({ to: "/playground/apps" })}
 					/>
@@ -68,6 +70,15 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 				<Divider />
 
 				<List sx={{ marginTop: "auto" }}>
+					<NavbarItem
+						text={"open active application"}
+						isOpen={isOpen}
+						onClick={() => {
+							setIsOpen(false);
+							void navigateToActiveApplication(navigate);
+						}}
+						icon={<WebIcon />}
+					/>
 					<NavbarItemRaw>
 						<Toggle orientation="vertical" />
 					</NavbarItemRaw>

@@ -12,7 +12,7 @@ export type PostMessageTypes =
 						data: {
 							idToken?: string;
 							refreshToken?: string;
-							osType: number;
+							osType: string;
 							[key: string]: unknown;
 						};
 				  }
@@ -27,7 +27,8 @@ export type PostMessageTypes =
 			type: "GetOTP";
 			input: { OTPLen: string; ReadMode: "UserConsent" };
 			output: { type: "ResOTP"; data: { OTP: string } };
-	  };
+	  }
+	| { type: "iFrameStillAlive"; input: "I am still working" };
 
 export type PostMessageType<TType extends PostMessageTypes["type"]> = Extract<
 	PostMessageTypes,

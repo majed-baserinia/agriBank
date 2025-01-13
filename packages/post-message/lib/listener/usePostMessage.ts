@@ -14,10 +14,10 @@ export function usePostMessageRaw<TRequest, TResponse>({
 	callback,
 	message
 }: PostMessageRawProps<TRequest, TResponse>) {
-	const hasSentAlready = useRef(false);
+	const isAlreadySet = useRef(false);
 	useEffect(() => {
-		if (!hasSentAlready.current) {
-			hasSentAlready.current = true;
+		if (!isAlreadySet.current) {
+			isAlreadySet.current = true;
 			window.addEventListener("message", callback, false);
 
 			if (message) {

@@ -1,8 +1,7 @@
 import { useAppStore } from "$/stores";
+import { findApp } from "../utils/findApp";
 
 export function useSelectedApplication() {
 	const store = useAppStore();
-	return store.applications.apps.find(
-		(app) => app.title === store.applications.selectedApplicationTitle
-	);
+	return findApp(store.applications.apps, store.applications.selectedApplicationTitle);
 }

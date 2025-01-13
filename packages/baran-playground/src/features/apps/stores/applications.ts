@@ -1,6 +1,7 @@
 import type { AppStore, Mutators } from "$/stores/types";
 import { pushAlert } from "@agribank/ui/stores/alerts";
 import type { StateCreator } from "zustand";
+import { findApp } from "../utils";
 
 export type Application = {
 	title: string;
@@ -80,5 +81,5 @@ export const createApplicationsSlice: StateCreator<AppStore, Mutators, [], Appli
 });
 
 export function isApplicationUnique(title: string, apps: Application[]) {
-	return apps.find((app) => app.title === title) === undefined;
+	return findApp(apps, title) === undefined;
 }

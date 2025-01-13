@@ -5,5 +5,5 @@ export const Route = createFileRoute("/_layout/$environment/")({
 });
 
 function RouteComponent() {
-	return <div>retrieve token based on environment and return token in loader</div>;
+	return <div>select the application</div>;
 }

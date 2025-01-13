@@ -1,3 +1,7 @@
+import { findApp } from "$/features/apps";
+import { MicroAppPortal } from "$/features/micro";
+import { useAppStore } from "$/stores";
+import { Typography } from "@mui/material";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout/$environment/$app/")({
@@ -5,5 +9,24 @@ export const Route = createFileRoute("/_layout/$environment/$app/")({
 });
 
 function RouteComponent() {
-	return <>run micro app based on $app which should be retrieved from localStorage</>;
+	const store = useAppStore();
+	const params = Route.useParams();
+	const app = findApp(store.applications.apps, params.app);
+
+	if (!app) {
+		return (
+			<Typography
+				variant="bodyLg"
+				color="error"
+			>
+				Application not found!
+			</Typography>
+		);
+	}
+	return (
+		<MicroAppPortal
+			className="h-full w-full"
+			app={app}
+		/>
+	);
 }
