@@ -1,5 +1,13 @@
+import { EditableInput } from "$/features/apps/components/EditableInput";
+import { appSchema } from "$/features/apps/utils";
 import { useAppStore } from "$/stores";
-import { Card, CardActionArea, CardContent, Typography } from "@mui/material";
+import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
+import { zodResolver } from "@hookform/resolvers/zod";
+import EditIcon from "@mui/icons-material/Edit";
+import { Card, CardActionArea, CardContent, Grid2, IconButton } from "@mui/material";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import type { z } from "zod";
 import { useSelectedApplication } from "../hooks";
 import { type Application } from "../stores";
 
@@ -7,8 +15,27 @@ type Props = {
 	app: Application;
 };
 export function App({ app }: Props) {
+	const form = useForm<z.infer<typeof appSchema>>({
+		resolver: zodResolver(appSchema)
+	});
+
 	const store = useAppStore();
 	const selectedApplication = useSelectedApplication();
+	const [isEditing, setIsEditing] = useState(false);
+
+	function handleEdit() {
+		setIsEditing(true);
+	}
+
+	function handleSave(editedApp: Application) {
+		setIsEditing(false);
+		store.updateApplication(app.title, editedApp);
+	}
+
+	function handleCancel() {
+		setIsEditing(false);
+	}
+
 	return (
 		<Card key={app.title}>
 			<CardActionArea
@@ -24,19 +51,95 @@ export function App({ app }: Props) {
 					}
 				}}
 			>
-				<CardContent sx={{ height: "100%" }}>
-					<Typography
-						variant="h5"
-						component="div"
+				<CardContent
+					sx={{
+						height: "100%",
+						display: "flex",
+						flexDirection: "column",
+						justifyContent: "space-between",
+						minHeight: "10rem"
+					}}
+				>
+					<Grid2
+						container
+						gap={10}
+						marginBottom={10}
+						flexDirection={"column"}
 					>
-						{app.title}
-					</Typography>
-					<Typography
-						variant="body2"
-						color="text.secondary"
-					>
-						{app.url}
-					</Typography>
+						<EditableInput
+							muiTypographyProps={{ variant: "h5", component: "div" }}
+							form={form}
+							name="title"
+							label="title"
+							isEditing={isEditing}
+							text={app.title}
+						/>
+						<EditableInput
+							muiTypographyProps={{ variant: "body2", color: "text.secondary" }}
+							form={form}
+							name="url"
+							label="url"
+							isEditing={isEditing}
+							text={app.url}
+						/>
+						<EditableInput
+							muiTypographyProps={{ variant: "body2", color: "text.secondary" }}
+							form={form}
+							name="searchParams"
+							label="search params"
+							isEditing={isEditing}
+							text={app.searchParams ?? ""}
+						/>
+					</Grid2>
+
+					<Grid2>
+						{!isEditing ? (
+							<IconButton
+								aria-label="edit"
+								title="edit"
+								color="primary"
+								onClick={handleEdit}
+							>
+								<EditIcon />
+							</IconButton>
+						) : (
+							<Grid2
+								container
+								gap={10}
+							>
+								<ButtonAdapter
+									muiButtonProps={{
+										variant: "contained",
+										size: "small",
+										color: "success",
+										sx: {
+											flexGrow: 1,
+											flexShrink: 0,
+											flexBasis: 0
+										}
+									}}
+									onClick={form.handleSubmit(handleSave)}
+								>
+									save
+								</ButtonAdapter>
+								<ButtonAdapter
+									muiButtonProps={{
+										variant: "contained",
+										size: "small",
+										color: "warning",
+										sx: {
+											flexGrow: 1,
+											flexShrink: 0,
+											flexBasis: 0
+										}
+									}}
+									onClick={handleCancel}
+								>
+									cancel
+								</ButtonAdapter>
+							</Grid2>
+						)}
+					</Grid2>
 				</CardContent>
 			</CardActionArea>
 		</Card>

@@ -1,10 +1,11 @@
 import type { AppStore, Mutators } from "$/stores/types";
+import { pushAlert } from "@agribank/ui/stores/alerts";
 import type { StateCreator } from "zustand";
 
 export type Application = {
 	title: string;
 	url: string;
-	queryParams?: string;
+	searchParams?: string;
 };
 
 type State = {
@@ -15,7 +16,8 @@ type State = {
 };
 
 type Actions = {
-	addApplication: (environment: Application) => void;
+	addApplication: (app: Application) => void;
+	updateApplication: (lastTitle: string, app: Application) => void;
 	removeApplication: (title: string) => void;
 	setSelectedApp: (app: { title: string }) => void;
 	resetApplications: () => void;
@@ -36,7 +38,35 @@ export const createApplicationsSlice: StateCreator<AppStore, Mutators, [], Appli
 	},
 	addApplication(app) {
 		set((state) => {
+			if (!isApplicationUnique(app.title, state.applications.apps)) {
+				pushAlert({
+					type: "error",
+					messageText: "application already exists (title should be unique)"
+				});
+				return;
+			}
 			state.applications.apps.push(app);
+		});
+	},
+	updateApplication(lastTitle, app) {
+		set((state) => {
+			if (lastTitle !== app.title && !isApplicationUnique(app.title, state.applications.apps)) {
+				pushAlert({
+					type: "error",
+					messageText: "application already exists (title should be unique)"
+				});
+				return;
+			}
+			const appIndex = state.applications.apps.findIndex((app) => app.title === lastTitle);
+			if (appIndex === -1) {
+				pushAlert({
+					type: "error",
+					messageText: "application to edit not found"
+				});
+				return;
+			}
+
+			state.applications.apps[appIndex] = app;
 		});
 	},
 	removeApplication(title) {
@@ -48,3 +78,7 @@ export const createApplicationsSlice: StateCreator<AppStore, Mutators, [], Appli
 		set(initial);
 	}
 });
+
+export function isApplicationUnique(title: string, apps: Application[]) {
+	return apps.find((app) => app.title === title) === undefined;
+}
