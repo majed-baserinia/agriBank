@@ -2,8 +2,10 @@ import { NavbarItem } from "$/components/Navbar/NavbarItem";
 import { NavbarItemRaw } from "$/components/Navbar/NavbarItemRaw";
 import { navigateToActiveApplication } from "$/features/apps";
 import { Toggle } from "$/features/environment";
+import { useAppStore } from "$/stores";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
+import CallToActionIcon from "@mui/icons-material/CallToAction";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
 import MenuIcon from "@mui/icons-material/Menu";
 import WebIcon from "@mui/icons-material/Web";
@@ -16,7 +18,10 @@ import { useState, type ReactNode } from "react";
 
 export default function MiniDrawer({ children }: { children: ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false);
+
 	const navigate = useNavigate();
+
+	const store = useAppStore();
 
 	async function changePage(options: NavigateOptions) {
 		setIsOpen(false);
@@ -78,6 +83,14 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 							void navigateToActiveApplication(navigate);
 						}}
 						icon={<WebIcon />}
+					/>
+					<NavbarItem
+						text={"send post-message"}
+						isOpen={isOpen}
+						onClick={() => {
+							store.changeDialogVisibility("opened");
+						}}
+						icon={<CallToActionIcon />}
 					/>
 					<NavbarItemRaw>
 						<Toggle
