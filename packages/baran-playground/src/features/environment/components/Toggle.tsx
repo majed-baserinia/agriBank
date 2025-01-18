@@ -28,13 +28,17 @@ export function Toggle({ orientation, sx }: Props) {
 			orientation={orientation}
 			value={view}
 			exclusive
-			sx={sx}
+			sx={{
+				...sx,
+				padding: 5
+			}}
 			onChange={handleChange}
 		>
 			{environments.map((environment) => (
 				<ToggleButton
 					key={environment}
 					value={environment}
+					fullWidth
 					aria-label={environment}
 				>
 					{orientation === "vertical" ? (

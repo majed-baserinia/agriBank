@@ -41,7 +41,7 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 					height: "100%"
 				}}
 			>
-				<List>
+				<List sx={{ width: "100%" }}>
 					<NavbarItem
 						text="close"
 						icon={<MenuIcon />}
