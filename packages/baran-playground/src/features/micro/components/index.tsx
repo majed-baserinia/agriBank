@@ -5,7 +5,10 @@ import { Iframe, type Props as IframeProps } from "./Iframe";
 type Props = IframeProps;
 export function MicroAppPortal({ ...rest }: Props) {
 	const ref = useRef<HTMLIFrameElement>(null);
-	useInit(ref.current);
+	useInit({
+		iframe: ref,
+		app: rest.app
+	});
 
 	return (
 		<Iframe

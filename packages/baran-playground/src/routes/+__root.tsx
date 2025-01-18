@@ -26,14 +26,13 @@ export type RootContext = {
 
 export const Route = createRootRouteWithContext<RootContext>()({
 	component: App,
-	validateSearch: (param) => {
-		return searchParamsConfigSchema.parse({
+	validateSearch: (params) =>
+		searchParamsConfigSchema.parse({
 			Lang: "en-GB",
 			Auth: "false",
 			Theme: "dark",
-			...param
-		});
-	},
+			...params
+		}),
 	search: {
 		middlewares: [
 			retainSearchParams(

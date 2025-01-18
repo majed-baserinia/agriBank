@@ -15,7 +15,12 @@ type Props = {
 
 export function EditableInput({ muiTypographyProps, text, label, form, name, isEditing }: Props) {
 	return !isEditing ? (
-		<Typography {...muiTypographyProps}>{text}</Typography>
+		<Typography
+			sx={{ wordBreak: "break-all" }}
+			{...muiTypographyProps}
+		>
+			{text}
+		</Typography>
 	) : (
 		<Controlled.Input
 			control={form.control}

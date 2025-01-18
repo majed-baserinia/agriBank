@@ -1,65 +1,26 @@
-import { useCurrentEnvironmentUser, useRefreshLogin } from "$/features/login";
-import {
-	PostMessageOutputSubType,
-	type PostMessageTypes,
-	usePostMessageRaw
-} from "@agribank/post-message";
-import { useNavigate } from "@tanstack/react-router";
+import type { Application } from "$/features/apps";
+import { type PostMessageTypes, usePostMessageRaw } from "@agribank/post-message";
 import { enqueueSnackbar } from "notistack";
-import { useEffect, useRef } from "react";
+import { type RefObject, useEffect, useRef } from "react";
+import { usePostMessageHandler } from "./usePostMessageHandler";
 
-export function useInit(iframe: HTMLIFrameElement | null) {
-	const navigate = useNavigate();
+type Props = {
+	iframe: RefObject<HTMLIFrameElement | null>;
+	app: Application;
+};
+
+export function useInit({ iframe, app }: Props) {
 	const lastTimeIframeStillAliveWasSent = useRef<number | null>(null);
 
-	const refreshLogin = useRefreshLogin();
-	const user = useCurrentEnvironmentUser();
+	const postMessageHandler = usePostMessageHandler({
+		iframe,
+		app,
+		updateLastAliveTime: () => (lastTimeIframeStillAliveWasSent.current = new Date().getTime())
+	});
 
 	usePostMessageRaw<never, { type: PostMessageTypes["type"] | (string & {}) }>({
-		callback(e) {
-			console.info("RECEIVED POSTMESSAGE", e);
-			switch (e.data.type) {
-				case "GetOTP":
-					enqueueSnackbar({
-						message: "requested for otp (not handled by micro at this moment)",
-						variant: "warning"
-					});
-					return;
-				case "isFinishedBack":
-					enqueueSnackbar({
-						message: "cannot go back anymore (the `isFinishedBack` message is received)",
-						variant: "warning"
-					});
-					return;
-				case "iFrameStillAlive":
-					lastTimeIframeStillAliveWasSent.current = new Date().getTime();
-					return;
-				case "iFrameReady": {
-					if (!user.output?.login?.idToken) {
-						enqueueSnackbar({
-							message: "invalid token for the selected environment, please login first",
-							variant: "error"
-						});
-						void navigate({
-							to: "/playground/login"
-						});
-						return;
-					}
-					const data = refreshLogin.mutate();
-					iframe?.contentWindow?.postMessage(
-						{
-							type: "initiateIFrame",
-							data: {
-								idToken: data.idToken,
-								refresToken: data.refreshToken,
-								osType: "3"
-							}
-						} satisfies PostMessageOutputSubType<"iFrameReady", "initiateIFrame">,
-						iframe.contentWindow.location.origin
-					);
-				}
-			}
-		}
+		target: window,
+		callback: postMessageHandler
 	});
 
 	useEffect(() => {
@@ -81,7 +42,7 @@ export function useInit(iframe: HTMLIFrameElement | null) {
 			}
 		}, intervalMs);
 		return () => clearInterval(intervalId);
-	});
+	}, []);
 
 	useEffect(() => {
 		const handlePopState = () => {
@@ -91,9 +52,9 @@ export function useInit(iframe: HTMLIFrameElement | null) {
 				return;
 			}
 
-			iframe.contentWindow?.postMessage(
+			iframe.current?.contentWindow?.postMessage(
 				{ type: "goback", data: "" },
-				iframe.contentWindow.location.origin
+				iframe.current.contentWindow.location.origin
 			);
 		};
 

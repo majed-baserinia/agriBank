@@ -7,15 +7,14 @@ import { useAppStore } from "$/stores";
 import { callApi } from "@agribank/baran-typed-querykit";
 import { baranMutateFn } from "@agribank/baran-typed-querykit/react";
 import { useMutation } from "@tanstack/react-query";
-import type { z } from "zod";
 import { headers } from "./headers";
 
 export function usePreRegister() {
 	const store = useAppStore();
 
 	return useMutation({
-		mutationFn: baranMutateFn({
-			async fn(data: z.infer<typeof PreRegisterCommand>) {
+		mutationFn: baranMutateFn<typeof PreRegisterCommand, typeof PreRegisterOutputDto>({
+			async fn(data) {
 				return await callApi((params) => customerManagerPreregisterPost(params, { headers }), {
 					params: data,
 					requestSchema: PreRegisterCommand,
@@ -29,7 +28,7 @@ export function usePreRegister() {
 			}
 
 			store.setPreRegisterRequest(variables);
-			store.setPreRegisterResponse(result.response);
+			store.setPreRegisterResponse(result.response!);
 		}
 	});
 }

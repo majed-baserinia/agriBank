@@ -22,10 +22,10 @@ export function useLogin() {
 	const store = useAppStore();
 
 	return useMutation({
-		mutationFn: baranMutateFn({
-			async fn(data: LoginRequest) {
+		mutationFn: baranMutateFn<typeof requestSchema, typeof responseSchema>({
+			async fn(data) {
 				return await callApi(
-					(param: LoginRequest) =>
+					(param) =>
 						axios.login.post("/login", param, {
 							baseURL: baseUrl,
 							headers
@@ -44,7 +44,7 @@ export function useLogin() {
 			}
 
 			store.setLoginRequest(variables);
-			store.setLoginResponse(result.response);
+			store.setLoginResponse(result.response!);
 		}
 	});
 }

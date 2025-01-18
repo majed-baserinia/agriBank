@@ -69,7 +69,7 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 				</List>
 				<Divider />
 
-				<List sx={{ marginTop: "auto" }}>
+				<List sx={{ marginTop: "auto", justifyContent: "center", alignItems: "center" }}>
 					<NavbarItem
 						text={"open active application"}
 						isOpen={isOpen}
@@ -80,7 +80,10 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 						icon={<WebIcon />}
 					/>
 					<NavbarItemRaw>
-						<Toggle orientation="vertical" />
+						<Toggle
+							sx={{ alignItems: "center", display: "flex" }}
+							orientation="vertical"
+						/>
 					</NavbarItemRaw>
 				</List>
 			</Paper>

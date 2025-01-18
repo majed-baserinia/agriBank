@@ -1,5 +1,5 @@
 import { useAppStore } from "$/stores/app";
-import { Typography } from "@mui/material";
+import { SxProps, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup, { type ToggleButtonGroupProps } from "@mui/material/ToggleButtonGroup";
 import { useEffect, useState } from "react";
@@ -7,10 +7,11 @@ import { shorthand } from "../utils";
 import { type Environments, environments } from "../utils/environment-to-url";
 
 type Props = {
+	sx?: SxProps;
 	orientation?: ToggleButtonGroupProps["orientation"];
 };
 
-export function Toggle({ orientation }: Props) {
+export function Toggle({ orientation, sx }: Props) {
 	const settings = useAppStore();
 	const [view, setView] = useState<Environments>(settings.environment);
 
@@ -27,6 +28,7 @@ export function Toggle({ orientation }: Props) {
 			orientation={orientation}
 			value={view}
 			exclusive
+			sx={sx}
 			onChange={handleChange}
 		>
 			{environments.map((environment) => (
