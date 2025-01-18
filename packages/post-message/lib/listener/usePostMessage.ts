@@ -7,28 +7,32 @@ import {
 import { useEffect, useRef } from "react";
 
 type PostMessageRawProps<TRequest, TResponse> = {
-	callback: (e: MessageEvent<TResponse>) => void;
+	callback: (e: MessageEvent<TResponse>) => void | Promise<void>;
 	message?: TRequest;
+	target?: Window;
 };
 export function usePostMessageRaw<TRequest, TResponse>({
 	callback,
-	message
+	message,
+	target = window
 }: PostMessageRawProps<TRequest, TResponse>) {
-	const isAlreadySet = useRef(false);
+	const hasSentTheMessageOnce = useRef(false);
 	useEffect(() => {
-		if (!isAlreadySet.current) {
-			isAlreadySet.current = true;
-			window.addEventListener("message", callback, false);
+		const handler = (e: MessageEvent<TResponse>) => {
+			void callback(e);
+		};
 
-			if (message) {
-				sendPostMessageRaw(message);
-			}
+		target.addEventListener("message", handler, false);
+
+		if (message && !hasSentTheMessageOnce.current) {
+			sendPostMessageRaw(message);
+			hasSentTheMessageOnce.current = true;
 		}
 
 		return () => {
-			window.removeEventListener("message", callback);
+			target.removeEventListener("message", handler);
 		};
-	}, []);
+	}, [target]);
 }
 
 export type PostMessageProps<TType extends PostMessageTypes["type"]> = PostMessageRawProps<
@@ -38,7 +42,8 @@ export type PostMessageProps<TType extends PostMessageTypes["type"]> = PostMessa
 
 export function usePostMessage<TType extends PostMessageTypes["type"]>({
 	callback,
-	message
+	message,
+	target
 }: PostMessageProps<TType>) {
-	return usePostMessageRaw({ callback, message });
+	return usePostMessageRaw({ callback, message, target });
 }

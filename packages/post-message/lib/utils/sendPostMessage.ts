@@ -7,7 +7,6 @@ export function sendPostMessage<TType extends PostMessageTypes["type"]>(
 	sendPostMessageRaw({ type, data });
 }
 
-export function sendPostMessageRaw<T>(data: T) {
-	const parentWindow = window.parent;
-	parentWindow.postMessage(data, "*");
+export function sendPostMessageRaw<T>(data: T, target = window.parent) {
+	target.postMessage(data, "*");
 }
