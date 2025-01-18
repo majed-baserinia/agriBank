@@ -6,7 +6,7 @@ export const customOperationCommands = ["tag", "last-segment", "method"] as cons
 export const customOperationFormatters = ["camelcase", "snakecase", "pascalcase"] as const;
 
 export const optionsSchema = z.object({
-	url: z.string(),
+	uri: z.string(),
 	out: z.string(),
 	axiosVersion: z.string(),
 	/**
@@ -72,7 +72,7 @@ export function setupCommand() {
 	const command = new Command("generate-clients");
 	command
 		.addOption(
-			new Option("--url <url>", "openapi json spec address")
+			new Option("--uri <uri>", "openapi json spec address")
 				.env("OPENAPI_URL")
 				.makeOptionMandatory(true)
 		)

@@ -25,7 +25,7 @@
 		"test:integration": "playwright test",
 		"preview": "vite preview",
 		"generate-clients": "pnpm generate-clients:customer-info",
-		"generate-clients:customer-info": "pnpm agribank generate-clients --url http://10.0.189.141:32102/swagger/v1/swagger.json --out src/services/.generated/customer-management --replace-endpoint-regex /api/,/customer-management/ --replace-endpoint-regex /customer-management\\/CustomerManager/,/CustomerManager/ --skip-spec-validations true"
+		"generate-clients:customer-info": "pnpm agribank generate-clients --c http://10.0.189.141:32102/swagger/v1/swagger.json --out src/services/.generated/customer-management --replace-endpoint-regex /api/,/customer-management/ --replace-endpoint-regex /customer-management\\/CustomerManager/,/CustomerManager/ --skip-spec-validations true"
 	},
 	"dependencies": {
 		"@agribank/baran-typed-querykit": "^1.0.1",

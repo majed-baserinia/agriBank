@@ -143,7 +143,7 @@ function writeCustomOperationIds(spec: OpenAPIObject, config: Config) {
 export async function writeOpenApiSpec(config: Config) {
 	let path: string | undefined = undefined;
 	try {
-		const spec = (await SwaggerParser.bundle(config.url)) as OpenAPIObject;
+		const spec = (await SwaggerParser.bundle(config.uri)) as OpenAPIObject;
 		const modified = modifySpec(spec, config);
 		writeCustomOperationIds(modified, config);
 
