@@ -1,6 +1,6 @@
 import { useSearchParamsConfigLoader } from "$lib/config/loaders/useSearchParamsConfigLoader";
 import { environment } from "$lib/env";
-import type { InitialSetting } from "$lib/stores";
+import type { Settings } from "$lib/stores/settings";
 import {
 	closeApp,
 	sendPostMessage,
@@ -12,7 +12,7 @@ import { useTranslation } from "react-i18next";
 
 type ConnectionType = {
 	type: "initiateIFrame";
-	data: InitialSetting;
+	data: Settings;
 };
 
 export type Props = Omit<ConnectionProps<ConnectionType>, "onInitializationFailed"> & {

@@ -1,28 +1,40 @@
-import { type AuthTokens, clearAuth, saveAuthTokens } from "$lib/auth";
-import { create } from "zustand";
-import type { InitialSetting, InitialSettingStore } from "./types";
+import type { AppStore, Mutators } from "$lib/stores/types";
+import type { StateCreator } from "zustand";
+import type { Settings, SettingsSlice } from "./types";
 
-export const useInitialSettingStore = create<InitialSettingStore>((set) => ({
-	settings: <InitialSetting>{ language: "fa-IR", themeName: "light", theme: {} },
-	setSettings: (newSetting) => {
-		if (newSetting) {
-			if (newSetting.idToken) {
-				saveAuthTokens(<AuthTokens>{
-					idToken: newSetting.idToken,
-					refreshToken: newSetting.refreshToken
-				});
-			}
-			set((store) => {
-				return { settings: { ...store.settings, ...newSetting } };
-			});
+const initial: Settings = {
+	language: "fa-IR",
+	themeName: "light",
+	osType: "3",
+	theme: {},
+	config: {
+		apiBaseUrl: "",
+		baseThemeUrl: "",
+		paletteUrl: ""
+	}
+};
+
+export const createSettingsSlice: StateCreator<AppStore, Mutators, [], SettingsSlice> = (set) => ({
+	settings: initial,
+	updateSettings: (settings) => {
+		if (!settings) {
+			return;
 		}
+		set((store) => {
+			store.settings = {
+				...settings,
+				osType: settings.osType ?? store.settings.osType,
+				language: settings.language ?? store.settings.language,
+				themeName: settings.themeName ?? store.settings.themeName,
+				// @ts-expect-error - probably a bug with types of zustand/immer
+				theme: settings.theme ?? store.settings.theme,
+				config: { ...store.settings.config, ...settings.config }
+			};
+		});
 	},
-	clearSetting: () => {
-		clearAuth();
-		set((prev) => ({
-			settings: { ...prev.settings, idToken: undefined, refreshToken: undefined }
+	resetSettings: () => {
+		set(() => ({
+			settings: initial
 		}));
 	}
-}));
-
-export default useInitialSettingStore;
+});

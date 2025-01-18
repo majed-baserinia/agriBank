@@ -1,13 +1,13 @@
 // you can uncomment these in case of using @agribank/cli generate-clients command
 
-// import { axios, useApiConfig } from "@agribank/ignite";
+// import { axios, useIgniteStore } from "@agribank/ignite";
 
 // import { Configuration } from "$/services/.generated/configuration";
 // import { useEffect } from "react";
 // import { updateGlobalConfiguration } from "./.generated/base";
 
 // export function useInitClients() {
-// 	const baseUrl = useApiConfig((s) => s.baseUrl);
+//	const baseUrl = useIgniteStore((s) => s.settings.config.apiBaseUrl);
 
 // 	useEffect(() => {
 // 		updateGlobalConfiguration(
@@ -16,5 +16,6 @@
 // 				basePath: baseUrl
 // 			})
 // 		);
+//      /* add other configurations here */
 // 	}, [baseUrl]);
 // }

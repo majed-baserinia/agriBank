@@ -19,11 +19,11 @@
 		"htsc"
 	],
 	"scripts": {
-		"dev": "vite",
+		"dev": "vite --port 9000",
 		"build": "tsc && vite build",
 		"lint": "eslint .",
 		"test:integration": "playwright test",
-		"preview": "vite preview",
+		"preview": "vite preview --port 9000",
 		"generate-clients": "pnpm generate-clients:customer-info",
 		"generate-clients:customer-info": "pnpm agribank generate-clients --c http://10.0.189.141:32102/swagger/v1/swagger.json --out src/services/.generated/customer-management --replace-endpoint-regex /api/,/customer-management/ --replace-endpoint-regex /customer-management\\/CustomerManager/,/CustomerManager/ --skip-spec-validations true"
 	},

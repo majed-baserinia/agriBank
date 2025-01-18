@@ -1,7 +1,7 @@
 import { convert } from "$/features/environment";
 import { useInitClients } from "$/services";
 import { useAppStore } from "$/stores/app";
-import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
+import { searchParamsConfigSchema, useIgniteStore, useInit } from "@agribank/ignite";
 import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
 import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
@@ -67,7 +67,7 @@ function App() {
 		configOverrides
 	});
 	useLoadingHandler(!isReady);
-	const theme = useInitialSettingStore((state) => state.settings.theme);
+	const theme = useIgniteStore((state) => state.settings.theme);
 	useInitClients();
 
 	return (

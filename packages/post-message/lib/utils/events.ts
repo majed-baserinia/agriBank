@@ -10,9 +10,10 @@ export type PostMessageTypes =
 				| {
 						type: "initiateIFrame";
 						data: {
+							osType: string;
+							osVersion?: string;
 							idToken?: string;
 							refreshToken?: string;
-							osType: string;
 							[key: string]: unknown;
 						};
 				  }

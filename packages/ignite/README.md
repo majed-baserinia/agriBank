@@ -14,7 +14,7 @@ all of these happen by calling the `useInit` hook which returns the `ready` bool
 # Examples:
 
 ```ts
-import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
+import { searchParamsConfigSchema, useInit, useIgniteStore } from "@agribank/ignite";
 function App() {
 	const isReady = useInit({
 		onInitializationFailed: (message) => {
@@ -26,7 +26,7 @@ function App() {
 			return false;
 		}
 	});
-	const theme = useInitialSettingStore((state) => state.settings.theme);
+	const theme = useIgniteStore((state) => state.settings.theme);
 
 	return (
         {isReady ? <YouApp theme={theme} /> : "loading"}
@@ -34,4 +34,4 @@ function App() {
 }
 ```
 
-- calling `useInitialSettingStore` without the `useInit` is useless (just once in the tree), because it never fills the values.
+- calling `useIgniteStore` without the `useInit` is useless (just once in the tree), because it never fills the values.

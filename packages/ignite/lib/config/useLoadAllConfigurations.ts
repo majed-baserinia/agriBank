@@ -1,4 +1,3 @@
-import { useApiConfigLoader } from "$lib/config/loaders/useApiConfigLoader";
 import { useConfigLoader, type Config } from "$lib/config/loaders/useConfigLoader";
 import { useLanguageLoader } from "$lib/config/loaders/useLanguageLoader";
 import { type SearchParamsConfig } from "$lib/config/loaders/useSearchParamsConfigLoader";
@@ -28,11 +27,10 @@ export function useLoadAllConfigurations({
 		config?.paletteUrl,
 		spConfig.Theme
 	);
-	const isApiConfigInitialized = useApiConfigLoader(config);
+
 	const { language, isLanguageLoaded } = useLanguageLoader(spConfig.Lang);
 
-	const isEverythingLoaded =
-		isConfigLoaded && isThemeLoaded && isApiConfigInitialized && isLanguageLoaded;
+	const isEverythingLoaded = isConfigLoaded && isThemeLoaded && isLanguageLoaded;
 
 	useEffect(() => {
 		if (!isEverythingLoaded) {

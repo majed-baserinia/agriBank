@@ -68,7 +68,8 @@ export function usePostMessageHandler({
 							data: {
 								idToken: data?.response?.idToken,
 								refreshToken: data?.response?.refreshToken,
-								osType: "3"
+								osType: "3",
+								osVersion: "2.5"
 							} satisfies PostMessageOutputSubType<"iFrameReady", "initiateIFrame">
 						},
 						event.origin

@@ -22,6 +22,7 @@ export default defineConfig({
 				/react\/*/,
 				"react-dom",
 				/@tanstack\/*/,
+				"immer",
 				"zustand",
 				"axios",
 				"axios-retry",

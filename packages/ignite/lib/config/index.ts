@@ -8,34 +8,37 @@ import {
 	type Props as HandledConnectionProps
 } from "$lib/config/useHandledConnection";
 import { useLoadAllConfigurations } from "$lib/config/useLoadAllConfigurations";
-import { useInitialSettingStore, type AcceptedLanguages } from "$lib/stores";
+import { useIgniteStore } from "$lib/stores";
+import type { AcceptedLanguages } from "$lib/stores/settings";
 
 export type Options = Pick<HandledConnectionProps, "onInitializationFailed"> & {
 	configOverrides?: Partial<Config>;
 };
 
 export function useInitConfig({ onInitializationFailed, configOverrides }: Options) {
-	const { setSettings } = useInitialSettingStore();
+	const { updateSettings: updateSettings } = useIgniteStore();
 	const spConfig = useSearchParamsConfigLoader();
 
 	const isConfigReady = useLoadAllConfigurations({
 		spConfig,
 		configOverrides,
-		onConfigurationsInitialized: ({ theme, themeName, language }) => {
-			setSettings({
+		onConfigurationsInitialized: ({ theme, themeName, language, config }) => {
+			updateSettings({
 				theme: theme,
 				language: language as AcceptedLanguages,
-				themeName: themeName
+				themeName: themeName,
+				config: config
 			});
 		}
 	});
 	const { readyToLoad } = useHandledConnection({
 		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
-			setSettings({
+			updateSettings({
 				idToken: data.idToken,
 				refreshToken: data.refreshToken,
-				osType: data.osType
+				osType: data.osType,
+				osVersion: data.osVersion
 			});
 		},
 		onInitializationFailed

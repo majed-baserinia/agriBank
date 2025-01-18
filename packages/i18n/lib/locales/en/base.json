@@ -87,7 +87,7 @@
 	"account-number": "account number",
 	"card-number": "card number",
 	"loading-text-auto-comp": "loading...",
-	"init-error-text": "there is a problem with loading the app, please try again later",
+	"init-error-text": "there was a problem while trying to load the app, please try again later",
 	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
 	"xpage-number": "page {{xpage}}",
 	"activation-code": "activation code",

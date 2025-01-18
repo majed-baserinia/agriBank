@@ -1,6 +1,5 @@
 import { useInitConfig, type Options } from "$lib/config";
 
-export * from "./auth";
 export * from "./axios";
 export * from "./config";
 export * from "./env";

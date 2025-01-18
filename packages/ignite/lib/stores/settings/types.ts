@@ -1,16 +1,23 @@
+import type { Config } from "$lib/config/loaders/useConfigLoader";
 import type { PostMessageOutputSubType } from "@agribank/post-message";
 import type { ThemeOptions } from "@mui/material";
 
 export type AcceptedLanguages = "fa-IR" | "en-GB";
 
-export type InitialSetting = PostMessageOutputSubType<"iFrameReady", "initiateIFrame"> & {
+export type Settings = PostMessageOutputSubType<"iFrameReady", "initiateIFrame"> & {
 	language: AcceptedLanguages;
 	themeName: string;
 	theme: ThemeOptions;
+	config: Config;
 };
 
-export type InitialSettingStore = {
-	settings: InitialSetting;
-	setSettings: (setting: Partial<InitialSetting>) => void;
-	clearSetting: () => void;
+type SettingsState = {
+	settings: Settings;
 };
+
+type SettingsActions = {
+	updateSettings: (setting: Partial<Settings>) => void;
+	resetSettings: () => void;
+};
+
+export type SettingsSlice = SettingsState & SettingsActions;

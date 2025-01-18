@@ -1,7 +1,7 @@
 import { useAppStore } from "$/stores";
 import { callApi } from "@agribank/baran-typed-querykit";
 import { baranMutateFn } from "@agribank/baran-typed-querykit/react";
-import { axios, useApiConfig } from "@agribank/ignite";
+import { axios, useIgniteStore } from "@agribank/ignite";
 import { useMutation } from "@tanstack/react-query";
 import { z } from "zod";
 import { headers } from "./headers";
@@ -18,7 +18,7 @@ export const responseSchema = z.object({
 export type LoginRequest = z.infer<typeof requestSchema>;
 
 export function useLogin() {
-	const baseUrl = useApiConfig((state) => state.baseUrl);
+	const baseUrl = useIgniteStore((state) => state.settings.config.apiBaseUrl);
 	const store = useAppStore();
 
 	return useMutation({

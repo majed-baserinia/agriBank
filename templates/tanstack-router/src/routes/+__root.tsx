@@ -1,4 +1,4 @@
-import { searchParamsConfigSchema, useInit, useInitialSettingStore } from "@agribank/ignite";
+import { searchParamsConfigSchema, useIgniteStore, useInit } from "@agribank/ignite";
 import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
 import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
@@ -47,7 +47,7 @@ function App() {
 		}
 	});
 	useLoadingHandler(!isReady);
-	const theme = useInitialSettingStore((state) => state.settings.theme);
+	const theme = useIgniteStore((state) => state.settings.theme);
 	// useInitClients(); uncomment this and whats in services/clients in case of using `@agribank/cli generate-clients`
 
 	return (
