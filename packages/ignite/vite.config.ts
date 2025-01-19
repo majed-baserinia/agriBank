@@ -11,16 +11,21 @@ export default defineConfig({
 		emptyOutDir: true,
 		sourcemap: true,
 		lib: {
-			entry: resolve(import.meta.dirname, "index.ts"),
+			entry: {
+				ignite: resolve(import.meta.dirname, "index.ts"),
+				reactRouterProvider: resolve(import.meta.dirname, "lib/facade/router/remix/index.ts"),
+				tanstackRouterProvider: resolve(import.meta.dirname, "lib/facade/router/tanstack/index.ts")
+			},
 			formats: ["es"],
 			name: "ignite",
-			fileName: "ignite"
+			fileName: (_, filename) => `${filename}.js`
 		},
 		rollupOptions: {
 			external: [
 				"react",
 				/react\/*/,
 				"react-dom",
+				"react-router",
 				/@tanstack\/*/,
 				"immer",
 				"zustand",

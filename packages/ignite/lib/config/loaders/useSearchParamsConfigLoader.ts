@@ -1,4 +1,4 @@
-import { useSearch } from "@tanstack/react-router";
+import type { useRouter } from "$lib/facade/router";
 import { z } from "zod";
 
 export const searchParamsConfigSchema = z.object({
@@ -17,7 +17,7 @@ export const searchParamsConfigSchema = z.object({
 
 export type SearchParamsConfig = z.infer<typeof searchParamsConfigSchema>;
 
-export const useSearchParamsConfigLoader = () => {
-	const search = useSearch({ strict: false }) as unknown;
-	return searchParamsConfigSchema.parse(search);
+export const useSearchParamsConfigLoader = (useRouter: useRouter) => {
+	const { searchParams } = useRouter();
+	return searchParamsConfigSchema.parse(searchParams);
 };

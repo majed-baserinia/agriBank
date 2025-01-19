@@ -2,6 +2,7 @@ import { convert } from "$/features/environment";
 import { useInitClients } from "$/services";
 import { useAppStore } from "$/stores/app";
 import { searchParamsConfigSchema, useIgniteStore, useInit } from "@agribank/ignite";
+import { useRouter } from "@agribank/ignite/router/tanstack-router";
 import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
 import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
@@ -66,6 +67,7 @@ function App() {
 			});
 			return false;
 		},
+		useRouter,
 		configOverrides
 	});
 	useLoadingHandler(!isReady);
