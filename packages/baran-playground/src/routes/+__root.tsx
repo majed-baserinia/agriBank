@@ -32,9 +32,11 @@ export const Route = createRootRouteWithContext<RootContext>()({
 			Auth: "false",
 			Theme: "dark",
 			...params
-		}),
+		}) as { Lang?: string; Auth?: boolean; Theme?: string },
+	// TODO: ^-- remove this cast
 	search: {
 		middlewares: [
+			// @ts-expect-error - for now i have to do this, when the types of these functions gets fixed we can remove these
 			retainSearchParams(
 				Object.keys(searchParamsConfigSchema.parse({})) as (keyof z.infer<
 					typeof searchParamsConfigSchema

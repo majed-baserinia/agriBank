@@ -1,7 +1,7 @@
-import { createApplicationsSlice } from "$/features/apps/stores/applications";
-import { createEnvironmentSlice } from "$/features/environment/stores/index";
-import { createLoginSlice } from "$/features/login/stores/index";
-import { createMicroSlice } from "$/features/micro/stores/index";
+import { createApplicationsSlice } from "$/features/apps";
+import { createEnvironmentSlice } from "$/features/environment";
+import { createLoginSlice } from "$/features/login";
+import { createMicroSlice } from "$/features/micro";
 import type { AppStore, CustomAppActions, Mutators } from "$/stores/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";

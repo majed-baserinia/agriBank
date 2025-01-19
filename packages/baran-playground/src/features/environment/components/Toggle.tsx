@@ -1,5 +1,5 @@
 import { useAppStore } from "$/stores/app";
-import { SxProps, Typography } from "@mui/material";
+import { type SxProps, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup, { type ToggleButtonGroupProps } from "@mui/material/ToggleButtonGroup";
 import { useEffect, useState } from "react";

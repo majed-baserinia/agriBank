@@ -1,4 +1,3 @@
-import { RefreshLogin } from "$/features/login/components/RefreshLogin";
 import {
 	PreRegisterCommand,
 	RegisterCommand,
@@ -9,6 +8,7 @@ import { Divider, Grid2, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import { z } from "zod";
 import { requestSchema as LoginRequestCommand } from "../services/login";
+import { RefreshLogin } from "./RefreshLogin";
 import { Register } from "./Register";
 import { Result } from "./Result";
 

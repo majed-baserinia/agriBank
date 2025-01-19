@@ -1,4 +1,4 @@
-import type { ApplicationSlice } from "$/features/apps/stores/applications";
+import type { ApplicationSlice } from "$/features/apps";
 import type { EnvironmentSlice } from "$/features/environment";
 import type { LoginSlice } from "$/features/login";
 import type { MicroSlice } from "$/features/micro";

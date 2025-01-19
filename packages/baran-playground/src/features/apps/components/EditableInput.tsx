@@ -1,8 +1,9 @@
-import { appSchema } from "$/features/apps/utils";
+import type { appSchema } from "$/features/apps";
 import { Controlled } from "@agribank/ui/components/ControlledInput";
-import { Typography, TypographyProps } from "@mui/material";
-import { FieldPath, UseFormReturn } from "react-hook-form";
-import { z } from "zod";
+import type { TypographyProps } from "@mui/material";
+import { Typography } from "@mui/material";
+import type { FieldPath, UseFormReturn } from "react-hook-form";
+import type { z } from "zod";
 
 type Props = {
 	muiTypographyProps: TypographyProps;
