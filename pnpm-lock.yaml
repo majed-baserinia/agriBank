@@ -52,7 +52,7 @@ importers:
         specifier: ^0.3.0
         version: link:../i18n
       '@agribank/ignite':
-        specifier: ^5.0.0
+        specifier: ^5.1.0
         version: link:../ignite
       '@agribank/post-message':
         specifier: ^0.2.0
@@ -754,13 +754,13 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.1.0
+        specifier: ^0.2.0
         version: link:../../packages/baran-playground
       '@agribank/i18n':
         specifier: ^0.3.0
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^5.0.0
+        specifier: ^5.1.0
         version: link:../../packages/ignite
       '@agribank/post-message':
         specifier: ^0.2.0

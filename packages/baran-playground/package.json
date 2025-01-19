@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-playground",
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"type": "module",
 	"description": "an environment to mimic baran app for testing microfronts created for baran",
 	"author": "@FoHoOV",
@@ -39,7 +39,7 @@
 	"dependencies": {
 		"@agribank/baran-typed-querykit": "^2.0.0",
 		"@agribank/i18n": "^0.3.0",
-		"@agribank/ignite": "^5.0.0",
+		"@agribank/ignite": "^5.1.0",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/ui": "^3.0.0",
 		"@emotion/cache": "^11.11.0",

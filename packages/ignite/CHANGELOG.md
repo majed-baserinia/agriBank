@@ -1,5 +1,11 @@
 # @agribank/ignite
 
+## 5.1.0
+
+### Minor Changes
+
+- 641f978: refactor(baran-playground/ignite): separate router specific code from ignite package
+
 ## 5.0.0
 
 ### Minor Changes
