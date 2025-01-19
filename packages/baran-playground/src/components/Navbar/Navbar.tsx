@@ -49,34 +49,35 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 				<List sx={{ width: "100%" }}>
 					<NavbarItem
 						text="close"
+						title={"toggle navbar"}
 						icon={<MenuIcon />}
 						isOpen={isOpen}
 						onClick={() => setIsOpen((prev) => !prev)}
 					/>
 					<NavbarItem
 						text="account"
+						title="account management"
 						icon={<AccountCircleIcon />}
 						isOpen={isOpen}
 						onClick={() => changePage({ to: "/playground/login" })}
 					/>
 					<NavbarItem
 						text="environment"
+						title="environment management"
 						icon={<DeviceHubIcon />}
 						isOpen={isOpen}
 						onClick={() => changePage({ to: "/playground/environment" })}
 					/>
 					<NavbarItem
 						text="application"
+						title="application management"
 						icon={<AppRegistrationIcon />}
 						isOpen={isOpen}
 						onClick={() => changePage({ to: "/playground/apps" })}
 					/>
-				</List>
-				<Divider />
-
-				<List sx={{ marginTop: "auto", justifyContent: "center", alignItems: "center" }}>
 					<NavbarItem
 						text={"open active application"}
+						title="open active application"
 						isOpen={isOpen}
 						onClick={() => {
 							setIsOpen(false);
@@ -84,15 +85,20 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 						}}
 						icon={<WebIcon />}
 					/>
+				</List>
+				<Divider />
+
+				<List sx={{ marginTop: "auto", justifyContent: "center", alignItems: "center" }}>
 					<NavbarItem
 						text={"send post-message"}
+						title="send post-message"
 						isOpen={isOpen}
 						onClick={() => {
 							store.changeDialogVisibility("opened");
 						}}
 						icon={<CallToActionIcon />}
 					/>
-					<NavbarItemRaw>
+					<NavbarItemRaw title="toggle environment">
 						<Toggle
 							sx={{ alignItems: "center", display: "flex" }}
 							orientation="vertical"

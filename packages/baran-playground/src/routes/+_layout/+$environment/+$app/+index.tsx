@@ -9,9 +9,9 @@ export const Route = createFileRoute("/_layout/$environment/$app/")({
 });
 
 function RouteComponent() {
-	const store = useAppStore();
+	const apps = useAppStore((s) => s.applications.apps);
 	const params = Route.useParams();
-	const app = findApp(store.applications.apps, params.app);
+	const app = findApp(apps, params.app);
 
 	if (!app) {
 		return (

@@ -15,6 +15,21 @@ import Draggable from "react-draggable";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+const schema = z.object({
+	type: z.string(),
+	data: z
+		.preprocess(
+			(params) => (params && typeof params === "string" ? JSON.parse(params) : params),
+			z.record(z.string(), z.any())
+		)
+		.optional()
+		.default("{}")
+});
+
+type Props = {
+	iframe: HTMLIFrameElement | null;
+};
+
 function PaperComponent(props: PaperProps) {
 	const nodeRef = useRef<HTMLDivElement>(null);
 	return (
@@ -30,21 +45,6 @@ function PaperComponent(props: PaperProps) {
 		</Draggable>
 	);
 }
-
-const schema = z.object({
-	type: z.string(),
-	data: z
-		.preprocess(
-			(params) => (params && typeof params === "string" ? JSON.parse(params) : params),
-			z.record(z.string(), z.any())
-		)
-		.optional()
-		.default("{}")
-});
-
-type Props = {
-	iframe: HTMLIFrameElement | null;
-};
 
 export function PostMessagePopup({ iframe }: Props) {
 	const {
@@ -83,7 +83,8 @@ export function PostMessagePopup({ iframe }: Props) {
 				PaperComponent={PaperComponent}
 				sx={{
 					"& .MuiDialog-container": {
-						alignItems: "flex-start"
+						alignItems: "flex-start",
+						justifySelf: "flex-start"
 					}
 				}}
 				aria-labelledby="handle-postmessage"

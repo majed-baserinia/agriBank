@@ -1,5 +1,7 @@
 import { createApplicationsSlice } from "$/features/apps";
-import { createEnvironmentSlice } from "$/features/environment";
+// TODO: i cant find the circular dependency
+// eslint-disable-next-line no-restricted-imports
+import { createEnvironmentSlice } from "$/features/environment/stores/index";
 import { createLoginSlice } from "$/features/login";
 import { createMicroSlice } from "$/features/micro";
 import type { AppStore, CustomAppActions, Mutators } from "$/stores/types";

@@ -3,15 +3,16 @@ import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import type React from "react";
 
 type Props = {
+	title: string;
 	text: string;
 	icon: React.ReactNode;
 	isOpen: boolean;
 	onClick?: () => void;
 };
 
-export function NavbarItem({ text, icon, isOpen, onClick }: Props) {
+export function NavbarItem({ title, text, icon, isOpen, onClick }: Props) {
 	return (
-		<NavbarItemRaw>
+		<NavbarItemRaw title={title}>
 			<ListItemButton onClick={onClick}>
 				<ListItemIcon
 					sx={[
@@ -26,7 +27,7 @@ export function NavbarItem({ text, icon, isOpen, onClick }: Props) {
 				{isOpen && (
 					<ListItemText
 						sx={{
-							paddingLeft: 2
+							paddingLeft: 9
 						}}
 						primary={text}
 					/>
