@@ -1,5 +1,7 @@
 import type { Application } from "$/features/apps";
+import { convert } from "$/features/environment";
 import { useCurrentEnvironmentUser, useRefreshLogin } from "$/features/login";
+import { useAppStore } from "$/stores";
 import type { PostMessageOutputSubType, PostMessageTypes } from "@agribank/post-message";
 import { useNavigate } from "@tanstack/react-router";
 import { enqueueSnackbar } from "notistack";
@@ -62,14 +64,17 @@ export function usePostMessageHandler({
 						return;
 					}
 
-					iframe.current?.contentWindow?.postMessage(
+					sendPostMessage(
+						iframe.current,
 						{
 							type: "initiateIFrame",
 							data: {
 								idToken: data?.response?.idToken,
 								refreshToken: data?.response?.refreshToken,
 								osType: "3",
-								osVersion: "2.5"
+								config: {
+									apiBaseUrl: convert(useAppStore.getState().environment)
+								}
 							} satisfies PostMessageOutputSubType<"iFrameReady", "initiateIFrame">
 						},
 						event.origin
@@ -80,4 +85,13 @@ export function usePostMessageHandler({
 		[app.url, iframe, navigate, refreshLogin, updateLastAliveTime, user.output?.login?.idToken]
 	);
 	return handler;
+}
+
+function sendPostMessage(iframe: HTMLIFrameElement | null, data: unknown, origin: string) {
+	if (!iframe || !iframe.contentWindow) {
+		console.warn("sending postMessage failed because Iframe is not loaded yet");
+		return;
+	}
+	iframe.contentWindow.postMessage(data, origin);
+	console.log("SENT POSTMESSAGE", data);
 }

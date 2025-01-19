@@ -10,8 +10,13 @@ export type PostMessageTypes =
 				| {
 						type: "initiateIFrame";
 						data: {
+							/* start: used in request headers (afaik only osType is send during initIframe event) */
 							osType: string;
 							osVersion?: string;
+							applicationName?: string;
+							applicationVersion?: string;
+							deviceId?: string;
+							/* end */
 							idToken?: string;
 							refreshToken?: string;
 							[key: string]: unknown;

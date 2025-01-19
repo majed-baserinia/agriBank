@@ -34,12 +34,8 @@ export function useInitConfig({ onInitializationFailed, configOverrides }: Optio
 	const { readyToLoad } = useHandledConnection({
 		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
-			updateSettings({
-				idToken: data.idToken,
-				refreshToken: data.refreshToken,
-				osType: data.osType,
-				osVersion: data.osVersion
-			});
+			console.log("gereftam", data);
+			updateSettings(data);
 		},
 		onInitializationFailed
 	});

@@ -20,9 +20,8 @@ axiosRetry(axiosForApi, {
 
 axiosForApi.interceptors.request.use((config) => {
 	alertAppIsStillRunning();
-	const authTokens = useIgniteStore.getState().auth;
-	if (authTokens) {
-		const { idToken } = authTokens;
+	const { idToken } = useIgniteStore.getState().auth;
+	if (idToken) {
 		config.headers.Authorization = `Bearer ${idToken}`;
 	}
 	setCommonHeaders(config);
@@ -34,12 +33,11 @@ axiosForApi.interceptors.response.use(
 	async (error: AxiosError) => {
 		const originalRequest = error.config;
 
-		const authTokens = useIgniteStore.getState().auth;
+		const { refreshToken: refreshTokenValue } = useIgniteStore.getState().auth;
 
-		if (authTokens && error.response?.status === 401) {
-			const refreshTokenValue = authTokens.refreshToken;
+		if (refreshTokenValue && error.response?.status === 401) {
 			try {
-				const newIdToken = await refreshToken(refreshTokenValue!);
+				const newIdToken = await refreshToken(refreshTokenValue);
 				axiosForApi.defaults.headers.common["Authorization"] = `Bearer ${newIdToken}`;
 				return axiosForApi.request(originalRequest!);
 			} catch (_refreshError) {
