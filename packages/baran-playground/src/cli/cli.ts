@@ -27,15 +27,15 @@ function addCommands() {
 			);
 
 			vite.stdout.on("data", (data) => {
-				console.log(`agribank-playground(message): ${data}`);
+				console.log(`baran-playground(message): ${data}`);
 			});
 
 			vite.on("error", (data) => {
-				console.error(`agribank-playground(error): ${data}`);
+				console.error(`baran-playground(error): ${data}`);
 			});
 
 			vite.on("close", (code) => {
-				console.info(`agribank-playground(close): process exited with code ${code}`);
+				console.info(`baran-playground(close): process exited with code ${code}`);
 			});
 		});
 }

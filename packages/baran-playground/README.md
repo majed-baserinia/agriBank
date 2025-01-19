@@ -5,5 +5,5 @@ Mimics baran micro fronts are running withing the baran app. Supports changing e
 # Example usage
 
 ```
-pnpm agribank-playground --port 9000
+pnpm baran-playground --port 9000
 ```

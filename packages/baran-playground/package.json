@@ -25,7 +25,7 @@
 		"CHANGELOG.md"
 	],
 	"bin": {
-		"agribank-playground": "./dist/cli.js"
+		"baran-playground": "./dist/cli.js"
 	},
 	"scripts": {
 		"dev": "vite --port 9000",
