@@ -3,8 +3,7 @@ import { type SxProps, Typography } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup, { type ToggleButtonGroupProps } from "@mui/material/ToggleButtonGroup";
 import { useEffect, useState } from "react";
-import { shorthand } from "../utils";
-import { type Environments, environments } from "../utils/environment-to-url";
+import { type Environments, environments, shorthand } from "../utils";
 
 type Props = {
 	sx?: SxProps;
