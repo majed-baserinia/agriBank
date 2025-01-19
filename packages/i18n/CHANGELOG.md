@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.3.0
+
+### Minor Changes
+
+- 5284ae4: feat: completed playground
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @agribank/baran-typed-querykit
 
+## 2.0.0
+
+### Minor Changes
+
+- 5284ae4: feat: completed playground
+
+### Patch Changes
+
+- Updated dependencies [9a90db5]
+- Updated dependencies [09c8da1]
+- Updated dependencies [5284ae4]
+  - @agribank/ui@3.0.0
+  - @agribank/i18n@0.3.0
+
 ## 1.0.1
 
 ### Patch Changes

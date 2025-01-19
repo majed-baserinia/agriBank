@@ -1,5 +1,19 @@
 # @agribank/vite-plugin
 
+## 5.0.0
+
+### Minor Changes
+
+- 09c8da1: feat: allow specifying separate theme-url and palette url
+- 5284ae4: feat: completed playground
+
+### Patch Changes
+
+- Updated dependencies [9a90db5]
+- Updated dependencies [09c8da1]
+- Updated dependencies [5284ae4]
+  - @agribank/ui@3.0.0
+
 ## 4.0.2
 
 ### Patch Changes

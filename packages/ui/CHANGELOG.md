@@ -1,5 +1,18 @@
 # @agribank/ui
 
+## 3.0.0
+
+### Minor Changes
+
+- 9a90db5: refactor(ui): renamed BoxAdapter to PaperAdapter
+- 09c8da1: feat: allow specifying separate theme-url and palette url
+- 5284ae4: feat: completed playground
+
+### Patch Changes
+
+- Updated dependencies [5284ae4]
+  - @agribank/i18n@0.3.0
+
 ## 2.1.1
 
 ### Patch Changes

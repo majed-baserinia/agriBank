@@ -1,5 +1,24 @@
 # @agribank/ignite
 
+## 5.0.0
+
+### Minor Changes
+
+- 09c8da1: feat: allow specifying separate theme-url and palette url
+- 44bc6a5: refactor(ignite): used sliced store and removed custom sessionStorage manager and used zustand/persisted instead
+- 8b7f48c: fix(ignite): use dynamic.BASE_URL for redirecting
+- 5284ae4: feat: completed playground
+
+### Patch Changes
+
+- Updated dependencies [9a90db5]
+- Updated dependencies [09c8da1]
+- Updated dependencies [5284ae4]
+- Updated dependencies [0b7e803]
+  - @agribank/ui@3.0.0
+  - @agribank/post-message@0.2.0
+  - @agribank/i18n@0.3.0
+
 ## 4.0.2
 
 ### Patch Changes

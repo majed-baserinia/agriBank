@@ -1,5 +1,12 @@
 # @agribank/cli
 
+## 0.2.0
+
+### Minor Changes
+
+- 7021aa2: chore(cli): renamed url to uri since we can also accept file paths and etc
+- 5284ae4: feat: completed playground
+
 ## 0.1.0
 
 ### Minor Changes

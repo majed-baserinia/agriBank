@@ -1,5 +1,12 @@
 # @agribank/post-message
 
+## 0.2.0
+
+### Minor Changes
+
+- 5284ae4: feat: completed playground
+- 0b7e803: feat(post-message): allow passing target window
+
 ## 0.1.1
 
 ### Patch Changes
