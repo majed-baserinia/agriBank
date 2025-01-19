@@ -27,7 +27,8 @@
 		"./tailwind.config.js",
 		"./playwright.config.ts",
 		"./eslint.config.mjs",
-		"./prettier.config.mjs"
+		"./prettier.config.mjs",
+		"./src/cli/cli.ts"
 	],
 	"exclude": ["node_modules", "dist"]
 }

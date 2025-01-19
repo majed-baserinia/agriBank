@@ -33,10 +33,13 @@ function PaperComponent(props: PaperProps) {
 
 const schema = z.object({
 	type: z.string(),
-	data: z.preprocess(
-		(params) => (params && typeof params === "string" ? JSON.parse(params) : params),
-		z.record(z.string(), z.any()).optional()
-	)
+	data: z
+		.preprocess(
+			(params) => (params && typeof params === "string" ? JSON.parse(params) : params),
+			z.record(z.string(), z.any())
+		)
+		.optional()
+		.default("{}")
 });
 
 type Props = {

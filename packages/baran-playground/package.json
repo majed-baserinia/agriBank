@@ -18,9 +18,18 @@
 		"agribank",
 		"htsc"
 	],
+	"files": [
+		"dist/",
+		"README.md",
+		"package.json",
+		"CHANGELOG.md"
+	],
+	"bin": {
+		"agribank-playground": "./dist/cli.js"
+	},
 	"scripts": {
 		"dev": "vite --port 9000",
-		"build": "tsc && vite build",
+		"build": "tsc && vite build --mode cli && vite build --mode ui",
 		"lint": "eslint .",
 		"test:integration": "playwright test",
 		"preview": "vite preview --port 9000",
@@ -45,6 +54,7 @@
 		"@tanstack/zod-adapter": "^1.95.0",
 		"axios": "^1.7.7",
 		"axios-retry": "^4.5.0",
+		"commander": "^12.1.0",
 		"i18next": "^23.2.5",
 		"immer": "^10.1.1",
 		"notistack": "^3.0.1",
@@ -55,6 +65,7 @@
 		"react-i18next": "^13.0.1",
 		"stylis": "^4.3.0",
 		"stylis-plugin-rtl": "^2.1.1",
+		"vite-plugin-dts": "^4.3.0",
 		"zod": "^3.23.8",
 		"zustand": "^4.3.8"
 	},

@@ -37,7 +37,8 @@
 		"tests/**/*.mjs",
 		"tests/**/*.tsx",
 		"tests/**/*.jsx",
-		"public/**/*.js"
+		"public/**/*.js",
+		"!src/cli/**.ts"
 	],
 	"exclude": ["node_modules", "dist"]
 }

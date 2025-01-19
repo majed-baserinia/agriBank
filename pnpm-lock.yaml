@@ -96,6 +96,9 @@ importers:
       axios-retry:
         specifier: ^4.5.0
         version: 4.5.0(axios@1.7.7)
+      commander:
+        specifier: ^12.1.0
+        version: 12.1.0
       i18next:
         specifier: ^23.2.5
         version: 23.16.4
@@ -126,6 +129,9 @@ importers:
       stylis-plugin-rtl:
         specifier: ^2.1.1
         version: 2.1.1(stylis@4.3.4)
+      vite-plugin-dts:
+        specifier: ^4.3.0
+        version: 4.3.0(@types/node@22.10.1)(rollup@4.27.4)(typescript@5.6.3)(vite@5.4.10(@types/node@22.10.1)(terser@5.36.0))
       zod:
         specifier: ^3.23.8
         version: 3.23.8
@@ -744,6 +750,9 @@ importers:
 
   templates/tanstack-router:
     dependencies:
+      '@agribank/baran-playground':
+        specifier: ^0.0.1
+        version: link:../../packages/baran-playground
       '@agribank/i18n':
         specifier: ^0.2.1
         version: link:../../packages/i18n
