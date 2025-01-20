@@ -1,3 +1,4 @@
+import { TanStackRouterDevtools } from "$/components/Tanstack/DevTools";
 import { searchParamsConfigSchema, useIgniteStore, useInit } from "@agribank/ignite";
 import { useRouter } from "@agribank/ignite/router/tanstack-router";
 import { Alerts } from "@agribank/ui/components/Alerts";
@@ -13,7 +14,6 @@ import {
 	retainSearchParams,
 	ScrollRestoration
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { zodValidator } from "@tanstack/zod-adapter";
 import type { z } from "zod";
 

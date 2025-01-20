@@ -1,3 +1,4 @@
+import { TanStackRouterDevtools } from "$/components/Tanstack/DevTools";
 import { convert } from "$/features/environment";
 import { useInitClients } from "$/services";
 import { useAppStore } from "$/stores/app";
@@ -16,7 +17,6 @@ import {
 	retainSearchParams,
 	ScrollRestoration
 } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
 import { SnackbarProvider } from "notistack";
 import { useMemo } from "react";
 import type { z } from "zod";
