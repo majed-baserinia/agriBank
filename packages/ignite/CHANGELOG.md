@@ -1,5 +1,11 @@
 # @agribank/ignite
 
+## 5.2.0
+
+### Minor Changes
+
+- 29863e7: feat: add schema for config file
+
 ## 5.1.0
 
 ### Minor Changes

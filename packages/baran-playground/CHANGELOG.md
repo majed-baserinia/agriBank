@@ -1,5 +1,16 @@
 # @agribank/baran-playground
 
+## 0.3.0
+
+### Minor Changes
+
+- 29863e7: feat: add schema for config file
+
+### Patch Changes
+
+- Updated dependencies [29863e7]
+  - @agribank/ignite@5.2.0
+
 ## 0.2.3
 
 ### Patch Changes
