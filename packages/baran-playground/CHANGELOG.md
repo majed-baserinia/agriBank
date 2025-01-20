@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.2.3
+
+### Patch Changes
+
+- e0cd861: chore(baran-playground): added prettierconfig
+
 ## 0.2.2
 
 ### Patch Changes

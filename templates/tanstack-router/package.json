@@ -18,7 +18,7 @@
 		"@agribank/ignite": "^5.1.0",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/ui": "^3.0.0",
-		"@agribank/baran-playground": "^0.2.2",
+		"@agribank/baran-playground": "^0.2.3",
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
