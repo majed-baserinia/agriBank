@@ -31,6 +31,7 @@
 		"dev": "vite --port 9000",
 		"build": "tsc && vite build --mode cli && vite build --mode ui",
 		"lint": "eslint .",
+		"format": "prettier --write .",
 		"test:integration": "playwright test",
 		"preview": "vite preview --port 9000",
 		"generate-clients": "pnpm generate-clients:customer-info",

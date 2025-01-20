@@ -32,7 +32,8 @@
 	],
 	"scripts": {
 		"build": "tsc --build",
-		"lint": "eslint ."
+		"lint": "eslint .",
+		"format": "prettier --write ."
 	},
 	"dependencies": {
 		"@eslint/js": "^9.12.0",

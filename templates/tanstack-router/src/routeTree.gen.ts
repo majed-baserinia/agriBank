@@ -18,103 +18,102 @@ import { Route as LayoutServiceCallIndexImport } from "./routes/+_layout/+servic
 // Create/Update Routes
 
 const LayoutRoute = LayoutImport.update({
-  id: "/_layout",
-  getParentRoute: () => rootRoute,
+	id: "/_layout",
+	getParentRoute: () => rootRoute
 } as any);
 
 const LayoutIndexRoute = LayoutIndexImport.update({
-  id: "/",
-  path: "/",
-  getParentRoute: () => LayoutRoute,
+	id: "/",
+	path: "/",
+	getParentRoute: () => LayoutRoute
 } as any);
 
 const LayoutServiceCallIndexRoute = LayoutServiceCallIndexImport.update({
-  id: "/service-call/",
-  path: "/service-call/",
-  getParentRoute: () => LayoutRoute,
+	id: "/service-call/",
+	path: "/service-call/",
+	getParentRoute: () => LayoutRoute
 } as any);
 
 // Populate the FileRoutesByPath interface
 
 declare module "@tanstack/react-router" {
-  interface FileRoutesByPath {
-    "/_layout": {
-      id: "/_layout";
-      path: "";
-      fullPath: "";
-      preLoaderRoute: typeof LayoutImport;
-      parentRoute: typeof rootRoute;
-    };
-    "/_layout/": {
-      id: "/_layout/";
-      path: "/";
-      fullPath: "/";
-      preLoaderRoute: typeof LayoutIndexImport;
-      parentRoute: typeof LayoutImport;
-    };
-    "/_layout/service-call/": {
-      id: "/_layout/service-call/";
-      path: "/service-call";
-      fullPath: "/service-call";
-      preLoaderRoute: typeof LayoutServiceCallIndexImport;
-      parentRoute: typeof LayoutImport;
-    };
-  }
+	interface FileRoutesByPath {
+		"/_layout": {
+			id: "/_layout";
+			path: "";
+			fullPath: "";
+			preLoaderRoute: typeof LayoutImport;
+			parentRoute: typeof rootRoute;
+		};
+		"/_layout/": {
+			id: "/_layout/";
+			path: "/";
+			fullPath: "/";
+			preLoaderRoute: typeof LayoutIndexImport;
+			parentRoute: typeof LayoutImport;
+		};
+		"/_layout/service-call/": {
+			id: "/_layout/service-call/";
+			path: "/service-call";
+			fullPath: "/service-call";
+			preLoaderRoute: typeof LayoutServiceCallIndexImport;
+			parentRoute: typeof LayoutImport;
+		};
+	}
 }
 
 // Create and export the route tree
 
 interface LayoutRouteChildren {
-  LayoutIndexRoute: typeof LayoutIndexRoute;
-  LayoutServiceCallIndexRoute: typeof LayoutServiceCallIndexRoute;
+	LayoutIndexRoute: typeof LayoutIndexRoute;
+	LayoutServiceCallIndexRoute: typeof LayoutServiceCallIndexRoute;
 }
 
 const LayoutRouteChildren: LayoutRouteChildren = {
-  LayoutIndexRoute: LayoutIndexRoute,
-  LayoutServiceCallIndexRoute: LayoutServiceCallIndexRoute,
+	LayoutIndexRoute: LayoutIndexRoute,
+	LayoutServiceCallIndexRoute: LayoutServiceCallIndexRoute
 };
 
-const LayoutRouteWithChildren =
-  LayoutRoute._addFileChildren(LayoutRouteChildren);
+const LayoutRouteWithChildren = LayoutRoute._addFileChildren(LayoutRouteChildren);
 
 export interface FileRoutesByFullPath {
-  "": typeof LayoutRouteWithChildren;
-  "/": typeof LayoutIndexRoute;
-  "/service-call": typeof LayoutServiceCallIndexRoute;
+	"": typeof LayoutRouteWithChildren;
+	"/": typeof LayoutIndexRoute;
+	"/service-call": typeof LayoutServiceCallIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  "/": typeof LayoutIndexRoute;
-  "/service-call": typeof LayoutServiceCallIndexRoute;
+	"/": typeof LayoutIndexRoute;
+	"/service-call": typeof LayoutServiceCallIndexRoute;
 }
 
 export interface FileRoutesById {
-  __root__: typeof rootRoute;
-  "/_layout": typeof LayoutRouteWithChildren;
-  "/_layout/": typeof LayoutIndexRoute;
-  "/_layout/service-call/": typeof LayoutServiceCallIndexRoute;
+	__root__: typeof rootRoute;
+	"/_layout": typeof LayoutRouteWithChildren;
+	"/_layout/": typeof LayoutIndexRoute;
+	"/_layout/service-call/": typeof LayoutServiceCallIndexRoute;
 }
 
 export interface FileRouteTypes {
-  fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: "" | "/" | "/service-call";
-  fileRoutesByTo: FileRoutesByTo;
-  to: "/" | "/service-call";
-  id: "__root__" | "/_layout" | "/_layout/" | "/_layout/service-call/";
-  fileRoutesById: FileRoutesById;
+	fileRoutesByFullPath: FileRoutesByFullPath;
+	fullPaths: "" | "/" | "/service-call";
+	fileRoutesByTo: FileRoutesByTo;
+	to: "/" | "/service-call";
+	id: "__root__" | "/_layout" | "/_layout/" | "/_layout/service-call/";
+	fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  LayoutRoute: typeof LayoutRouteWithChildren;
+	LayoutRoute: typeof LayoutRouteWithChildren;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  LayoutRoute: LayoutRouteWithChildren,
+	LayoutRoute: LayoutRouteWithChildren
 };
 
 export const routeTree = rootRoute
-  ._addFileChildren(rootRouteChildren)
-  ._addFileTypes<FileRouteTypes>();
+	._addFileChildren(rootRouteChildren)
+	._addFileTypes<FileRouteTypes>();
 
 /* ROUTE_MANIFEST_START
 {
