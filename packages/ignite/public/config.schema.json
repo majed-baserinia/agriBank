@@ -1,0 +1,53 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"title": "Config",
+	"description": "Config schema for managing Agribank micro front apps.",
+	"properties": {
+		"apiBaseUrl": {
+			"type": "string",
+			"description": "Base URL for calling your APIs (e.g., 'https://my.api.org/v1').",
+			"examples": ["https://digitalbanking-tst.bki.ir", "https://dgbankmb-pilot.bki.ir"]
+		},
+		"baseThemeUrl": {
+			"description": "Theme reference. Can be either '@local/base-theme/', '@agribank/base-theme/', or any valid URL.",
+			"anyOf": [
+				{
+					"const": "@local/base-theme/",
+					"description": "reads from your own public/ folder"
+				},
+				{
+					"const": "@agribank/base-theme/",
+					"description": "reads from @agribank/ui package"
+				},
+				{
+					"type": "string",
+					"format": "uri",
+					"description": "any valid URI to provide your own custom theme."
+				}
+			]
+		},
+		"basePaletteUrl": {
+			"type": "string",
+			"description": "Palette URL.",
+			"examples": [
+				"https://cdn-tst.bki.ir/cdn/themes/",
+				"https://cdn-pilot.bki.ir/cdn/themes/",
+				"https://cdn.bki.ir/cdn/themes/"
+			]
+		}
+	},
+	"required": ["apiBaseUrl", "baseThemeUrl", "basePaletteUrl"],
+	"examples": [
+		{
+			"apiBaseUrl": "https://digitalbanking-tst.bki.ir",
+			"baseThemeUrl": "@local/base-theme/",
+			"basePaletteUrl": "https://cdn.bki.ir/cdn/themes/"
+		},
+		{
+			"apiBaseUrl": "https://digitalbanking-tst.bki.ir",
+			"baseThemeUrl": "https://cdn-tst.bki.ir/cdn/themes/",
+			"basePaletteUrl": "https://cdn-tst.bki.ir/cdn/themes/"
+		}
+	]
+}

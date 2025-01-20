@@ -24,6 +24,12 @@
 		"package.json",
 		"CHANGELOG.md"
 	],
+	"exports": {
+		".": {
+			"import": "./dist/cli.js",
+			"types": "./dist/cli.d.ts"
+		}
+	},
 	"bin": {
 		"baran-playground": "./dist/cli.js"
 	},

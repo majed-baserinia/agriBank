@@ -10,7 +10,7 @@ const initial: Settings = {
 	config: {
 		apiBaseUrl: "",
 		baseThemeUrl: "",
-		paletteUrl: ""
+		basePaletteUrl: ""
 	}
 };
 

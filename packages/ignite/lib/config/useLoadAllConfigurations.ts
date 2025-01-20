@@ -24,7 +24,7 @@ export function useLoadAllConfigurations({
 	const { config, isConfigLoaded } = useConfigLoader(configOverrides);
 	const { theme, isThemeLoaded } = useThemeLoader(
 		config?.baseThemeUrl,
-		config?.paletteUrl,
+		config?.basePaletteUrl,
 		spConfig.Theme
 	);
 

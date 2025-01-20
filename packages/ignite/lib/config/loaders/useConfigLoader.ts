@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const configSchema = z.object({
 	apiBaseUrl: z.string().url(),
-	paletteUrl: z.string().url(),
+	basePaletteUrl: z.string().url(),
 	baseThemeUrl: z.union([
 		z.literal("@local/base-theme/"),
 		z.literal("@agribank/base-theme/"),
