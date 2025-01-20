@@ -143,7 +143,7 @@ importers:
         specifier: ^0.2.0
         version: link:../cli
       '@agribank/eslint-plugin':
-        specifier: ^0.2.0
+        specifier: ^0.2.1
         version: link:../eslint-plugin
       '@agribank/prettier-config':
         specifier: ^0.0.6
@@ -754,7 +754,7 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.2.1
+        specifier: ^0.2.2
         version: link:../../packages/baran-playground
       '@agribank/i18n':
         specifier: ^0.3.0
@@ -839,7 +839,7 @@ importers:
         specifier: ^0.2.0
         version: link:../../packages/cli
       '@agribank/eslint-plugin':
-        specifier: ^0.2.0
+        specifier: ^0.2.1
         version: link:../../packages/eslint-plugin
       '@agribank/prettier-config':
         specifier: ^0.0.6

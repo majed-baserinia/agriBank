@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.2.2
+
+### Patch Changes
+
+- 94cb582: chore: ran prettier and added format command
+
 ## 0.2.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-playground",
-	"version": "0.2.1",
+	"version": "0.2.2",
 	"type": "module",
 	"description": "an environment to mimic baran app for testing microfronts created for baran",
 	"author": "@FoHoOV",
@@ -72,7 +72,7 @@
 	},
 	"devDependencies": {
 		"@agribank/cli": "^0.2.0",
-		"@agribank/eslint-plugin": "^0.2.0",
+		"@agribank/eslint-plugin": "^0.2.1",
 		"@agribank/prettier-config": "^0.0.6",
 		"@agribank/vite-plugin": "^5.0.0",
 		"@eslint/js": "^9.13.0",
