@@ -1,5 +1,12 @@
 # @agribank/baran-playground
 
+## 0.2.1
+
+### Patch Changes
+
+- e37349b: chore(baran-playground): updated readme
+- 04abe75: fix(baran-playground): don't show router devtools on prod builds
+
 ## 0.2.0
 
 ### Minor Changes

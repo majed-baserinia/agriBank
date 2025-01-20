@@ -754,7 +754,7 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.2.0
+        specifier: ^0.2.1
         version: link:../../packages/baran-playground
       '@agribank/i18n':
         specifier: ^0.3.0
