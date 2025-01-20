@@ -1,5 +1,5 @@
 {
-	"apiBaseUrl": "https://digitalbanking-tst.bki.ir",
-	"paletteUrl": "https://cdn-tst.bki.ir/cdn/themes/",
-	"baseThemeUrl": "https://cdn-tst.bki.ir/cdn/themes/"
+	"apiBaseUrl": "https://dgbankmb-pilot.bki.ir",
+	"paletteUrl": "https://cdn.bki.ir/cdn/themes/",
+	"baseThemeUrl": "https://cdn.bki.ir/cdn/themes/"
 }
