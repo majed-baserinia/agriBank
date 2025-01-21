@@ -1,6 +1,6 @@
-import { setCommonHeaders } from "$lib/axios/headers";
-import { axiosForLogin } from "$lib/axios/login-instance";
-import { useIgniteStore } from "$lib/stores";
+import { setCommonHeaders } from "$/axios/headers";
+import { axiosForLogin } from "$/axios/login-instance";
+import { useIgniteStore } from "@agribank/ignite";
 import { alertAppIsStillRunning, sendPostMessage } from "@agribank/post-message";
 import axios, { type AxiosError, type AxiosResponse } from "axios";
 import axiosRetry from "axios-retry";

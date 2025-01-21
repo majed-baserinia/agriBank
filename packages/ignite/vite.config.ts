@@ -29,8 +29,6 @@ export default defineConfig({
 				/@tanstack\/*/,
 				"immer",
 				"zustand",
-				"axios",
-				"axios-retry",
 				"i18next",
 				"react-i18next",
 				/@agribank\/*/,

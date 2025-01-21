@@ -1,7 +1,8 @@
 // you can uncomment these in case of using @agribank/cli generate-clients command
 
-// import { axios, useIgniteStore } from "@agribank/ignite";
-
+// import {  useIgniteStore } from "@agribank/ignite";
+// if you are using BARAN apis then provide this axios instance
+// import { axios } from "@agribank/baran-typed-querykit";
 // import { Configuration } from "$/services/.generated/configuration";
 // import { useEffect } from "react";
 // import { updateGlobalConfiguration } from "./.generated/base";

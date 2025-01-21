@@ -5,6 +5,9 @@ import dts from "vite-plugin-dts";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+	define: {
+		"import.meta.dynamic.env": "import.meta.env"
+	},
 	build: {
 		emptyOutDir: true,
 		sourcemap: true,
@@ -28,7 +31,6 @@ export default defineConfig({
 				/@tanstack\/*/,
 				/^react-hook-form/,
 				/^react-hook-form\/*/,
-				"zustand",
 				"axios",
 				"axios-retry",
 				"i18next",

@@ -1,4 +1,4 @@
-import { useIgniteStore } from "$lib/stores";
+import { useIgniteStore } from "@agribank/ignite";
 import type { InternalAxiosRequestConfig } from "axios";
 import i18n from "i18next";
 

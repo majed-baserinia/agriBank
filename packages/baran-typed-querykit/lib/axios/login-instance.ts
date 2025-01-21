@@ -1,4 +1,4 @@
-import { setCommonHeaders } from "$lib/axios/headers";
+import { setCommonHeaders } from "$/axios/headers";
 import axios from "axios";
 
 export const axiosForLogin = axios.create({

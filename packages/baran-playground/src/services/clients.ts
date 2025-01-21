@@ -1,6 +1,6 @@
-import { axios, useIgniteStore } from "@agribank/ignite";
-
 import { Configuration } from "$/services/.generated/customer-management/configuration";
+import { axios } from "@agribank/baran-typed-querykit";
+import { useIgniteStore } from "@agribank/ignite";
 import { useEffect } from "react";
 import { updateGlobalConfiguration } from "./.generated/customer-management/base";
 
