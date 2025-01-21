@@ -31,6 +31,10 @@ axiosForApi.interceptors.request.use((config) => {
 axiosForApi.interceptors.response.use(
 	(response: AxiosResponse) => response,
 	async (error: AxiosError) => {
+		if (!error.config) {
+			return Promise.reject(error);
+		}
+
 		const originalRequest = error.config;
 
 		const { refreshToken: refreshTokenValue } = useIgniteStore.getState().auth;
@@ -39,7 +43,7 @@ axiosForApi.interceptors.response.use(
 			try {
 				const newIdToken = await refreshToken(refreshTokenValue);
 				axiosForApi.defaults.headers.common["Authorization"] = `Bearer ${newIdToken}`;
-				return axiosForApi.request(originalRequest!);
+				return axiosForApi.request(originalRequest);
 			} catch (_refreshError) {
 				useIgniteStore.getState().clearAuth();
 				window.location.href = import.meta.dynamic.env.BASE_URL ?? "";
