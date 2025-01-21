@@ -52,7 +52,7 @@
 	},
 	"peerDependencies": {
 		"vite": "^5.4.9",
-		"@agribank/ui": "3.1.1"
+		"@agribank/ui": "^3.1.1"
 	},
 	"publishConfig": {
 		"access": "public"
