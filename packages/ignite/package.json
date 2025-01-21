@@ -2,7 +2,7 @@
 	"name": "@agribank/ignite",
 	"version": "6.0.1",
 	"type": "module",
-	"description": "includes all communication protocols with super app",
+	"description": "initiates microfronts and loads all required configurations",
 	"author": "@FoHoOV",
 	"license": "MIT",
 	"repository": {

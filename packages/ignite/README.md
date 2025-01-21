@@ -5,9 +5,8 @@ This package is responsible for initializing the whole app. Which includes:
 1. reading config files (using fetch requests to config files)
 2. reading config params (from search params)
 3. initializing language and global setting stores
-4. exporting axios instances (you should use these instances or extend them)
-5. authenticate
-6. get theme
+4. getting auth tokens
+5. getting theme and palette
 
 all of these happen by calling the `useInit` hook which returns the `ready` boolean status.
 
