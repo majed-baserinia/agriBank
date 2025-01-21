@@ -5,9 +5,8 @@ import type {
 	RegisterOutputDto,
 	VerifyRegisterOtpOutputDto
 } from "$/services";
-import type { AppStore, Mutators } from "$/stores/types";
+import type { SliceCreator } from "$/stores/types";
 import type { z } from "zod";
-import type { StateCreator } from "zustand";
 
 type LoginInput = z.infer<typeof schema>;
 
@@ -51,7 +50,7 @@ export type LoginSlice = State & Actions;
 
 const initial: State = { user: { pilot: {}, test: {} } };
 
-export const createLoginSlice: StateCreator<AppStore, Mutators, [], LoginSlice> = (set, get) => ({
+export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 	...initial,
 	setUser(user) {
 		set((state) => {

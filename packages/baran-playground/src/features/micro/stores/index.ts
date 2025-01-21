@@ -1,5 +1,4 @@
-import type { AppStore, Mutators } from "$/stores/types";
-import type { StateCreator } from "zustand";
+import type { SliceCreator } from "$/stores/types";
 
 type DialogStatus = "opened" | "closed";
 
@@ -17,7 +16,7 @@ export type MicroSlice = State & Actions;
 
 const initial: State = { micro: { dialogStatus: "closed" } };
 
-export const createMicroSlice: StateCreator<AppStore, Mutators, [], MicroSlice> = (set) => ({
+export const createMicroSlice: SliceCreator<MicroSlice> = (set) => ({
 	...initial,
 	changeDialogVisibility(status) {
 		set((state) => {

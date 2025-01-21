@@ -1,5 +1,4 @@
-import type { AppStore, Mutators } from "$lib/stores/types";
-import type { StateCreator } from "zustand";
+import type { SliceCreator } from "$lib/stores/types";
 import type { AuthSlice, AuthState } from "./types";
 
 const initial: AuthState = {
@@ -9,7 +8,7 @@ const initial: AuthState = {
 	}
 };
 
-export const createAuthSlice: StateCreator<AppStore, Mutators, [], AuthSlice> = (set) => ({
+export const createAuthSlice: SliceCreator<AuthSlice> = (set) => ({
 	auth: initial,
 	clearAuth: () => set(initial),
 	setAuth(auth) {

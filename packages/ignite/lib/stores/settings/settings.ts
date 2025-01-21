@@ -1,5 +1,4 @@
-import type { AppStore, Mutators } from "$lib/stores/types";
-import type { StateCreator } from "zustand";
+import type { SliceCreator } from "$lib/stores/types";
 import type { Settings, SettingsSlice } from "./types";
 
 const initial: Settings = {
@@ -14,7 +13,7 @@ const initial: Settings = {
 	}
 };
 
-export const createSettingsSlice: StateCreator<AppStore, Mutators, [], SettingsSlice> = (set) => ({
+export const createSettingsSlice: SliceCreator<SettingsSlice> = (set) => ({
 	settings: initial,
 	updateSettings: (settings) => {
 		if (!settings) {

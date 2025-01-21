@@ -5,7 +5,6 @@
 		"target": "ES2022",
 		"lib": ["ESNext", "WebWorker"],
 		"module": "ESNext",
-		"noEmit": true,
 
 		"allowJs": true,
 		"checkJs": true,

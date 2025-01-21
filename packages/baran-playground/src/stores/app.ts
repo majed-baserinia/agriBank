@@ -4,12 +4,12 @@ import { createApplicationsSlice } from "$/features/apps";
 import { createEnvironmentSlice } from "$/features/environment/stores/index";
 import { createLoginSlice } from "$/features/login";
 import { createMicroSlice } from "$/features/micro";
-import type { AppStore, CustomAppActions, Mutators } from "$/stores/types";
+import type { AppStore } from "$/stores/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
-export const useAppStore = create<AppStore & CustomAppActions, Mutators>(
+export const useAppStore = create<AppStore>()(
 	persist(
 		immer((set, get, ...params) => ({
 			...createLoginSlice(set, get, ...params),

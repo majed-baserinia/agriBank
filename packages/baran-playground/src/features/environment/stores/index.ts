@@ -1,5 +1,4 @@
-import type { AppStore, Mutators } from "$/stores/types";
-import type { StateCreator } from "zustand";
+import type { SliceCreator } from "$/stores/types";
 import type { Environments } from "../utils/environment-to-url";
 
 type State = {
@@ -15,9 +14,7 @@ export type EnvironmentSlice = State & Actions;
 
 const initial: State = { environment: "test" };
 
-export const createEnvironmentSlice: StateCreator<AppStore, Mutators, [], EnvironmentSlice> = (
-	set
-) => ({
+export const createEnvironmentSlice: SliceCreator<EnvironmentSlice> = (set) => ({
 	...initial,
 	setEnvironment(environment) {
 		set((state) => {

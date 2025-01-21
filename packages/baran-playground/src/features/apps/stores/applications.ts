@@ -1,6 +1,5 @@
-import type { AppStore, Mutators } from "$/stores/types";
+import type { SliceCreator } from "$/stores/types";
 import { pushAlert } from "@agribank/ui/stores/alerts";
-import type { StateCreator } from "zustand";
 import { findApp } from "../utils";
 
 export type Application = {
@@ -28,9 +27,7 @@ export type ApplicationSlice = State & Actions;
 
 const initial: State = { applications: { apps: [] } };
 
-export const createApplicationsSlice: StateCreator<AppStore, Mutators, [], ApplicationSlice> = (
-	set
-) => ({
+export const createApplicationsSlice: SliceCreator<ApplicationSlice> = (set) => ({
 	...initial,
 	setSelectedApp({ title }) {
 		set((state) => {
