@@ -763,7 +763,7 @@ importers:
         specifier: ^0.3.0
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^6.0.0
+        specifier: ^6.0.1
         version: link:../../packages/ignite
       '@agribank/post-message':
         specifier: ^0.2.0

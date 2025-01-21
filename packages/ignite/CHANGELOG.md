@@ -1,5 +1,11 @@
 # @agribank/ignite
 
+## 6.0.1
+
+### Patch Changes
+
+- 42623c3: fix: correctly externalize ignite dependencies
+
 ## 6.0.0
 
 ### Minor Changes
