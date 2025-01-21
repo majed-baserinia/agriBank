@@ -13,8 +13,8 @@ export default defineConfig({
 		sourcemap: true,
 		lib: {
 			entry: {
-				"baran-typed-querykit": resolve(import.meta.dirname, "./src/index.ts"),
-				"baran-typed-querykit-react": resolve(import.meta.dirname, "./src/react/index.ts")
+				"baran-typed-querykit": resolve(import.meta.dirname, "./lib/index.ts"),
+				"baran-typed-querykit-react": resolve(import.meta.dirname, "./lib/react/index.ts")
 			},
 			formats: ["es"],
 			name: "baran-api-client",
