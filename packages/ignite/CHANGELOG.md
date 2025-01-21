@@ -1,5 +1,13 @@
 # @agribank/ignite
 
+## 6.0.2
+
+### Patch Changes
+
+- 85fe9f2: chore(ignite): updated package description
+- Updated dependencies [61e6546]
+  - @agribank/ui@3.1.2
+
 ## 6.0.1
 
 ### Patch Changes

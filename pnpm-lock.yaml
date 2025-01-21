@@ -227,13 +227,13 @@ importers:
         specifier: ^0.3.0
         version: link:../i18n
       '@agribank/ignite':
-        specifier: ^6.0.0
+        specifier: ^6.0.2
         version: link:../ignite
       '@agribank/post-message':
         specifier: ^0.2.0
         version: link:../post-message
       '@agribank/ui':
-        specifier: ^3.1.0
+        specifier: ^3.1.2
         version: link:../ui
       '@tanstack/react-query':
         specifier: ^5.62.3
@@ -473,7 +473,7 @@ importers:
         specifier: ^0.0.6
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: ^3.1.0
+        specifier: ^3.1.2
         version: link:../ui
       '@mui/material':
         specifier: ^6.1.8
@@ -718,7 +718,7 @@ importers:
         specifier: ^0.0.6
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: ^3.1.1
+        specifier: ^3.1.2
         version: link:../ui
       '@types/eslint__js':
         specifier: ^8.42.3
@@ -763,13 +763,13 @@ importers:
         specifier: ^0.3.0
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^6.0.1
+        specifier: ^6.0.2
         version: link:../../packages/ignite
       '@agribank/post-message':
         specifier: ^0.2.0
         version: link:../../packages/post-message
       '@agribank/ui':
-        specifier: ^3.1.1
+        specifier: ^3.1.2
         version: link:../../packages/ui
       '@emotion/cache':
         specifier: ^11.11.0
@@ -848,7 +848,7 @@ importers:
         specifier: ^0.0.6
         version: link:../../packages/prettier-config
       '@agribank/vite-plugin':
-        specifier: ^6.0.1
+        specifier: ^6.0.2
         version: link:../../packages/vite-plugin
       '@eslint/js':
         specifier: ^9.13.0

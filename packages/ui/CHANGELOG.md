@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 3.1.2
+
+### Patch Changes
+
+- 61e6546: fix(ui): re-add node files and baseUrl to tsconfig
+
 ## 3.1.1
 
 ### Patch Changes

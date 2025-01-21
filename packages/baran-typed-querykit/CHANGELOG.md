@@ -1,5 +1,15 @@
 # @agribank/baran-typed-querykit
 
+## 3.0.1
+
+### Patch Changes
+
+- 8a956ca: fix(baran-types-querykit): remove `getNextPageParam` from input type
+- Updated dependencies [61e6546]
+- Updated dependencies [85fe9f2]
+  - @agribank/ui@3.1.2
+  - @agribank/ignite@6.0.2
+
 ## 3.0.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @agribank/vite-plugin
 
+## 6.0.2
+
+### Patch Changes
+
+- 443e3f9: fix(vite-plugin): range reference @agribank/ui to prevent major version bumps during updates
+- Updated dependencies [61e6546]
+  - @agribank/ui@3.1.2
+
 ## 6.0.1
 
 ### Patch Changes
