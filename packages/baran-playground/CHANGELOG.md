@@ -1,5 +1,13 @@
 # @agribank/baran-playground
 
+## 0.4.1
+
+### Patch Changes
+
+- c350410: fix: added --build flag to our templates and resolved issues with tsconfig of these projects
+- Updated dependencies [c350410]
+  - @agribank/ui@3.1.1
+
 ## 0.4.0
 
 ### Minor Changes

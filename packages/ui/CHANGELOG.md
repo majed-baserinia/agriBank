@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 3.1.1
+
+### Patch Changes
+
+- c350410: fix: added --build flag to our templates and resolved issues with tsconfig of these projects
+
 ## 3.1.0
 
 ### Minor Changes
