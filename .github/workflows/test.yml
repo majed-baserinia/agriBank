@@ -31,7 +31,6 @@ jobs:
         run: pnpm run build
 
       - name: Lint
-        if: (${{ success() }} || ${{ failure() }}) # ensures this step runs even if previous steps fail
         run: pnpm run lint
 
       - name: Format
