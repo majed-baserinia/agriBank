@@ -70,6 +70,7 @@ export default defineConfig({
 				/react\/*/,
 				"react-dom",
 				"zustand",
+				/zustand\/*/,
 				"i18next",
 				"react-i18next",
 				/@agribank\/*/,

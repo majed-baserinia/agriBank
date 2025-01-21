@@ -29,6 +29,7 @@ export default defineConfig({
 				/@tanstack\/*/,
 				"immer",
 				"zustand",
+				/zustand\/*/,
 				"i18next",
 				"react-i18next",
 				/@agribank\/*/,
