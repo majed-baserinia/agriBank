@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ui",
-	"version": "3.0.0",
+	"version": "3.1.0",
 	"type": "module",
 	"description": "set of components to build react apps with",
 	"repository": {
@@ -57,7 +57,7 @@
 		"preview": "vite preview"
 	},
 	"devDependencies": {
-		"@agribank/eslint-plugin": "^0.2.0",
+		"@agribank/eslint-plugin": "^0.3.0",
 		"@agribank/i18n": "^0.3.0",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/prettier-config": "^0.0.6",

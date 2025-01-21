@@ -1,5 +1,16 @@
 # @agribank/ui
 
+## 3.1.0
+
+### Minor Changes
+
+- f8711ef: chore: updated zustand version
+- 8175a98: chore: use same @types/node for all packages
+
+### Patch Changes
+
+- @agribank/i18n@0.3.0
+
 ## 3.0.0
 
 ### Minor Changes

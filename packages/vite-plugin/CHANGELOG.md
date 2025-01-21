@@ -1,5 +1,18 @@
 # @agribank/vite-plugin
 
+## 6.0.0
+
+### Minor Changes
+
+- f8711ef: chore: updated zustand version
+- 8175a98: chore: use same @types/node for all packages
+
+### Patch Changes
+
+- Updated dependencies [f8711ef]
+- Updated dependencies [8175a98]
+  - @agribank/ui@3.1.0
+
 ## 5.0.0
 
 ### Minor Changes

@@ -1,5 +1,21 @@
 # @agribank/baran-playground
 
+## 0.4.0
+
+### Minor Changes
+
+- f8711ef: chore: updated zustand version
+- 8175a98: chore: use same @types/node for all packages
+
+### Patch Changes
+
+- Updated dependencies [f8711ef]
+- Updated dependencies [e53f7fc]
+- Updated dependencies [8175a98]
+  - @agribank/baran-typed-querykit@3.0.0
+  - @agribank/ignite@6.0.0
+  - @agribank/ui@3.1.0
+
 ## 0.3.0
 
 ### Minor Changes

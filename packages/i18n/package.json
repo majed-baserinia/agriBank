@@ -40,7 +40,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@agribank/eslint-plugin": "^0.2.0",
+		"@agribank/eslint-plugin": "^0.3.0",
 		"@agribank/prettier-config": "^0.0.6",
 		"eslint": "^9.12.0",
 		"i18next": "^23.2.5",

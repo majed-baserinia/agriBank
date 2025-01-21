@@ -1,5 +1,11 @@
 # @agribank/eslint-plugin
 
+## 0.3.0
+
+### Minor Changes
+
+- 8175a98: chore: use same @types/node for all packages
+
 ## 0.2.1
 
 ### Patch Changes
