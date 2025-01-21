@@ -1,23 +1,33 @@
 {
-	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+		"types": [],
 		"target": "ES2022",
 		"lib": ["ESNext", "WebWorker"],
 		"module": "ESNext",
+
+		/* Bundler mode */
+		"moduleResolution": "Bundler",
+		"allowImportingTsExtensions": true,
+		"isolatedModules": true,
+		"moduleDetection": "force",
 		"noEmit": true,
 
+		/* Linting */
+		"strict": true,
 		"allowJs": true,
 		"checkJs": true,
-
-		"skipLibCheck": true,
-		"moduleResolution": "Bundler",
-		"baseUrl": "."
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedSideEffectImports": true
 	},
 	"include": [
 		"./vite.config.ts",
+		"./postcss.config.js",
+		"./tailwind.config.js",
 		"./eslint.config.mjs",
-		"./prettier.config.mjs",
-		"./tailwind.base.config.js"
-	]
+		"./prettier.config.mjs"
+	],
+	"exclude": ["node_modules", "dist"]
 }

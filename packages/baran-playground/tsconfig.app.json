@@ -38,6 +38,7 @@
 		"tests/**/*.tsx",
 		"tests/**/*.jsx",
 		"public/**/*.js",
+		"./playwright.config.ts",
 		"!src/cli/**.ts"
 	],
 	"exclude": ["node_modules", "dist"]
