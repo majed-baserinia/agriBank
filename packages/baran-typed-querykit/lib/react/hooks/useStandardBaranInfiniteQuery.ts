@@ -3,7 +3,6 @@ import type { Result } from "$/types";
 import type {
 	DefaultError,
 	InfiniteData,
-	Optional,
 	QueryClient,
 	QueryKey,
 	UndefinedInitialDataInfiniteOptions
@@ -27,8 +26,7 @@ const _data = z.object({
 export type Response = Result<z.AnyZodObject, typeof _data>;
 
 /**
- * if your defined getNextPageParam returns any value that is not undefined,
- * it will return that instead, otherwise it will handle its own version of getNextPageParams
+ * handles the `getNextPageParam` internally
  */
 export const useStandardBaranInfiniteQuery = <
 	TQueryFnData extends Response,
@@ -36,7 +34,7 @@ export const useStandardBaranInfiniteQuery = <
 	TData = InfiniteData<TQueryFnData>,
 	TQueryKey extends QueryKey = QueryKey
 >(
-	options: Optional<
+	options: Omit<
 		UndefinedInitialDataInfiniteOptions<TQueryFnData, TError, TData, TQueryKey, number>,
 		"getNextPageParam"
 	>,
