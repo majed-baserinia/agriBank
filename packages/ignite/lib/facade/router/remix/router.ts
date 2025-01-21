@@ -9,7 +9,7 @@ export const useRouter: useRouterType = () => {
 	return {
 		type: "react-router",
 		searchParams,
-		canGoBack: history.length > 0,
+		canGoBack: history.length > 1,
 		currentPath: location.pathname,
 		async goBack() {
 			await navigate(-1);
