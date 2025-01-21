@@ -1,4 +1,5 @@
 {
+	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 		"types": [],
@@ -11,6 +12,7 @@
 		"allowImportingTsExtensions": true,
 		"isolatedModules": true,
 		"moduleDetection": "force",
+		"baseUrl": ".",
 		"noEmit": true,
 
 		/* Linting */
@@ -24,8 +26,7 @@
 	},
 	"include": [
 		"./vite.config.ts",
-		"./postcss.config.js",
-		"./tailwind.config.js",
+		"./tailwind.base.config.js",
 		"./eslint.config.mjs",
 		"./prettier.config.mjs"
 	],
