@@ -54,7 +54,7 @@
 		"@agribank/ui": "^3.0.0",
 		"@mui/material": "^6.1.8",
 		"@tanstack/react-router": "^1.95.0",
-		"@types/node": "^22.8.4",
+		"@types/node": "^22.8.2",
 		"@types/react": "^18.3.11",
 		"@vitejs/plugin-react": "^4.3.3",
 		"eslint": "^9.12.0",

@@ -36,7 +36,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@types/node": "^22.8.4",
+		"@types/node": "^22.8.2",
 		"@types/eslint__js": "^8.42.3",
 		"@agribank/prettier-config": "^0.0.6",
 		"@agribank/ui": "^3.0.0",
