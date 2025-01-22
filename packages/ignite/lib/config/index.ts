@@ -29,6 +29,16 @@ export function useInitConfig({ onInitializationFailed, configOverrides, useRout
 		spConfig,
 		configOverrides,
 		onConfigurationsInitialized: ({ theme, themeName, language, config }) => {
+			console.info(import.meta.dynamic.env.BASE_URL, "configurations initialized!");
+			updateSettings({
+				theme: theme,
+				language: language as AcceptedLanguages,
+				themeName: themeName,
+				config: config
+			});
+		},
+		onConfigurationsUpdated: ({ theme, themeName, language, config }) => {
+			console.info(import.meta.dynamic.env.BASE_URL, "configurations updated!");
 			updateSettings({
 				theme: theme,
 				language: language as AcceptedLanguages,
