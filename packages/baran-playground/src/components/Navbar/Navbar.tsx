@@ -13,15 +13,45 @@ import { Grid2, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
-import { useNavigate, type NavigateOptions } from "@tanstack/react-router";
+import { useMatch, useNavigate, type NavigateOptions } from "@tanstack/react-router";
 import { useState, type ReactNode } from "react";
 
-export default function MiniDrawer({ children }: { children: ReactNode }) {
+function MicroToolBar({ isOpen }: { isOpen: boolean }) {
+	const store = useAppStore();
+	const match = useMatch({
+		from: "/_layout/$environment/$app/",
+		shouldThrow: false
+	});
+
+	if (!match) {
+		return;
+	}
+
+	return (
+		<>
+			<NavbarItem
+				text={"send post-message"}
+				title="send post-message"
+				isOpen={isOpen}
+				onClick={() => {
+					store.changeDialogVisibility("opened");
+				}}
+				icon={<CallToActionIcon />}
+			/>
+			<NavbarItemRaw title="toggle environment">
+				<Toggle
+					sx={{ alignItems: "center", display: "flex" }}
+					orientation="vertical"
+				/>
+			</NavbarItemRaw>
+		</>
+	);
+}
+
+export function MiniDrawer({ children }: { children: ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const navigate = useNavigate();
-
-	const store = useAppStore();
 
 	async function changePage(options: NavigateOptions) {
 		setIsOpen(false);
@@ -88,22 +118,15 @@ export default function MiniDrawer({ children }: { children: ReactNode }) {
 				</List>
 				<Divider />
 
-				<List sx={{ marginTop: "auto", justifyContent: "center", alignItems: "center" }}>
-					<NavbarItem
-						text={"send post-message"}
-						title="send post-message"
-						isOpen={isOpen}
-						onClick={() => {
-							store.changeDialogVisibility("opened");
-						}}
-						icon={<CallToActionIcon />}
-					/>
-					<NavbarItemRaw title="toggle environment">
-						<Toggle
-							sx={{ alignItems: "center", display: "flex" }}
-							orientation="vertical"
-						/>
-					</NavbarItemRaw>
+				<List
+					sx={{
+						marginTop: "auto",
+						justifyContent: "center",
+						alignItems: "center",
+						boxSizing: "border-box"
+					}}
+				>
+					<MicroToolBar isOpen={isOpen} />
 				</List>
 			</Paper>
 			<Box
