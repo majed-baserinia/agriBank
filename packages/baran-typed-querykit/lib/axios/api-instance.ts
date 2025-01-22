@@ -67,6 +67,6 @@ async function refreshToken(refreshToken: string): Promise<string | undefined> {
 
 	const newIdToken = response.data.idToken;
 	const newRefreshToken = response.data.refreshToken;
-	useIgniteStore.getState().setAuth({ idToken: newIdToken, refreshToken: newRefreshToken });
+	useIgniteStore.getState().updateAuth({ idToken: newIdToken, refreshToken: newRefreshToken });
 	return newIdToken;
 }
