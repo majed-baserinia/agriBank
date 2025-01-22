@@ -1,3 +1,4 @@
+import { useAppStore } from "$/stores";
 import { useCallback } from "react";
 import { type LoginRequest, useLogin } from "../services/login";
 import { useCurrentEnvironmentUser } from "./useCurrentEnvironmentUser";
@@ -6,13 +7,15 @@ function useMemoizedLogin<T>(
 	{ username, password }: Partial<LoginRequest>,
 	mutate: (params: LoginRequest) => T
 ) {
+	const environment = useAppStore((s) => s.environment);
 	return useCallback(() => {
 		if (!username || !password) {
 			return;
 		}
 
 		return mutate({ username, password });
-	}, [username, password, mutate]);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [username, password, environment, mutate]);
 }
 
 export function useRefreshLogin() {
