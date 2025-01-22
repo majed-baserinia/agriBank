@@ -10,6 +10,7 @@ export function RefreshLogin() {
 			aria-label="refresh login"
 			title="refresh login"
 			onClick={mutate}
+			size="large"
 			disabled={isPending}
 		>
 			<RefreshIcon />

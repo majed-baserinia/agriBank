@@ -33,7 +33,7 @@ export function Login() {
 			>
 				<Typography
 					variant="h1Md"
-					marginBottom={5}
+					marginBottom={10}
 				>
 					Registration form
 				</Typography>
@@ -42,13 +42,9 @@ export function Login() {
 				<Grid2
 					container
 					alignItems={"center"}
+					marginBottom={10}
 				>
-					<Typography
-						variant="h1Md"
-						marginBottom={5}
-					>
-						Registration result
-					</Typography>
+					<Typography variant="h1Md">Registration result</Typography>
 					<RefreshLogin />
 				</Grid2>
 				<Result />
