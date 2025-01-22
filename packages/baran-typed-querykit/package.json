@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-typed-querykit",
-	"version": "3.0.1",
+	"version": "3.0.2",
 	"type": "module",
 	"description": "Utilities for handling common baran api errors and typing the response models",
 	"repository": {
@@ -41,7 +41,7 @@
 	"devDependencies": {
 		"@agribank/eslint-plugin": "^0.3.0",
 		"@agribank/i18n": "^0.3.0",
-		"@agribank/ignite": "^6.0.2",
+		"@agribank/ignite": "^6.0.3",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/ui": "^3.1.2",
 		"@tanstack/react-query": "^5.62.3",
@@ -67,7 +67,7 @@
 	},
 	"peerDependencies": {
 		"@agribank/i18n": "^0.3.0",
-		"@agribank/ignite": "^6.0.2",
+		"@agribank/ignite": "^6.0.3",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/ui": "^3.1.2",
 		"@tanstack/react-query": "^5.62.3",

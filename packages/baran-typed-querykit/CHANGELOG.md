@@ -1,5 +1,14 @@
 # @agribank/baran-typed-querykit
 
+## 3.0.2
+
+### Patch Changes
+
+- 05cfc97: chore(barna-typed-querykit): renamed setAuth to updateAuth for setting tokens in store
+- Updated dependencies [a76b559]
+- Updated dependencies [f01f333]
+  - @agribank/ignite@6.0.3
+
 ## 3.0.1
 
 ### Patch Changes

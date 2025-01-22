@@ -1,5 +1,12 @@
 # @agribank/ignite
 
+## 6.0.3
+
+### Patch Changes
+
+- a76b559: fix(ignite): rename setAuth to updateAuth and make basePaletteUrl optional also correctly set auth token to store
+- f01f333: feat(ignite): allow updating the config during runtime
+
 ## 6.0.2
 
 ### Patch Changes

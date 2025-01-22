@@ -46,13 +46,13 @@ importers:
   packages/baran-playground:
     dependencies:
       '@agribank/baran-typed-querykit':
-        specifier: ^3.0.0
+        specifier: ^3.0.2
         version: link:../baran-typed-querykit
       '@agribank/i18n':
         specifier: ^0.3.0
         version: link:../i18n
       '@agribank/ignite':
-        specifier: ^6.0.0
+        specifier: ^6.0.3
         version: link:../ignite
       '@agribank/post-message':
         specifier: ^0.2.0
@@ -227,7 +227,7 @@ importers:
         specifier: ^0.3.0
         version: link:../i18n
       '@agribank/ignite':
-        specifier: ^6.0.2
+        specifier: ^6.0.3
         version: link:../ignite
       '@agribank/post-message':
         specifier: ^0.2.0
@@ -757,13 +757,13 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.4.1
+        specifier: ^0.4.2
         version: link:../../packages/baran-playground
       '@agribank/i18n':
         specifier: ^0.3.0
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^6.0.2
+        specifier: ^6.0.3
         version: link:../../packages/ignite
       '@agribank/post-message':
         specifier: ^0.2.0

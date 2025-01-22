@@ -1,5 +1,19 @@
 # @agribank/baran-playground
 
+## 0.4.2
+
+### Patch Changes
+
+- d41437c: feat(baran-playground): alert to reload iframe if environment has change
+- 39c0969: feat(baran-playground): toggle microfront navbar if we on the micro page
+- 153ee99: design(baran-playground): show/hide micro toolbar if we are on the iframe page
+- 818b734: fix: update login info if environment changes
+- Updated dependencies [a76b559]
+- Updated dependencies [f01f333]
+- Updated dependencies [05cfc97]
+  - @agribank/ignite@6.0.3
+  - @agribank/baran-typed-querykit@3.0.2
+
 ## 0.4.1
 
 ### Patch Changes

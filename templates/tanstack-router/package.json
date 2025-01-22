@@ -15,10 +15,10 @@
 	},
 	"dependencies": {
 		"@agribank/i18n": "^0.3.0",
-		"@agribank/ignite": "^6.0.2",
+		"@agribank/ignite": "^6.0.3",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/ui": "^3.1.2",
-		"@agribank/baran-playground": "^0.4.1",
+		"@agribank/baran-playground": "^0.4.2",
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
