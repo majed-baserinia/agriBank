@@ -1,25 +1,34 @@
-import { useRef } from "react";
+import { forwardRef, useImperativeHandle, useRef } from "react";
 import { useInit } from "../hooks/useInit";
 import { Iframe, type Props as IframeProps } from "./Iframe";
 import { PostMessagePopup } from "./PostMessagePopup";
 
 type Props = IframeProps;
+export type Handlers = {
+	reload: () => void;
+};
 
-export function MicroAppPortal({ ...rest }: Props) {
-	const ref = useRef<HTMLIFrameElement>(null);
+export const MicroAppPortal = forwardRef<Handlers, Props>(function MicroAppPortal(props, ref) {
+	const internalRef = useRef<HTMLIFrameElement | null>(null);
 
 	useInit({
-		iframe: ref,
-		app: rest.app
+		iframe: internalRef,
+		app: props.app
 	});
+
+	useImperativeHandle(ref, () => ({
+		reload: () => {
+			internalRef.current && (internalRef.current.src += "");
+		}
+	}));
 
 	return (
 		<>
 			<Iframe
-				{...rest}
-				ref={ref}
+				{...props}
+				ref={internalRef}
 			/>
-			<PostMessagePopup iframe={ref.current} />
+			<PostMessagePopup iframe={internalRef.current} />
 		</>
 	);
-}
+});
