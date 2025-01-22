@@ -22,7 +22,7 @@ export type Options = Pick<HandledConnectionProps, "onInitializationFailed"> & {
 };
 
 export function useInitConfig({ onInitializationFailed, configOverrides, useRouter }: Options) {
-	const { updateSettings: updateSettings } = useIgniteStore();
+	const { updateSettings, updateAuth } = useIgniteStore();
 	const spConfig = useSearchParamsConfigLoader(useRouter);
 
 	const isConfigReady = useLoadAllConfigurations({
@@ -40,6 +40,7 @@ export function useInitConfig({ onInitializationFailed, configOverrides, useRout
 	const { readyToLoad } = useHandledConnection({
 		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
+			updateAuth(data);
 			updateSettings(data);
 		},
 		useRouter,

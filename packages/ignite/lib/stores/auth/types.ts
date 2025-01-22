@@ -6,7 +6,7 @@ export type AuthState = {
 };
 
 type AuthActions = {
-	setAuth: (auth: AuthState["auth"]) => void;
+	updateAuth: (auth: AuthState["auth"]) => void;
 	clearAuth: () => void;
 };
 

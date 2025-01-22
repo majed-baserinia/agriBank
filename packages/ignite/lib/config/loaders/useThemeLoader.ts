@@ -42,10 +42,10 @@ export function useThemeLoader(
 	const [theme, setTheme] = useState<ThemeOptions>();
 
 	useEffect(() => {
-		if (!baseThemeUrl || !basePaletteUrl || !themeName) {
+		if (!baseThemeUrl || !themeName) {
 			return;
 		}
-		getTheme(baseThemeUrl, basePaletteUrl, themeName)
+		getTheme(baseThemeUrl, basePaletteUrl ?? baseThemeUrl, themeName)
 			.then((theme) => {
 				setTheme(theme);
 			})

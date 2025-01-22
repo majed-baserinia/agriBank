@@ -11,9 +11,12 @@ const initial: AuthState = {
 export const createAuthSlice: SliceCreator<AuthSlice> = (set) => ({
 	auth: initial,
 	clearAuth: () => set(initial),
-	setAuth(auth) {
+	updateAuth(auth) {
 		set((state) => {
-			state.auth = auth;
+			state.auth = {
+				idToken: auth.idToken,
+				refreshToken: auth.refreshToken
+			};
 		});
 	}
 });

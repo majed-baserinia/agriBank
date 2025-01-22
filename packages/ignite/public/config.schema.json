@@ -29,7 +29,7 @@
 		},
 		"basePaletteUrl": {
 			"type": "string",
-			"description": "Palette URL.",
+			"description": "Palette URL. defaults to baseThemeUrl if not provided.",
 			"examples": [
 				"https://cdn-tst.bki.ir/cdn/themes/",
 				"https://cdn-pilot.bki.ir/cdn/themes/",
@@ -37,7 +37,7 @@
 			]
 		}
 	},
-	"required": ["apiBaseUrl", "baseThemeUrl", "basePaletteUrl"],
+	"required": ["apiBaseUrl", "baseThemeUrl"],
 	"examples": [
 		{
 			"apiBaseUrl": "https://digitalbanking-tst.bki.ir",
