@@ -13,7 +13,12 @@ type Props = {
 export function NavbarItem({ title, text, icon, isOpen, onClick }: Props) {
 	return (
 		<NavbarItemRaw title={title}>
-			<ListItemButton onClick={onClick}>
+			<ListItemButton
+				sx={{
+					justifyContent: "center"
+				}}
+				onClick={onClick}
+			>
 				<ListItemIcon
 					sx={[
 						{

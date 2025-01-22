@@ -7,7 +7,11 @@
 		"apiBaseUrl": {
 			"type": "string",
 			"description": "Base URL for calling your APIs (e.g., 'https://my.api.org/v1').",
-			"examples": ["https://digitalbanking-tst.bki.ir", "https://dgbankmb-pilot.bki.ir"]
+			"examples": [
+				"https://digitalbanking-tst.bki.ir",
+				"https://dgbankmb-pilot.bki.ir",
+				"https://digitalbanking.bki.ir"
+			]
 		},
 		"baseThemeUrl": {
 			"description": "Theme reference. Can be either '@local/base-theme/', '@agribank/base-theme/', or any valid URL.",
@@ -19,6 +23,18 @@
 				{
 					"const": "@agribank/base-theme/",
 					"description": "reads from @agribank/ui package"
+				},
+				{
+					"const": "https://cdn.bki.ir/cdn/themes/",
+					"description": "reads from production BKI cdn"
+				},
+				{
+					"const": "https://cdn-pilot.bki.ir/cdn/themes/",
+					"description": "reads from pilot BKI cdn"
+				},
+				{
+					"const": "https://cdn-pilot.bki.ir/cdn/themes/",
+					"description": "reads from tst BKI cdn"
 				},
 				{
 					"type": "string",

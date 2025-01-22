@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { Details } from "./Details";
 import { Toggle } from "./Toggle";
 
@@ -11,9 +11,20 @@ export function Environment() {
 				gridTemplateColumns: "repeat(2, minmax(0, max-content)"
 			}}
 		>
-			<Typography variant="bodyLg">active environment:</Typography>
+			<Typography
+				marginBottom={10}
+				variant="h1Md"
+			>
+				Active environment
+			</Typography>
 			<Toggle />
-			<Typography variant="bodyLg">url:</Typography>
+			<Divider sx={{ marginBottom: 20, marginTop: 20 }} />
+			<Typography
+				marginBottom={10}
+				variant="h1Md"
+			>
+				Mapped URL
+			</Typography>
 			<Details />
 		</Box>
 	);

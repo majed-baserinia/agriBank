@@ -1,2 +1,2 @@
-export * from "./useCurrentEnvironmentUser";
+export * from "./environment-users";
 export * from "./useRefreshLogin";

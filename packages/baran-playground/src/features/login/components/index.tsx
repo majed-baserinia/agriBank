@@ -1,23 +1,12 @@
-import {
-	PreRegisterCommand,
-	RegisterCommand,
-	VerifyRegisterOtpCommand
-} from "$/services/.generated/customer-management/zod/schemas";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Divider, Grid2, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
-import { z } from "zod";
-import { requestSchema as LoginRequestCommand } from "../services/login";
+import type { z } from "zod";
+import { schema } from "../schemas";
 import { RefreshLogin } from "./RefreshLogin";
 import { Register } from "./Register";
 import { Result } from "./Result";
-
-export const schema = z.object({
-	preRegister: PreRegisterCommand.optional(),
-	verifyRegister: VerifyRegisterOtpCommand.optional(),
-	register: RegisterCommand.optional(),
-	login: LoginRequestCommand.optional()
-});
+import { UsersSlot } from "./UsersSlot";
 
 export type RegisterInput = z.infer<typeof schema>;
 
@@ -38,6 +27,7 @@ export function Login() {
 					Registration form
 				</Typography>
 				<Register />
+				<UsersSlot />
 				<Divider sx={{ marginBottom: 20, marginTop: 20 }} />
 				<Grid2
 					container

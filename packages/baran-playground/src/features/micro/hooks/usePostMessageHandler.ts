@@ -1,11 +1,11 @@
 import type { Application } from "$/features/apps";
 import { convert } from "$/features/environment";
-import { useCurrentEnvironmentUser, useRefreshLogin } from "$/features/login";
+import { useCurrentEnvironmentActiveUser, useRefreshLogin } from "$/features/login";
 import { useAppStore } from "$/stores";
 import type { PostMessageOutputSubType, PostMessageTypes } from "@agribank/post-message";
 import { useNavigate } from "@tanstack/react-router";
 import { enqueueSnackbar } from "notistack";
-import { type RefObject, useCallback } from "react";
+import { type RefObject, useCallback, useRef } from "react";
 
 type PostMessageHandlerOptions = {
 	iframe: RefObject<HTMLIFrameElement | null>;
@@ -20,7 +20,8 @@ export function usePostMessageHandler({
 	const navigate = useNavigate();
 
 	const refreshLogin = useRefreshLogin();
-	const user = useCurrentEnvironmentUser();
+	const user = useCurrentEnvironmentActiveUser();
+	const isHandlingLogin = useRef(false);
 
 	const handler = useCallback(
 		async (event: MessageEvent<{ type: PostMessageTypes["type"] | (string & {}) }>) => {
@@ -45,11 +46,11 @@ export function usePostMessageHandler({
 					updateLastAliveTime();
 					return;
 				case "iFrameReady": {
-					if (refreshLogin.isPending || refreshLogin.data?.response) {
+					if (refreshLogin.isPending || refreshLogin.data?.response || isHandlingLogin.current) {
 						return;
 					}
 
-					if (!user.output?.login?.idToken) {
+					if (!user?.output?.login?.idToken) {
 						enqueueSnackbar({
 							message: "invalid token for the selected environment, please login first",
 							variant: "error"
@@ -59,7 +60,9 @@ export function usePostMessageHandler({
 						});
 						return;
 					}
+					isHandlingLogin.current = true;
 					const data = await refreshLogin.mutateAsync();
+					isHandlingLogin.current = false;
 					if (data?.error) {
 						return;
 					}
@@ -82,7 +85,7 @@ export function usePostMessageHandler({
 				}
 			}
 		},
-		[app.url, iframe, navigate, refreshLogin, updateLastAliveTime, user.output?.login?.idToken]
+		[app.url, iframe, navigate, refreshLogin, updateLastAliveTime, user?.output?.login?.idToken]
 	);
 	return handler;
 }

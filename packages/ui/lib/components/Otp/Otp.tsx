@@ -25,6 +25,9 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 	usePostMessage({
 		message: { type: "GetOTP", input: { OTPLen: "8", ReadMode: "UserConsent" } },
 		callback: (e) => {
+			if (e.data.type !== "ResOTP") {
+				return;
+			}
 			setValue(e.data.data.OTP);
 			onChange(e.data.data.OTP);
 		}

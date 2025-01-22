@@ -9,7 +9,7 @@ import { baranMutateFn } from "@agribank/baran-typed-querykit/react";
 import { useMutation } from "@tanstack/react-query";
 import { headers } from "./headers";
 
-export function usePreRegister() {
+export function usePreRegister(accountNumber: string) {
 	const store = useAppStore();
 
 	return useMutation({
@@ -27,8 +27,14 @@ export function usePreRegister() {
 				return;
 			}
 
-			store.setPreRegisterRequest(variables);
-			store.setPreRegisterResponse(result.response!);
+			store.setPreRegisterRequest({
+				accountNumber: accountNumber,
+				data: variables
+			});
+			store.setPreRegisterResponse({
+				accountNumber: accountNumber,
+				data: result.response!
+			});
 		}
 	});
 }

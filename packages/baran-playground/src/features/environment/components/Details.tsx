@@ -7,7 +7,7 @@ export function Details() {
 
 	return (
 		<pre>
-			<Typography>{convert(settings.environment)}</Typography>
+			<Typography variant="bodyLg">{convert(settings.environment)}</Typography>
 		</pre>
 	);
 }

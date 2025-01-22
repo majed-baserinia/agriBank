@@ -18,7 +18,10 @@ export function Toggle({ orientation, sx }: Props) {
 		setView(settings.environment);
 	}, [settings.environment]);
 
-	const handleChange = (_: unknown, next: Environments) => {
+	const handleChange = (_: unknown, next: Environments | null) => {
+		if (!next) {
+			return;
+		}
 		settings.setEnvironment(next);
 	};
 

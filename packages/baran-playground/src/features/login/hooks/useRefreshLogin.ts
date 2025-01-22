@@ -1,7 +1,7 @@
 import { useAppStore } from "$/stores";
 import { useCallback } from "react";
 import { type LoginRequest, useLogin } from "../services/login";
-import { useCurrentEnvironmentUser } from "./useCurrentEnvironmentUser";
+import { useCurrentEnvironmentActiveUser } from "./environment-users";
 
 function useMemoizedLogin<T>(
 	{ username, password }: Partial<LoginRequest>,
@@ -19,11 +19,11 @@ function useMemoizedLogin<T>(
 }
 
 export function useRefreshLogin() {
-	const user = useCurrentEnvironmentUser();
-	const { mutate, mutateAsync, ...rest } = useLogin();
+	const user = useCurrentEnvironmentActiveUser();
+	const { mutate, mutateAsync, ...rest } = useLogin(user?.input.preRegister?.accOrCifNum ?? "");
 
-	const username = user.input?.login?.username;
-	const password = user.input?.login?.password;
+	const username = user?.input?.login?.username;
+	const password = user?.input?.login?.password;
 
 	const loginSync = useMemoizedLogin({ username, password }, mutate);
 	const loginAsync = useMemoizedLogin({ username, password }, mutateAsync);

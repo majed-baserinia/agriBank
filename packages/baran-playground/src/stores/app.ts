@@ -4,11 +4,14 @@ import { createApplicationsSlice } from "$/features/apps";
 import { createEnvironmentSlice } from "$/features/environment/stores/index";
 import { createLoginSlice } from "$/features/login";
 import { createMicroSlice } from "$/features/micro";
+import { createStorage } from "$/stores/storage";
 import type { AppStore } from "$/stores/types";
+import { enableMapSet } from "immer";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
 
+enableMapSet();
 export const useAppStore = create<AppStore>()(
 	persist(
 		immer((set, get, ...params) => ({
@@ -18,10 +21,11 @@ export const useAppStore = create<AppStore>()(
 			...createMicroSlice(set, get, ...params),
 			reset() {
 				get().resetEnvironment();
-				get().resetUser();
+				get().resetUsers();
 			}
 		})),
 		{
+			storage: createStorage(),
 			name: "playground-settings"
 		}
 	)

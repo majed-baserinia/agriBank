@@ -23,21 +23,20 @@ function MicroToolBar({ isOpen }: { isOpen: boolean }) {
 		shouldThrow: false
 	});
 
-	if (!match) {
-		return;
-	}
-
 	return (
 		<>
-			<NavbarItem
-				text={"send post-message"}
-				title="send post-message"
-				isOpen={isOpen}
-				onClick={() => {
-					store.changeDialogVisibility("opened");
-				}}
-				icon={<CallToActionIcon />}
-			/>
+			{match && (
+				<NavbarItem
+					text={"send post-message"}
+					title="send post-message"
+					isOpen={isOpen}
+					onClick={() => {
+						store.changeDialogVisibility("opened");
+					}}
+					icon={<CallToActionIcon />}
+				/>
+			)}
+
 			<NavbarItemRaw title="toggle environment">
 				<Toggle
 					sx={{ alignItems: "center", display: "flex" }}
@@ -123,7 +122,8 @@ export function MiniDrawer({ children }: { children: ReactNode }) {
 						marginTop: "auto",
 						justifyContent: "center",
 						alignItems: "center",
-						boxSizing: "border-box"
+						boxSizing: "border-box",
+						width: "100%"
 					}}
 				>
 					<MicroToolBar isOpen={isOpen} />

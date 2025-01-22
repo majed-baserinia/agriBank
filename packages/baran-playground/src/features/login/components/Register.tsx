@@ -1,4 +1,4 @@
-import { useCurrentEnvironmentUser } from "$/features/login";
+import { useCurrentEnvironmentActiveUser } from "$/features/login";
 import type { PreRegisterOutputDto } from "$/services/.generated/customer-management/zod/schemas";
 import { setBaranErrorsToForm } from "@agribank/baran-typed-querykit/react";
 import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
@@ -18,11 +18,14 @@ export function Register() {
 	const form = useFormContext<RegisterInput>();
 	const [otp, setOtp] = useState("");
 
-	const { mutateAsync: postPreRegister, isPending: isSendingOtpPending } = usePreRegister();
-	const { mutateAsync: postVerifyRegister, isPending: isVerifyPending } = useVerifyRegister();
-	const { mutateAsync: postRegister, isPending: isRegisterPending } = useRegister();
-	const { mutateAsync: postLogin, isPending: isLoginPending } = useLogin();
-	const user = useCurrentEnvironmentUser();
+	const accountNumber = form.getValues("preRegister.accOrCifNum") ?? "";
+	const { mutateAsync: postPreRegister, isPending: isSendingOtpPending } =
+		usePreRegister(accountNumber);
+	const { mutateAsync: postVerifyRegister, isPending: isVerifyPending } =
+		useVerifyRegister(accountNumber);
+	const { mutateAsync: postRegister, isPending: isRegisterPending } = useRegister(accountNumber);
+	const { mutateAsync: postLogin, isPending: isLoginPending } = useLogin(accountNumber);
+	const user = useCurrentEnvironmentActiveUser();
 
 	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending || isLoginPending);
 
@@ -51,7 +54,6 @@ export function Register() {
 	}
 
 	async function handleVerifyOtp() {
-		console.log(form.getValues());
 		const verifyRegisterResult = await postVerifyRegister(getOtpData());
 		if (verifyRegisterResult.error) {
 			setBaranErrorsToForm(verifyRegisterResult, form, "verifyRegister");
@@ -99,7 +101,7 @@ export function Register() {
 					type="number"
 					helperText={form.formState.errors.preRegister?.accOrCifNum?.message}
 					error={!!form.formState.errors.preRegister?.accOrCifNum?.message}
-					defaultValue={user.input?.preRegister?.accOrCifNum ?? ""}
+					defaultValue={user?.input?.preRegister?.accOrCifNum ?? ""}
 					sx={{
 						flexGrow: 1
 					}}
@@ -111,7 +113,7 @@ export function Register() {
 					type="date"
 					helperText={form.formState.errors.preRegister?.birthDate?.message}
 					error={!!form.formState.errors.preRegister?.birthDate?.message}
-					defaultValue={user.input?.preRegister?.birthDate ?? ""}
+					defaultValue={user?.input?.preRegister?.birthDate ?? ""}
 					sx={{
 						flexGrow: 1
 					}}
@@ -130,7 +132,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.preRegister?.nationalCode?.message}
 					error={!!form.formState.errors.preRegister?.nationalCode?.message}
-					defaultValue={user.input?.preRegister?.nationalCode ?? ""}
+					defaultValue={user?.input?.preRegister?.nationalCode ?? ""}
 				/>
 				<Controlled.Input
 					control={form.control}
@@ -139,7 +141,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.preRegister?.smsHashCode?.message}
 					error={!!form.formState.errors.preRegister?.smsHashCode?.message}
-					defaultValue={user.input?.preRegister?.smsHashCode ?? ""}
+					defaultValue={user?.input?.preRegister?.smsHashCode ?? ""}
 				/>
 			</Grid2>
 			<Grid2
@@ -155,7 +157,7 @@ export function Register() {
 					type="text"
 					helperText={form.formState.errors.login?.username?.message}
 					error={!!form.formState.errors.login?.password?.message}
-					defaultValue={user.input?.login?.username ?? ""}
+					defaultValue={user?.input?.login?.username ?? ""}
 				/>
 				<Controlled.Input
 					control={form.control}
@@ -164,7 +166,7 @@ export function Register() {
 					type="password"
 					helperText={form.formState.errors.login?.password?.message}
 					error={!!form.formState.errors.login?.password?.message}
-					defaultValue={user.input?.login?.password ?? ""}
+					defaultValue={user?.input?.login?.password ?? ""}
 				/>
 			</Grid2>
 			<Grid2

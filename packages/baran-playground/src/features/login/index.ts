@@ -1,3 +1,4 @@
-export { Login, schema } from "./components";
+export { Login } from "./components";
 export * from "./hooks";
+export * from "./schemas";
 export * from "./stores";

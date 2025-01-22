@@ -17,7 +17,7 @@ export const responseSchema = z.object({
 
 export type LoginRequest = z.infer<typeof requestSchema>;
 
-export function useLogin() {
+export function useLogin(accountNumber: string) {
 	const baseUrl = useIgniteStore((state) => state.settings.config.apiBaseUrl);
 	const store = useAppStore();
 
@@ -43,8 +43,14 @@ export function useLogin() {
 				return;
 			}
 
-			store.setLoginRequest(variables);
-			store.setLoginResponse(result.response!);
+			store.setLoginRequest({
+				accountNumber: accountNumber,
+				data: variables
+			});
+			store.setLoginResponse({
+				accountNumber: accountNumber,
+				data: result.response!
+			});
 		}
 	});
 }

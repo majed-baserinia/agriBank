@@ -5,123 +5,225 @@ import type {
 	RegisterOutputDto,
 	VerifyRegisterOtpOutputDto
 } from "$/services";
-import type { SliceCreator } from "$/stores/types";
+import type { AppStore, SliceCreator } from "$/stores/types";
+import { enqueueSnackbar } from "notistack";
 import type { z } from "zod";
 
 type LoginInput = z.infer<typeof schema>;
 
 type PartialLoginInput = Partial<LoginInput>;
+type PartialLoginOutput = {
+	preRegister?: PreRegisterOutputDto;
+	verifyRegister?: VerifyRegisterOtpOutputDto;
+	register?: RegisterOutputDto;
+	login?: Tokens;
+};
 
 type Tokens = {
 	idToken: string;
 	refreshToken: string;
 };
 
+type AccountNumber = string;
 type User = {
-	[key in Environments]: {
-		input?: PartialLoginInput;
-		output?: {
-			preRegister?: PreRegisterOutputDto;
-			verifyRegister?: VerifyRegisterOtpOutputDto;
-			register?: RegisterOutputDto;
-			login?: Tokens;
-		};
-	};
+	[key in Environments]: Map<
+		AccountNumber,
+		{
+			input: PartialLoginInput;
+			output: PartialLoginOutput;
+		}
+	>;
+} & { activatedUserAccountNumber?: string };
+
+type NewState<
+	T extends
+		| PartialLoginInput[keyof PartialLoginInput]
+		| PartialLoginOutput[keyof PartialLoginOutput]
+> = {
+	/**
+	 * account number to filter users with
+	 */
+	accountNumber: string;
+	data: T;
 };
 
 type State = {
-	user: User;
+	users: User;
 };
 
 type Actions = {
-	setUser: (user: User) => void;
-	setLoginRequest: (request: LoginInput["login"]) => void;
-	setPreRegisterRequest: (request: LoginInput["preRegister"]) => void;
-	setVerifyRegisterRequest: (request: LoginInput["verifyRegister"]) => void;
-	setRegisterRequest: (request: LoginInput["register"]) => void;
-	setLoginResponse: (response: Tokens) => void;
-	setPreRegisterResponse: (response: PreRegisterOutputDto) => void;
-	setVerifyRegisterResponse: (response: VerifyRegisterOtpOutputDto) => void;
-	setRegisterResponse: (response: RegisterOutputDto) => void;
-	resetUser: () => void;
+	setLoginRequest: (params: NewState<LoginInput["login"]>) => void;
+	setPreRegisterRequest: (params: NewState<LoginInput["preRegister"]>) => void;
+	setVerifyRegisterRequest: (params: NewState<LoginInput["verifyRegister"]>) => void;
+	setRegisterRequest: (params: NewState<LoginInput["register"]>) => void;
+	setLoginResponse: (params: NewState<Tokens>) => void;
+	setPreRegisterResponse: (params: NewState<PreRegisterOutputDto>) => void;
+	setVerifyRegisterResponse: (params: NewState<VerifyRegisterOtpOutputDto>) => void;
+	setRegisterResponse: (params: NewState<RegisterOutputDto>) => void;
+	setActiveUser: (accountNumber: string) => void;
+	removeUser: (accountNumber: string) => void;
+	resetUsers: () => void;
 };
 
 export type LoginSlice = State & Actions;
 
-const initial: State = { user: { pilot: {}, test: {} } };
+const initial: State = {
+	users: {
+		activatedUserAccountNumber: undefined,
+		production: new Map(),
+		pilot: new Map(),
+		test: new Map()
+	}
+};
 
 export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 	...initial,
-	setUser(user) {
+	setLoginRequest(params) {
 		set((state) => {
-			state.user = { ...state.user, ...user };
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: true,
+				key: "login",
+				params: params
+			});
 		});
 	},
-	setLoginRequest(request) {
+	setPreRegisterRequest(params) {
 		set((state) => {
-			state.user[get().environment].input = {
-				...state.user[get().environment].input,
-				login: request
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: true,
+				key: "preRegister",
+				params: params
+			});
 		});
 	},
-	setPreRegisterRequest(request) {
+	setVerifyRegisterRequest(params) {
 		set((state) => {
-			state.user[get().environment].input = {
-				...state.user[get().environment].input,
-				preRegister: request
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: true,
+				key: "verifyRegister",
+				params: params
+			});
 		});
 	},
-	setVerifyRegisterRequest(request) {
+	setRegisterRequest(params) {
 		set((state) => {
-			state.user[get().environment].input = {
-				...state.user[get().environment].input,
-				verifyRegister: request
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: true,
+				key: "register",
+				params: params
+			});
 		});
 	},
-	setRegisterRequest(request) {
+	setLoginResponse(params) {
 		set((state) => {
-			state.user[get().environment].input = {
-				...state.user[get().environment].input,
-				register: request
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: false,
+				key: "login",
+				params: params
+			});
 		});
 	},
-	setLoginResponse(response) {
+	setPreRegisterResponse(params) {
 		set((state) => {
-			state.user[get().environment].output = {
-				...state.user[get().environment].output,
-				login: response
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: false,
+				key: "preRegister",
+				params: params
+			});
 		});
 	},
-	setPreRegisterResponse(response) {
+	setVerifyRegisterResponse(params) {
 		set((state) => {
-			state.user[get().environment].output = {
-				...state.user[get().environment].output,
-				preRegister: response
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: false,
+				key: "verifyRegister",
+				params: params
+			});
 		});
 	},
-	setVerifyRegisterResponse(response) {
+	setRegisterResponse(params) {
 		set((state) => {
-			state.user[get().environment].output = {
-				...state.user[get().environment].output,
-				verifyRegister: response
-			};
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: false,
+				key: "register",
+				params: params
+			});
 		});
 	},
-	setRegisterResponse(response) {
+	removeUser(accountNumber) {
 		set((state) => {
-			state.user[get().environment].output = {
-				...state.user[get().environment].output,
-				register: response
-			};
+			state.users[get().environment].delete(accountNumber);
+			state.users[get().environment] = { ...state.users[get().environment] };
 		});
 	},
-	resetUser() {
+	setActiveUser(accountNumber) {
+		set((state) => {
+			const user = state.users[get().environment].get(accountNumber);
+			if (!user) {
+				enqueueSnackbar({
+					message: "a user with this account does not exist",
+					variant: "error"
+				});
+				return;
+			}
+			state.users.activatedUserAccountNumber = accountNumber;
+		});
+	},
+	resetUsers() {
 		set(initial);
 	}
 });
+
+function updateState<TIsRequest extends boolean, TKey extends keyof PartialLoginOutput>({
+	stagedState,
+	getCurrentState,
+	params,
+	isRequest,
+	key
+}: {
+	stagedState: AppStore;
+	getCurrentState: () => AppStore;
+	isRequest: TIsRequest;
+	params: NewState<TIsRequest extends true ? PartialLoginInput[TKey] : PartialLoginOutput[TKey]>;
+	key: TKey;
+}) {
+	const user = stagedState.users[getCurrentState().environment].get(params.accountNumber) ?? {
+		input: {},
+		output: {}
+	};
+
+	// set this user as active if there no active users available
+	if (!stagedState.users.activatedUserAccountNumber) {
+		stagedState.users.activatedUserAccountNumber = params.accountNumber;
+	}
+
+	if (isRequest) {
+		user.input = {
+			...user.input,
+			[key]: params.data
+		};
+	} else {
+		user.output = {
+			...user.output,
+			[key]: params.data
+		};
+	}
+
+	stagedState.users[getCurrentState().environment].set(params.accountNumber, user);
+}

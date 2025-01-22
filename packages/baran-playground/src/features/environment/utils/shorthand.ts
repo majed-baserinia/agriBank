@@ -1,6 +1,8 @@
 import type { Environments } from "./environment-to-url";
 export function shorthand(environment: Environments) {
 	switch (environment) {
+		case "production":
+			return "prod";
 		case "test":
 			return "tst";
 		case "pilot":
