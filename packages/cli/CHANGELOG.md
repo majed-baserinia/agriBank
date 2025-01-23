@@ -1,5 +1,11 @@
 # @agribank/cli
 
+## 0.2.1
+
+### Patch Changes
+
+- 190032e: feat: integrate tests into our templates
+
 ## 0.2.0
 
 ### Minor Changes

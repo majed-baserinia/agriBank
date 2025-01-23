@@ -1,5 +1,20 @@
 # @agribank/baran-playground
 
+## 0.5.0
+
+### Minor Changes
+
+- 9ef9797: feat: support multiple accounts per environment for playground
+
+### Patch Changes
+
+- 190032e: feat: integrate tests into our templates
+- Updated dependencies [190032e]
+- Updated dependencies [9ef9797]
+  - @agribank/ui@3.2.0
+  - @agribank/ignite@7.0.0
+  - @agribank/baran-typed-querykit@4.0.0
+
 ## 0.4.2
 
 ### Patch Changes

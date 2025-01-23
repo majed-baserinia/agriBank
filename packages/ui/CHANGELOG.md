@@ -1,5 +1,15 @@
 # @agribank/ui
 
+## 3.2.0
+
+### Minor Changes
+
+- 9ef9797: feat: support multiple accounts per environment for playground
+
+### Patch Changes
+
+- 190032e: feat: integrate tests into our templates
+
 ## 3.1.2
 
 ### Patch Changes

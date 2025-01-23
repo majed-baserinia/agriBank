@@ -1,5 +1,17 @@
 # @agribank/ignite
 
+## 7.0.0
+
+### Minor Changes
+
+- 9ef9797: feat: support multiple accounts per environment for playground
+
+### Patch Changes
+
+- Updated dependencies [190032e]
+- Updated dependencies [9ef9797]
+  - @agribank/ui@3.2.0
+
 ## 6.0.3
 
 ### Patch Changes
