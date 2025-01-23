@@ -7,7 +7,7 @@ export function useCurrentEnvironmentUsers() {
 
 export function useCurrentEnvironmentActiveUser() {
 	const store = useAppStore();
-	return store.users.activatedUserAccountNumber
-		? store.users[store.environment].get(store.users.activatedUserAccountNumber)
+	return store.users.activatedUserKey
+		? store.users[store.environment].get(store.users.activatedUserKey)
 		: undefined;
 }

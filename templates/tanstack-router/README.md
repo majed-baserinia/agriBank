@@ -12,4 +12,4 @@
 
 # Notes
 
-1. in production you won't deploy the default files in `public/` folder unless you have changed/added a key/value in which case you will only include the changed/added keys/values.
+1. in production you won't deploy the **default** files in `public/` folder. You can only deploy the files that you have created!

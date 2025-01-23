@@ -33,7 +33,7 @@ type User = {
 			output: PartialLoginOutput;
 		}
 	>;
-} & { activatedUserAccountNumber?: string };
+} & { activatedUserKey?: string };
 
 type NewState<
 	T extends
@@ -41,9 +41,9 @@ type NewState<
 		| PartialLoginOutput[keyof PartialLoginOutput]
 > = {
 	/**
-	 * account number to filter users with
+	 * key to filter users with
 	 */
-	accountNumber: string;
+	key: string;
 	data: T;
 };
 
@@ -60,8 +60,8 @@ type Actions = {
 	setPreRegisterResponse: (params: NewState<PreRegisterOutputDto>) => void;
 	setVerifyRegisterResponse: (params: NewState<VerifyRegisterOtpOutputDto>) => void;
 	setRegisterResponse: (params: NewState<RegisterOutputDto>) => void;
-	setActiveUser: (accountNumber: string) => void;
-	removeUser: (accountNumber: string) => void;
+	setActiveUser: (key: string) => void;
+	removeUser: (key: string) => void;
 	resetUsers: () => void;
 };
 
@@ -69,7 +69,7 @@ export type LoginSlice = State & Actions;
 
 const initial: State = {
 	users: {
-		activatedUserAccountNumber: undefined,
+		activatedUserKey: undefined,
 		production: new Map(),
 		pilot: new Map(),
 		test: new Map()
@@ -182,7 +182,7 @@ export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 				});
 				return;
 			}
-			state.users.activatedUserAccountNumber = accountNumber;
+			state.users.activatedUserKey = accountNumber;
 		});
 	},
 	resetUsers() {
@@ -203,14 +203,18 @@ function updateState<TIsRequest extends boolean, TKey extends keyof PartialLogin
 	params: NewState<TIsRequest extends true ? PartialLoginInput[TKey] : PartialLoginOutput[TKey]>;
 	key: TKey;
 }) {
-	const user = stagedState.users[getCurrentState().environment].get(params.accountNumber) ?? {
+	if (!key) {
+		return;
+	}
+
+	const user = stagedState.users[getCurrentState().environment].get(params.key) ?? {
 		input: {},
 		output: {}
 	};
 
 	// set this user as active if there no active users available
-	if (!stagedState.users.activatedUserAccountNumber) {
-		stagedState.users.activatedUserAccountNumber = params.accountNumber;
+	if (!stagedState.users.activatedUserKey) {
+		stagedState.users.activatedUserKey = params.key;
 	}
 
 	if (isRequest) {
@@ -225,5 +229,5 @@ function updateState<TIsRequest extends boolean, TKey extends keyof PartialLogin
 		};
 	}
 
-	stagedState.users[getCurrentState().environment].set(params.accountNumber, user);
+	stagedState.users[getCurrentState().environment].set(params.key, user);
 }

@@ -1,7 +1,7 @@
 import { TanStackRouterDevtools } from "$/components/Tanstack/DevTools";
-import { convert } from "$/features/environment";
+import { useCiLoader, useConfigOverrides } from "$/hooks";
 import { useInitClients } from "$/services";
-import { useAppStore } from "$/stores/app";
+import { searchParamsSchema } from "$/utils/search-params";
 import { searchParamsConfigSchema, useIgniteStore, useInit } from "@agribank/ignite";
 import { useRouter } from "@agribank/ignite/router/tanstack-router";
 import { Alerts } from "@agribank/ui/components/Alerts";
@@ -17,8 +17,8 @@ import {
 	retainSearchParams,
 	ScrollRestoration
 } from "@tanstack/react-router";
+import { zodValidator } from "@tanstack/zod-adapter";
 import { SnackbarProvider } from "notistack";
-import { useMemo } from "react";
 import type { z } from "zod";
 
 export type RootContext = {
@@ -27,17 +27,9 @@ export type RootContext = {
 
 export const Route = createRootRouteWithContext<RootContext>()({
 	component: App,
-	validateSearch: (params) =>
-		searchParamsConfigSchema.parse({
-			Lang: "en-GB",
-			Auth: "false",
-			Theme: "dark",
-			...params
-		}) as { Lang?: string; Auth?: boolean; Theme?: string },
-	// TODO: ^-- remove this cast
+	validateSearch: zodValidator(searchParamsSchema),
 	search: {
 		middlewares: [
-			// @ts-expect-error - for now i have to do this, when the types of these functions gets fixed we can remove these
 			retainSearchParams(
 				Object.keys(searchParamsConfigSchema.parse({})) as (keyof z.infer<
 					typeof searchParamsConfigSchema
@@ -46,14 +38,6 @@ export const Route = createRootRouteWithContext<RootContext>()({
 		]
 	}
 });
-
-function useConfigOverrides() {
-	const settings = useAppStore();
-	const configOverrides = useMemo(() => {
-		return { apiBaseUrl: convert(settings.environment) };
-	}, [settings.environment]);
-	return configOverrides;
-}
 
 function App() {
 	const { queryClient } = Route.useRouteContext();
@@ -73,6 +57,7 @@ function App() {
 	useLoadingHandler(!isReady);
 	const theme = useIgniteStore((state) => state.settings.theme);
 	useInitClients();
+	useCiLoader();
 
 	return (
 		<QueryClientProvider client={queryClient}>

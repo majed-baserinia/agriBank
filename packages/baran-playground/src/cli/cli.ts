@@ -15,12 +15,13 @@ function addCommands() {
 		.addOption(
 			new Option("--port <port>", "playground port").env("BARAN_PLAYGROUND_PORT").default("9000")
 		)
+
 		.action((options) => {
 			const parsed = args.parse(options);
 			const outputDir = dirname(fileURLToPath(import.meta.url));
 			const vite = spawn(
 				"pnpm",
-				["dlx", "vite", "preview", "--port", parsed.port, "--outDir", outputDir],
+				["dlx", "vite", "preview", "--port", parsed.port, "--outDir", "."],
 				{
 					cwd: outputDir
 				}

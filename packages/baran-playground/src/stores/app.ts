@@ -1,4 +1,6 @@
-import { createApplicationsSlice } from "$/features/apps";
+// TODO: i cant find the circular dependency
+// eslint-disable-next-line no-restricted-imports
+import { createApplicationsSlice } from "$/features/apps/stores/index";
 // TODO: i cant find the circular dependency
 // eslint-disable-next-line no-restricted-imports
 import { createEnvironmentSlice } from "$/features/environment/stores/index";

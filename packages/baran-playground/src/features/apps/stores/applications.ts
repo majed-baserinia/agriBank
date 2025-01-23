@@ -16,7 +16,7 @@ type State = {
 };
 
 type Actions = {
-	addApplication: (app: Application) => void;
+	addApplication: (app: Application, showError?: boolean) => void;
 	updateApplication: (lastTitle: string, app: Application) => void;
 	removeApplication: (title: string) => void;
 	setSelectedApp: (app: { title: string }) => void;
@@ -34,13 +34,14 @@ export const createApplicationsSlice: SliceCreator<ApplicationSlice> = (set) => 
 			state.applications.selectedApplicationTitle = title;
 		});
 	},
-	addApplication(app) {
+	addApplication(app, showError = true) {
 		set((state) => {
 			if (!isApplicationUnique(app.title, state.applications.apps)) {
-				pushAlert({
-					type: "error",
-					messageText: "application already exists (title should be unique)"
-				});
+				showError &&
+					pushAlert({
+						type: "error",
+						messageText: "application already exists (title should be unique)"
+					});
 				return;
 			}
 			state.applications.apps.push(app);

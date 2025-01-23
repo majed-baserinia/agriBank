@@ -23,7 +23,9 @@
 		"noFallthroughCasesInSwitch": true,
 		"noUncheckedSideEffectImports": true,
 		"paths": {
-			"$/*": ["./src/*"]
+			"$/*": ["./src/*"],
+			"$tests/*": ["./tests/*"],
+			"$playwright-config": ["./playwright.config.ts"]
 		}
 	},
 	"include": [

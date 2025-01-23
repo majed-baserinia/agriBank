@@ -42,6 +42,7 @@ export function Alerts() {
 			}}
 			// eslint-disable-next-line no-loss-of-precision
 			sx={{ zIndex: 9999999999999999 }}
+			data-testid="agribank-ui-alerts"
 		>
 			<Grid
 				container

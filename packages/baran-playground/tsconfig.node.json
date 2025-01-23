@@ -5,6 +5,7 @@
 		"types": [],
 		"lib": ["ESNext", "WebWorker"],
 		"module": "ESNext",
+		"baseUrl": ".",
 
 		/* Bundler mode */
 		"moduleResolution": "Bundler",

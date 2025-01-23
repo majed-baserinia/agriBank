@@ -19,8 +19,9 @@
 	"scripts": {
 		"build": "pnpm -r build",
 		"lint": "pnpm -r lint",
-		"test:unit": "pnpm -r test:unit",
-		"test:integration": "pnpm -r test:integration",
+		"test": "pnpm test:unit && pnpm test:integration",
+		"test:unit": "pnpm run -r --filter './packages/**' test:unit",
+		"test:integration": "pnpm run -r --filter './packages/**' test:integration",
 		"format": "pnpm -r format"
 	},
 	"devDependencies": {

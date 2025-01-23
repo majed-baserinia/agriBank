@@ -22,7 +22,12 @@ function Index() {
 					});
 				}}
 			>
-				<Typography variant="bodyMd">Hello World</Typography>
+				<Typography
+					data-testid="hello-world"
+					variant="bodyMd"
+				>
+					Hello World
+				</Typography>
 			</ButtonAdapter>
 		</>
 	);

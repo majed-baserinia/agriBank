@@ -3,7 +3,7 @@ import { useAppStore } from "$/stores";
 import { ChipsAdapter } from "@agribank/ui/components/ChipsAdapter";
 import { Grid2 } from "@mui/material";
 export function UsersSlot() {
-	const activatedUserAccountNumber = useAppStore((s) => s.users.activatedUserAccountNumber);
+	const activatedUserAccountNumber = useAppStore((s) => s.users.activatedUserKey);
 	const setActiveUser = useAppStore((s) => s.setActiveUser);
 	const users = useCurrentEnvironmentUsers();
 

@@ -9,7 +9,7 @@ import { baranMutateFn } from "@agribank/baran-typed-querykit/react";
 import { useMutation } from "@tanstack/react-query";
 import { headers } from "./headers";
 
-export function useVerifyRegister(accountNumber: string) {
+export function useVerifyRegister(key: string) {
 	const store = useAppStore();
 
 	return useMutation({
@@ -31,11 +31,11 @@ export function useVerifyRegister(accountNumber: string) {
 			}
 
 			store.setVerifyRegisterRequest({
-				accountNumber: accountNumber,
+				key: key,
 				data: variables
 			});
 			store.setVerifyRegisterResponse({
-				accountNumber: accountNumber,
+				key: key,
 				data: result.response!
 			});
 		}

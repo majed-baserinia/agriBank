@@ -50,9 +50,10 @@ export function usePostMessageHandler({
 						return;
 					}
 
-					if (!user?.output?.login?.idToken) {
+					if (!user?.input.login?.username || !user.input.login?.password) {
 						enqueueSnackbar({
-							message: "invalid token for the selected environment, please login first",
+							message:
+								"no active users with username/password exists for the selected environment!",
 							variant: "error"
 						});
 						await navigate({

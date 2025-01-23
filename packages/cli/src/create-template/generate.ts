@@ -19,6 +19,7 @@ function setApplicationName(options: z.infer<typeof optionsSchema>) {
 	};
 	replaceApplicationName("package.json");
 	replaceApplicationName("vite.config.ts", (v) => `/${v}`);
+	replaceApplicationName("playwright.config.ts");
 	replaceApplicationName("tests/example.spec.ts");
 	replaceApplicationName(".vscode/launch.json");
 }
