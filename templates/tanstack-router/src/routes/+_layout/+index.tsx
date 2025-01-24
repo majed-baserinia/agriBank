@@ -12,23 +12,21 @@ function Index() {
 	const { t } = useTranslation();
 
 	return (
-		<>
-			<ButtonAdapter
-				variant="contained"
-				onClick={() => {
-					pushAlert({
-						messageText: t("hi"),
-						type: "success"
-					});
-				}}
+		<ButtonAdapter
+			variant="contained"
+			onClick={() => {
+				pushAlert({
+					messageText: t("hi"),
+					type: "success"
+				});
+			}}
+		>
+			<Typography
+				data-testid="hello-world"
+				variant="bodyMd"
 			>
-				<Typography
-					data-testid="hello-world"
-					variant="bodyMd"
-				>
-					Hello World
-				</Typography>
-			</ButtonAdapter>
-		</>
+				Hello World
+			</Typography>
+		</ButtonAdapter>
 	);
 }

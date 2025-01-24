@@ -9,11 +9,9 @@ export const Route = createFileRoute("/_layout")({
 
 function Layout() {
 	return (
-		<>
-			<PaperAdapter>
-				<Navbar />
-				<Outlet />
-			</PaperAdapter>
-		</>
+		<PaperAdapter>
+			<Navbar />
+			<Outlet />
+		</PaperAdapter>
 	);
 }

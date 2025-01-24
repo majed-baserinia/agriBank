@@ -6,7 +6,7 @@ import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProv
 import { RootStyles } from "@agribank/ui/components/RootStyles";
 import { TanStackRouterDevtools } from "@agribank/ui/components/Tanstack";
 import { pushAlert } from "@agribank/ui/stores/alerts";
-import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
+import type { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import {
 	createRootRouteWithContext,
