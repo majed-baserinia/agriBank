@@ -1,5 +1,14 @@
 # @agribank/baran-typed-querykit
 
+## 5.0.0
+
+### Patch Changes
+
+- Updated dependencies [66c3e7f]
+- Updated dependencies [e4bc9b5]
+  - @agribank/ui@3.3.0
+  - @agribank/ignite@8.0.0
+
 ## 4.0.0
 
 ### Patch Changes

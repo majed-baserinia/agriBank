@@ -1,5 +1,12 @@
 # @agribank/ui
 
+## 3.3.0
+
+### Minor Changes
+
+- 66c3e7f: feat(ui): add tanstack devtools component
+- e4bc9b5: feat(ui): add tanstack/link component
+
 ## 3.2.0
 
 ### Minor Changes

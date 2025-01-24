@@ -1,5 +1,13 @@
 # @agribank/ignite
 
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [66c3e7f]
+- Updated dependencies [e4bc9b5]
+  - @agribank/ui@3.3.0
+
 ## 7.0.0
 
 ### Minor Changes
