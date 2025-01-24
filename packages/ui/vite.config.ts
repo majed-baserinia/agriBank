@@ -41,6 +41,9 @@ const componentEntries = getComponentEntries();
 const storeEntries = getStoreEntries();
 
 export default defineConfig({
+	define: {
+		"import.meta.dynamic.env": "import.meta.env"
+	},
 	build: {
 		emptyOutDir: true,
 		sourcemap: true,
@@ -78,6 +81,8 @@ export default defineConfig({
 				/@mui\/*/,
 				/@material-ui\/*/,
 				/@emotion\/*/,
+				"@tanstack",
+				/tanstack\/*/,
 				"stylis",
 				"stylis-plugin-rtl",
 				"react-modal-sheet",
