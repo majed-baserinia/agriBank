@@ -1,5 +1,5 @@
-import { Grid2, Link } from "@mui/material";
-import { Link as RouterLink } from "@tanstack/react-router";
+import { Link } from "@agribank/ui/components/Tanstack";
+import { Grid2 } from "@mui/material";
 
 export function Navbar() {
 	return (
@@ -11,17 +11,17 @@ export function Navbar() {
 			marginBottom={10}
 		>
 			<Link
-				component={"span"}
 				variant="h6"
+				to={"/"}
 			>
-				<RouterLink to="/">home</RouterLink>
+				home
 			</Link>
 
 			<Link
-				component={"span"}
 				variant="h6"
+				to={"/service-call"}
 			>
-				<RouterLink to="/service-call">service call</RouterLink>
+				service call
 			</Link>
 		</Grid2>
 	);

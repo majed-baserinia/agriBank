@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import type { Props } from "./type";
+import type { DevToolsProps } from "./type";
 
 const TanStackRouterDevtoolsPromise = import.meta.dynamic.env.PROD
 	? () => null // Render nothing in production
@@ -12,7 +12,7 @@ const TanStackRouterDevtoolsPromise = import.meta.dynamic.env.PROD
 			}))
 		);
 
-export function TanStackRouterDevtools({ position }: Props) {
+export function TanStackRouterDevtools({ position }: DevToolsProps) {
 	return (
 		<Suspense>
 			<TanStackRouterDevtoolsPromise position={position} />

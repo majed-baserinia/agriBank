@@ -1,2 +1,2 @@
 export * from "./DevTools";
-export * from "./Link";
+export * from "./type";
