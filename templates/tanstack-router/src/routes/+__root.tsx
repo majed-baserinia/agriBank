@@ -36,7 +36,6 @@ export const Route = createRootRouteWithContext<RootContext>()({
 });
 
 function App() {
-
 	const isReady = useInit({
 		onInitializationFailed: (message) => {
 			pushAlert({
