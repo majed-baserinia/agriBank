@@ -36,7 +36,7 @@ export const Route = createRootRouteWithContext<RootContext>()({
 });
 
 function App() {
-	const { queryClient } = Route.useRouteContext();
+
 	const isReady = useInit({
 		onInitializationFailed: (message) => {
 			pushAlert({
@@ -53,7 +53,7 @@ function App() {
 	// useInitClients(); uncomment this and whats in services/clients in case of using `@agribank/cli generate-clients`
 
 	return (
-		<QueryClientProvider client={queryClient}>
+		<>
 			<RootStyles>
 				<MaterialThemeProvider theme={theme}>
 					<Alerts />
@@ -65,6 +65,6 @@ function App() {
 
 			<TanStackRouterDevtools position="bottom-left" />
 			<ReactQueryDevtools />
-		</QueryClientProvider>
+		</>
 	);
 }
