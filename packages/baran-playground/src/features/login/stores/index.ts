@@ -41,7 +41,7 @@ type NewState<
 		| PartialLoginOutput[keyof PartialLoginOutput]
 > = {
 	/**
-	 * key to filter users with
+	 * key to identify this user with
 	 */
 	key: string;
 	data: T;
@@ -166,15 +166,15 @@ export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 			});
 		});
 	},
-	removeUser(accountNumber) {
+	removeUser(key) {
 		set((state) => {
-			state.users[get().environment].delete(accountNumber);
+			state.users[get().environment].delete(key);
 			state.users[get().environment] = { ...state.users[get().environment] };
 		});
 	},
-	setActiveUser(accountNumber) {
+	setActiveUser(key) {
 		set((state) => {
-			const user = state.users[get().environment].get(accountNumber);
+			const user = state.users[get().environment].get(key);
 			if (!user) {
 				enqueueSnackbar({
 					message: "a user with this account does not exist",
@@ -182,7 +182,7 @@ export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 				});
 				return;
 			}
-			state.users.activatedUserKey = accountNumber;
+			state.users.activatedUserKey = key;
 		});
 	},
 	resetUsers() {
@@ -212,7 +212,7 @@ function updateState<TIsRequest extends boolean, TKey extends keyof PartialLogin
 		output: {}
 	};
 
-	// set this user as active if there no active users available
+	// set this user as active if there are no active users available
 	if (!stagedState.users.activatedUserKey) {
 		stagedState.users.activatedUserKey = params.key;
 	}

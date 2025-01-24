@@ -1,4 +1,3 @@
-import { TanStackRouterDevtools } from "$/components/Tanstack/DevTools";
 import { useCiLoader, useConfigOverrides } from "$/hooks";
 import { useInitClients } from "$/services";
 import { searchParamsSchema } from "$/utils/search-params";
@@ -8,6 +7,7 @@ import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
 import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
 import { RootStyles } from "@agribank/ui/components/RootStyles";
+import { TanStackRouterDevtools } from "@agribank/ui/components/Tanstack";
 import { pushAlert } from "@agribank/ui/stores/alerts";
 import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";

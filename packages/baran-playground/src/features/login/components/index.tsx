@@ -3,7 +3,7 @@ import { Divider, Grid2, Typography } from "@mui/material";
 import { FormProvider, useForm } from "react-hook-form";
 import type { z } from "zod";
 import { schema } from "../schemas";
-import { RefreshLogin } from "./RefreshLogin";
+import { RefreshLoginButton } from "./RefreshLoginButton";
 import { Register } from "./Register";
 import { Result } from "./Result";
 import { UsersSlot } from "./UsersSlot";
@@ -35,7 +35,7 @@ export function Login() {
 					marginBottom={10}
 				>
 					<Typography variant="h1Md">Registration result</Typography>
-					<RefreshLogin />
+					<RefreshLoginButton />
 				</Grid2>
 				<Result />
 			</Grid2>

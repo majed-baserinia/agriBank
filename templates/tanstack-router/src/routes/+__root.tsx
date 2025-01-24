@@ -1,10 +1,10 @@
-import { TanStackRouterDevtools } from "$/components/Tanstack/DevTools";
 import { searchParamsConfigSchema, useIgniteStore, useInit } from "@agribank/ignite";
 import { useRouter } from "@agribank/ignite/router/tanstack-router";
 import { Alerts } from "@agribank/ui/components/Alerts";
 import { Loader, useLoadingHandler } from "@agribank/ui/components/Loader";
 import { MaterialThemeProvider } from "@agribank/ui/components/MaterialThemeProvider";
 import { RootStyles } from "@agribank/ui/components/RootStyles";
+import { TanStackRouterDevtools } from "@agribank/ui/components/Tanstack";
 import { pushAlert } from "@agribank/ui/stores/alerts";
 import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
