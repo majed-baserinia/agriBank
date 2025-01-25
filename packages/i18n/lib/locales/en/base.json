@@ -81,7 +81,7 @@
 	"cancel": "cancel",
 	"done-successfully": "done successfully",
 	"refuse": "refuse",
-	"network-error": "network error. try again.",
+	"network-error": "network error, please try again",
 	"confirm": "confirm",
 	"confirm-and-continue": "confirm and continue",
 	"account-number": "account number",
