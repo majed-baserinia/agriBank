@@ -13,6 +13,7 @@ export function alertBaranError(result: unknown, throwError: boolean = false) {
 	switch (result.error.type) {
 		case "InternalError":
 		case "UnknownApiError":
+		case "NetworkError":
 		case "ApiError":
 			if (throwError) {
 				throw new Error(result.error.message);

@@ -50,6 +50,7 @@ axiosForApi.interceptors.response.use(
 			}
 			sendPostMessage("tokenIsNotValid", "true");
 		}
+
 		return Promise.reject(error);
 	}
 );

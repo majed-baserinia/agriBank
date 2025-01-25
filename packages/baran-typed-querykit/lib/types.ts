@@ -12,6 +12,12 @@ export type ErrorResult<TRequestSchema extends z.AnyZodObject> =
 			raw: null;
 	  }
 	| {
+			type: "NetworkError";
+			message: string;
+			details: null;
+			raw: null;
+	  }
+	| {
 			type: "ClientSideValidationError";
 			message: string;
 			details: z.inferFlattenedErrors<TRequestSchema>["fieldErrors"];
