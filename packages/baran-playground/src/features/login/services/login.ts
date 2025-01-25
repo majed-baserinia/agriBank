@@ -26,7 +26,7 @@ export function useLogin(key: string) {
 			async fn(data) {
 				return await callApi(
 					(param) =>
-						axios.login.post("/login", param, {
+						axios.api.post("/login", param, {
 							baseURL: baseUrl,
 							headers
 						}),

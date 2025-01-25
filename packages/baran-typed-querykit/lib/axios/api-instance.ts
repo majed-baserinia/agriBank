@@ -1,8 +1,9 @@
 import { setCommonHeaders } from "$/axios/headers";
 import { axiosForLogin } from "$/axios/login-instance";
+import { setNetworkError } from "$/utils";
 import { useIgniteStore } from "@agribank/ignite";
 import { alertAppIsStillRunning, sendPostMessage } from "@agribank/post-message";
-import axios, { type AxiosError, type AxiosResponse } from "axios";
+import axios, { AxiosError, type AxiosResponse } from "axios";
 import axiosRetry from "axios-retry";
 
 export const axiosForApi = axios.create({
@@ -49,6 +50,14 @@ axiosForApi.interceptors.response.use(
 				window.location.href = import.meta.dynamic.env.BASE_URL ?? "";
 			}
 			sendPostMessage("tokenIsNotValid", "true");
+		}
+
+		if (
+			error.status !== 500 &&
+			(error.code === AxiosError.ERR_NETWORK || error.code === AxiosError.ETIMEDOUT)
+		) {
+			setNetworkError(error);
+			return Promise.reject(error);
 		}
 
 		return Promise.reject(error);

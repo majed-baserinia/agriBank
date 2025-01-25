@@ -1,8 +1,7 @@
 import { BaranApiParser } from "$/constants";
 import type { Options, Request, Result, StrictResult } from "$/types";
-import { parseBaranErrorResponse } from "$/utils/error";
-import { handledRequest } from "$/utils/handled-request";
-import { AxiosError, isAxiosError, type AxiosResponse } from "axios";
+import { handledRequest, isAxiosNetworkError, parseBaranErrorResponse } from "$/utils";
+import { type AxiosResponse } from "axios";
 import i18next from "i18next";
 import type { z } from "zod";
 
@@ -43,7 +42,7 @@ async function _callApiStrict<
 	} catch (e) {
 		console.error(e);
 
-		if (isAxiosError(e) && (e.code === AxiosError.ERR_NETWORK || e.code === AxiosError.ETIMEDOUT)) {
+		if (isAxiosNetworkError(e)) {
 			return {
 				error: {
 					type: "NetworkError",
