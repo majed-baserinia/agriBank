@@ -771,6 +771,9 @@ importers:
       '@agribank/baran-playground':
         specifier: ^0.6.0
         version: link:../../packages/baran-playground
+      '@agribank/baran-typed-querykit':
+        specifier: ^6.0.0
+        version: link:../../packages/baran-typed-querykit
       '@agribank/i18n':
         specifier: ^0.4.0
         version: link:../../packages/i18n
