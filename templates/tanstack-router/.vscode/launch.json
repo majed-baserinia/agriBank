@@ -18,6 +18,12 @@
 			"webRoot": "${workspaceFolder}"
 		},
 		{
+			"command": "pnpm exec baran-playground",
+			"name": "pnpm:playground",
+			"request": "launch",
+			"type": "node-terminal"
+		},
+		{
 			"command": "pnpm exec playwright codegen",
 			"name": "pnpm:playwright:codegen",
 			"request": "launch",
