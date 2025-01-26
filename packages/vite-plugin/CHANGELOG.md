@@ -1,5 +1,11 @@
 # @agribank/vite-plugin
 
+## 9.0.0
+
+### Patch Changes
+
+- @agribank/ui@4.0.0
+
 ## 8.0.0
 
 ### Patch Changes

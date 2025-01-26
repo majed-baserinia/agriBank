@@ -1,5 +1,18 @@
 # @agribank/baran-typed-querykit
 
+## 6.0.0
+
+### Minor Changes
+
+- 04ed6e7: feat: handle net-err and show better error-message
+
+### Patch Changes
+
+- Updated dependencies [04ed6e7]
+  - @agribank/i18n@0.4.0
+  - @agribank/ignite@9.0.0
+  - @agribank/ui@4.0.0
+
 ## 5.0.0
 
 ### Patch Changes

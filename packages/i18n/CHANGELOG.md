@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.4.0
+
+### Minor Changes
+
+- 04ed6e7: feat: handle net-err and show better error-message
+
 ## 0.3.0
 
 ### Minor Changes
