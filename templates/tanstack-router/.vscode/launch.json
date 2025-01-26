@@ -11,13 +11,6 @@
 			"type": "node-terminal"
 		},
 		{
-			"type": "chrome",
-			"request": "launch",
-			"name": "chrome:dev",
-			"url": "http://localhost:5173/__APP_NAME__/",
-			"webRoot": "${workspaceFolder}"
-		},
-		{
 			"command": "pnpm exec baran-playground",
 			"name": "pnpm:playground",
 			"request": "launch",
@@ -28,6 +21,20 @@
 			"name": "pnpm:playwright:codegen",
 			"request": "launch",
 			"type": "node-terminal"
+		},
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "chrome:dev:playground",
+			"url": "http://localhost:9000",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "chrome:dev:app",
+			"url": "http://localhost:5173/__APP_NAME__/",
+			"webRoot": "${workspaceFolder}"
 		}
 	]
 }
