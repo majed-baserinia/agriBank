@@ -29,14 +29,14 @@ export default defineConfig({
 		{
 			command: `pnpm baran-playground --port ${parsedEnv.MICRO_PLAYGROUND_PORT}`,
 			ignoreHTTPSErrors: true,
-			port: 9090
+			port: parsedEnv.MICRO_PLAYGROUND_PORT
 		},
 		{
 			command: process.env.CI
 				? `pnpm run preview --port ${parsedEnv.MICRO_APP_PORT}`
 				: `pnpm run dev --port ${parsedEnv.MICRO_APP_PORT}`,
 			ignoreHTTPSErrors: true,
-			port: 5155
+			port: parsedEnv.MICRO_APP_PORT
 		}
 	],
 	testDir: "./tests",
