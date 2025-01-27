@@ -1,5 +1,13 @@
 # @agribank/baran-typed-querykit
 
+## 6.0.1
+
+### Patch Changes
+
+- 3a1ee37: chore: renamed apiBaseUrl to baseApiUrl
+- Updated dependencies [3a1ee37]
+  - @agribank/ignite@9.0.1
+
 ## 6.0.0
 
 ### Minor Changes

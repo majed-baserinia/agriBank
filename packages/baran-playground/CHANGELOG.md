@@ -1,5 +1,18 @@
 # @agribank/baran-playground
 
+## 0.7.0
+
+### Minor Changes
+
+- d3e84d1: feat(baran-playground): support having custom environment
+
+### Patch Changes
+
+- 3a1ee37: chore: renamed apiBaseUrl to baseApiUrl
+- Updated dependencies [3a1ee37]
+  - @agribank/baran-typed-querykit@6.0.1
+  - @agribank/ignite@9.0.1
+
 ## 0.6.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @agribank/ignite
 
+## 9.0.1
+
+### Patch Changes
+
+- 3a1ee37: chore: renamed apiBaseUrl to baseApiUrl
+
 ## 9.0.0
 
 ### Patch Changes

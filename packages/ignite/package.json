@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ignite",
-	"version": "9.0.0",
+	"version": "9.0.1",
 	"type": "module",
 	"description": "initiates microfronts and loads all required configurations",
 	"author": "@FoHoOV",

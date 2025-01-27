@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-playground",
-	"version": "0.6.0",
+	"version": "0.7.0",
 	"type": "module",
 	"description": "an environment to mimic baran app for testing microfronts created for baran",
 	"author": "@FoHoOV",
@@ -44,9 +44,9 @@
 		"generate-clients:customer-info": "pnpm agribank generate-clients --uri http://10.0.189.141:32102/swagger/v1/swagger.json --out src/services/.generated/customer-management --replace-endpoint-regex /api/,/customer-management/ --replace-endpoint-regex /customer-management\\/CustomerManager/,/CustomerManager/ --skip-spec-validations true"
 	},
 	"dependencies": {
-		"@agribank/baran-typed-querykit": "^6.0.0",
+		"@agribank/baran-typed-querykit": "^6.0.1",
 		"@agribank/i18n": "^0.4.0",
-		"@agribank/ignite": "^9.0.0",
+		"@agribank/ignite": "^9.0.1",
 		"@agribank/post-message": "^0.2.0",
 		"@agribank/ui": "^4.0.0",
 		"@emotion/cache": "^11.11.0",
