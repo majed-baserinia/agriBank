@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { z } from "zod";
 
 const configSchema = z.object({
-	apiBaseUrl: z.string().url(),
+	baseApiUrl: z.string().url(),
 	basePaletteUrl: z.string().url(),
 	baseThemeUrl: z.union([
 		z.literal("@local/base-theme/"),

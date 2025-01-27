@@ -4,7 +4,7 @@
 	"title": "Config",
 	"description": "Config schema for managing Agribank micro front apps.",
 	"properties": {
-		"apiBaseUrl": {
+		"baseApiUrl": {
 			"type": "string",
 			"description": "Base URL for calling your APIs (e.g., 'https://my.api.org/v1').",
 			"examples": [
@@ -53,15 +53,15 @@
 			]
 		}
 	},
-	"required": ["apiBaseUrl", "baseThemeUrl"],
+	"required": ["baseApiUrl", "baseThemeUrl"],
 	"examples": [
 		{
-			"apiBaseUrl": "https://digitalbanking-tst.bki.ir",
+			"baseApiUrl": "https://digitalbanking-tst.bki.ir",
 			"baseThemeUrl": "@local/base-theme/",
 			"basePaletteUrl": "https://cdn.bki.ir/cdn/themes/"
 		},
 		{
-			"apiBaseUrl": "https://digitalbanking-tst.bki.ir",
+			"baseApiUrl": "https://digitalbanking-tst.bki.ir",
 			"baseThemeUrl": "https://cdn-tst.bki.ir/cdn/themes/",
 			"basePaletteUrl": "https://cdn-tst.bki.ir/cdn/themes/"
 		}

@@ -5,7 +5,7 @@ import { useMemo } from "react";
 export function useConfigOverrides() {
 	const settings = useAppStore();
 	const configOverrides = useMemo(() => {
-		return { apiBaseUrl: convert(settings.environment) };
+		return { baseApiUrl: convert(settings.environment) };
 	}, [settings.environment]);
 	return configOverrides;
 }

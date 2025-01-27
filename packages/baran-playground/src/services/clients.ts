@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { updateGlobalConfiguration } from "./.generated/customer-management/base";
 
 export function useInitClients() {
-	const baseUrl = useIgniteStore((s) => s.settings.config.apiBaseUrl);
+	const baseUrl = useIgniteStore((s) => s.settings.config.baseApiUrl);
 
 	useEffect(() => {
 		updateGlobalConfiguration(

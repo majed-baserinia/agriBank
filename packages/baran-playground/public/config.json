@@ -1,6 +1,6 @@
 {
 	"$schema": "../node_modules/@agribank/ignite/dist/config.schema.json",
-	"apiBaseUrl": "https://dgbankmb-pilot.bki.ir",
+	"baseApiUrl": "https://dgbankmb-pilot.bki.ir",
 	"baseThemeUrl": "https://cdn.bki.ir/cdn/themes/",
 	"basePaletteUrl": "https://cdn.bki.ir/cdn/themes/"
 }

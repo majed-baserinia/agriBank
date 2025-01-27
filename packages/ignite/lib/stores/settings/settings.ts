@@ -7,7 +7,7 @@ const initial: Settings = {
 	osType: "3",
 	theme: {},
 	config: {
-		apiBaseUrl: "",
+		baseApiUrl: "",
 		baseThemeUrl: "",
 		basePaletteUrl: ""
 	}

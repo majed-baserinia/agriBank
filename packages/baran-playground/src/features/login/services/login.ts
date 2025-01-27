@@ -18,7 +18,7 @@ export const responseSchema = z.object({
 export type LoginRequest = z.infer<typeof requestSchema>;
 
 export function useLogin(key: string) {
-	const baseUrl = useIgniteStore((state) => state.settings.config.apiBaseUrl);
+	const baseUrl = useIgniteStore((state) => state.settings.config.baseApiUrl);
 	const store = useAppStore();
 
 	return useMutation({

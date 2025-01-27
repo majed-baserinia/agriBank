@@ -8,7 +8,7 @@
 // import { updateGlobalConfiguration } from "./.generated/base";
 
 // export function useInitClients() {
-//	const baseUrl = useIgniteStore((s) => s.settings.config.apiBaseUrl);
+//	const baseUrl = useIgniteStore((s) => s.settings.config.baseApiUrl);
 
 // 	useEffect(() => {
 // 		updateGlobalConfiguration(

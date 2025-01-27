@@ -66,7 +66,7 @@ axiosForApi.interceptors.response.use(
 
 async function refreshToken(refreshToken: string): Promise<string | undefined> {
 	const authTokens = useIgniteStore.getState().auth;
-	const baseUrl = useIgniteStore.getState().settings.config.apiBaseUrl;
+	const baseUrl = useIgniteStore.getState().settings.config.baseApiUrl;
 	axiosForLogin.defaults.headers.common["Authorization"] = `Bearer ${authTokens?.idToken}`;
 	const response = await axiosForLogin.post<{ idToken: string; refreshToken: string }>(
 		baseUrl + "/refreshtoken",
