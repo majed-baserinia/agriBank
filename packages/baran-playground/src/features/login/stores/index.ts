@@ -72,7 +72,8 @@ const initial: State = {
 		activatedUserKey: undefined,
 		production: new Map(),
 		pilot: new Map(),
-		test: new Map()
+		test: new Map(),
+		custom: new Map()
 	}
 };
 
@@ -168,13 +169,13 @@ export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 	},
 	removeUser(key) {
 		set((state) => {
-			state.users[get().environment].delete(key);
-			state.users[get().environment] = { ...state.users[get().environment] };
+			state.users[get().environment.active].delete(key);
+			state.users[get().environment.active] = { ...state.users[get().environment.active] };
 		});
 	},
 	setActiveUser(key) {
 		set((state) => {
-			const user = state.users[get().environment].get(key);
+			const user = state.users[get().environment.active].get(key);
 			if (!user) {
 				enqueueSnackbar({
 					message: "a user with this account does not exist",
@@ -207,7 +208,7 @@ function updateState<TIsRequest extends boolean, TKey extends keyof PartialLogin
 		return;
 	}
 
-	const user = stagedState.users[getCurrentState().environment].get(params.key) ?? {
+	const user = stagedState.users[getCurrentState().environment.active].get(params.key) ?? {
 		input: {},
 		output: {}
 	};
@@ -229,5 +230,5 @@ function updateState<TIsRequest extends boolean, TKey extends keyof PartialLogin
 		};
 	}
 
-	stagedState.users[getCurrentState().environment].set(params.key, user);
+	stagedState.users[getCurrentState().environment.active].set(params.key, user);
 }

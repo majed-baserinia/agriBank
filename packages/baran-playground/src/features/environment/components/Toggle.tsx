@@ -12,11 +12,11 @@ type Props = {
 
 export function Toggle({ orientation, sx }: Props) {
 	const settings = useAppStore();
-	const [view, setView] = useState<Environments>(settings.environment);
+	const [view, setView] = useState<Environments>(settings.environment.active);
 
 	useEffect(() => {
-		setView(settings.environment);
-	}, [settings.environment]);
+		setView(settings.environment.active);
+	}, [settings.environment.active]);
 
 	const handleChange = (_: unknown, next: Environments | null) => {
 		if (!next) {

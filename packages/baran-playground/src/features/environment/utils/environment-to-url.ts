@@ -1,4 +1,6 @@
-export const environments = ["test", "pilot", "production"] as const;
+import { useAppStore } from "$/stores";
+
+export const environments = ["test", "pilot", "production", "custom"] as const;
 export type Environments = (typeof environments)[number];
 
 export function convert(environment: Environments & {}) {
@@ -8,7 +10,10 @@ export function convert(environment: Environments & {}) {
 		case "pilot":
 			return "https://dgbankmb-pilot.bki.ir";
 		case "test":
-		default:
 			return "https://digitalbanking-tst.bki.ir";
+		case "custom":
+			return useAppStore.getState().environment.customUrl ?? "";
+		default:
+			throw new Error("environment mapped url is not implemented");
 	}
 }

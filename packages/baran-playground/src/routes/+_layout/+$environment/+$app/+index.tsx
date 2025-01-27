@@ -15,7 +15,7 @@ function RouteComponent() {
 	const apps = useAppStore((s) => s.applications.apps);
 	const params = Route.useParams();
 	const app = findApp(apps, params.app);
-	const environment = useAppStore((s) => s.environment);
+	const environment = useAppStore((s) => s.environment.active);
 	const isRenderedOnce = useRef(false);
 	const micro = useRef<Handlers>(null);
 

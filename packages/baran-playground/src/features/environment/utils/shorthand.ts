@@ -7,6 +7,8 @@ export function shorthand(environment: Environments) {
 			return "tst";
 		case "pilot":
 			return "plt";
+		case "custom":
+			return "cstm";
 	}
 	// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 	throw new Error(`shorthand for ${environment} not created`);

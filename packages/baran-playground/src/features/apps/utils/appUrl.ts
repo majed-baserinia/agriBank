@@ -9,7 +9,7 @@ export function createAppUrl(app: Application) {
 
 export async function navigateToActiveApplication(navigate: NavigateFn) {
 	const state = useAppStore.getState();
-	const env = state.environment;
+	const env = state.environment.active;
 	const app = findApp(state.applications.apps, state.applications.selectedApplicationTitle);
 	await navigate({
 		to: `/$environment/$app`,

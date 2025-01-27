@@ -1,11 +1,11 @@
 {
 	"configurations": [
 		{
-			"name": "chrome:templates/tanstack-router",
+			"name": "pnpm:dev:baran-playground",
 			"request": "launch",
-			"type": "chrome",
-			"url": "http://localhost:5173",
-			"webRoot": "${workspaceFolder}/templates/tanstack-router"
+			"type": "node-terminal",
+			"cwd": "${workspaceFolder}/packages/baran-playground",
+			"command": "pnpm run dev --force"
 		},
 		{
 			"name": "pnpm:dev:templates/tanstack-router",
@@ -15,11 +15,18 @@
 			"command": "pnpm run dev --force"
 		},
 		{
-			"name": "pnpm:dev:baran-playground",
+			"name": "chrome:dev:baran-playground",
 			"request": "launch",
-			"type": "node-terminal",
-			"cwd": "${workspaceFolder}/packages/baran-playground",
-			"command": "pnpm run dev --force"
+			"type": "chrome",
+			"url": "http://localhost:9000",
+			"webRoot": "${workspaceFolder}/packages/baran-playground"
+		},
+		{
+			"name": "chrome:templates/tanstack-router",
+			"request": "launch",
+			"type": "chrome",
+			"url": "http://localhost:5173",
+			"webRoot": "${workspaceFolder}/templates/tanstack-router"
 		}
 	]
 }

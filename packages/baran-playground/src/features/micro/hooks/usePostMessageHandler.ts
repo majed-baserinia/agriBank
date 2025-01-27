@@ -77,7 +77,7 @@ export function usePostMessageHandler({
 								refreshToken: data?.response?.refreshToken,
 								osType: "3",
 								config: {
-									baseApiUrl: convert(useAppStore.getState().environment)
+									baseApiUrl: convert(useAppStore.getState().environment.active)
 								}
 							} satisfies PostMessageOutputSubType<"iFrameReady", "initiateIFrame">
 						},

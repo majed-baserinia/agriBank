@@ -7,7 +7,7 @@ function useMemoizedLogin<T>(
 	{ username, password }: Partial<LoginRequest>,
 	mutate: (params: LoginRequest) => T
 ) {
-	const environment = useAppStore((s) => s.environment);
+	const environment = useAppStore((s) => s.environment.active);
 	return useCallback(() => {
 		if (!username || !password) {
 			return;
