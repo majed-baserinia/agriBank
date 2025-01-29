@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.7.1
+
+### Patch Changes
+
+- cf6f62d: fix(baran-playground): run spawn with shell flag
+
 ## 0.7.0
 
 ### Minor Changes

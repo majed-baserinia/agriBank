@@ -1,5 +1,11 @@
 # @agribank/cli
 
+## 0.2.2
+
+### Patch Changes
+
+- cf6f62d: fix(cli): remove writing to test files while scaffolding a project
+
 ## 0.2.1
 
 ### Patch Changes
