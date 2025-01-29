@@ -23,6 +23,7 @@ function addCommands() {
 				"pnpm",
 				["dlx", "vite", "preview", "--port", parsed.port, "--outDir", "."],
 				{
+					shell: true,
 					cwd: outputDir
 				}
 			);
