@@ -1,7 +1,11 @@
-export function createTestId(id: string) {
+export function createTestIdSelector(
+	id: string,
+	options?: {
+		isAgriBankComponent?: boolean;
+	}
+) {
+	if (options?.isAgriBankComponent) {
+		return `[data-testid="agribank-ui-${id}"]`;
+	}
 	return `[data-testid="${id}"]`;
-}
-
-export function createTestIdForAgriComponent(name: string) {
-	return createTestId(`agribank-ui-${name}`);
 }
