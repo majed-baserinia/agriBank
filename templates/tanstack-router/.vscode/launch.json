@@ -23,6 +23,12 @@
 			"type": "node-terminal"
 		},
 		{
+			"command": "pnpm exec playwright test --ui",
+			"name": "pnpm:playwright:ui",
+			"request": "launch",
+			"type": "node-terminal"
+		},
+		{
 			"type": "chrome",
 			"request": "launch",
 			"name": "chrome:playground",
