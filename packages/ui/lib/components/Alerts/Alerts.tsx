@@ -69,6 +69,7 @@ export function Alerts() {
 					<Typography
 						sx={{ textAlign: "center" }}
 						variant="bodySm"
+						data-testid="agribank-ui-alerts-text"
 					>
 						{capturedAlert.messageText}
 					</Typography>
