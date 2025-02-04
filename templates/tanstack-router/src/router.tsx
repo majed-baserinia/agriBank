@@ -22,6 +22,7 @@ export const router = createRouter({
 			}}
 		/>
 	),
+	scrollRestoration: true,
 	basepath: import.meta.env.BASE_URL,
 	routeTree
 });

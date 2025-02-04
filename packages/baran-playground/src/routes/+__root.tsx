@@ -11,12 +11,7 @@ import { TanStackRouterDevtools } from "@agribank/ui/components/Tanstack";
 import { pushAlert } from "@agribank/ui/stores/alerts";
 import { QueryClientProvider, type QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import {
-	createRootRouteWithContext,
-	Outlet,
-	retainSearchParams,
-	ScrollRestoration
-} from "@tanstack/react-router";
+import { createRootRouteWithContext, Outlet, retainSearchParams } from "@tanstack/react-router";
 import { zodValidator } from "@tanstack/zod-adapter";
 import { SnackbarProvider } from "notistack";
 import type { z } from "zod";
@@ -65,7 +60,6 @@ function App() {
 				<MaterialThemeProvider theme={theme}>
 					<SnackbarProvider>
 						<Alerts />
-						<ScrollRestoration />
 						<Loader.UnControlled />
 						{isReady ? <Outlet /> : <></>}
 					</SnackbarProvider>
