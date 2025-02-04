@@ -19,6 +19,7 @@ export const Iframe = forwardRef(function Iframe(
 		<iframe
 			data-testid={iframeId}
 			id={iframeId}
+			name={iframeId}
 			title={app.title}
 			ref={ref}
 			className={`${className}`}
