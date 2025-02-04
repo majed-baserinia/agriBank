@@ -17,7 +17,14 @@ type Props = {
 export function EditableInput({ muiTypographyProps, text, label, form, name, isEditing }: Props) {
 	return !isEditing ? (
 		<Typography
-			sx={{ wordBreak: "break-all" }}
+			sx={{
+				wordBreak: "break-all",
+				display: "-webkit-box",
+				overflow: "hidden",
+				textOverflow: "ellipsis",
+				"-webkit-line-clamp": "3",
+				"-webkit-box-orient": "vertical"
+			}}
 			{...muiTypographyProps}
 		>
 			{text}
