@@ -13,8 +13,8 @@ export const ciArgsSchema = z.object({
 		z.literal(environments[2])
 	]),
 	microIframeId: z.string().optional(),
-	microUsername: z.string().min(2),
-	microPassword: z.string().min(2)
+	microUsername: z.union([z.literal("-"), z.string().min(2)]),
+	microPassword: z.union([z.literal("-"), z.string().min(2)])
 });
 
 const modifiedSearchParamsConfigSchema = searchParamsConfigSchema.extend({

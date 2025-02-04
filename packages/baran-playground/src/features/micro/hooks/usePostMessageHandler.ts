@@ -5,13 +5,18 @@ import { useAppStore } from "$/stores";
 import type { PostMessageOutputSubType, PostMessageTypes } from "@agribank/post-message";
 import { useNavigate } from "@tanstack/react-router";
 import { enqueueSnackbar } from "notistack";
-import { type RefObject, useCallback, useRef } from "react";
+import { MutableRefObject, type RefObject, useCallback, useRef } from "react";
 
 type PostMessageHandlerOptions = {
 	iframe: RefObject<HTMLIFrameElement | null>;
 	app: Application;
 	updateLastAliveTime: () => void;
 };
+
+function isNoAuthUser(user: ReturnType<typeof useCurrentEnvironmentActiveUser>) {
+	return user?.input.login?.username === "-" && user?.input.login?.password === "-";
+}
+
 export function usePostMessageHandler({
 	iframe,
 	app,
@@ -50,21 +55,14 @@ export function usePostMessageHandler({
 						return;
 					}
 
-					if (!user?.input.login?.username || !user.input.login?.password) {
-						enqueueSnackbar({
-							message:
-								"no active users with username/password exists for the selected environment!",
-							variant: "error"
-						});
-						await navigate({
-							to: "/playground/login"
-						});
-						return;
-					}
-					isHandlingLogin.current = true;
-					const data = await refreshLogin.mutateAsync();
-					isHandlingLogin.current = false;
-					if (data?.error) {
+					const result = await handleLoginRequest({
+						isHandlingLogin: isHandlingLogin,
+						navigate: navigate,
+						refreshLogin: refreshLogin,
+						user: user
+					});
+
+					if (result.status === "error") {
 						return;
 					}
 
@@ -73,8 +71,8 @@ export function usePostMessageHandler({
 						{
 							type: "initiateIFrame",
 							data: {
-								idToken: data?.response?.idToken,
-								refreshToken: data?.response?.refreshToken,
+								idToken: result.data?.response?.idToken,
+								refreshToken: result.data?.response?.refreshToken,
 								osType: "3",
 								config: {
 									baseApiUrl: convert(useAppStore.getState().environment.active)
@@ -98,4 +96,46 @@ function sendPostMessage(iframe: HTMLIFrameElement | null, data: unknown, origin
 	}
 	iframe.contentWindow.postMessage(data, origin);
 	console.log("SENT POSTMESSAGE", data);
+}
+
+async function handleLoginRequest({
+	user,
+	isHandlingLogin,
+	refreshLogin,
+	navigate
+}: {
+	user: ReturnType<typeof useCurrentEnvironmentActiveUser>;
+	refreshLogin: ReturnType<typeof useRefreshLogin>;
+	isHandlingLogin: MutableRefObject<boolean>;
+	navigate: ReturnType<typeof useNavigate>;
+}) {
+	if (isNoAuthUser(user)) {
+		return {
+			status: "no-auth"
+		} as const;
+	}
+	if (!user?.input.login?.username || !user.input.login?.password) {
+		enqueueSnackbar({
+			message: "no active users with username/password exists for the selected environment!",
+			variant: "error"
+		});
+		await navigate({
+			to: "/playground/login"
+		});
+		return {
+			status: "error"
+		} as const;
+	}
+	isHandlingLogin.current = true;
+	const data = await refreshLogin.mutateAsync();
+	isHandlingLogin.current = false;
+	if (data?.error) {
+		return {
+			status: "error"
+		} as const;
+	}
+	return {
+		status: "success",
+		data
+	} as const;
 }
