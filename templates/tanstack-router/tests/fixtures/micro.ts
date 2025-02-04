@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { PLAYGROUND_IFRAME_ID } from "$playwright-config";
+import { PLAYGROUND_BASE_ARGS, PLAYGROUND_IFRAME_ID } from "$playwright-config";
 import { type Page, test as baseTest, expect } from "@playwright/test";
 
 class Micro {
@@ -10,11 +10,13 @@ class Micro {
 	}
 
 	async iframe() {
-		await this.#page.waitForSelector(`iframe[data-testid='${PLAYGROUND_IFRAME_ID}']`, {
-			state: "visible"
+		const frameLocator = this.#page.frameLocator(`#${PLAYGROUND_IFRAME_ID}`);
+		await frameLocator.locator("html").waitFor({
+			state: "attached"
 		});
+
 		const frame = this.#page.frame(PLAYGROUND_IFRAME_ID);
-		expect(frame).toBeTruthy();
+		expect(frame).not.toBeNull();
 		await frame!.waitForLoadState("domcontentloaded");
 		return frame!;
 	}
@@ -27,7 +29,7 @@ class Micro {
 
 export const test = baseTest.extend<{ micro: Micro }>({
 	micro: async ({ page }, use) => {
-		await page.goto("");
+		await page.goto(`?${PLAYGROUND_BASE_ARGS}`);
 		await use(new Micro(page));
 	}
 });

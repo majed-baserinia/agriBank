@@ -23,6 +23,7 @@ const parsedEnv = envSchema.parse(process.env);
  * See https://playwright.dev/docs/test-configuration.
  */
 export const PLAYGROUND_IFRAME_ID = parsedEnv.MICRO_IFRAME_ID;
+export const PLAYGROUND_BASE_ARGS = `ci=true&microIframeId=${PLAYGROUND_IFRAME_ID}&microAppName=alerts&microPort=${parsedEnv.MICRO_APP_PORT}&microUsername=${parsedEnv.MICRO_USERNAME}&microPassword=${parsedEnv.MICRO_PASSWORD}&microEnv=${parsedEnv.MICRO_ENV}`;
 
 export default defineConfig({
 	webServer: [
@@ -56,7 +57,7 @@ export default defineConfig({
 		testIdAttribute: "data-testid",
 		video: process.env.CI ? "off" : "retain-on-failure",
 		trace: "on-first-retry",
-		baseURL: `http://localhost:${parsedEnv.MICRO_PLAYGROUND_PORT}/?ci=true&microIframeId=${PLAYGROUND_IFRAME_ID}&microAppName=__APP_NAME__&microPort=${parsedEnv.MICRO_APP_PORT}&microUsername=${parsedEnv.MICRO_USERNAME}&microPassword=${parsedEnv.MICRO_PASSWORD}&microEnv=${parsedEnv.MICRO_ENV}`
+		baseURL: `http://localhost:${parsedEnv.MICRO_PLAYGROUND_PORT}`
 	},
 
 	/* Configure projects for major browsers */
