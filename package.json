@@ -20,8 +20,8 @@
 		"build": "pnpm -r build",
 		"lint": "pnpm -r lint",
 		"test": "pnpm test:unit && pnpm test:integration",
-		"test:unit": "pnpm run -r --filter './packages/**' test:unit",
-		"test:integration": "pnpm run -r --filter './packages/**' test:integration",
+		"test:unit": "pnpm run -r test:unit",
+		"test:integration": "pnpm run -r test:integration",
 		"format": "pnpm -r format"
 	},
 	"devDependencies": {

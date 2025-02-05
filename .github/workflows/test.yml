@@ -38,6 +38,12 @@ jobs:
         run: pnpm run format && { [ "`git status --porcelain=v1`" == "" ] || (echo "please run pnpm run format locally and push your changes"; git diff; exit 1); }
 
   Test:
+    env:
+      MICRO_IFRAME_ID: baran-playground-testid
+      MICRO_PORT: 5155
+      MICRO_USERNAME: "-"
+      MICRO_PASSWORD: "-"
+      MICRO_ENV: production
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:

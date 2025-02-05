@@ -8,6 +8,7 @@
 		"build": "tsc --build && vite build",
 		"lint": "eslint .",
 		"format": "prettier --write .",
+		"test": "pnpm test:integration",
 		"test:integration": "playwright test",
 		"playground": "pnpm baran-playground",
 		"preview": "vite preview",
