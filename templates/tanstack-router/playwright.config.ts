@@ -18,13 +18,12 @@ const envSchema = z.object({
 	MICRO_ENV: z.union([z.literal("test"), z.literal("pilot"), z.literal("production")])
 });
 const parsedEnv = envSchema.parse(process.env);
-console.log(process.env);
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
 export const PLAYGROUND_IFRAME_ID = parsedEnv.MICRO_IFRAME_ID;
-export const PLAYGROUND_BASE_ARGS = `ci=true&microIframeId=${PLAYGROUND_IFRAME_ID}&microAppName=alerts&microPort=${parsedEnv.MICRO_APP_PORT}&microUsername=${parsedEnv.MICRO_USERNAME}&microPassword=${parsedEnv.MICRO_PASSWORD}&microEnv=${parsedEnv.MICRO_ENV}`;
+export const PLAYGROUND_BASE_ARGS = `ci=true&microIframeId=${PLAYGROUND_IFRAME_ID}&microAppName=__APP_NAME__&microPort=${parsedEnv.MICRO_APP_PORT}&microUsername=${parsedEnv.MICRO_USERNAME}&microPassword=${parsedEnv.MICRO_PASSWORD}&microEnv=${parsedEnv.MICRO_ENV}`;
 
 export default defineConfig({
 	webServer: [
