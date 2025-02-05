@@ -7,15 +7,19 @@ A set of linter rules that all agribank apps should apply.
 your eslint.config.mjs
 
 ```ts
-import agribank from "@agribank/eslint-plugin";
+import agribankESlint from "@agribank/eslint-plugin";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(...agribank.configs["flat/recommended"], {
-	languageOptions: {
-		parserOptions: {
-			tsconfigRootDir: import.meta.dirname,
-			project: "./tsconfig.json"
+export default tseslint.config(
+	...agribankESlint.configs["flat/recommended-type-checked"],
+	...agribankESlint.configs["flat/tanstack"],
+	{
+		languageOptions: {
+			parserOptions: {
+				tsconfigRootDir: import.meta.dirname,
+				project: "./tsconfig.json"
+			}
 		}
 	}
-});
+);
 ```

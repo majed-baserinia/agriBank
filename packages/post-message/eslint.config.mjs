@@ -1,7 +1,7 @@
-import agribankESLint from "@agribank/eslint-plugin";
+import agribankESlint from "@agribank/eslint-plugin";
 import tseslint from "typescript-eslint";
 
-export default tseslint.config(...agribankESLint.configs["flat/recommended"], {
+export default tseslint.config(...agribankESlint.configs["flat/recommended-type-checked"], {
 	languageOptions: {
 		parserOptions: {
 			tsconfigRootDir: import.meta.dirname,
