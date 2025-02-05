@@ -15,15 +15,21 @@ class Micro {
 			state: "attached"
 		});
 
+		// have to do this, because in the current version firefox returns null for frame() selector
+		await Promise.all(
+			this.#page.frames().flatMap(async (frame) => await frame.waitForLoadState("domcontentloaded"))
+		);
+
 		const frame = this.#page.frame(PLAYGROUND_IFRAME_ID);
 		expect(frame).not.toBeNull();
-		await frame!.waitForLoadState("domcontentloaded");
+
 		return frame!;
 	}
 
 	async goto(path: string) {
-		const url = (await this.iframe()).url();
-		await (await this.iframe()).goto(new URL(url).origin + path);
+		const iframe = await this.iframe();
+		const url = iframe.url();
+		await iframe.goto(new URL(url).origin + path);
 	}
 }
 
