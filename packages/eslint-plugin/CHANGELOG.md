@@ -1,5 +1,11 @@
 # @agribank/eslint-plugin
 
+## 0.4.0
+
+### Minor Changes
+
+- dc13428: feat(eslint-plugin): separated linter rules into tanstack specific and generic ones
+
 ## 0.3.0
 
 ### Minor Changes

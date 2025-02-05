@@ -1,5 +1,20 @@
 # @agribank/baran-playground
 
+## 0.9.0
+
+### Minor Changes
+
+- 81fdee7: chore: upgraded to react 19
+
+### Patch Changes
+
+- Updated dependencies [81fdee7]
+  - @agribank/baran-typed-querykit@7.0.0
+  - @agribank/post-message@0.3.0
+  - @agribank/ignite@10.0.0
+  - @agribank/i18n@0.5.0
+  - @agribank/ui@5.0.0
+
 ## 0.8.0
 
 ### Minor Changes

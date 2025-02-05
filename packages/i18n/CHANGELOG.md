@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.5.0
+
+### Minor Changes
+
+- 81fdee7: chore: upgraded to react 19
+
 ## 0.4.0
 
 ### Minor Changes
