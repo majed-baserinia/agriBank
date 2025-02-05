@@ -5,7 +5,7 @@ import { useAppStore } from "$/stores";
 import type { PostMessageOutputSubType, PostMessageTypes } from "@agribank/post-message";
 import { useNavigate } from "@tanstack/react-router";
 import { enqueueSnackbar } from "notistack";
-import { MutableRefObject, type RefObject, useCallback, useRef } from "react";
+import { type MutableRefObject, type RefObject, useCallback, useRef } from "react";
 
 type PostMessageHandlerOptions = {
 	iframe: RefObject<HTMLIFrameElement | null>;
