@@ -1,5 +1,14 @@
 # @agribank/baran-typed-querykit
 
+## 6.0.2
+
+### Patch Changes
+
+- aa32185: chore(all-tanstack-dependants): updated packages
+- Updated dependencies [aa32185]
+  - @agribank/ignite@9.0.2
+  - @agribank/ui@4.0.1
+
 ## 6.0.1
 
 ### Patch Changes

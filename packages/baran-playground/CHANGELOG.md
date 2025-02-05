@@ -1,5 +1,20 @@
 # @agribank/baran-playground
 
+## 0.8.0
+
+### Minor Changes
+
+- 9755d5d: feat(baran-playground): allow `-` as user-pass to prevent making login requests in playground
+
+### Patch Changes
+
+- aa32185: chore(all-tanstack-dependants): updated packages
+- 9349411: chore(baran-playgroud/template): updated playwright version
+- Updated dependencies [aa32185]
+  - @agribank/baran-typed-querykit@6.0.2
+  - @agribank/ignite@9.0.2
+  - @agribank/ui@4.0.1
+
 ## 0.7.1
 
 ### Patch Changes

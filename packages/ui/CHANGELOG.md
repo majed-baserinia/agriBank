@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 4.0.1
+
+### Patch Changes
+
+- aa32185: chore(all-tanstack-dependants): updated packages
+
 ## 4.0.0
 
 ### Patch Changes

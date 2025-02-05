@@ -14,12 +14,12 @@
 		"generate-clients": "pnpm exec agribank generate-clients --out src/services/.generated"
 	},
 	"dependencies": {
-		"@agribank/baran-typed-querykit": "^6.0.1",
-		"@agribank/baran-playground": "^0.7.1",
+		"@agribank/baran-typed-querykit": "^6.0.2",
+		"@agribank/baran-playground": "^0.8.0",
 		"@agribank/i18n": "^0.4.0",
-		"@agribank/ignite": "^9.0.1",
+		"@agribank/ignite": "^9.0.2",
 		"@agribank/post-message": "^0.2.0",
-		"@agribank/ui": "^4.0.0",
+		"@agribank/ui": "^4.0.1",
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
