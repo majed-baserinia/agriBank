@@ -1,5 +1,5 @@
 import type { ButtonProps } from "@mui/material";
-import type { HTMLAttributes, MutableRefObject, ReactNode } from "react";
+import type { HTMLAttributes, ReactNode, RefObject } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Props<T extends Record<any, any>> = {
@@ -26,7 +26,7 @@ export type RenderInputProps = {
 	error?: boolean;
 	helperText?: string;
 	inputMode?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-	inputRef: MutableRefObject<undefined>;
+	inputRef: RefObject<undefined>;
 	isRequired?: boolean;
 	label: string;
 	loading?: boolean;

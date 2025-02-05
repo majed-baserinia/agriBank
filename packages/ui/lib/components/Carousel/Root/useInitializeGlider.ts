@@ -7,7 +7,7 @@ import Glide from "@glidejs/glide";
 import { useEffect, useState } from "react";
 
 export function useInitializeGlider(
-	element: RefObject<HTMLElement>,
+	element: RefObject<HTMLElement | null>,
 	options: GlideEvents & GlideOptions
 ) {
 	const [glide, setGlide] = useState<Glide | null>(null);

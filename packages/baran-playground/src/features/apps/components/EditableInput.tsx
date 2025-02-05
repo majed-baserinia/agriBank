@@ -22,8 +22,8 @@ export function EditableInput({ muiTypographyProps, text, label, form, name, isE
 				display: "-webkit-box",
 				overflow: "hidden",
 				textOverflow: "ellipsis",
-				"-webkit-line-clamp": "3",
-				"-webkit-box-orient": "vertical"
+				WebkitLineClamp: "3",
+				WebkitBoxOrient: "vertical"
 			}}
 			{...muiTypographyProps}
 		>

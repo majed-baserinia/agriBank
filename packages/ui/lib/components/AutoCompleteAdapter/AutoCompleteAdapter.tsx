@@ -45,7 +45,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState<null | string | T>(null);
 	const [inputValue, setInputValue] = useState("");
-	const inputRef = useRef();
+	const inputRef = useRef(undefined);
 
 	useEffect(() => {
 		if (defaultValue) {

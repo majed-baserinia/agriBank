@@ -34,6 +34,7 @@ function PaperComponent(props: PaperProps) {
 	const nodeRef = useRef<HTMLDivElement>(null);
 	return (
 		<Draggable
+			//@ts-expect-error - types of Draggable component are outdated, will have to w8 for fix on their end`
 			nodeRef={nodeRef}
 			handle="#handle-postmessage"
 			cancel={'[class*="MuiDialogContent-root"]'}

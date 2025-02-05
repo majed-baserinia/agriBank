@@ -23,7 +23,7 @@ export function DatePickerAdapter(props: Props) {
 
 	const { label = t("date"), helperText, onChange, error, defaultValue } = props;
 	const [value, setValue] = useState<Value>();
-	const datepicker = useRef();
+	const datepicker = useRef(null);
 
 	useEffect(() => {
 		if (defaultValue) {
