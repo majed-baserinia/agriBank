@@ -18,6 +18,7 @@ const envSchema = z.object({
 	MICRO_ENV: z.union([z.literal("test"), z.literal("pilot"), z.literal("production")])
 });
 const parsedEnv = envSchema.parse(process.env);
+console.log(process.env);
 
 /**
  * See https://playwright.dev/docs/test-configuration.
