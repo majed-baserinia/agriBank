@@ -7,7 +7,7 @@ import { z } from "zod";
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-dotenv.config({ path: path.resolve(import.meta.dirname, ".env.integration") });
+dotenv.config({ path: path.resolve(import.meta.dirname ?? __dirname, ".env.integration") });
 
 const envSchema = z.object({
 	MICRO_IFRAME_ID: z.string().default("baran-playground-my-id"),
