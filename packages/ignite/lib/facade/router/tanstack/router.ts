@@ -1,14 +1,8 @@
 import type { useRouter as useRouterType } from "$lib/facade/router";
-import {
-	useCanGoBack,
-	useMatch,
-	useSearch,
-	useRouter as useTanstackRouter
-} from "@tanstack/react-router";
+import { useCanGoBack, useSearch, useRouter as useTanstackRouter } from "@tanstack/react-router";
 
 export const useRouter: useRouterType = () => {
 	const router = useTanstackRouter();
-	const match = useMatch({ strict: false });
 	const canGoBack = useCanGoBack();
 	const searchParams = useSearch({ strict: false }) as unknown;
 
@@ -16,7 +10,7 @@ export const useRouter: useRouterType = () => {
 		type: "tanstack",
 		searchParams,
 		canGoBack,
-		currentPath: match.pathname,
+		currentPath: router.state.location.pathname,
 		goBack: () => (router.history as History).back()
 	};
 };
