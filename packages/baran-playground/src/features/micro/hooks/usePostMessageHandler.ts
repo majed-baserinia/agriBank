@@ -13,6 +13,8 @@ type PostMessageHandlerOptions = {
 	updateLastAliveTime: () => void;
 };
 
+type LoginRequestState = "pending" | "stale" | "error" | "done";
+
 function isNoAuthUser(user: ReturnType<typeof useCurrentEnvironmentActiveUser>) {
 	return user?.input.login?.username === "-" && user?.input.login?.password === "-";
 }
@@ -26,7 +28,7 @@ export function usePostMessageHandler({
 
 	const refreshLogin = useRefreshLogin();
 	const user = useCurrentEnvironmentActiveUser();
-	const isHandlingLogin = useRef(false);
+	const loginRequestState = useRef<LoginRequestState>("stale");
 
 	const handler = useCallback(
 		async (event: MessageEvent<{ type: PostMessageTypes["type"] | (string & {}) }>) => {
@@ -51,12 +53,12 @@ export function usePostMessageHandler({
 					updateLastAliveTime();
 					return;
 				case "iFrameReady": {
-					if (refreshLogin.isPending || refreshLogin.data?.response || isHandlingLogin.current) {
+					if (loginRequestState.current !== "stale") {
 						return;
 					}
 
 					const result = await handleLoginRequest({
-						isHandlingLogin: isHandlingLogin,
+						loginRequestState,
 						navigate: navigate,
 						refreshLogin: refreshLogin,
 						user: user
@@ -100,16 +102,17 @@ function sendPostMessage(iframe: HTMLIFrameElement | null, data: unknown, origin
 
 async function handleLoginRequest({
 	user,
-	isHandlingLogin,
+	loginRequestState,
 	refreshLogin,
 	navigate
 }: {
 	user: ReturnType<typeof useCurrentEnvironmentActiveUser>;
 	refreshLogin: ReturnType<typeof useRefreshLogin>;
-	isHandlingLogin: RefObject<boolean>;
+	loginRequestState: RefObject<LoginRequestState>;
 	navigate: ReturnType<typeof useNavigate>;
 }) {
 	if (isNoAuthUser(user)) {
+		loginRequestState.current = "done";
 		return {
 			status: "no-auth"
 		} as const;
@@ -126,14 +129,15 @@ async function handleLoginRequest({
 			status: "error"
 		} as const;
 	}
-	isHandlingLogin.current = true;
+	loginRequestState.current = "pending";
 	const data = await refreshLogin.mutateAsync();
-	isHandlingLogin.current = false;
 	if (data?.error) {
+		loginRequestState.current = "error";
 		return {
 			status: "error"
 		} as const;
 	}
+	loginRequestState.current = "done";
 	return {
 		status: "success",
 		data
