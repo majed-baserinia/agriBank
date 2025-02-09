@@ -4,7 +4,7 @@ import type { ThemeOptions } from "@mui/material";
 
 export type AcceptedLanguages = "fa-IR" | "en-GB";
 
-export type Settings = PostMessageOutputSubType<"iFrameReady", "initiateIFrame"> & {
+export type Settings = PostMessageOutputSubType<"iFrameReady", "initiateIFrame">["data"] & {
 	language: AcceptedLanguages;
 	themeName: string;
 	theme: ThemeOptions;

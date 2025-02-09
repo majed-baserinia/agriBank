@@ -49,7 +49,7 @@ axiosForApi.interceptors.response.use(
 				useIgniteStore.getState().clearAuth();
 				window.location.href = import.meta.dynamic.env.BASE_URL ?? "";
 			}
-			sendPostMessage("tokenIsNotValid", "true");
+			sendPostMessage("tokenIsNotValid", { data: "true" });
 		}
 
 		if (

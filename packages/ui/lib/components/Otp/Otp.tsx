@@ -22,14 +22,16 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 			setIsResendDisabled(false);
 		}
 	});
-	usePostMessage({
-		message: { type: "GetOTP", input: { OTPLen: "8", ReadMode: "UserConsent" } },
+	const { send: sendPostMessage } = usePostMessage({
+		message: (otpLength: string) => {
+			return { type: "GetOTP", OTPLen: otpLength, ReadMode: "UserConsent" } as const;
+		},
 		callback: (e) => {
 			if (e.data.type !== "ResOTP") {
 				return;
 			}
-			setValue(e.data.data.OTP);
-			onChange(e.data.data.OTP);
+			setValue(e.data.OTP);
+			onChange(e.data.OTP);
 		}
 	});
 
@@ -44,8 +46,11 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 			return;
 		}
 
+		const maxLength = result.maxLength ?? 8;
+		sendPostMessage(maxLength.toString());
+
 		setCountDownTimer(result.timer ?? 120);
-		setMaxLength(result.maxLength ?? 8);
+		setMaxLength(maxLength);
 	}
 
 	useEffect(() => {

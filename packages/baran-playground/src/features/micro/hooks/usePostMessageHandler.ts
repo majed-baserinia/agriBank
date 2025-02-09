@@ -5,7 +5,7 @@ import { useAppStore } from "$/stores";
 import type { PostMessageOutputSubType, PostMessageTypes } from "@agribank/post-message";
 import { useNavigate } from "@tanstack/react-router";
 import { enqueueSnackbar } from "notistack";
-import { type MutableRefObject, type RefObject, useCallback, useRef } from "react";
+import { type RefObject, useCallback, useRef } from "react";
 
 type PostMessageHandlerOptions = {
 	iframe: RefObject<HTMLIFrameElement | null>;
@@ -77,7 +77,7 @@ export function usePostMessageHandler({
 								config: {
 									baseApiUrl: convert(useAppStore.getState().environment.active)
 								}
-							} satisfies PostMessageOutputSubType<"iFrameReady", "initiateIFrame">
+							} satisfies PostMessageOutputSubType<"iFrameReady", "initiateIFrame">["data"]
 						},
 						event.origin
 					);
@@ -106,7 +106,7 @@ async function handleLoginRequest({
 }: {
 	user: ReturnType<typeof useCurrentEnvironmentActiveUser>;
 	refreshLogin: ReturnType<typeof useRefreshLogin>;
-	isHandlingLogin: MutableRefObject<boolean>;
+	isHandlingLogin: RefObject<boolean>;
 	navigate: ReturnType<typeof useNavigate>;
 }) {
 	if (isNoAuthUser(user)) {

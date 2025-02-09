@@ -42,7 +42,7 @@ export function useMultipleInitRequest({
 					closeApp();
 				}
 			}
-			sendPostMessage("iFrameReady", "Hi Parent");
+			sendPostMessage("iFrameReady", { data: "Hi Parent" });
 			counter.current++;
 		}, delay);
 

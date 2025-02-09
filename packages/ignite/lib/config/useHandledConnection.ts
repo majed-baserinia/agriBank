@@ -2,12 +2,7 @@ import { useSearchParamsConfigLoader } from "$lib/config/loaders/useSearchParams
 import { environment } from "$lib/env";
 import type { useRouter } from "$lib/facade/router";
 import type { Settings } from "$lib/stores/settings";
-import {
-	closeApp,
-	sendPostMessage,
-	useConnection,
-	type ConnectionProps
-} from "@agribank/post-message";
+import { sendPostMessage, useConnection, type ConnectionProps } from "@agribank/post-message";
 
 import { useTranslation } from "react-i18next";
 
@@ -34,11 +29,11 @@ export function useHandledConnection({ onInitializationFailed, useRouter, ...res
 				`${currentPath}/` === environment().BASE_URL ||
 				!canGoBack
 			) {
-				sendPostMessage("isFinishedBack", "true");
+				sendPostMessage("isFinishedBack", { data: "true" });
 			} else {
 				void goBack();
 				//send acknowledge to the parent
-				closeApp();
+				sendPostMessage("wentBack", { data: "true" });
 			}
 		},
 		onInitializationFailed: () => {

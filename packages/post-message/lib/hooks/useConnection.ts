@@ -1,8 +1,8 @@
-import { useMultipleInitRequest, type MultipleInitRequestEvents } from "$lib/init";
-import type { PostMessageOutput, PostMessageType } from "$lib/utils";
+import type { PostMessageOutput, PostMessageOutputData } from "$lib/utils";
 import { useEffect, useState } from "react";
+import { useMultipleInitRequest, type MultipleInitRequestEvents } from "./useMultipleInitRequest";
 
-type InitiateIFrameOutputType = PostMessageType<"iFrameReady">["output"];
+type InitiateIFrameOutputType = PostMessageOutputData<"iFrameReady">;
 
 export type ConnectionProps<TData extends InitiateIFrameOutputType> = {
 	needsInitData: boolean;
