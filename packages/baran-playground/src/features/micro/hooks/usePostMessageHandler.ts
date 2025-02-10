@@ -39,9 +39,20 @@ export function usePostMessageHandler({
 			switch (event.data.type) {
 				case "GetOTP":
 					enqueueSnackbar({
-						message: "requested for otp (not handled by micro at this moment)",
-						variant: "warning"
+						message: "requested for otp (sending dummy sms)",
+						variant: "warning",
+						autoHideDuration: 200
 					});
+					sendPostMessage(
+						iframe.current,
+						{
+							type: "",
+							data: {
+								OTP: "12345678"
+							} satisfies PostMessageOutputSubType<"GetOTP", "ResOTP">
+						},
+						event.origin
+					);
 					return;
 				case "isFinishedBack":
 					enqueueSnackbar({
