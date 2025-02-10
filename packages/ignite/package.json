@@ -52,7 +52,7 @@
 		"@agribank/post-message": "^0.3.0",
 		"@agribank/prettier-config": "^0.0.6",
 		"@agribank/ui": "^5.0.0",
-		"@mui/material": "^6.1.8",
+		"@mui/material": "^6.4.3",
 		"@tanstack/react-router": "^1.99.0",
 		"@types/node": "^22.8.2",
 		"@types/react": "^19.0.0",
