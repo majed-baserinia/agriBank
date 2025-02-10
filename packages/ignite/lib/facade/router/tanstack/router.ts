@@ -5,8 +5,6 @@ export const useRouter: useRouterType = () => {
 	const router = useTanstackRouter();
 	const canGoBack = useCanGoBack();
 	const searchParams = useSearch({ strict: false }) as unknown;
-	// TODO: fix
-	console.log(match.pathname, router.state.location.pathname);
 
 	return {
 		type: "tanstack",
