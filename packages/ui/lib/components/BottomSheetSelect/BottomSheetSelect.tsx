@@ -63,8 +63,11 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 					error={error}
 					label={label}
 					labelId="label"
+					sx={{ padding: "0px" }}
 					MenuProps={{
-						sx: { display: isMatched ? "none" : "unset" }
+						sx: {
+							display: isMatched ? "none" : "unset"
+						}
 					}}
 					onChange={() => {}}
 					onClose={() => setOpen(false)}
@@ -99,6 +102,11 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 					onClose={() => setOpen(false)}
 					snapPoints={[450, 0]}
 				>
+					<Sheet.Backdrop
+						onTap={() => {
+							setOpen(false);
+						}}
+					/>
 					<Sheet.Container
 						style={{
 							backgroundColor: theme.palette.background.paper
