@@ -35,6 +35,14 @@ export function ChipStatusAdapter(props: Props) {
 			info: {
 				backgroundColor: theme.palette.info[50],
 				color: theme.palette.info[600]
+			},
+			"phone-voice-otp": {
+				backgroundColor: theme.palette.info[50],
+				color: theme.palette.info[600]
+			},
+			"phone-sms-otp": {
+				backgroundColor: theme.palette.info[50],
+				color: theme.palette.info[600]
 			}
 		}),
 		[theme]
