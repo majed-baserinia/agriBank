@@ -182,7 +182,7 @@ export function Register() {
 				>
 					<AgriOtp
 						sendOnLoad={false}
-						handleSend={async () => {
+						onSendSmsClick={async () => {
 							try {
 								const result = await handleSendOtp();
 								return result ? { maxLength: result.codeLength, timer: result.lifeTime } : false;
