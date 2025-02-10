@@ -208,7 +208,7 @@ export function useMergedTheme(theme?: Partial<ThemeOptions>) {
 						styleOverrides: {
 							root: {
 								"& .MuiInputBase-root": {
-									height: "48px"
+									// height: "48px"
 								},
 								variants: [
 									{
@@ -220,7 +220,7 @@ export function useMergedTheme(theme?: Partial<ThemeOptions>) {
 									{
 										props: { size: "medium" },
 										style: {
-											height: "48px"
+											// height: "48px"
 										}
 									}
 								]
