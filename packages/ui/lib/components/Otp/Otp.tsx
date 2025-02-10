@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 import type { Props } from "./types";
 
 export function Otp({
-	handleSend,
+	onSendSmsClick,
 	sendOnLoad,
 	onChange,
 	agriInputProps,
@@ -48,7 +48,7 @@ export function Otp({
 		setHasSentSmsAtLeastOnce(true);
 		setIsResendDisabled(true);
 
-		const result = await handleSend();
+		const result = await onSendSmsClick();
 
 		if (typeof result === "boolean") {
 			setIsResendDisabled(false);
