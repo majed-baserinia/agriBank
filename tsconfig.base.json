@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"lib": ["ESNext"],
+		"target": "ES2022",
+		"lib": ["ES2022"],
 		"useDefineForClassFields": true,
 
 		"esModuleInterop": true,
@@ -10,7 +10,7 @@
 		"forceConsistentCasingInFileNames": true,
 		"verbatimModuleSyntax": true,
 
-		"module": "ESNext",
+		"module": "ES2022",
 		"moduleResolution": "Bundler",
 
 		"noEmit": true,
