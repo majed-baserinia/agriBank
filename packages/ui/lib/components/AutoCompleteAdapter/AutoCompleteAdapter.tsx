@@ -35,7 +35,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		isOptionEqualToValue,
 		icon,
 		defaultValue,
-		type
+		type,
+		freeSolo = false,
+		disable = false
 	} = props;
 
 	const { t } = useTranslation("base");
@@ -45,10 +47,10 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState<null | string | T>(null);
 	const [inputValue, setInputValue] = useState("");
-	const inputRef = useRef(undefined);
+	const inputRef = useRef();
 
 	useEffect(() => {
-		if (defaultValue) {
+		if (defaultValue !== null || defaultValue !== undefined) {
 			setValue(defaultValue);
 		}
 	}, [defaultValue]);
@@ -84,7 +86,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	};
 
 	const onChangeHandler = (_: SyntheticEvent<Element, Event>, newValue: null | string | T) => {
-		onChange(newValue);
+		onChange?.(newValue);
 		setValue(newValue);
 
 		if (matches && !hasConfirmButton) {
@@ -103,7 +105,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		const target = event?.target as HTMLInputElement;
 		if (reason === "clear" || target?.value === "") {
 			setValue(null);
-			onChange(null);
+			onChange?.(null);
 			setInputValue("");
 			onInputChange("");
 		} else {
@@ -147,8 +149,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 			]}
 		>
 			<Autocomplete
+				disabled={disable}
 				disablePortal
-				freeSolo
+				freeSolo={freeSolo}
 				getOptionLabel={getOptionLabel}
 				inputValue={inputValue}
 				isOptionEqualToValue={isOptionEqualToValueFunction}

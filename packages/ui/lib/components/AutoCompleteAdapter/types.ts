@@ -1,5 +1,5 @@
 import type { ButtonProps } from "@mui/material";
-import type { HTMLAttributes, ReactNode, RefObject } from "react";
+import type { HTMLAttributes, MutableRefObject, ReactNode } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Props<T extends Record<any, any>> = {
@@ -7,26 +7,28 @@ export type Props<T extends Record<any, any>> = {
 	hasConfirmButton?: boolean;
 	helperText?: string;
 	inputMode?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-	isOptionEqualToValue: (option: T, value: T) => boolean;
+	isOptionEqualToValue: (option: NoInfer<T>, value: NoInfer<T>) => boolean;
 	isRequired?: boolean;
 	label: string;
 	loading?: boolean;
 	muiButtonProps?: ButtonProps;
-	onChange: (value: null | string | T) => void;
+	onChange?: (value: null | string | NoInfer<T>) => void;
 	onInputChange: (value: string) => void;
 	options?: T[];
-	renderOption?: (props: HTMLAttributes<HTMLLIElement>, option: string | T) => ReactNode;
-	valueToShowToInput: (option: T) => { icon?: ReactNode; text: string };
+	renderOption?: (props: HTMLAttributes<HTMLLIElement>, option: string | NoInfer<T>) => ReactNode;
+	valueToShowToInput: (option: NoInfer<T>) => { icon?: ReactNode; text: string };
 	icon?: ReactNode;
-	defaultValue?: string | T;
+	defaultValue?: string | NoInfer<T>;
 	type?: "card";
+	freeSolo?: boolean;
+	disable?: boolean;
 };
 
 export type RenderInputProps = {
 	error?: boolean;
 	helperText?: string;
 	inputMode?: "decimal" | "email" | "none" | "numeric" | "search" | "tel" | "text" | "url";
-	inputRef: RefObject<undefined>;
+	inputRef: MutableRefObject<undefined>;
 	isRequired?: boolean;
 	label: string;
 	loading?: boolean;
