@@ -16,12 +16,15 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 		endIcon,
 		children,
 		onClick,
-		muiButtonProps
+		muiButtonProps,
+		loading
 	} = props;
 	const theme = useTheme();
 
 	return (
 		<Button
+			loading={loading}
+			loadingPosition="end"
 			disabled={disabled}
 			disableRipple
 			endIcon={

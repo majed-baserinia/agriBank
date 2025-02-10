@@ -12,6 +12,7 @@ export type ButtonAdapterProps = {
 	size?: Size;
 	startIcon?: ReactNode;
 	variant?: "contained" | "outlined" | "text";
+	loading?: boolean;
 };
 
 type Size = "large" | "medium" | "small";
