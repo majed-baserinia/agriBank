@@ -207,9 +207,6 @@ export function useMergedTheme(theme?: Partial<ThemeOptions>) {
 					MuiAutocomplete: {
 						styleOverrides: {
 							root: {
-								"& .MuiInputBase-root": {
-									// height: "48px"
-								},
 								variants: [
 									{
 										props: { size: "small" },
@@ -218,10 +215,7 @@ export function useMergedTheme(theme?: Partial<ThemeOptions>) {
 										}
 									},
 									{
-										props: { size: "medium" },
-										style: {
-											// height: "48px"
-										}
+										props: { size: "medium" }
 									}
 								]
 							}

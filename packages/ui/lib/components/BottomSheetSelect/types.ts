@@ -1,5 +1,5 @@
 export type Props<T extends { name: string; value: string }> = {
-	breackpoint?: "lg" | "md" | "sm" | "xs";
+	breakpoint?: "lg" | "md" | "sm" | "xs";
 	defaultValue?: string;
 	error?: boolean;
 	helperText?: string;

@@ -19,7 +19,7 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 	const {
 		list,
 		label,
-		breackpoint = "sm",
+		breakpoint = "sm",
 		defaultValue = "",
 		onChange,
 		isRequired,
@@ -28,7 +28,7 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 	} = props;
 
 	const theme = useTheme();
-	const isMatched = useMediaQuery(theme.breakpoints.down(breackpoint));
+	const isMatched = useMediaQuery(theme.breakpoints.down(breakpoint));
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState("");
 
@@ -36,7 +36,7 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 		setValue(defaultValue);
 	}, [defaultValue]);
 
-	const handlClickItem = (item: T) => {
+	const handleClickItem = (item: T) => {
 		setValue(item.value);
 		onChange(item);
 		setOpen(false);
@@ -66,7 +66,7 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 					sx={{ padding: "0px" }}
 					MenuProps={{
 						sx: {
-							display: isMatched ? "none" : "unset"
+							display: isMatched ? "none" : "initial"
 						}
 					}}
 					onChange={() => {}}
@@ -79,7 +79,7 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 						return (
 							<MenuItem
 								key={`${item.value}-${index}`}
-								onClick={() => handlClickItem(item)}
+								onClick={() => handleClickItem(item)}
 								value={item.value}
 							>
 								<Typography
@@ -121,7 +121,7 @@ export function BottomSheetSelect<T extends { name: string; value: string }>(pro
 											<Fragment key={`${item.value}-${index}`}>
 												<MenuItem
 													key={`${item.value}-${index}`}
-													onClick={() => handlClickItem(item)}
+													onClick={() => handleClickItem(item)}
 													value={item.value}
 												>
 													<Typography

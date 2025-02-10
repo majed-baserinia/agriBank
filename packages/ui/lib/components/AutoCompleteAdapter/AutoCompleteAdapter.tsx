@@ -1,22 +1,13 @@
-import type { AutocompleteInputChangeReason, Theme } from "@mui/material";
-import type { SyntheticEvent } from "react";
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import type { AutocompleteInputChangeReason, Theme } from "@mui/material";
 import { Autocomplete, Button, Grid, Popper, useMediaQuery, useTheme } from "@mui/material";
 import { formatToCardDynamically } from "lib/utils/formatters/formatInput";
+import type { SyntheticEvent } from "react";
 import { forwardRef, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-
+import { RenderInput } from "./RenderInput";
 import type { Props } from "./types";
 
-import { RenderInput } from "./RenderInput";
-
-// TODO: may need to add card format and functionality to edit card number
-// there is already implemented in the chargeAccount repo
-
-//also may need the icons for the card numbers
-//this is just a refactored version of that one in the chargeAccount repo
 export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props<T>) {
 	const {
 		options,
@@ -47,11 +38,11 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState<null | string | T>(null);
 	const [inputValue, setInputValue] = useState("");
-	const inputRef = useRef();
+	const inputRef = useRef(undefined);
 
 	useEffect(() => {
 		if (defaultValue !== null || defaultValue !== undefined) {
-			setValue(defaultValue);
+			setValue(defaultValue ?? null);
 		}
 	}, [defaultValue]);
 

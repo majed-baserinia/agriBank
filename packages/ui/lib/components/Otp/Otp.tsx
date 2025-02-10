@@ -2,6 +2,7 @@ import { InputAdapter } from "$components/InputAdapter";
 import { ButtonAdapter } from "$lib/components/ButtonAdapter";
 import { CountDownTimer, useCountDownTimer } from "$lib/components/CountDownTimer";
 import { pushAlert } from "$lib/stores/alerts";
+import { usePostMessage } from "@agribank/post-message";
 import CachedIcon from "@mui/icons-material/Cached";
 import CloseIcon from "@mui/icons-material/Close";
 import { Grid2, IconButton, Typography } from "@mui/material";
@@ -150,7 +151,7 @@ export function Otp({
 				)}
 				<Grid2
 					container
-					display={"block"}
+					flexDirection={"column"}
 					gap={10}
 				>
 					{isTimerCounting && (
