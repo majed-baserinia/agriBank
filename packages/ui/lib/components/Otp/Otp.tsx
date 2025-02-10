@@ -64,7 +64,7 @@ export function Otp({
 		if (alertMessage) {
 			pushAlert({
 				messageText: alertMessage,
-				type: alertType.type ?? "info",
+				type: alertType?.type ?? "info",
 				confirmButtonText: t("i-understand", { ns: "base" }),
 				hasConfirmAction: true
 			});
