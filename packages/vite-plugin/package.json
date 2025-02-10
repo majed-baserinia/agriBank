@@ -36,7 +36,7 @@
 		"format": "prettier --write ."
 	},
 	"devDependencies": {
-		"@types/node": "^22.8.2",
+		"@types/node": "^22.13.1",
 		"@types/eslint__js": "^8.42.3",
 		"@agribank/prettier-config": "^0.0.6",
 		"@agribank/ui": "^5.0.0",
@@ -44,14 +44,14 @@
 		"eslint-plugin-eslint-plugin": "^6.3.1",
 		"eslint-plugin-n": "^17.11.1",
 		"prettier": "^3.3.3",
-		"vite": "^5.4.9",
-		"typescript": "~5.6.2",
+		"vite": "^6.1.0",
+		"typescript": "~5.6.3",
 		"typescript-eslint": "^8.11.0",
-		"vite-plugin-dts": "^4.3.0",
-		"vite-tsconfig-paths": "^5.0.1"
+		"vite-plugin-dts": "^4.5.0",
+		"vite-tsconfig-paths": "^5.1.4"
 	},
 	"peerDependencies": {
-		"vite": "^5.4.9",
+		"vite": "^6.1.0",
 		"@agribank/ui": "^5.0.0"
 	},
 	"publishConfig": {

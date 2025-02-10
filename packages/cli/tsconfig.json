@@ -2,12 +2,12 @@
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"tsBuildInfoFile": "./node_modules/.tmp/tsconfig.tsbuildinfo",
-		"lib": ["ES2022"],
+		"lib": ["ES2023"],
 		"moduleResolution": "Bundler",
 		"allowJs": true,
 		"checkJs": true,
 		"noEmit": true,
-		"target": "ES2022",
+		"target": "ES2023",
 		"strict": true,
 		"rootDir": ".",
 		"paths": {
