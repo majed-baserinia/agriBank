@@ -96,10 +96,34 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 				justifyContent={"space-between"}
 				alignItems={"center"}
 				sx={{
-					marginTop: 2,
-					width: "100%"
+					minWidth: "96px"
 				}}
 			>
+				{!showButton ? (
+					<ButtonAdapter
+						onClick={sendSms}
+						disabled={isResendDisabled}
+						endIcon={<CachedIcon />}
+					>
+						{hasSentSmsAtLeastOnce ? t("xsend-again", { xsend: t("send") }) : t("send")}
+					</ButtonAdapter>
+				) : (
+					<ButtonAdapter
+						onClick={sendSms}
+						disabled={isResendDisabled}
+						muiButtonProps={{
+							sx: {
+								height: "fit-content",
+								padding: "10px",
+								minWidth: "100%",
+								marginBottom: "auto"
+							}
+						}}
+						variant="outlined"
+					>
+						{t("get-otp")}
+					</ButtonAdapter>
+				)}
 				<Grid2
 					container
 					flexDirection={"row"}

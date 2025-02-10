@@ -86,8 +86,8 @@
 	"confirm-and-continue": "confirm and continue",
 	"account-number": "account number",
 	"card-number": "card number",
-	"loading-text-auto-comp": "loading...",
 	"init-error-text": "there was a problem while trying to load the app, please try again later",
+	"loading-text-auto-comp": "loading...",
 	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
 	"xpage-number": "page {{xpage}}",
 	"activation-code": "activation code",
@@ -99,5 +99,5 @@
 	"phone-voice-otp-reader": "wating for call",
 	"phone-sms-otp-sender": "waiting for sms",
 	"pay": "pay",
-	"getOtp": "get OTP"
+	"get-otp": "get OTP"
 }
