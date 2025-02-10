@@ -1,4 +1,5 @@
 import type { InputAdapterProps } from "$lib/components/InputAdapter";
+import type { Props as alertProps } from "$lib/components/Alerts/types"
 
 type SendReturnType = { timer?: number; maxLength?: number } | false;
 export type Props = {
@@ -11,4 +12,7 @@ export type Props = {
 	label?: string;
 	onChange: (value: string) => void;
 	agriInputProps?: Partial<InputAdapterProps>;
+	showButton?: boolean
+	alertType: Partial<alertProps>
+	alertMessage?: string
 };

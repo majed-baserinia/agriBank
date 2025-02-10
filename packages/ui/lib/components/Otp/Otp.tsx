@@ -1,7 +1,7 @@
 import { InputAdapter } from "$components/InputAdapter";
 import { ButtonAdapter } from "$lib/components/ButtonAdapter";
 import { CountDownTimer, useCountDownTimer } from "$lib/components/CountDownTimer";
-import { usePostMessage } from "@agribank/post-message";
+import { pushAlert } from "$lib/stores/alerts";
 import CachedIcon from "@mui/icons-material/Cached";
 import CloseIcon from "@mui/icons-material/Close";
 import { Grid2, IconButton, Typography } from "@mui/material";
@@ -9,7 +9,15 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Props } from "./types";
 
-export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props) {
+export function Otp({
+	handleSend,
+	sendOnLoad,
+	onChange,
+	agriInputProps,
+	showButton,
+	alertType,
+	alertMessage = ""
+}: Props) {
 	const { t } = useTranslation("base");
 
 	const [maxLength, setMaxLength] = useState(8);
@@ -51,6 +59,15 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 
 		setCountDownTimer(result.timer ?? 120);
 		setMaxLength(maxLength);
+
+		if (alertMessage) {
+			pushAlert({
+				messageText: alertMessage,
+				type: alertType.type ?? "info",
+				confirmButtonText: t("i-understand", { ns: "base" }),
+				hasConfirmAction: true
+			});
+		}
 	}
 
 	useEffect(() => {
@@ -61,9 +78,14 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 	}, []);
 
 	return (
-		<Grid2>
+		<Grid2
+			display={"flex"}
+			flexDirection={"row"}
+			gap={5}
+			width={"100%"}
+		>
 			<InputAdapter
-				label={t("activation-code")}
+				label={t("password")}
 				onChange={(value) => {
 					setValue(value);
 					onChange?.(value);
@@ -74,6 +96,7 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 				endIcon={
 					value.length > 0 && (
 						<IconButton
+							size="small"
 							aria-label="clear otp"
 							onClick={() => {
 								setValue("");
@@ -93,8 +116,9 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 			/>
 			<Grid2
 				container
-				justifyContent={"space-between"}
+				justifyContent={"center"}
 				alignItems={"center"}
+				gap={5}
 				sx={{
 					minWidth: "96px"
 				}}
@@ -126,7 +150,7 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 				)}
 				<Grid2
 					container
-					flexDirection={"row"}
+					display={"block"}
 					gap={10}
 				>
 					{isTimerCounting && (
@@ -139,13 +163,6 @@ export function Otp({ handleSend, sendOnLoad, onChange, agriInputProps }: Props)
 						</>
 					)}
 				</Grid2>
-				<ButtonAdapter
-					onClick={sendSms}
-					disabled={isResendDisabled}
-					endIcon={<CachedIcon />}
-				>
-					{hasSentSmsAtLeastOnce ? t("xsend-again", { xsend: t("send") }) : t("send")}
-				</ButtonAdapter>
 			</Grid2>
 		</Grid2>
 	);
