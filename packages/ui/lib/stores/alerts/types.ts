@@ -8,7 +8,7 @@ export type AppAlert = {
 	hasRefuseAction?: boolean;
 	messageText?: ReactNode | string;
 	overrideActions?: (props: AccessApi) => ReactNode;
-	type: "error" | "info" | "success" | "warning";
+	type: "error" | "info" | "success" | "warning" | "phone-voice-otp" | "phone-sms-otp";
 };
 
 type AlertActions = {
