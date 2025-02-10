@@ -38,7 +38,7 @@ export function Alerts() {
 			onClose={() => handleClose()}
 			open={open}
 			PaperProps={{
-				sx: { padding: "32px", borderRadius: "24px" }
+				sx: { padding: "20px", borderRadius: "24px" }
 			}}
 			// eslint-disable-next-line no-loss-of-precision
 			sx={{ zIndex: 9999999999999999 }}
