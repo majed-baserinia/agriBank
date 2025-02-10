@@ -23,7 +23,13 @@ function changeRequestPathOfSharedPublicFiles(
 	server: PreviewServer | ViteDevServer,
 	extraFiles?: string[]
 ) {
-	const files = ["config.json", "compatibility.js", "browserUpdate.js", ...(extraFiles ?? [])];
+	const files = [
+		"config.json",
+		"compatibility.js",
+		"browserUpdate.js",
+		"keshavarzi.svg",
+		...(extraFiles ?? [])
+	];
 	server.middlewares.use(async (req, res, next) => {
 		if (!req.url) {
 			return next();
