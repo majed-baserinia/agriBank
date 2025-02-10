@@ -91,6 +91,13 @@
 	"xpage-of-xtotal-pages": "صفحه {{xpage}} از {{xtotal}}",
 	"xpage-number": "صفحه {{xpage}}",
 	"activation-code": "کد فعال سازی",
+	"password": "رمز",
 	"go-back": "بازگشت",
-	"validation-error": "از صحت داده های ورودی اطمینان حاصل فرمایید"
+	"validation-error": "از صحت داده های ورودی اطمینان حاصل فرمایید",
+	"phone-voice-otp": "ارسال رمز یکبار مصرف صوتی",
+	"phone-voice-otp-reader": "رمز یکبار مصرف طی تماس تلفنی برای شما خوانده می شود.",
+	"phone-sms-otp": "ارسال رمز پیامکی",
+	"phone-sms-otp-sender": "رمز پیامکی برای شما ارسال می شود",
+	"pay": "پرداخت",
+	"getOtp": "دریافت رمز"
 }

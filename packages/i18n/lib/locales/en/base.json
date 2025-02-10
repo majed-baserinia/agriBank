@@ -91,6 +91,13 @@
 	"xpage-of-xtotal-pages": "page {{xpage}} of {{xtotal}}",
 	"xpage-number": "page {{xpage}}",
 	"activation-code": "activation code",
+	"password": "password",
 	"go-back": "go back",
-	"validation-error": "validation error"
+	"validation-error": "validation error",
+	"phone-voice-otp": "Voice OTP",
+	"phone-sms-otp": "SMS OTP",
+	"phone-voice-otp-reader": "wating for call",
+	"phone-sms-otp-sender": "waiting for sms",
+	"pay": "pay",
+	"getOtp": "get OTP"
 }
