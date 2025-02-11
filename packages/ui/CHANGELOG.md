@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 6.2.0
+
+### Minor Changes
+
+- 84940ed: feat(ui): added guard component
+
 ## 6.1.0
 
 ### Minor Changes
