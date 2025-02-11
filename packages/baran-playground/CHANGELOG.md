@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.10.2
+
+### Patch Changes
+
+- f0d8274: fix(baran-playground): send otp data correctly in postmessage
+
 ## 0.10.1
 
 ### Patch Changes

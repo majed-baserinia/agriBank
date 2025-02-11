@@ -778,7 +778,7 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.10.1
+        specifier: ^0.10.2
         version: link:../../packages/baran-playground
       '@agribank/baran-typed-querykit':
         specifier: ^9.0.0
