@@ -1,9 +1,9 @@
 import errorIcon from "$assets/icons/alerts/error.png";
 import infoIcon from "$assets/icons/alerts/info.png";
-import successIcon from "$assets/icons/alerts/success.png";
-import warningIcon from "$assets/icons/alerts/warning.png";
 import phoneIcon from "$assets/icons/alerts/phone.png";
 import smsIcon from "$assets/icons/alerts/sms.png";
+import successIcon from "$assets/icons/alerts/success.png";
+import warningIcon from "$assets/icons/alerts/warning.png";
 import { useEffect, useState } from "react";
 
 import type { Props } from "./types";

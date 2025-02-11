@@ -596,6 +596,9 @@ importers:
       '@eslint/js':
         specifier: ^9.16.0
         version: 9.16.0
+      '@types/node':
+        specifier: ^22.13.1
+        version: 22.13.1
       eslint:
         specifier: ^9.13.0
         version: 9.13.0(jiti@2.4.0)
