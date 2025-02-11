@@ -1,3 +1,4 @@
+import type { SxProps, Theme } from "@mui/material";
 import type { ReactNode } from "react";
 
 export type Props = {
@@ -8,4 +9,5 @@ export type Props = {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	size?: "medium" | "small";
 	variant?: "filled" | "outlined";
+	sx?: SxProps<Theme>
 };

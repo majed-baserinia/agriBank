@@ -3,20 +3,22 @@ import { Chip, Grid, Typography, useTheme } from "@mui/material";
 import type { Props } from "./types";
 
 import { CounterIcon } from "./CounterIcon";
+import { Padding } from "@mui/icons-material";
 
-export function ChipsAdapter(props: Props) {
-	const {
-		label,
-		size = "medium",
-		onClick,
-		icon = false,
-		color = "default",
-		count,
-		variant
-	} = props;
+export function ChipsAdapter({
+	label,
+	size = "medium",
+	onClick,
+	icon = false,
+	color = "default",
+	count,
+	sx,
+	variant
+} : Props) {
+
 	const theme = useTheme();
 
-	const sx = {
+	const defaultSx = {
 		backgroundColor: variant === "filled" ? theme.palette.primary[50] : "transparent",
 		border: `1px solid ${theme.palette.grey[200]}`,
 		"&&:hover": {
@@ -36,7 +38,7 @@ export function ChipsAdapter(props: Props) {
 		},
 		"& .MuiChip-deleteIcon": {
 			margin: "0 5px"
-		}
+		},
 	};
 
 	return (
@@ -50,8 +52,9 @@ export function ChipsAdapter(props: Props) {
 			onClick={(e) => onClick?.(e)}
 			onDelete={count ? () => {} : undefined}
 			size={size}
-			sx={sx}
+			sx={{...defaultSx, ...sx}}
 			variant="outlined"
+			
 		/>
 	);
 }
