@@ -1,5 +1,11 @@
 # @agribank/post-message
 
+## 0.4.1
+
+### Patch Changes
+
+- c41c53b: chore(post-message): update initial postmessage timeout
+
 ## 0.4.0
 
 ### Minor Changes

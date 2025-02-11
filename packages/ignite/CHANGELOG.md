@@ -1,5 +1,13 @@
 # @agribank/ignite
 
+## 11.0.1
+
+### Patch Changes
+
+- c41c53b: chore(post-message): update initial postmessage timeout
+- Updated dependencies [c41c53b]
+  - @agribank/post-message@0.4.1
+
 ## 11.0.0
 
 ### Patch Changes

@@ -479,7 +479,7 @@ importers:
         specifier: ^0.6.0
         version: link:../i18n
       '@agribank/post-message':
-        specifier: ^0.4.0
+        specifier: ^0.4.1
         version: link:../post-message
       '@agribank/prettier-config':
         specifier: ^0.0.7
@@ -787,10 +787,10 @@ importers:
         specifier: ^0.6.0
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^11.0.0
+        specifier: ^11.0.1
         version: link:../../packages/ignite
       '@agribank/post-message':
-        specifier: ^0.4.0
+        specifier: ^0.4.1
         version: link:../../packages/post-message
       '@agribank/ui':
         specifier: ^6.0.0
