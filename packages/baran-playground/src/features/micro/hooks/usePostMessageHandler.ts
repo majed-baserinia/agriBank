@@ -47,9 +47,7 @@ export function usePostMessageHandler({
 						iframe.current,
 						{
 							type: "ResOTP",
-							data: {
-								OTP: "12345678"
-							} satisfies PostMessageOutputSubType<"GetOTP", "ResOTP">
+							OTP: "12345678"
 						},
 						event.origin
 					);
