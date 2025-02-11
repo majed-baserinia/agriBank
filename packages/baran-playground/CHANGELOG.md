@@ -1,5 +1,16 @@
 # @agribank/baran-playground
 
+## 0.10.1
+
+### Patch Changes
+
+- 13f5ab4: fix(baran-playground): add otp type top postmessage handler
+- 26c38e7: chore: improve design
+- Updated dependencies [590c2a9]
+  - @agribank/ui@6.1.0
+  - @agribank/baran-typed-querykit@9.0.0
+  - @agribank/ignite@12.0.0
+
 ## 0.10.0
 
 ### Minor Changes

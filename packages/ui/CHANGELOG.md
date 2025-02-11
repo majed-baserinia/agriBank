@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 6.1.0
+
+### Minor Changes
+
+- 590c2a9: feat(ui): allow passing customs sx to chips adapter
+
 ## 6.0.0
 
 ### Patch Changes
