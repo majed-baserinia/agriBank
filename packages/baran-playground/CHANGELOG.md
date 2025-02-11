@@ -1,5 +1,39 @@
 # @agribank/baran-playground
 
+## 0.10.0
+
+### Minor Changes
+
+- e8accfe: feat(baran-playground): send dummy sms code when receiving OTP request
+
+### Patch Changes
+
+- 2744035: feat: allow sending message as a function callback instead of sending it on load
+- 0479e0c: fix(baran-playground): don't resend request on login request errors
+- ac39e48: chore: updated mui dependency version
+- 5e9998b: chore: update tanstack router versions
+- 5fbb6ae: chore(baran-playground): lower alerts times
+- Updated dependencies [992c247]
+- Updated dependencies [6329c79]
+- Updated dependencies [351d43d]
+- Updated dependencies [2744035]
+- Updated dependencies [ac39e48]
+- Updated dependencies [e18453c]
+- Updated dependencies [d921708]
+- Updated dependencies [7d76deb]
+- Updated dependencies [5e9998b]
+- Updated dependencies [cd2a12e]
+- Updated dependencies [1885e92]
+- Updated dependencies [7fe5c5d]
+- Updated dependencies [87c27be]
+- Updated dependencies [27e9225]
+- Updated dependencies [afc1a20]
+  - @agribank/ui@6.0.0
+  - @agribank/post-message@0.4.0
+  - @agribank/baran-typed-querykit@8.0.0
+  - @agribank/ignite@11.0.0
+  - @agribank/i18n@0.6.0
+
 ## 0.9.0
 
 ### Minor Changes

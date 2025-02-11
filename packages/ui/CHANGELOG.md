@@ -1,5 +1,25 @@
 # @agribank/ui
 
+## 6.0.0
+
+### Patch Changes
+
+- 992c247: feat(ui): define prop types for AppAlert
+- 6329c79: fix(ui): make alertType optional
+- 351d43d: feat(ui): improve alert component with padding, icons, and types
+- 2744035: feat: allow sending message as a function callback instead of sending it on load
+- ac39e48: chore: updated mui dependency version
+- d921708: feat(ui): improve ChipStatusAdapter
+- 7d76deb: feat(ui): adjust height of MuiInputBase
+- 5e9998b: chore: update tanstack router versions
+- cd2a12e: feat(ui): enhance ButtonAdapter with loading state
+- 7fe5c5d: feat(ui): enhance BottomSheetSelect, add backdrop on tap
+- 87c27be: feat(ui): enhance OTP component with showButton, alertType, alertMessage props and types and fix ResOTP
+- 27e9225: feat(ui): enhance AutoCompleteAdapter, add type and disable props
+- afc1a20: chore(ui): rename handleSend to on onSendSmsClick
+- Updated dependencies [1885e92]
+  - @agribank/i18n@0.6.0
+
 ## 5.0.0
 
 ### Minor Changes

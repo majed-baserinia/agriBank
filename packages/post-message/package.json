@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/post-message",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"type": "module",
 	"description": "includes all communication protocols with super app",
 	"author": "@FoHoOV",
@@ -37,7 +37,7 @@
 	},
 	"devDependencies": {
 		"@agribank/eslint-plugin": "^0.4.0",
-		"@agribank/prettier-config": "^0.0.6",
+		"@agribank/prettier-config": "^0.0.7",
 		"@types/react": "^19.0.0",
 		"@vitejs/plugin-react": "^4.3.4",
 		"eslint": "^9.12.0",

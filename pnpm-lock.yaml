@@ -49,19 +49,19 @@ importers:
   packages/baran-playground:
     dependencies:
       '@agribank/baran-typed-querykit':
-        specifier: ^7.0.0
+        specifier: ^8.0.0
         version: link:../baran-typed-querykit
       '@agribank/i18n':
-        specifier: ^0.5.0
+        specifier: ^0.6.0
         version: link:../i18n
       '@agribank/ignite':
-        specifier: ^10.0.0
+        specifier: ^11.0.0
         version: link:../ignite
       '@agribank/post-message':
-        specifier: ^0.3.0
+        specifier: ^0.4.0
         version: link:../post-message
       '@agribank/ui':
-        specifier: ^5.0.0
+        specifier: ^6.0.0
         version: link:../ui
       '@emotion/cache':
         specifier: ^11.11.0
@@ -149,10 +149,10 @@ importers:
         specifier: ^0.4.0
         version: link:../eslint-plugin
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       '@agribank/vite-plugin':
-        specifier: ^10.0.0
+        specifier: ^11.0.0
         version: link:../vite-plugin
       '@eslint/js':
         specifier: ^9.13.0
@@ -230,19 +230,19 @@ importers:
         specifier: ^0.4.0
         version: link:../eslint-plugin
       '@agribank/i18n':
-        specifier: ^0.5.0
+        specifier: ^0.6.0
         version: link:../i18n
       '@agribank/ignite':
-        specifier: ^10.0.0
+        specifier: ^11.0.0
         version: link:../ignite
       '@agribank/post-message':
-        specifier: ^0.3.0
+        specifier: ^0.4.0
         version: link:../post-message
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: ^5.0.0
+        specifier: ^6.0.0
         version: link:../ui
       '@tanstack/react-query':
         specifier: ^5.66.0
@@ -439,7 +439,7 @@ importers:
         specifier: ^0.4.0
         version: link:../eslint-plugin
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       eslint:
         specifier: ^9.12.0
@@ -476,16 +476,16 @@ importers:
         specifier: ^0.4.0
         version: link:../eslint-plugin
       '@agribank/i18n':
-        specifier: ^0.5.0
+        specifier: ^0.6.0
         version: link:../i18n
       '@agribank/post-message':
-        specifier: ^0.3.0
+        specifier: ^0.4.0
         version: link:../post-message
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: ^5.0.0
+        specifier: ^6.0.0
         version: link:../ui
       '@mui/material':
         specifier: ^6.4.3
@@ -548,7 +548,7 @@ importers:
         specifier: ^0.4.0
         version: link:../eslint-plugin
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       '@types/react':
         specifier: ^19.0.0
@@ -628,13 +628,13 @@ importers:
         specifier: ^0.4.0
         version: link:../eslint-plugin
       '@agribank/i18n':
-        specifier: ^0.5.0
+        specifier: ^0.6.0
         version: link:../i18n
       '@agribank/post-message':
-        specifier: ^0.3.0
+        specifier: ^0.4.0
         version: link:../post-message
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       '@emotion/cache':
         specifier: ^11.11.0
@@ -736,10 +736,10 @@ importers:
   packages/vite-plugin:
     devDependencies:
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../prettier-config
       '@agribank/ui':
-        specifier: ^5.0.0
+        specifier: ^6.0.0
         version: link:../ui
       '@types/eslint__js':
         specifier: ^8.42.3
@@ -778,22 +778,22 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.9.0
+        specifier: ^0.10.0
         version: link:../../packages/baran-playground
       '@agribank/baran-typed-querykit':
-        specifier: ^7.0.0
+        specifier: ^8.0.0
         version: link:../../packages/baran-typed-querykit
       '@agribank/i18n':
-        specifier: ^0.5.0
+        specifier: ^0.6.0
         version: link:../../packages/i18n
       '@agribank/ignite':
-        specifier: ^10.0.0
+        specifier: ^11.0.0
         version: link:../../packages/ignite
       '@agribank/post-message':
-        specifier: ^0.3.0
+        specifier: ^0.4.0
         version: link:../../packages/post-message
       '@agribank/ui':
-        specifier: ^5.0.0
+        specifier: ^6.0.0
         version: link:../../packages/ui
       '@emotion/cache':
         specifier: ^11.11.0
@@ -869,10 +869,10 @@ importers:
         specifier: ^0.4.0
         version: link:../../packages/eslint-plugin
       '@agribank/prettier-config':
-        specifier: ^0.0.6
+        specifier: ^0.0.7
         version: link:../../packages/prettier-config
       '@agribank/vite-plugin':
-        specifier: ^10.0.0
+        specifier: ^11.0.0
         version: link:../../packages/vite-plugin
       '@eslint/js':
         specifier: ^9.13.0

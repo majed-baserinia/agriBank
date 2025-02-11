@@ -1,5 +1,11 @@
 # @agribank/post-message
 
+## 0.4.0
+
+### Minor Changes
+
+- 2744035: feat: allow sending message as a function callback instead of sending it on load
+
 ## 0.3.0
 
 ### Minor Changes

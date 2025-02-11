@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.6.0
+
+### Minor Changes
+
+- 1885e92: feat(i18n): added new translations
+
 ## 0.5.0
 
 ### Minor Changes

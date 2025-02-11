@@ -1,5 +1,11 @@
 # @agribank/prettier-config
 
+## 0.0.7
+
+### Patch Changes
+
+- a052039: feat(prettier-config): resolve plugins from its own node_modules which allows consumers to not install prettier plugins directly
+
 ## 0.0.6
 
 ### Patch Changes

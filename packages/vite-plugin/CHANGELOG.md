@@ -1,5 +1,25 @@
 # @agribank/vite-plugin
 
+## 11.0.0
+
+### Patch Changes
+
+- 6dc8d94: feat(vite-plugin): forward keshavarzi static file requests from cdn to local public folder in dev and preview
+- Updated dependencies [992c247]
+- Updated dependencies [6329c79]
+- Updated dependencies [351d43d]
+- Updated dependencies [2744035]
+- Updated dependencies [ac39e48]
+- Updated dependencies [d921708]
+- Updated dependencies [7d76deb]
+- Updated dependencies [5e9998b]
+- Updated dependencies [cd2a12e]
+- Updated dependencies [7fe5c5d]
+- Updated dependencies [87c27be]
+- Updated dependencies [27e9225]
+- Updated dependencies [afc1a20]
+  - @agribank/ui@6.0.0
+
 ## 10.0.0
 
 ### Patch Changes
