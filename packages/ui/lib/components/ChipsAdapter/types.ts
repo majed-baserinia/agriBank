@@ -9,5 +9,5 @@ export type Props = {
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	size?: "medium" | "small";
 	variant?: "filled" | "outlined";
-	sx?: SxProps<Theme>
+	sx?: SxProps<Theme>;
 };
