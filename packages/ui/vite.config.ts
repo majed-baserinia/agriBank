@@ -24,12 +24,12 @@ function getComponentEntries() {
 }
 
 function getStoreEntries() {
-	const componentsDir = resolve(__dirname, "lib/stores");
+	const storesDir = resolve(__dirname, "lib/stores");
 	const entries: Record<string, string> = {};
 
-	readdirSync(componentsDir).forEach((dir) => {
-		const fullPath = resolve(componentsDir, dir, "index.ts");
-		if (statSync(resolve(componentsDir, dir)).isDirectory() && existsSync(fullPath)) {
+	readdirSync(storesDir).forEach((dir) => {
+		const fullPath = resolve(storesDir, dir, "index.ts");
+		if (statSync(resolve(storesDir, dir)).isDirectory() && existsSync(fullPath)) {
 			entries[dir] = fullPath;
 		}
 	});
