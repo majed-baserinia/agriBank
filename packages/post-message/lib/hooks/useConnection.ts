@@ -22,7 +22,7 @@ export function useConnection<TData extends InitiateIFrameOutputType = InitiateI
 		needsInitData,
 		received: receivedInitPostMessage,
 		delay: 500,
-		duration: 5000,
+		duration: 10000,
 		onInitializationFailed: onInitializationFailed
 	});
 

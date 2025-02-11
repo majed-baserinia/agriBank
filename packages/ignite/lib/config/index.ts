@@ -1,12 +1,12 @@
 import { type Config } from "$lib/config/loaders/useConfigLoader";
 import {
+	usePostMessageLoader,
+	type Props as HandledConnectionProps
+} from "$lib/config/loaders/usePostMessageLoader";
+import {
 	searchParamsConfigSchema,
 	useSearchParamsConfigLoader
 } from "$lib/config/loaders/useSearchParamsConfigLoader";
-import {
-	useHandledConnection,
-	type Props as HandledConnectionProps
-} from "$lib/config/useHandledConnection";
 import { useLoadAllConfigurations } from "$lib/config/useLoadAllConfigurations";
 import type { useRouter } from "$lib/facade/router";
 import { useIgniteStore } from "$lib/stores";
@@ -47,7 +47,7 @@ export function useInitConfig({ onInitializationFailed, configOverrides, useRout
 			});
 		}
 	});
-	const { readyToLoad } = useHandledConnection({
+	const { readyToLoad } = usePostMessageLoader({
 		needsInitData: spConfig.Auth,
 		onIframeInitiated: (data) => {
 			updateAuth(data);

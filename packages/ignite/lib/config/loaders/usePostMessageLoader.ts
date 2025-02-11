@@ -16,7 +16,7 @@ export type Props = Omit<ConnectionProps<ConnectionType>, "onInitializationFaile
 	useRouter: useRouter;
 };
 
-export function useHandledConnection({ onInitializationFailed, useRouter, ...restProps }: Props) {
+export function usePostMessageLoader({ onInitializationFailed, useRouter, ...restProps }: Props) {
 	const { currentPath, canGoBack, goBack } = useRouter();
 	const paramConfig = useSearchParamsConfigLoader(useRouter);
 

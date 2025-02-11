@@ -35,7 +35,7 @@ export function useMultipleInitRequest({
 		}
 
 		intervalRef.current = setInterval(() => {
-			if (!received && counter.current === duration / delay) {
+			if (!received && counter.current >= duration / delay) {
 				clearInterval(intervalRef.current!);
 				const autoCloseApp = onInitializationFailed?.(closeApp);
 				if (autoCloseApp !== false) {
