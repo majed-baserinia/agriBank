@@ -19,6 +19,9 @@ export function UsersSlot() {
 						label={accountNumber}
 						variant={activatedUserAccountNumber === accountNumber ? "filled" : "outlined"}
 						onClick={() => setActiveUser(accountNumber)}
+						sx={{
+							marginTop: "1rem"
+						}}
 					/>
 				);
 			})}
