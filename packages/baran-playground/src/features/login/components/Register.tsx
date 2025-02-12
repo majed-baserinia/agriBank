@@ -8,10 +8,8 @@ import { Otp as AgriOtp } from "@agribank/ui/components/Otp";
 import { Box, Grid2 } from "@mui/material";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import { useLogin } from "../services/login";
+import { useCombinedLoginSteps } from "../hooks/useCombinedLoginSteps";
 import { usePreRegister } from "../services/pre-register";
-import { useRegister } from "../services/register";
-import { useVerifyRegister } from "../services/verify-register";
 import type { RegisterInput } from "./index";
 
 export function Register() {
@@ -21,13 +19,13 @@ export function Register() {
 	const accountNumber = form.getValues("preRegister.accOrCifNum") ?? "";
 	const { mutateAsync: postPreRegister, isPending: isSendingOtpPending } =
 		usePreRegister(accountNumber);
-	const { mutateAsync: postVerifyRegister, isPending: isVerifyPending } =
-		useVerifyRegister(accountNumber);
-	const { mutateAsync: postRegister, isPending: isRegisterPending } = useRegister(accountNumber);
-	const { mutateAsync: postLogin, isPending: isLoginPending } = useLogin(accountNumber);
+	const { mutateAsync: postLogin, isPending: isPostLoginPending } = useCombinedLoginSteps(
+		form,
+		accountNumber
+	);
 	const user = useCurrentEnvironmentActiveUser();
 
-	useLoadingHandler(isSendingOtpPending || isVerifyPending || isRegisterPending || isLoginPending);
+	useLoadingHandler(isSendingOtpPending || isPostLoginPending);
 
 	function getOtpData() {
 		return { otpCode: otp, ...form.getValues().preRegister };
@@ -54,32 +52,7 @@ export function Register() {
 	}
 
 	async function handleVerifyOtp() {
-		const verifyRegisterResult = await postVerifyRegister(getOtpData());
-		if (verifyRegisterResult.error) {
-			setBaranErrorsToForm(verifyRegisterResult, form, "verifyRegister");
-			return;
-		}
-
-		form.setValue("register.password", form.getValues().login?.password);
-		form.setValue("register.confirmPassword", form.getValues().login?.password);
-		form.setValue("register.keyToken", verifyRegisterResult.response?.keyToken);
-		const registerResult = await postRegister({
-			...form.getValues().register,
-			preservePreviousPassword: false
-		});
-		if (registerResult.error) {
-			setBaranErrorsToForm(registerResult, form, "register");
-			setBaranErrorsToForm(registerResult, form, "login");
-			return;
-		}
-
-		const loginResult = await postLogin({
-			...form.getValues().login!
-		});
-		if (loginResult.error) {
-			setBaranErrorsToForm(loginResult, form, "login");
-			return;
-		}
+		return await postLogin(getOtpData());
 	}
 
 	return (

@@ -2,6 +2,7 @@ import { useCurrentEnvironmentActiveUser } from "$/features/login";
 import { setBaranErrorsToForm } from "@agribank/baran-typed-querykit/react";
 import { ButtonAdapter } from "@agribank/ui/components/ButtonAdapter";
 import { Controlled } from "@agribank/ui/components/ControlledInput";
+import { useLoadingHandler } from "@agribank/ui/components/Loader";
 import { Otp } from "@agribank/ui/components/Otp";
 import { SwitchAdapter } from "@agribank/ui/components/SwitchAdapter";
 import { pushAlert } from "@agribank/ui/stores/alerts";
@@ -21,12 +22,13 @@ export function UpgradeLevel2() {
 	);
 	const [otp, setOtp] = useState("");
 
-	const { mutateAsync: sendOtp } = useUpgradeLevel2OtpRequest(
+	const { mutateAsync: sendOtp, isPending: isOtpRequestPending } = useUpgradeLevel2OtpRequest(
 		user?.input.preRegister?.accOrCifNum ?? ""
 	);
-	const { mutateAsync: confirmUpgrade } = useConfirmUpgradeLevel2(
-		user?.input.preRegister?.accOrCifNum ?? ""
-	);
+	const { mutateAsync: confirmUpgrade, isPending: isConfirmRequestPending } =
+		useConfirmUpgradeLevel2(user?.input.preRegister?.accOrCifNum ?? "");
+
+	useLoadingHandler(isOtpRequestPending || isConfirmRequestPending);
 
 	async function handleSendOtp() {
 		const result = await sendOtp({
