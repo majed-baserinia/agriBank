@@ -12,7 +12,7 @@ export type Props = {
 	label?: string;
 	onChange: (value: string) => void;
 	agriInputProps?: Partial<InputAdapterProps>;
-	showButton?: boolean;
 	alertType?: Partial<AlertProps>;
 	alertMessage?: string;
+	variant?: "refresh-icon" | "send-button";
 };

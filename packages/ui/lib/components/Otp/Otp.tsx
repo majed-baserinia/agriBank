@@ -15,9 +15,9 @@ export function Otp({
 	sendOnLoad,
 	onChange,
 	agriInputProps,
-	showButton,
 	alertType,
-	alertMessage = ""
+	alertMessage = "",
+	variant = "refresh-icon"
 }: Props) {
 	const { t } = useTranslation("base");
 
@@ -81,7 +81,7 @@ export function Otp({
 	return (
 		<Grid2
 			display={"flex"}
-			flexDirection={"row"}
+			flexDirection={variant === "send-button" ? "row" : "column"}
 			gap={5}
 			width={"100%"}
 		>
@@ -117,22 +117,15 @@ export function Otp({
 			/>
 			<Grid2
 				container
-				justifyContent={"center"}
+				flexDirection={variant === "send-button" ? "row" : "row-reverse"}
+				justifyContent={variant === "send-button" ? "flex-start" : "space-between"}
 				alignItems={"center"}
 				gap={5}
 				sx={{
 					minWidth: "96px"
 				}}
 			>
-				{!showButton ? (
-					<ButtonAdapter
-						onClick={sendSms}
-						disabled={isResendDisabled}
-						endIcon={<CachedIcon />}
-					>
-						{hasSentSmsAtLeastOnce ? t("xsend-again", { xsend: t("send") }) : t("send")}
-					</ButtonAdapter>
-				) : (
+				{variant === "send-button" ? (
 					<ButtonAdapter
 						onClick={sendSms}
 						disabled={isResendDisabled}
@@ -148,11 +141,20 @@ export function Otp({
 					>
 						{t("get-otp")}
 					</ButtonAdapter>
+				) : (
+					<ButtonAdapter
+						onClick={sendSms}
+						disabled={isResendDisabled}
+						endIcon={<CachedIcon />}
+					>
+						{hasSentSmsAtLeastOnce ? t("xsend-again", { xsend: t("send") }) : t("send")}
+					</ButtonAdapter>
 				)}
 				<Grid2
 					container
-					flexDirection={"column"}
-					gap={10}
+					flexDirection={variant === "send-button" ? "column" : "row"}
+					paddingLeft={5}
+					gap={variant === "send-button" ? 0 : 10}
 				>
 					{isTimerCounting && (
 						<>
