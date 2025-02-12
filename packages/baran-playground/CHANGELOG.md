@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.11.1
+
+### Patch Changes
+
+- cfd7db5: fix(baran-playground): show pending state for upgrade to level 2
+
 ## 0.11.0
 
 ### Minor Changes
