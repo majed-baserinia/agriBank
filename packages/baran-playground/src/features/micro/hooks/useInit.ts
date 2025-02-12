@@ -38,7 +38,7 @@ export function useInit({ iframe, app }: Props) {
 			) {
 				enqueueSnackbar({
 					message: `hasn't received any \`iFrameStillAlive\` events for more than ${intervalMs}ms`,
-					autoHideDuration: 200
+					autoHideDuration: 1000
 				});
 			}
 		}, intervalMs);

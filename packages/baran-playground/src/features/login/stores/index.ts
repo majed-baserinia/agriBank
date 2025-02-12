@@ -1,8 +1,10 @@
 import type { Environments } from "$/features/environment";
 import type { schema } from "$/features/login";
 import type {
+	ConfirmUpgradeForLevelTwoOutputDto,
 	PreRegisterOutputDto,
 	RegisterOutputDto,
+	RequestUpgradeForLevelTwoOutputDto,
 	VerifyRegisterOtpOutputDto
 } from "$/services";
 import type { AppStore, SliceCreator } from "$/stores/types";
@@ -17,6 +19,8 @@ type PartialLoginOutput = {
 	verifyRegister?: VerifyRegisterOtpOutputDto;
 	register?: RegisterOutputDto;
 	login?: Tokens;
+	upgradeLevel2OtpRequest?: RequestUpgradeForLevelTwoOutputDto;
+	upgradeLevel2Confirm?: ConfirmUpgradeForLevelTwoOutputDto;
 };
 
 type Tokens = {
@@ -56,10 +60,20 @@ type Actions = {
 	setPreRegisterRequest: (params: NewState<LoginInput["preRegister"]>) => void;
 	setVerifyRegisterRequest: (params: NewState<LoginInput["verifyRegister"]>) => void;
 	setRegisterRequest: (params: NewState<LoginInput["register"]>) => void;
-	setLoginResponse: (params: NewState<Tokens>) => void;
-	setPreRegisterResponse: (params: NewState<PreRegisterOutputDto>) => void;
-	setVerifyRegisterResponse: (params: NewState<VerifyRegisterOtpOutputDto>) => void;
-	setRegisterResponse: (params: NewState<RegisterOutputDto>) => void;
+	setUpgradeLevel2OtpRequest: (params: NewState<LoginInput["upgradeLevel2OtpRequest"]>) => void;
+	setUpgradeLevel2ConfirmRequest: (params: NewState<LoginInput["upgradeLevel2Confirm"]>) => void;
+	setLoginResponse: (params: NewState<Required<PartialLoginOutput>["login"]>) => void;
+	setPreRegisterResponse: (params: NewState<Required<PartialLoginOutput>["preRegister"]>) => void;
+	setVerifyRegisterResponse: (
+		params: NewState<Required<PartialLoginOutput>["verifyRegister"]>
+	) => void;
+	setRegisterResponse: (params: NewState<Required<PartialLoginOutput>["register"]>) => void;
+	setUpgradeLevel2OtpResponse: (
+		params: NewState<Required<PartialLoginOutput>["upgradeLevel2OtpRequest"]>
+	) => void;
+	setUpgradeLevel2ConfirmResponse: (
+		params: NewState<Required<PartialLoginOutput>["upgradeLevel2Confirm"]>
+	) => void;
 	setActiveUser: (key: string) => void;
 	removeUser: (key: string) => void;
 	resetUsers: () => void;
@@ -123,6 +137,28 @@ export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 			});
 		});
 	},
+	setUpgradeLevel2OtpRequest(params) {
+		set((state) => {
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: true,
+				key: "upgradeLevel2OtpRequest",
+				params: params
+			});
+		});
+	},
+	setUpgradeLevel2ConfirmRequest(params) {
+		set((state) => {
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: true,
+				key: "upgradeLevel2Confirm",
+				params: params
+			});
+		});
+	},
 	setLoginResponse(params) {
 		set((state) => {
 			updateState({
@@ -163,6 +199,28 @@ export const createLoginSlice: SliceCreator<LoginSlice> = (set, get) => ({
 				getCurrentState: get,
 				isRequest: false,
 				key: "register",
+				params: params
+			});
+		});
+	},
+	setUpgradeLevel2OtpResponse(params) {
+		set((state) => {
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: false,
+				key: "upgradeLevel2OtpRequest",
+				params: params
+			});
+		});
+	},
+	setUpgradeLevel2ConfirmResponse(params) {
+		set((state) => {
+			updateState({
+				stagedState: state,
+				getCurrentState: get,
+				isRequest: false,
+				key: "upgradeLevel2Confirm",
 				params: params
 			});
 		});

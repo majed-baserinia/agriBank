@@ -6,6 +6,7 @@ import { schema } from "../schemas";
 import { RefreshLoginButton } from "./RefreshLoginButton";
 import { Register } from "./Register";
 import { Result } from "./Result";
+import { UpgradeLevel2 } from "./UpgradeLevel2";
 import { UsersSlot } from "./UsersSlot";
 
 export type RegisterInput = z.infer<typeof schema>;
@@ -14,6 +15,7 @@ export function Login() {
 	const form = useForm<z.infer<typeof schema>>({
 		resolver: zodResolver(schema)
 	});
+
 	return (
 		<FormProvider {...form}>
 			<Grid2
@@ -27,6 +29,7 @@ export function Login() {
 					Registration form
 				</Typography>
 				<Register />
+				<UpgradeLevel2 />
 				<UsersSlot />
 				<Divider sx={{ marginBottom: 20, marginTop: 20 }} />
 				<Grid2

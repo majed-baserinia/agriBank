@@ -40,8 +40,7 @@ export function usePostMessageHandler({
 				case "GetOTP":
 					enqueueSnackbar({
 						message: "requested for otp (sending dummy sms)",
-						variant: "warning",
-						autoHideDuration: 200
+						variant: "warning"
 					});
 					sendPostMessage(
 						iframe.current,
