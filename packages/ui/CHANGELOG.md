@@ -1,5 +1,12 @@
 # @agribank/ui
 
+## 6.2.1
+
+### Patch Changes
+
+- a4ebcb4: fix(ui): correctly support refresh button variant
+- c87caeb: fix(ui): make onChange of SwitchAdapter optional
+
 ## 6.2.0
 
 ### Minor Changes

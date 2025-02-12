@@ -1,5 +1,17 @@
 # @agribank/baran-playground
 
+## 0.11.0
+
+### Minor Changes
+
+- 97ed009: feat(baran-playground): allow upgrading to level2
+
+### Patch Changes
+
+- Updated dependencies [a4ebcb4]
+- Updated dependencies [c87caeb]
+  - @agribank/ui@6.2.1
+
 ## 0.10.3
 
 ### Patch Changes
