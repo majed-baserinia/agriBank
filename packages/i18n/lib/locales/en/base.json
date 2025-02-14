@@ -99,5 +99,6 @@
 	"phone-voice-otp-reader": "wating for call",
 	"phone-sms-otp-sender": "waiting for sms",
 	"pay": "pay",
-	"get-otp": "get OTP"
+	"get-otp": "get OTP",
+	"otp": "otp"
 }

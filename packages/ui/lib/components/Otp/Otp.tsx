@@ -17,6 +17,7 @@ export function Otp({
 	agriInputProps,
 	alertType,
 	alertMessage = "",
+	label,
 	variant = "refresh-icon"
 }: Props) {
 	const { t } = useTranslation("base");
@@ -86,7 +87,7 @@ export function Otp({
 			width={"100%"}
 		>
 			<InputAdapter
-				label={t("password")}
+				label={label ?? t("otp")}
 				onChange={(value) => {
 					setValue(value);
 					onChange?.(value);

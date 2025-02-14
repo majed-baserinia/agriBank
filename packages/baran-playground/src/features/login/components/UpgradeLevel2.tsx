@@ -89,7 +89,7 @@ export function UpgradeLevel2() {
 					}
 				}}
 				type="small"
-				label="show upgrade to level 2 from"
+				label="show upgrade to level 2 form"
 				checked={isLevel2UpgradeEnabled}
 			/>
 
