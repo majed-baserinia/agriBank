@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.6.1
+
+### Patch Changes
+
+- 37852c0: fix(playground/i18n/ui): typos and actually allow label override for otp
+
 ## 0.6.0
 
 ### Minor Changes
