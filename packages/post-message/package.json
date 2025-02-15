@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/post-message",
-	"version": "0.4.1",
+	"version": "0.4.2",
 	"type": "module",
 	"description": "includes all communication protocols with super app",
 	"author": "@FoHoOV",

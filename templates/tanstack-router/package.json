@@ -15,12 +15,12 @@
 		"generate-clients": "pnpm exec agribank generate-clients --out src/services/.generated"
 	},
 	"dependencies": {
-		"@agribank/baran-playground": "^0.11.2",
-		"@agribank/baran-typed-querykit": "^10.0.0",
-		"@agribank/i18n": "^0.6.1",
-		"@agribank/ignite": "^13.0.0",
-		"@agribank/post-message": "^0.4.1",
-		"@agribank/ui": "^6.2.2",
+		"@agribank/baran-playground": "^0.11.3",
+		"@agribank/baran-typed-querykit": "^10.0.1",
+		"@agribank/i18n": "^0.6.2",
+		"@agribank/ignite": "^13.0.1",
+		"@agribank/post-message": "^0.4.2",
+		"@agribank/ui": "^6.2.3",
 		"@emotion/cache": "^11.11.0",
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
@@ -45,10 +45,10 @@
 		"zustand": "^5.0.3"
 	},
 	"devDependencies": {
-		"@agribank/cli": "^0.2.2",
+		"@agribank/cli": "^0.2.3",
 		"@agribank/eslint-plugin": "^0.4.0",
 		"@agribank/prettier-config": "^0.0.7",
-		"@agribank/vite-plugin": "^13.0.0",
+		"@agribank/vite-plugin": "^13.0.1",
 		"@eslint/js": "^9.13.0",
 		"@openapitools/openapi-generator-cli": "^2.15.0",
 		"@playwright/test": "^1.50.1",

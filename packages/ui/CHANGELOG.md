@@ -1,5 +1,13 @@
 # @agribank/ui
 
+## 6.2.3
+
+### Patch Changes
+
+- c33e174: chore(all-packages): remove source maps
+- Updated dependencies [c33e174]
+  - @agribank/i18n@0.6.2
+
 ## 6.2.2
 
 ### Patch Changes

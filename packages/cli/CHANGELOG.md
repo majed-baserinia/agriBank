@@ -1,5 +1,11 @@
 # @agribank/cli
 
+## 0.2.3
+
+### Patch Changes
+
+- c33e174: chore(all-packages): remove source maps
+
 ## 0.2.2
 
 ### Patch Changes

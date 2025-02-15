@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.6.2
+
+### Patch Changes
+
+- c33e174: chore(all-packages): remove source maps
+
 ## 0.6.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @agribank/vite-plugin
 
+## 13.0.1
+
+### Patch Changes
+
+- c33e174: chore(all-packages): remove source maps
+- Updated dependencies [c33e174]
+  - @agribank/ui@6.2.3
+
 ## 13.0.0
 
 ### Patch Changes
