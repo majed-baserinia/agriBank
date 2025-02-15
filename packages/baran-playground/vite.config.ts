@@ -13,7 +13,7 @@ export default defineConfig(({ mode }) => {
 		return {
 			build: {
 				ssr: true,
-				sourcemap: true,
+				sourcemap: false,
 				emptyOutDir: false,
 				lib: {
 					entry: resolve(import.meta.dirname, "./src/cli/cli.ts"),
@@ -34,7 +34,7 @@ export default defineConfig(({ mode }) => {
 	} else {
 		return {
 			build: {
-				sourcemap: true,
+				sourcemap: false,
 				emptyOutDir: false
 			},
 			plugins: [

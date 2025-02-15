@@ -9,7 +9,7 @@ export default defineConfig({
 	},
 	build: {
 		emptyOutDir: true,
-		sourcemap: true,
+		sourcemap: false,
 		lib: {
 			entry: {
 				ignite: resolve(import.meta.dirname, "index.ts"),

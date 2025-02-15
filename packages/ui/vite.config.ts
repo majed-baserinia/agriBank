@@ -46,7 +46,7 @@ export default defineConfig({
 	},
 	build: {
 		emptyOutDir: true,
-		sourcemap: true,
+		sourcemap: false,
 		lib: {
 			entry: {
 				utils: resolve(import.meta.dirname, "lib/utils/index.ts"),

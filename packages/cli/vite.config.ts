@@ -7,7 +7,7 @@ export default defineConfig({
 	build: {
 		ssr: true,
 		emptyOutDir: true,
-		sourcemap: true,
+		sourcemap: false,
 		lib: {
 			entry: resolve(import.meta.dirname, "./src/cli.ts"),
 			formats: ["es"],

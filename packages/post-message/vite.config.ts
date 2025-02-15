@@ -5,7 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
 	build: {
-		sourcemap: true,
+		sourcemap: false,
 		lib: {
 			entry: resolve(import.meta.dirname, "index.ts"),
 			formats: ["es"],

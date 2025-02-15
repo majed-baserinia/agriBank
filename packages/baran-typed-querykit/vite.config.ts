@@ -10,7 +10,7 @@ export default defineConfig({
 	},
 	build: {
 		emptyOutDir: true,
-		sourcemap: true,
+		sourcemap: false,
 		lib: {
 			entry: {
 				"baran-typed-querykit": resolve(import.meta.dirname, "./lib/index.ts"),

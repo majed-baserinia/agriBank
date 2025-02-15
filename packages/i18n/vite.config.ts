@@ -16,7 +16,7 @@ export default defineConfig({
 				return `${entryName}.js`;
 			}
 		},
-		sourcemap: true,
+		sourcemap: false,
 		rollupOptions: {
 			external: ["i18next", "zod-i18n-map"]
 		}
