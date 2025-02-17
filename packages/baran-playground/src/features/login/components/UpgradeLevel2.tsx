@@ -142,7 +142,7 @@ export function UpgradeLevel2() {
 								<Controlled.Input
 									control={form.control}
 									name="upgradeLevel2Confirm.expireDate"
-									label="expire date (mmdd)"
+									label="expire date (yymm)"
 									type="text"
 									helperText={form.formState.errors.upgradeLevel2Confirm?.expireDate?.message}
 									error={form.getFieldState("upgradeLevel2Confirm.expireDate").invalid}
