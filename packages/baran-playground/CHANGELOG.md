@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.11.4
+
+### Patch Changes
+
+- f65cb2a: chore(baran-playground): fix typo in upgrade to level2 placeholder
+
 ## 0.11.3
 
 ### Patch Changes

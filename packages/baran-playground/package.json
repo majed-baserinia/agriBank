@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-playground",
-	"version": "0.11.3",
+	"version": "0.11.4",
 	"type": "module",
 	"description": "an environment to mimic baran app for testing microfronts created for baran",
 	"author": "@FoHoOV",
