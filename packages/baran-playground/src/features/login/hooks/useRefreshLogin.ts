@@ -1,7 +1,7 @@
 import { useAppStore } from "$/stores";
 import { useCallback } from "react";
 import { type LoginRequest, useLogin } from "../services/login";
-import { useCurrentEnvironmentActiveUser } from "./environment-users";
+import { useCurrentEnvironmentActiveUser } from "./active-users";
 
 function useMemoizedLogin<T>(
 	{ username, password }: Partial<LoginRequest>,

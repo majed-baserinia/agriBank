@@ -5,12 +5,12 @@ import { useRef, type RefObject } from "react";
 
 type LoginRequestState = { lastUpdateUtc: number } & (
 	| {
-			state: "pending" | "stale" | "error" | "no-auth";
+			state: "pending" | "not-started" | "error";
 			data: null;
 	  }
 	| {
 			state: "done";
-			data: Awaited<ReturnType<ReturnType<typeof useRefreshLogin>["mutateAsync"]>>;
+			data: Awaited<ReturnType<ReturnType<typeof useRefreshLogin>["mutateAsync"]>> | undefined;
 	  }
 );
 
@@ -22,7 +22,7 @@ type LoginParams = {
 };
 
 export function usePeriodicLogin() {
-	const loginState = useRef<LoginRequestState>(createLoginStatus("stale"));
+	const loginState = useRef<LoginRequestState>(createLoginStatus("not-started"));
 	const refreshLogin = useRefreshLogin();
 	const user = useCurrentEnvironmentActiveUser();
 	const navigate = useNavigate();
@@ -58,7 +58,7 @@ function isNoAuthUser(user: ReturnType<typeof useCurrentEnvironmentActiveUser>) 
 
 async function handleLoginRequest({ user, loginState, refreshLogin, navigate }: LoginParams) {
 	if (isNoAuthUser(user)) {
-		loginState.current = createLoginStatus("no-auth");
+		loginState.current = createLoginStatus("done");
 		return;
 	}
 
@@ -90,18 +90,18 @@ async function handleLoginRequest({ user, loginState, refreshLogin, navigate }: 
 function createLoginStatus(
 	state: LoginRequestState["state"],
 	data?: Extract<LoginRequestState, { state: "done" }>["data"]
-) {
+): LoginRequestState {
 	if (state === "done") {
 		return {
 			state,
 			data,
 			lastUpdateUtc: Date.now()
-		} satisfies LoginRequestState;
+		};
 	}
 
 	return {
 		state,
 		data: null,
 		lastUpdateUtc: Date.now()
-	} satisfies LoginRequestState;
+	};
 }

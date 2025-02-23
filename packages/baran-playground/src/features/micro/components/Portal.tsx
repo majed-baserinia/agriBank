@@ -1,9 +1,10 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
-import { useInit } from "../hooks/useInit";
+import { type IframeInitProps, useInit } from "../hooks/useInit";
 import { Iframe, type Props as IframeProps } from "./Iframe";
 import { PostMessagePopup } from "./PostMessagePopup";
 
-type Props = IframeProps;
+type Props = IframeProps & { login: IframeInitProps["login"] };
+
 export type Handlers = {
 	reload: () => void;
 };
@@ -13,7 +14,8 @@ export const MicroAppPortal = forwardRef<Handlers, Props>(function MicroAppPorta
 
 	useInit({
 		iframe: internalRef,
-		app: props.app
+		app: props.app,
+		login: props.login
 	});
 
 	useImperativeHandle(ref, () => ({

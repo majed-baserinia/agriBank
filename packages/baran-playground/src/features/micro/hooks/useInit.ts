@@ -2,20 +2,22 @@ import type { Application } from "$/features/apps";
 import { type PostMessageTypes, usePostMessageRaw } from "@agribank/post-message";
 import { enqueueSnackbar } from "notistack";
 import { type RefObject, useEffect, useRef } from "react";
-import { usePostMessageHandler } from "./usePostMessageHandler";
+import { type PostMessageHandlerOptions, usePostMessageHandler } from "./usePostMessageHandler";
 
-type Props = {
+export type IframeInitProps = {
 	iframe: RefObject<HTMLIFrameElement | null>;
 	app: Application;
+	login: PostMessageHandlerOptions["login"];
 };
 
-export function useInit({ iframe, app }: Props) {
+export function useInit({ iframe, app, login }: IframeInitProps) {
 	const lastTimeIframeStillAliveWasSent = useRef<number | null>(null);
 
 	const postMessageHandler = usePostMessageHandler({
 		iframe,
 		app,
-		updateLastAliveTime: () => (lastTimeIframeStillAliveWasSent.current = new Date().getTime())
+		updateLastAliveTime: () => (lastTimeIframeStillAliveWasSent.current = new Date().getTime()),
+		login
 	});
 
 	usePostMessageRaw<never, { type: PostMessageTypes["type"] | (string & {}) }>({

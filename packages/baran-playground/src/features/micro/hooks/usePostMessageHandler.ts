@@ -1,24 +1,24 @@
 import type { Application } from "$/features/apps";
 import { convert } from "$/features/environment";
+import type { usePeriodicLogin } from "$/features/login";
 import { useAppStore } from "$/stores";
 import type { PostMessageOutputSubType, PostMessageTypes } from "@agribank/post-message";
 import { enqueueSnackbar } from "notistack";
 import { type RefObject } from "react";
-import { usePeriodicLogin } from "./usePeriodicLogin";
 
-type PostMessageHandlerOptions = {
+export type PostMessageHandlerOptions = {
 	iframe: RefObject<HTMLIFrameElement | null>;
 	app: Application;
 	updateLastAliveTime: () => void;
+	login: ReturnType<typeof usePeriodicLogin>;
 };
 
 export function usePostMessageHandler({
 	iframe,
 	app,
-	updateLastAliveTime
+	updateLastAliveTime,
+	login
 }: PostMessageHandlerOptions) {
-	const loginAsync = usePeriodicLogin();
-
 	const handler = async (
 		event: MessageEvent<{ type: PostMessageTypes["type"] | (string & {}) }>
 	) => {
@@ -52,9 +52,9 @@ export function usePostMessageHandler({
 				updateLastAliveTime();
 				return;
 			case "iFrameReady": {
-				const result = await loginAsync();
+				const result = await login();
 
-				if (result?.state === "error" || result?.state === "pending") {
+				if (result?.state !== "done") {
 					return;
 				}
 

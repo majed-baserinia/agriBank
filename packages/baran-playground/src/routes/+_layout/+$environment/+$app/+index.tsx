@@ -1,4 +1,5 @@
 import { findApp } from "$/features/apps";
+import { usePeriodicLogin } from "$/features/login";
 import { type Handlers, MicroAppPortal } from "$/features/micro";
 import { useAppStore } from "$/stores";
 import RefreshIcon from "@mui/icons-material/Refresh";
@@ -13,6 +14,7 @@ export const Route = createFileRoute("/_layout/$environment/$app/")({
 
 function RouteComponent() {
 	const apps = useAppStore((s) => s.applications.apps);
+	const login = usePeriodicLogin();
 	const params = Route.useParams();
 	const app = findApp(apps, params.app);
 	const environment = useAppStore((s) => s.environment.active);
@@ -62,6 +64,7 @@ function RouteComponent() {
 			className="h-full w-full"
 			app={app}
 			ref={micro}
+			login={login}
 		/>
 	);
 }

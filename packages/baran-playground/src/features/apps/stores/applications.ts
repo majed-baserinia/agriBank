@@ -1,5 +1,6 @@
 import type { SliceCreator } from "$/stores/types";
 import { pushAlert } from "@agribank/ui/stores/alerts";
+import { produce } from "immer";
 import { findApp } from "../utils";
 
 export type Application = {
@@ -44,7 +45,9 @@ export const createApplicationsSlice: SliceCreator<ApplicationSlice> = (set) => 
 					});
 				return;
 			}
-			state.applications.apps.push(app);
+			state.applications.apps = produce(state.applications.apps, (draft) => {
+				draft.push(app);
+			});
 		});
 	},
 	updateApplication(lastTitle, app) {
