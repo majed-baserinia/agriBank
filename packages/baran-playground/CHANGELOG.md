@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.11.5
+
+### Patch Changes
+
+- 5bc6a35: chore(baran-playground): improve responsive design and color selection of login feature
+
 ## 0.11.4
 
 ### Patch Changes
