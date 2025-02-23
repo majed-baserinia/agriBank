@@ -1,5 +1,11 @@
 # @agribank/baran-playground
 
+## 0.11.7
+
+### Patch Changes
+
+- 6ceed31: fix(baran-playground): simplify login request for micro and prevent postMessage if auth is not ready
+
 ## 0.11.6
 
 ### Patch Changes
