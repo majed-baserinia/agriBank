@@ -2,8 +2,11 @@ import { Paper, useTheme } from "@mui/material";
 
 import type { Props } from "./types";
 
-export function PaperAdapter(props: Props) {
-	const { children, fullWidthBreakpoint = "sm", muiPaperProps } = props;
+export function PaperAdapter({
+	muiPaperProps: { sx, ...resetPaperProps } = {},
+	fullWidthBreakpoint = 0,
+	children
+}: Props) {
 	const theme = useTheme();
 
 	return (
@@ -15,9 +18,10 @@ export function PaperAdapter(props: Props) {
 					borderRadius: 0
 				},
 				borderRadius: "32px",
-				padding: "16px"
+				padding: "16px",
+				...sx
 			}}
-			{...muiPaperProps}
+			{...resetPaperProps}
 		>
 			{children}
 		</Paper>
