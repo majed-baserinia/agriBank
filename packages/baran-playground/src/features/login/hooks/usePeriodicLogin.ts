@@ -28,7 +28,7 @@ export function usePeriodicLogin() {
 	const navigate = useNavigate();
 
 	async function loginAsync() {
-		if (loginState.current.state === "pending") {
+		if (loginState.current.state === "pending" || loginState.current.state === "error") {
 			return;
 		}
 
