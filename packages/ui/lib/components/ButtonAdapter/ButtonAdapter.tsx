@@ -38,7 +38,7 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 					)
 				) : null
 			}
-			onClick={(e) => onClick(e)}
+			onClick={onClick}
 			size={size}
 			startIcon={
 				startIcon ? (

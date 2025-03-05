@@ -8,7 +8,7 @@ export type ButtonAdapterProps = {
 	endIcon?: ReactNode;
 	forwardIcon?: boolean;
 	muiButtonProps?: ButtonProps;
-	onClick: (e: React.MouseEvent<HTMLElement>) => void;
+	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	size?: Size;
 	startIcon?: ReactNode;
 	variant?: "contained" | "outlined" | "text";
