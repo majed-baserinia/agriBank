@@ -1,5 +1,15 @@
 # @agribank/baran-playground
 
+## 0.11.8
+
+### Patch Changes
+
+- 146f729: fix(baran-playground): don't retry when an error happened during the login request
+- Updated dependencies [39264ab]
+- Updated dependencies [e22dc05]
+- Updated dependencies [900aeab]
+  - @agribank/ui@6.2.4
+
 ## 0.11.7
 
 ### Patch Changes

@@ -61,7 +61,7 @@ importers:
         specifier: ^0.4.2
         version: link:../post-message
       '@agribank/ui':
-        specifier: ^6.2.3
+        specifier: ^6.2.4
         version: link:../ui
       '@emotion/cache':
         specifier: ^11.11.0
@@ -778,7 +778,7 @@ importers:
   templates/tanstack-router:
     dependencies:
       '@agribank/baran-playground':
-        specifier: ^0.11.7
+        specifier: ^0.11.8
         version: link:../../packages/baran-playground
       '@agribank/baran-typed-querykit':
         specifier: ^10.0.1
@@ -793,7 +793,7 @@ importers:
         specifier: ^0.4.2
         version: link:../../packages/post-message
       '@agribank/ui':
-        specifier: ^6.2.3
+        specifier: ^6.2.4
         version: link:../../packages/ui
       '@emotion/cache':
         specifier: ^11.11.0

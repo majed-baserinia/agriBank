@@ -1,5 +1,13 @@
 # @agribank/ui
 
+## 6.2.4
+
+### Patch Changes
+
+- 39264ab: chore: added changeset
+- e22dc05: fix(ui): preserve paper current sx props
+- 900aeab: chore(ui): make onClick of ButtonAdapter optional
+
 ## 6.2.3
 
 ### Patch Changes
