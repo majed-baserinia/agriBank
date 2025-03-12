@@ -100,5 +100,6 @@
 	"phone-sms-otp-sender": "waiting for sms",
 	"pay": "pay",
 	"get-otp": "get OTP",
-	"otp": "otp"
+	"otp": "otp",
+	"no-of-items-per-page": "number of items per page"
 }

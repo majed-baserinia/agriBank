@@ -7,7 +7,11 @@ import { fileURLToPath } from "url";
 import { z } from "zod";
 
 const args = z.object({
-	port: z.string()
+	port: z.string(),
+	host: z
+		.enum(["true", "false"])
+		.transform((x) => x === "true")
+		.pipe(z.boolean({ coerce: true }))
 });
 
 function addCommands() {
@@ -15,18 +19,25 @@ function addCommands() {
 		.addOption(
 			new Option("--port <port>", "playground port").env("BARAN_PLAYGROUND_PORT").default("9000")
 		)
-
+		.addOption(
+			new Option("--host <boolean>", "host playground on your local network")
+				.env("BARAN_PLAYGROUND_HOST")
+				.default("false")
+		)
 		.action((options) => {
 			const parsed = args.parse(options);
 			const outputDir = dirname(fileURLToPath(import.meta.url));
-			const vite = spawn(
-				"pnpm",
-				["dlx", "vite", "preview", "--port", parsed.port, "--outDir", "."],
-				{
-					shell: true,
-					cwd: outputDir
-				}
-			);
+
+			const pnpmArguments = ["dlx", "vite", "preview", "--port", parsed.port, "--outDir", "."];
+
+			if (parsed.host) {
+				pnpmArguments.push("--host");
+			}
+
+			const vite = spawn("pnpm", pnpmArguments, {
+				shell: true,
+				cwd: outputDir
+			});
 
 			vite.stdout.on("data", (data) => {
 				console.log(`baran-playground(message): ${data}`);

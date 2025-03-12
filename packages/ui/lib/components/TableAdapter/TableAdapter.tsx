@@ -16,7 +16,7 @@ export function TableAdapter<TColumnNames extends string>({
 	totalNumberOfItems,
 	muiPaperProps,
 	muiTableProps,
-	itemsPerPage = 10
+	pagination
 }: Props<TColumnNames>) {
 	return (
 		<>
@@ -53,6 +53,11 @@ export function TableAdapter<TColumnNames extends string>({
 									<TableRow
 										tabIndex={-1}
 										key={index}
+										sx={{
+											"&:nth-of-type(even)": {
+												backgroundColor: (theme) => theme.palette.grey[50]
+											}
+										}}
 									>
 										{columns.map((column, index) => {
 											const value = row[column.id];
@@ -92,7 +97,7 @@ export function TableAdapter<TColumnNames extends string>({
 					activePageIndex={activePageIndex}
 					onNavigating={onNavigating}
 					disableNextButton={isNextButtonDisabled}
-					itemsPerPage={itemsPerPage}
+					pagination={pagination}
 					totalNumberOfItems={totalNumberOfItems ?? -1}
 				/>
 			)}

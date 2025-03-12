@@ -32,7 +32,7 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 				sendPostMessage("isFinishedBack", { data: "true" });
 			} else {
 				void goBack();
-				//send acknowledge to the parent
+				// send acknowledge to the parent
 				sendPostMessage("wentBack", { data: "true" });
 			}
 		},

@@ -1,6 +1,6 @@
 import type { PaperProps, TableProps } from "@mui/material";
 import type { ReactNode } from "react";
-import type { NavigationAction } from "./TablePagination";
+import type { NavigationAction, TablePaginationProps } from "./TablePagination";
 
 export type Column<TColumnNames extends string> = {
 	id: TColumnNames;
@@ -16,10 +16,7 @@ export type Props<TColumnNames extends string> = {
 	activePageRows: Row<TColumnNames>[] | undefined;
 	totalNumberOfItems?: number;
 	onNavigating: (action: NavigationAction) => void;
-	/**
-	 * @default 10
-	 */
-	itemsPerPage?: number;
+	pagination: TablePaginationProps["pagination"];
 	isNextButtonDisabled?: boolean;
 	activePageIndex: number;
 	muiPaperProps?: PaperProps;
