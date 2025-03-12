@@ -1,5 +1,14 @@
 # @agribank/ui
 
+## 6.2.5
+
+### Patch Changes
+
+- ce72b83: feat(ui): change row color of tables based on their number
+- ce72b83: chore: added changeset
+- ce72b83: fix(ui): preserve paper current sx props
+- ce72b83: chore(ui): make onClick of ButtonAdapter optional
+
 ## 6.2.4
 
 ### Patch Changes

@@ -1,5 +1,17 @@
 # @agribank/baran-playground
 
+## 0.11.9
+
+### Patch Changes
+
+- ce72b83: feat(baran-playground): add `--host` for baran playground cli
+- ce72b83: fix(baran-playground): don't retry when an error happened during the login request
+- Updated dependencies [ce72b83]
+- Updated dependencies [ce72b83]
+- Updated dependencies [ce72b83]
+- Updated dependencies [ce72b83]
+  - @agribank/ui@6.2.5
+
 ## 0.11.8
 
 ### Patch Changes
