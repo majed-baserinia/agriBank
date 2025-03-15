@@ -1,5 +1,11 @@
 # @agribank/i18n
 
+## 0.6.3
+
+### Patch Changes
+
+- ef57580: chore(i18n): added more words (actually it should have been a part of prev release I just forgot to add a changeset)
+
 ## 0.6.2
 
 ### Patch Changes

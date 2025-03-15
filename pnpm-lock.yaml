@@ -784,7 +784,7 @@ importers:
         specifier: ^10.0.1
         version: link:../../packages/baran-typed-querykit
       '@agribank/i18n':
-        specifier: ^0.6.2
+        specifier: ^0.6.3
         version: link:../../packages/i18n
       '@agribank/ignite':
         specifier: ^13.0.1

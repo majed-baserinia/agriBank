@@ -17,7 +17,7 @@
 	"dependencies": {
 		"@agribank/baran-playground": "^0.11.9",
 		"@agribank/baran-typed-querykit": "^10.0.1",
-		"@agribank/i18n": "^0.6.2",
+		"@agribank/i18n": "^0.6.3",
 		"@agribank/ignite": "^13.0.1",
 		"@agribank/post-message": "^0.4.2",
 		"@agribank/ui": "^6.2.5",
