@@ -793,7 +793,7 @@ importers:
         specifier: ^0.4.2
         version: link:../../packages/post-message
       '@agribank/ui':
-        specifier: ^6.2.5
+        specifier: ^6.2.6
         version: link:../../packages/ui
       '@emotion/cache':
         specifier: ^11.11.0

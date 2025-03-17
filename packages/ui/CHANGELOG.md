@@ -1,5 +1,12 @@
 # @agribank/ui
 
+## 6.2.6
+
+### Patch Changes
+
+- 286d1be: fix(ui): improve persian to english digits algorithm
+- 7411fe2: fix(ui): close sheet on backdrop onclick event
+
 ## 6.2.5
 
 ### Patch Changes
