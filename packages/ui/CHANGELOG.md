@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 6.2.7
+
+### Patch Changes
+
+- 4183d32: fix(ui): made BottomSheetAdapter visible when opened
+
 ## 6.2.6
 
 ### Patch Changes
