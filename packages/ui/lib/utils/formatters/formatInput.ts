@@ -30,12 +30,13 @@ export const formatToMoney = (value: string) => {
 	return formattedValue;
 };
 
-export const persianToEnglishDigits = (str: string) => {
-	const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
-	const englishDigits = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-
-	// eslint-disable-next-line regexp/no-obscure-range
-	return str.replace(/[۰-۹]/g, (match) => englishDigits[persianDigits.indexOf(match)]);
+export const persianToEnglishDigits = (value: string): string => {
+	return value.replace(
+		/[\u0660-\u0669\u06f0-\u06f9]/g, // Detect all Persian/Arabic Digit in range of their Unicode with a global RegEx character set
+		(value) => {
+			return (value.charCodeAt(0) & 0xf).toString();
+		} // Remove the Unicode base(2) range that not match
+	);
 };
 
 export const formatPersianDate = (str: string): string => {
