@@ -1,5 +1,11 @@
 # @agribank/ui
 
+## 6.2.8
+
+### Patch Changes
+
+- eda8d79: chore: change format icon to reduce size
+
 ## 6.2.7
 
 ### Patch Changes
