@@ -7,7 +7,7 @@ export type ButtonAdapterProps = {
 	disabled?: boolean;
 	endIcon?: ReactNode;
 	forwardIcon?: boolean;
-	muiButtonProps?: ButtonProps;
+	muiButtonProps?: ButtonProps | any;
 	onClick?: (e: React.MouseEvent<HTMLElement>) => void;
 	size?: Size;
 	startIcon?: ReactNode;

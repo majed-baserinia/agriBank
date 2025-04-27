@@ -96,7 +96,7 @@ export function useMergedTheme(theme?: Partial<ThemeOptions>) {
 								borderRadius: 10
 							},
 							sizeLarge: {
-								height: "48px",
+								height: "56px",
 								borderRadius: 16
 							}
 						},
@@ -197,7 +197,7 @@ export function useMergedTheme(theme?: Partial<ThemeOptions>) {
 									{
 										props: { size: "medium" },
 										style: {
-											height: "48px"
+											height: "56px"
 										}
 									}
 								]
