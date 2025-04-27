@@ -4,8 +4,7 @@ import { CountDownTimer, useCountDownTimer } from "$lib/components/CountDownTime
 import { pushAlert } from "$lib/stores/alerts";
 import { usePostMessage } from "@agribank/post-message";
 import CachedIcon from "@mui/icons-material/Cached";
-import CloseIcon from "@mui/icons-material/Close";
-import { Grid2, IconButton, Typography } from "@mui/material";
+import { Grid2, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import type { Props } from "./types";
@@ -18,7 +17,10 @@ export function Otp({
 	alertType,
 	alertMessage = "",
 	label,
-	variant = "refresh-icon"
+	variant = "refresh-icon",
+	type = "text",
+	security = false,
+	dir = "rtl"
 }: Props) {
 	const { t } = useTranslation("base");
 
@@ -92,22 +94,11 @@ export function Otp({
 					setValue(value);
 					onChange?.(value);
 				}}
-				type="number"
 				defaultValue={value}
 				maxLength={maxLength}
-				endIcon={
-					value.length > 0 && (
-						<IconButton
-							size="small"
-							aria-label="clear otp"
-							onClick={() => {
-								setValue("");
-							}}
-						>
-							<CloseIcon />
-						</IconButton>
-					)
-				}
+				type={type}
+				dir={dir}
+				security={security}
 				{...agriInputProps}
 				sx={{
 					"& input": {
@@ -132,7 +123,8 @@ export function Otp({
 						disabled={isResendDisabled}
 						muiButtonProps={{
 							sx: {
-								height: "fit-content",
+								height: 56,
+								minHeight: 56,
 								padding: "10px",
 								minWidth: "100%",
 								marginBottom: "auto"
@@ -147,6 +139,13 @@ export function Otp({
 						onClick={sendSms}
 						disabled={isResendDisabled}
 						endIcon={<CachedIcon />}
+						muiButtonProps={{
+							sx: {
+								height: 56,
+								minHeight: 56,
+								direction: "rtl",
+							},
+						}}
 					>
 						{hasSentSmsAtLeastOnce ? t("xsend-again", { xsend: t("send") }) : t("send")}
 					</ButtonAdapter>

@@ -1,6 +1,7 @@
 import type { Props as AlertProps } from "$lib/components/Alerts/types";
 import type { InputAdapterProps } from "$lib/components/InputAdapter";
 
+type InputType = "card" | "date" | "money" | "number" | "password" | "text" | string;
 type SendReturnType = { timer?: number; maxLength?: number } | false;
 export type Props = {
 	/**
@@ -15,4 +16,7 @@ export type Props = {
 	alertType?: Partial<AlertProps>;
 	alertMessage?: string;
 	variant?: "refresh-icon" | "send-button";
+	type?: InputType
+	security?: boolean
+	dir?: "ltr" | "rtl"
 };
