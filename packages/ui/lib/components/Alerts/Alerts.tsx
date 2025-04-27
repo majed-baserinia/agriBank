@@ -90,7 +90,8 @@ export function Alerts() {
 									clearAlerts();
 									capturedAlert?.actions?.onConfirm?.();
 								}}
-								variant={"contained"}
+								variant={capturedAlert?.variantConfirm}
+								muiButtonProps={{ color: capturedAlert?.colorConfirm }}
 							>
 								{capturedAlert.confirmButtonText
 									? capturedAlert.confirmButtonText
@@ -104,7 +105,7 @@ export function Alerts() {
 									clearAlerts();
 									capturedAlert.actions?.onContinue?.();
 								}}
-								variant={"contained"}
+								variant={"outlined"}
 							>
 								{t("continue")}
 							</ButtonAdapter>
