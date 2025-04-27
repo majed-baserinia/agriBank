@@ -177,7 +177,6 @@ export function Filter<T extends Record<any, unknown>>(props: Props<T>) {
 						onClick={handleSubmitFilterButton}
 						variant="contained"
 					>
-						efj
 					</ButtonAdapter>
 				</Grid>
 			</ModalOrBottomSheet>
