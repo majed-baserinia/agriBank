@@ -7,7 +7,7 @@ import type { ButtonAdapterProps } from "./types";
 
 export function ButtonAdapter(props: ButtonAdapterProps) {
 	const {
-		variant,
+		variant = "contained",
 		size,
 		disabled,
 		backIcon,
