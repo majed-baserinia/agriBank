@@ -2,18 +2,20 @@ import type { ReactNode } from "react";
 
 import alertIcon from "$assets/icons/input/alertIcon.svg";
 import sucIcon from "$assets/icons/input/successIcon.svg";
-import { isInputTypeNumeric } from "$components/InputAdapter/utils";
 import { SvgToIcon } from "$components/SvgToIcon";
 import { InputAdornment, TextField, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
+import { IconButton } from "@mui/material";
 
 import type { InputAdapterProps } from "./types";
 
 import { useFormatter } from "./useFormatter";
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 const heightSizeList = {
 	sm: "40px",
-	md: "48px",
+	md: "56px",
 	lg: "56px"
 };
 
@@ -36,7 +38,10 @@ export function InputAdapter(props: InputAdapterProps) {
 		size = "md",
 		helperText,
 		focused,
-		maxLength
+		maxLength,
+		security = false,
+		inputMode = "numeric",
+		dir = "rtl"
 	} = props;
 
 	const theme = useTheme();
@@ -44,6 +49,8 @@ export function InputAdapter(props: InputAdapterProps) {
 	const [shrink, setShrink] = useState(defaultValue ? true : false);
 	const format = useFormatter({ type });
 	const [internalEndIcon, setInternalEndIcon] = useState<ReactNode>(null);
+	const [visibility, setVisibility] = useState(false);
+	const [localType, setLocalType] = useState(type);
 
 	useEffect(() => {
 		setInternalEndIcon(
@@ -58,10 +65,23 @@ export function InputAdapter(props: InputAdapterProps) {
 					icon={alertIcon}
 				/>
 			) : (
-				endIcon
+				security
+					? (
+						<IconButton
+							sx={{ opacity: 0.5 }}
+							size="small"
+							onClick={() => {
+								setVisibility(!visibility);
+								setLocalType((prev) => (prev === "password" ? "text" : "password"));
+							}}
+						>
+							{visibility ? <VisibilityIcon /> : <VisibilityOffIcon />}
+						</IconButton>
+					)
+					: endIcon
 			)
 		);
-	}, [success, error, endIcon]);
+	}, [success, error, endIcon, security, visibility, type]);
 
 	useEffect(() => {
 		const defVal = format(defaultValue).formatted;
@@ -128,10 +148,13 @@ export function InputAdapter(props: InputAdapterProps) {
 			}}
 			InputProps={{
 				inputProps: {
-					inputMode: isInputTypeNumeric(type) ? "numeric" : undefined,
-					className: `${isInputTypeNumeric(type) && theme.direction === "rtl" ? "text-right" : ""}`,
-					...(isInputTypeNumeric(type) && theme.direction === "rtl" ? { dir: "ltr" } : {}),
-					maxLength: maxLength
+					dir: dir,
+					style: {
+						textAlign: dir === "rtl" ? "right" : "left"
+					},
+					maxLength: maxLength,
+					type: localType,
+					inputMode: inputMode
 				},
 				sx: {
 					input: {
@@ -141,7 +164,7 @@ export function InputAdapter(props: InputAdapterProps) {
 				},
 				startAdornment: icon ? <InputAdornment position="start">{icon}</InputAdornment> : null,
 				endAdornment:
-					error || success || endIcon ? (
+					error || success || endIcon || type == "password" ? (
 						<InputAdornment position="end">{internalEndIcon}</InputAdornment>
 					) : null,
 				...inputProps
@@ -181,7 +204,7 @@ export function InputAdapter(props: InputAdapterProps) {
 
 				...sx
 			}}
-			type={type === "password" ? "password" : "text"}
+			type={localType === "password" ? "password" : "text"}
 			value={value}
 			variant="outlined"
 			{...muiTextFieldProps}

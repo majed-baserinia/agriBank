@@ -1,6 +1,6 @@
 import type { InputProps, SxProps, TextFieldProps, Theme } from "@mui/material";
 
-export type InputType = "card" | "date" | "money" | "number" | "password" | "text";
+export type InputType = "card" | "date" | "money" | "number" | "password" | "text" | string;
 
 export type InputAdapterProps = {
 	defaultValue?: string;
@@ -21,6 +21,9 @@ export type InputAdapterProps = {
 	sx?: SxProps;
 	type?: InputType;
 	maxLength?: number;
+	security?: boolean;
+	inputMode?: any;
+	dir?: "rtl" | "ltr"
 };
 
 type Size = "lg" | "md" | "sm";
