@@ -22,6 +22,10 @@ export type Props<T extends Record<any, any>> = {
 	type?: "card";
 	freeSolo?: boolean;
 	disable?: boolean;
+	maxLength?: number
+	fullScreen?: boolean
+	disableClearable?: boolean
+	letterSpacing?: number
 };
 
 export type RenderInputProps = {
@@ -33,4 +37,6 @@ export type RenderInputProps = {
 	label: string;
 	loading?: boolean;
 	icon: ReactNode;
+	maxLength?: number
+	letterSpacing?: number
 };

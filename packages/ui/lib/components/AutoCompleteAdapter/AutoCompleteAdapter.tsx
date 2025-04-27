@@ -19,6 +19,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		hasConfirmButton = false,
 		renderOption,
 		inputMode = "text",
+		maxLength = 10,
 		onChange,
 		onInputChange,
 		muiButtonProps,
@@ -28,12 +29,15 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		defaultValue,
 		type,
 		freeSolo = false,
-		disable = false
+		disable = false,
+		fullScreen = true,
+		disableClearable = false,
+		letterSpacing
 	} = props;
 
 	const { t } = useTranslation("base");
 	const theme = useTheme();
-	const matches = useMediaQuery(theme.breakpoints.down("sm"));
+	const matches = fullScreen && useMediaQuery(theme.breakpoints.down("sm"));
 
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState<null | string | T>(null);
@@ -102,6 +106,10 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		} else {
 			setInputValue(value);
 			onInputChange(value);
+			if (freeSolo) {
+				setValue(value);
+				onChange?.(value);
+			}
 		}
 	};
 
@@ -141,6 +149,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		>
 			<Autocomplete
 				disabled={disable}
+				disableClearable={disableClearable}
 				disablePortal
 				freeSolo={freeSolo}
 				getOptionLabel={getOptionLabel}
@@ -175,7 +184,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 							inputMode: inputMode,
 							isRequired: isRequired,
 							loading: loading,
-							icon: icon
+							icon: icon,
+							maxLength: maxLength,
+							letterSpacing: letterSpacing
 						}}
 						params={params}
 					/>
@@ -186,15 +197,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 					popper: (props) => (
 						<Popper
 							{...props}
-							sx={[
-								matches
-									? {
-											boxShadow: 0
-										}
-									: {
-											boxShadow: 3
-										}
-							]}
+							sx={[matches ? { boxShadow: 0 } : { boxShadow: 3 }]}
 						/>
 					)
 				}}
