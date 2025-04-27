@@ -9,6 +9,8 @@ export type AppAlert = {
 	messageText?: ReactNode | string;
 	overrideActions?: (props: AccessApi) => ReactNode;
 	type: "error" | "info" | "success" | "warning" | "phone-voice-otp" | "phone-sms-otp";
+	variantConfirm?: "text" | "contained" | "outlined";
+	colorConfirm?: "primary" | "secondary" | "error" | "info" | "success" | "warning";
 };
 
 type AlertActions = {
