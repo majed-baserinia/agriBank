@@ -3,7 +3,7 @@ import { FormControlLabel, Radio, Typography, useTheme } from "@mui/material";
 import type { Props } from "./types";
 
 export function RadioButtonAdapter(props: Props) {
-	const { value, label, checked, onChange, disabled } = props;
+	const { value, label, checked, onChange, disabled, MuiProps } = props;
 	const theme = useTheme();
 
 	return (
@@ -36,11 +36,12 @@ export function RadioButtonAdapter(props: Props) {
 				},
 				checked
 					? {
-							border: `1px solid ${theme.palette.primary.main}`
-						}
+						border: `1px solid ${theme.palette.primary.main}`
+					}
 					: {
-							border: `1px solid ${theme.palette.grey[200]}`
-						}
+						border: `1px solid ${theme.palette.grey[200]}`
+					},
+				{ ...MuiProps }
 			]}
 			value={value}
 		/>
