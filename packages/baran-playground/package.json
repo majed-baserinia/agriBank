@@ -1,19 +1,10 @@
 {
 	"name": "@agribank/baran-playground",
-	"version": "0.11.9",
+	"version": "0.12.0",
 	"type": "module",
 	"description": "an environment to mimic baran app for testing microfronts created for baran",
-	"author": "@FoHoOV",
+	"author": "majed-baserinia",
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/baran-playground"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
 	"keywords": [
 		"agribank",
 		"htsc"
