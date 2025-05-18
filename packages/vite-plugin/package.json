@@ -1,19 +1,10 @@
 {
 	"name": "@agribank/vite-plugin",
-	"version": "13.0.1",
+	"version": "13.0.2",
 	"type": "module",
 	"description": "agribank vite plugin",
-	"author": "@FoHoOV",
+	"author": "majed-baserinia",
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/vite-plugin"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
 	"keywords": [
 		"agribank",
 		"htsc"
