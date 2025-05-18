@@ -1,17 +1,9 @@
 {
 	"name": "@agribank/baran-typed-querykit",
-	"version": "10.0.1",
+	"version": "10.1.0",
 	"type": "module",
 	"description": "Utilities for handling common baran api errors and typing the response models",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/baran-typed-querykit"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
+	"author": "majed-baserinia",
 	"keywords": [
 		"agribank",
 		"htsc"
