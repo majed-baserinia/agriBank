@@ -1,19 +1,10 @@
 {
 	"name": "@agribank/prettier-config",
-	"version": "0.0.7",
+	"version": "0.0.8",
 	"type": "module",
 	"description": "set of prettier rules applied to agribank apps",
-	"author": "@FoHoOV",
+	"author": "majed-baserinia",
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/prettier-config"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
 	"keywords": [
 		"agribank",
 		"htsc"
