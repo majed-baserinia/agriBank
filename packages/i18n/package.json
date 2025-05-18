@@ -1,19 +1,10 @@
 {
 	"name": "@agribank/i18n",
-	"version": "0.6.3",
+	"version": "0.6.5",
 	"type": "module",
 	"description": "base language pack and options",
-	"author": "@FoHoOV",
+	"author": "majed-baserinia",
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/i18n"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
 	"keywords": [
 		"agribank",
 		"htsc"
