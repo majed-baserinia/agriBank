@@ -21,6 +21,7 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 	const paramConfig = useSearchParamsConfigLoader(useRouter);
 	const { t } = useTranslation("base");
 
+
 	const currentPathRef = useRef(currentPath);
 
 	useEffect(() => {
@@ -33,6 +34,9 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 		onGobackPressed: () => {
 			const current = normalize(currentPathRef.current);
 			const base = normalize(environment().BASE_URL);
+
+			console.log("currentPath: ", currentPath)
+			console.log("BASE_URL: ", base)
 
 			if (current === base) {
 				sendPostMessage("isFinishedBack", { data: "true" });
