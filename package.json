@@ -3,16 +3,9 @@
 	"version": "0.0.1",
 	"description": "monorepo for @agribank",
 	"type": "module",
-	"author": "@FoHoOV",
-	"contributors": [
-		"@SaeedMohammadiha"
-	],
+	"author": "majed-baserinia",
 	"engines": {
 		"node": ">=22.13.1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank"
 	},
 	"license": "MIT",
 	"scripts": {
