@@ -1,17 +1,9 @@
 {
 	"name": "@agribank/ui",
-	"version": "6.2.8",
+	"version": "6.4.0",
 	"type": "module",
 	"description": "set of components to build react apps with",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/ui"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
+	"author": "majed-baserinia",
 	"keywords": [
 		"agribank",
 		"htsc"
