@@ -1,19 +1,10 @@
 {
 	"name": "@agribank/post-message",
-	"version": "0.4.2",
+	"version": "0.4.3",
 	"type": "module",
 	"description": "includes all communication protocols with super app",
-	"author": "@FoHoOV",
+	"author": "majed-baserinia",
 	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/FoHoOV/agribank",
-		"directory": "packages/post-message"
-	},
-	"contributors": [
-		"@FoHoOV",
-		"@SaeedMohammadiha"
-	],
 	"keywords": [
 		"agribank",
 		"htsc"
