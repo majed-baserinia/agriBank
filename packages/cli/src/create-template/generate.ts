@@ -27,7 +27,6 @@ export function generate(options: z.infer<typeof optionsSchema>) {
 	sparsCheckout({
 		branch: "main",
 		outDir: options.out,
-		repoUrl: "https://github.com/FoHoOV/agribank.git",
 		sparsePath: `templates/${options.template}`,
 		tempDir: "./agribank-tmp"
 	});

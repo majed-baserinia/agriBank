@@ -3,7 +3,6 @@ import * as fs from "fs";
 import path from "path";
 
 export type Config = {
-	repoUrl: string;
 	branch: string;
 	/**
 	 * will be removed after cloning is done
@@ -16,13 +15,11 @@ export type Config = {
 	sparsePath: string;
 };
 
-export function sparsCheckout({ repoUrl, sparsePath, tempDir, outDir, branch }: Config) {
+export function sparsCheckout({ sparsePath, tempDir, outDir, branch }: Config) {
 	if (fs.existsSync(outDir) && fs.readdirSync(outDir).length > 0) {
 		throw new Error(`${outDir} is not empty.`);
 	}
 	try {
-		console.log(`cloning only '${sparsePath}' from ${repoUrl}...`);
-
 		// step 1: Initialize a bare repo
 		execSync(`git init ${tempDir}`, { stdio: "inherit" });
 
@@ -33,7 +30,6 @@ export function sparsCheckout({ repoUrl, sparsePath, tempDir, outDir, branch }: 
 		fs.writeFileSync(path.join(tempDir, ".git/info/sparse-checkout"), `${sparsePath}\n`);
 
 		// step 4: Add the remote and fetch only the required path
-		execSync(`git -C ${tempDir} remote add origin ${repoUrl}`, { stdio: "inherit" });
 		execSync(`git -C ${tempDir} pull origin ${branch} --depth=1`, { stdio: "inherit" });
 
 		// step 5: Copy the sparse folder to the target directory

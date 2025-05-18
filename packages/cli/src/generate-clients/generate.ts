@@ -7,8 +7,6 @@ import { writeOpenApiSpec } from "$/generate-clients/get-openapi-spec.js";
 import { join } from "path";
 
 export async function generate(config: z.infer<typeof optionsSchema>) {
-	console.log("Generating clients! @FoHoOV");
-
 	await rm(config.out, {
 		force: true,
 		recursive: true
