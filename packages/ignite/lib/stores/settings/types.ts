@@ -9,6 +9,7 @@ export type Settings = PostMessageOutputSubType<"iFrameReady", "initiateIFrame">
 	themeName: string;
 	theme: ThemeOptions;
 	config: Config;
+	appVersion: string
 };
 
 type SettingsState = {

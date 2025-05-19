@@ -10,7 +10,8 @@ const initial: Settings = {
 		baseApiUrl: "",
 		baseThemeUrl: "",
 		basePaletteUrl: ""
-	}
+	},
+	appVersion: ""
 };
 
 export const createSettingsSlice: SliceCreator<SettingsSlice> = (set) => ({
