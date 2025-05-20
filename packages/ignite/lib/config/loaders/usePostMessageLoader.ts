@@ -38,9 +38,9 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 			console.log("currentPath:", current);
 			console.log("BASE_URL:", base);
 
-			if (current === base) {
+			if (current == base) {
 				sendPostMessage("isFinishedBack", { data: "true" });
-			} else if (!canGoBack) {
+			} else {
 				goBack();
 			}
 		},
