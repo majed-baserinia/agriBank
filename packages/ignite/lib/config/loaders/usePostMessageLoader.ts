@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { useSearchParamsConfigLoader } from "$lib/config/loaders/useSearchParamsConfigLoader";
 import { environment } from "$lib/env";
 import type { useRouter } from "$lib/facade/router";
@@ -21,10 +21,10 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 	const paramConfig = useSearchParamsConfigLoader(useRouter);
 	const { t } = useTranslation("base");
 
-
+	// Keep currentPath fresh inside callbacks
 	const currentPathRef = useRef(currentPath);
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		currentPathRef.current = currentPath;
 	}, [currentPath]);
 
@@ -35,12 +35,12 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 			const current = normalize(currentPathRef.current);
 			const base = normalize(environment().BASE_URL);
 
-			console.log("currentPath: ", current)
-			console.log("BASE_URL: ", base)
+			console.log("currentPath:", current);
+			console.log("BASE_URL:", base);
 
 			if (current === base) {
 				sendPostMessage("isFinishedBack", { data: "true" });
-			} else {
+			} else if (!canGoBack) {
 				goBack();
 			}
 		},
