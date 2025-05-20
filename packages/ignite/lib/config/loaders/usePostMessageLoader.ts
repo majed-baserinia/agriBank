@@ -35,7 +35,7 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 			const current = normalize(currentPathRef.current);
 			const base = normalize(environment().BASE_URL);
 
-			console.log("currentPath: ", currentPath)
+			console.log("currentPath: ", current)
 			console.log("BASE_URL: ", base)
 
 			if (current === base) {

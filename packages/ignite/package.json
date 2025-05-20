@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ignite",
-	"version": "13.0.5",
+	"version": "13.0.6",
 	"type": "module",
 	"description": "initiates microfronts and loads all required configurations",
 	"author": "majed-baserinia",
