@@ -52,8 +52,8 @@ export function Otp({
 		setIsResendDisabled(true);
 
 		const result = await onSendSmsClick();
-
-		if (typeof result === "boolean") {
+		console.log("resultOTP: ", result)
+		if (result === false) {
 			setIsResendDisabled(false);
 			return;
 		}

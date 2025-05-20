@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ui",
-	"version": "6.4.0",
+	"version": "6.4.1",
 	"type": "module",
 	"description": "set of components to build react apps with",
 	"author": "majed-baserinia",
