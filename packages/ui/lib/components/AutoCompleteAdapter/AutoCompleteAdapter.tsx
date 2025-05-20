@@ -160,9 +160,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				noOptionsText=""
 				onChange={onChangeHandler}
 				onClose={() => {
-					if (!hasConfirmButton) {
-						setOpen(false);
-					}
+					// if (!hasConfirmButton) {
+					// }
+					setOpen(false);
 				}}
 				onInputChange={onInputChangeHandler}
 				onOpen={() => {
@@ -173,7 +173,16 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				}}
 				open={open}
 				options={options ?? []}
-				popupIcon={<KeyboardArrowDownIcon />}
+				popupIcon={
+					<span
+						onMouseDown={(e) => {
+							e.preventDefault();
+							e.stopPropagation();
+						}}
+					>
+						<KeyboardArrowDownIcon />
+					</span>
+				}
 				renderInput={(params) => (
 					<RenderInput
 						additionalProps={{
