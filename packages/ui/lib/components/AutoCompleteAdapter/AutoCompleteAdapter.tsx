@@ -86,7 +86,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 
 		if (matches && !hasConfirmButton) {
 			setOpen(false);
-			history.back();
+			// history.back();
 		} else {
 			setOpen(false);
 		}
@@ -166,9 +166,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				}}
 				onInputChange={onInputChangeHandler}
 				onOpen={() => {
-					if (matches) {
-						history.pushState(true, "inputOpen");
-					}
+					// if (matches) {
+					// 	history.pushState(true, "inputOpen");
+					// }
 					setOpen(true);
 				}}
 				open={open}
@@ -212,9 +212,9 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 					<Button
 						color="primary"
 						onClick={() => {
-							if (matches) {
-								history.back();
-							}
+							// if (matches) {
+							// 	history.back();
+							// }
 							setOpen(false);
 						}}
 						sx={{
