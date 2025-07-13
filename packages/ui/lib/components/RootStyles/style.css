@@ -9,7 +9,7 @@
 	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNumBold.ttf") format("truetype");
 	font-weight: 700;
 }
-@font-face {
+/* @font-face {
 	font-family: "IRANSans";
 	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNumMedium.ttf") format("truetype");
 	font-weight: 500;
@@ -18,7 +18,7 @@
 	font-family: "IRANSans";
 	src: url("../../assets/fonts/IranSansWeb/IRANSansFaNumLight.ttf") format("truetype");
 	font-weight: 300;
-}
+} */
 
 .MuiPopper-root[role="presentation"] {
 	z-index: 10 !important;
