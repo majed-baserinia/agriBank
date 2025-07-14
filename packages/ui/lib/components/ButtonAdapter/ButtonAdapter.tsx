@@ -40,6 +40,7 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 			}
 			onClick={onClick}
 			size={size}
+
 			startIcon={
 				startIcon ? (
 					startIcon
@@ -52,7 +53,26 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 				) : null
 			}
 			variant={variant}
-			{...muiButtonProps}
+
+			sx={{
+				...(variant === "outlined" && {
+					border: 2,
+					borderColor: theme.palette.primary.main,
+					color: theme.palette.primary.main,
+					fontWeight: 700,
+					fontFamily: "IRANSans"
+				}),
+				...(variant === "contained" && {
+					backgroundColor: theme.palette.primary.main,
+					fontFamily: "IRANSans",
+					"&:hover": {
+						backgroundColor: theme.palette.primary.dark
+					}
+				}),
+				...muiButtonProps?.sx
+			}}
+
+
 		>
 			{children}
 		</Button>
