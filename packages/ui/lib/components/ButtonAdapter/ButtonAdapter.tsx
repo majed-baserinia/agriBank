@@ -56,7 +56,8 @@ export function ButtonAdapter(props: ButtonAdapterProps) {
 
 			sx={{
 				...(variant === "outlined" && {
-					border: 2,
+					borderWidth: "2px",
+					borderStyle: "solid",
 					borderColor: theme.palette.primary.main,
 					color: theme.palette.primary.main,
 					fontWeight: 700,
