@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-typed-querykit",
-	"version": "10.1.0",
+	"version": "10.1.1",
 	"type": "module",
 	"description": "Utilities for handling common baran api errors and typing the response models",
 	"author": "majed-baserinia",
@@ -48,6 +48,7 @@
 		"eslint": "^9.12.0",
 		"eslint-plugin-n": "^17.11.1",
 		"i18next": "^24.2.2",
+		"react-i18next": "^15.4.0",
 		"prettier": "^3.3.3",
 		"react": "^19.0.0",
 		"react-hook-form": "^7.45.0",
