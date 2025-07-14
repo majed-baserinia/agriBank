@@ -1,6 +1,6 @@
 import { ButtonAdapter } from "$lib/components/ButtonAdapter/ButtonAdapter";
 import { type AppAlert, clearAlert, useAlert } from "$lib/stores/alerts";
-import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography } from "@mui/material";
+import { Dialog, DialogActions, DialogContent, DialogTitle, Grid, Typography, useTheme } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -12,6 +12,7 @@ export function Alerts() {
 	const [open, setOpen] = useState(true);
 	const [localAlerts, setLocalAlerts] = useState<AppAlert[]>([]);
 	const capturedAlert = localAlerts[0];
+	const theme = useTheme()
 
 	useEffect(() => {
 		setLocalAlerts([...alerts]);
@@ -91,7 +92,10 @@ export function Alerts() {
 									capturedAlert?.actions?.onConfirm?.();
 								}}
 								variant={capturedAlert?.variantConfirm}
-								muiButtonProps={{ color: capturedAlert?.colorConfirm }}
+								muiButtonProps={{
+									color: theme.palette.primary.main,
+									backgroundColor: theme.palette.primary.main,
+								}}
 							>
 								{capturedAlert.confirmButtonText
 									? capturedAlert.confirmButtonText
