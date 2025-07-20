@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-typed-querykit",
-	"version": "10.1.1",
+	"version": "10.1.2",
 	"type": "module",
 	"description": "Utilities for handling common baran api errors and typing the response models",
 	"author": "majed-baserinia",
@@ -31,12 +31,12 @@
 		"lint": "eslint ."
 	},
 	"devDependencies": {
-		"@agribank/eslint-plugin": "^0.4.0",
-		"@agribank/i18n": "^0.6.2",
-		"@agribank/ignite": "^13.0.1",
-		"@agribank/post-message": "^0.4.2",
-		"@agribank/prettier-config": "^0.0.7",
-		"@agribank/ui": "^6.2.3",
+		"@agribank/eslint-plugin": "0.4.0",
+		"@agribank/i18n": "0.6.2",
+		"@agribank/ignite": "13.0.1",
+		"@agribank/post-message": "0.4.2",
+		"@agribank/prettier-config": "0.0.7",
+		"@agribank/ui": "6.2.3",
 		"@tanstack/react-query": "^5.66.0",
 		"@types/node": "^22.13.1",
 		"@types/react": "^19.0.0",
@@ -60,10 +60,10 @@
 		"zod": "^3.23.8"
 	},
 	"peerDependencies": {
-		"@agribank/i18n": "^0.6.2",
-		"@agribank/ignite": "^13.0.1",
-		"@agribank/post-message": "^0.4.2",
-		"@agribank/ui": "^6.2.3",
+		"@agribank/i18n": "0.6.2",
+		"@agribank/ignite": "13.0.1",
+		"@agribank/post-message": "0.4.2",
+		"@agribank/ui": "6.2.3",
 		"@tanstack/react-query": "^5.66.0",
 		"axios": "^1.7.7",
 		"axios-retry": "^4.5.0",
