@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-typed-querykit",
-	"version": "10.1.5",
+	"version": "10.1.6",
 	"type": "module",
 	"description": "Utilities for handling common baran api errors and typing the response models",
 	"author": "majed-baserinia",
