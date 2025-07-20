@@ -1,0 +1,81 @@
+.swiper {
+	width: 100%;
+}
+
+.swiper-pagination {
+	position: absolute;
+	bottom: 0px !important;
+}
+
+.swiper-pagination-bullet {
+	cursor: pointer;
+}
+
+.swiper-pagination-bullet-active {
+	background-color: #01bc8d !important;
+	width: 15px !important;
+	height: 8px !important;
+	border-radius: 4px !important;
+	transition: all 1s linear !important;
+	gap: 2px !important;
+}
+
+.swiper-button-next::after {
+	display: none;
+}
+
+.swiper-button-prev::after {
+	display: none;
+}
+.swiper-wrapper {
+	padding-top: 30px;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	top: 0% !important;
+	margin-top: 3px !important;
+	width: 36px !important;
+	height: 36px !important;
+	border: 1px solid rgb(229, 229, 229, 1);
+	border-radius: 50%;
+	outline: 0;
+	transition:
+		background-color 0.2s ease,
+		color 0.2s ease;
+	z-index: 100;
+}
+.swiper-button-prev {
+	background-image: url("../../../public/svg/arrowLeft.svg");
+	background-repeat: no-repeat;
+	background-size: 50% auto;
+	background-position: center;
+	background-color: rgb(229, 229, 229, 1);
+	border: 1px solid rgb(229, 229, 229, 1);
+}
+.swiper-button-next {
+	background-image: url("../../../public/svg/arrowRight.svg");
+	background-color: #1bdb5b;
+	background-repeat: no-repeat;
+	background-size: 50% auto;
+	background-position: center;
+	background-color: rgb(229, 229, 229, 1);
+	border: 1px solid rgb(229, 229, 229, 1);
+}
+.swiper-rtl > .swiper-button-prev {
+	background-image: url("../../../public/svg/arrowRight.svg");
+}
+.swiper-rtl > .swiper-button-next {
+	background-image: url("../../../public/svg/arrowLeft.svg");
+}
+
+.swiper-button-prev {
+	position: absolute;
+	left: unset !important;
+	right: 55px;
+}
+.swiper-rtl > .swiper-button-prev {
+	position: absolute;
+	right: unset !important;
+	left: 55px !important;
+}

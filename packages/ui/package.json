@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/ui",
-	"version": "6.4.8",
+	"version": "6.4.9",
 	"type": "module",
 	"description": "set of components to build react apps with",
 	"author": "majed-baserinia",
@@ -84,7 +84,8 @@
 		"vite-plugin-dts": "^4.5.0",
 		"vite-plugin-lib-inject-css": "^2.2.1",
 		"vite-tsconfig-paths": "^5.1.4",
-		"zustand": "^5.0.3"
+		"zustand": "^5.0.3",
+		"swiper": "^11.1.11"
 	},
 	"peerDependencies": {
 		"@agribank/i18n": "^0.6.2",
