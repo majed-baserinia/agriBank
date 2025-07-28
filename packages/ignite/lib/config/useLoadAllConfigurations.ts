@@ -23,8 +23,9 @@ export function useLoadAllConfigurations({
 	spConfig,
 	configOverrides,
 	onConfigurationsInitialized,
-	onConfigurationsUpdated
+	// onConfigurationsUpdated
 }: Options) {
+
 	const { config, isConfigLoaded } = useConfigLoader(configOverrides);
 	const { theme, isThemeLoaded } = useThemeLoader(
 		config?.baseThemeUrl,
@@ -50,17 +51,17 @@ export function useLoadAllConfigurations({
 		isInitialized.current = true;
 	}, [isEverythingLoaded]);
 
-	useEffect(() => {
-		if (!isEverythingLoaded || !isInitialized.current) {
-			return;
-		}
-		onConfigurationsUpdated?.({
-			config: config!,
-			theme: theme!,
-			themeName: spConfig.Theme,
-			language
-		});
-	}, [isEverythingLoaded, config, theme, spConfig.Theme, language]);
+	// useEffect(() => {
+	// 	if (!isEverythingLoaded || !isInitialized.current) {
+	// 		return;
+	// 	}
+	// 	onConfigurationsUpdated?.({
+	// 		config: config!,
+	// 		theme: theme!,
+	// 		themeName: spConfig.Theme,
+	// 		language
+	// 	});
+	// }, [isEverythingLoaded, config, theme, spConfig.Theme, language]);
 
 	return isEverythingLoaded;
 }

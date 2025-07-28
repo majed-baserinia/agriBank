@@ -19,9 +19,10 @@ export type Options = Pick<HandledConnectionProps, "onInitializationFailed"> & {
 	 * from @agribank/ignite/router/`framework`
 	 */
 	useRouter: useRouter;
+	finishedPaths?: string[]
 };
 
-export function useInitConfig({ onInitializationFailed, configOverrides, useRouter }: Options) {
+export function useInitConfig({ onInitializationFailed, configOverrides, useRouter, finishedPaths = [] }: Options) {
 	const { updateSettings, updateAuth } = useIgniteStore();
 	const spConfig = useSearchParamsConfigLoader(useRouter);
 
@@ -37,15 +38,15 @@ export function useInitConfig({ onInitializationFailed, configOverrides, useRout
 				config: config
 			});
 		},
-		onConfigurationsUpdated: ({ theme, themeName, language, config }) => {
-			console.info(import.meta.dynamic.env.BASE_URL, "configurations updated!");
-			updateSettings({
-				theme: theme,
-				language: language as AcceptedLanguages,
-				themeName: themeName,
-				config: config
-			});
-		}
+		// onConfigurationsUpdated: ({ theme, themeName, language, config }) => {
+		// 	console.info(import.meta.dynamic.env.BASE_URL, "configurations updated!");
+		// 	updateSettings({
+		// 		theme: theme,
+		// 		language: language as AcceptedLanguages,
+		// 		themeName: themeName,
+		// 		config: config
+		// 	});
+		// }
 	});
 	const { readyToLoad } = usePostMessageLoader({
 		needsInitData: spConfig.Auth,
@@ -54,7 +55,8 @@ export function useInitConfig({ onInitializationFailed, configOverrides, useRout
 			updateSettings(data);
 		},
 		useRouter,
-		onInitializationFailed
+		onInitializationFailed,
+		finishedPaths: finishedPaths
 	});
 
 	return isConfigReady && readyToLoad;

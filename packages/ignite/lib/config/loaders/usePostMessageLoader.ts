@@ -14,14 +14,19 @@ type ConnectionType = {
 export type Props = Omit<ConnectionProps<ConnectionType>, "onInitializationFailed"> & {
 	onInitializationFailed?: (errorMessage: string) => boolean;
 	useRouter: useRouter;
+	finishedPaths?: string[];
 };
 
-export function usePostMessageLoader({ onInitializationFailed, useRouter, ...restProps }: Props) {
-	const { currentPath, canGoBack, goBack } = useRouter();
+export function usePostMessageLoader({
+	onInitializationFailed,
+	useRouter,
+	finishedPaths = [],
+	...restProps
+}: Props) {
+	const { currentPath, goBack } = useRouter();
 	const paramConfig = useSearchParamsConfigLoader(useRouter);
 	const { t } = useTranslation("base");
 
-	// Keep currentPath fresh inside callbacks
 	const currentPathRef = useRef(currentPath);
 
 	useLayoutEffect(() => {
@@ -29,16 +34,13 @@ export function usePostMessageLoader({ onInitializationFailed, useRouter, ...res
 	}, [currentPath]);
 
 	const normalize = (path: string) => path.replace(/\/+$/, "");
+	const normalizedFinishedPaths = [...finishedPaths].map(normalize);
 
 	const connection = useConnection<ConnectionType>({
 		onGobackPressed: () => {
-			const current = normalize(currentPathRef.current);
-			const base = normalize(environment().BASE_URL);
+			const current = normalize(window.location.pathname);
 
-			console.log("currentPath:", current);
-			console.log("BASE_URL:", base);
-
-			if (current == base) {
+			if (normalizedFinishedPaths.some(path => current.includes(path)) || current == normalize(environment().BASE_URL)) {
 				sendPostMessage("isFinishedBack", { data: "true" });
 			} else {
 				goBack();
