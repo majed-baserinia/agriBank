@@ -8,7 +8,7 @@ export const Controlled = ({ showLoader }: Props) => {
 	const theme = useTheme()
 	const bgColor = theme.palette.mode == "light" ? "rgba(255,255,255,0.8)" : "rgba(0,0,0,0.8)"
 	const wrapperStyle: React.CSSProperties = {
-		position: "absolute",
+		position: "fixed",
 		top: 0,
 		left: 0,
 		width: "100%",
