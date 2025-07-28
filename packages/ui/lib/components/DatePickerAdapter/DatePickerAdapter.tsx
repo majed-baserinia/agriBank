@@ -31,7 +31,16 @@ export function DatePickerAdapter({ label, helperText, onChange, error, defaultV
 	}, [defaultValue]);
 
 	const handleInputChange = (val: string) => {
-		handleSyncValue(val);
+		const digits = val.replace(/\D/g, "").slice(0, 8);
+
+		let formatted = "";
+		for (let i = 0; i < digits.length; i++) {
+			formatted += digits[i];
+			if (i === 3 || i === 5) formatted += "/";
+		}
+
+		setValue(formatted);
+		onChange?.(formatted);
 	};
 
 	const handleDatePickerChange = (date: Value) => {
@@ -68,7 +77,8 @@ export function DatePickerAdapter({ label, helperText, onChange, error, defaultV
 			helperText={helperText}
 			label={label ?? t("date")}
 			onChange={handleInputChange}
-			type="date"
+			type="text"
+			maxLength={10}
 			sx={sx}
 		/>
 	);
