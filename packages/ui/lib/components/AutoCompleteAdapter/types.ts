@@ -25,7 +25,8 @@ export type Props<T extends Record<any, any>> = {
 	maxLength?: number
 	fullScreen?: boolean
 	disableClearable?: boolean
-	letterSpacing?: number
+	letterSpacing?: number,
+	noOptionsText?: string
 };
 
 export type RenderInputProps = {

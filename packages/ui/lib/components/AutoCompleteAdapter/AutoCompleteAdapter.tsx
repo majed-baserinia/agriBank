@@ -32,7 +32,8 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		disable = false,
 		fullScreen = true,
 		disableClearable = false,
-		letterSpacing
+		letterSpacing,
+		noOptionsText = ""
 	} = props;
 
 	const { t } = useTranslation("base");
@@ -157,7 +158,7 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				isOptionEqualToValue={isOptionEqualToValueFunction}
 				loading={loading}
 				loadingText={t("loading-text-auto-comp")}
-				noOptionsText=""
+				noOptionsText={noOptionsText}
 				onChange={onChangeHandler}
 				onClose={() => {
 					// if (!hasConfirmButton) {
