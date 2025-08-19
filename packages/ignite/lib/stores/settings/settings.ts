@@ -4,7 +4,7 @@ import type { Settings, SettingsSlice } from "./types";
 const initial: Settings = {
 	language: "fa-IR",
 	themeName: "light",
-	osType: "3",
+	osType: 3,
 	theme: {},
 	config: {
 		baseApiUrl: "",
