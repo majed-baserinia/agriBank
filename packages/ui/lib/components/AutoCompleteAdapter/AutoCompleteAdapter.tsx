@@ -33,7 +33,8 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 		fullScreen = true,
 		disableClearable = false,
 		letterSpacing,
-		noOptionsText = ""
+		noOptionsText = "",
+		slotProps = {}
 	} = props;
 
 	const { t } = useTranslation("base");
@@ -213,8 +214,12 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				}}
 				slotProps={{
 					listbox: {
+						sx: {
+							backgroundColor: theme.palette.mode === "dark" ? "#252525" : theme.palette.common.white
+						},
 						component: ListboxComponent
-					}
+					},
+					...slotProps
 				}}
 			/>
 			<Grid>
@@ -250,7 +255,9 @@ const ListboxComponent = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLU
 			<ul
 				{...props}
 				ref={ref}
-				style={{ maxHeight: matches ? "100%" : "40vh" }}
+				style={{
+					maxHeight: matches ? "100%" : "100%",
+				}}
 			/>
 		);
 	}
