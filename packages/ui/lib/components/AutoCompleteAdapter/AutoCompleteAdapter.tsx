@@ -1,9 +1,10 @@
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import type { AutocompleteInputChangeReason, Theme } from "@mui/material";
 import { Autocomplete, Button, Grid, Popper, useMediaQuery, useTheme } from "@mui/material";
+import type { PopperProps } from "@mui/material/Popper";
 import { formatToCardDynamically } from "lib/utils/formatters/formatInput";
 import type { SyntheticEvent } from "react";
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { RenderInput } from "./RenderInput";
 import type { Props } from "./types";
@@ -204,23 +205,17 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 				)}
 				renderOption={renderOption}
 				value={value}
-				slots={{
-					popper: (props) => (
-						<Popper
-							{...props}
-							sx={[matches ? { boxShadow: 0 } : { boxShadow: 3 }]}
-						/>
-					)
+				ListboxProps={{
+					sx: {
+						height: "100%",
+						maxHeight: "100%",
+						overflow: "auto",
+						padding: 0,
+						margin: 0,
+						backgroundColor: theme.palette.mode === "dark" ? "#252525" : theme.palette.common.white
+					}
 				}}
-				slotProps={{
-					listbox: {
-						sx: {
-							backgroundColor: theme.palette.mode === "dark" ? "#252525" : theme.palette.common.white
-						},
-						component: ListboxComponent
-					},
-					...slotProps
-				}}
+				PopperComponent={CustomPopper}
 			/>
 			<Grid>
 				{matches && open && hasConfirmButton ? (
@@ -247,18 +242,24 @@ export function AutoCompleteAdapter<T extends Record<any, unknown>>(props: Props
 	);
 }
 
-const ListboxComponent = forwardRef<HTMLUListElement, React.HTMLAttributes<HTMLUListElement>>(
-	function ListboxComponent(props, ref) {
-		const theme = useTheme();
-		const matches = useMediaQuery(theme.breakpoints.down("sm"));
-		return (
-			<ul
-				{...props}
-				ref={ref}
-				style={{
-					maxHeight: matches ? "100%" : "100%",
-				}}
-			/>
-		);
-	}
-);
+function CustomPopper(props: PopperProps) {
+	return (
+		<Popper
+			{...props}
+			style={{
+				...props.style,
+				zIndex: 1500,
+				border: 0,
+				maxHeight: "fit-content"
+			}}
+			modifiers={[
+				{
+					name: "offset",
+					options: {
+						offset: [0, 10]
+					}
+				}
+			]}
+		/>
+	);
+}
