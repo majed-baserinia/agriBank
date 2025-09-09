@@ -1,6 +1,6 @@
 {
 	"name": "@agribank/baran-playground",
-	"version": "0.12.0",
+	"version": "0.14.0",
 	"type": "module",
 	"description": "an environment to mimic baran app for testing microfronts created for baran",
 	"author": "majed-baserinia",
@@ -26,7 +26,7 @@
 	},
 	"scripts": {
 		"dev": "vite --port 9000",
-		"build": "tsc --build && vite build --mode cli && vite build --mode ui",
+		"build": "vite build --mode cli && vite build --mode ui",
 		"lint": "eslint .",
 		"format": "prettier --write .",
 		"test:integration": "playwright test",
