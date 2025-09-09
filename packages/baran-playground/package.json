@@ -10,10 +10,9 @@
 		"htsc"
 	],
 	"files": [
-		"dist/",
-		"README.md",
-		"package.json",
-		"CHANGELOG.md"
+		"dist",
+		"src",
+		"!**/*.map"
 	],
 	"exports": {
 		".": {
