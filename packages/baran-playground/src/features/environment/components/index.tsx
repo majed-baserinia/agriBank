@@ -5,6 +5,7 @@ import { Toggle } from "./Toggle";
 export function Environment() {
 	return (
 		<Box
+			padding={10}
 			sx={{
 				display: "grid",
 				gridTemplateRows: "repeat(2, minmax(0, 1fr)",

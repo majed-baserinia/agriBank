@@ -6,7 +6,7 @@ import { CreateApp } from "./CreateApp";
 export function Apps() {
 	const store = useAppStore();
 	return (
-		<Box>
+		<Box padding={10}>
 			<Box>
 				<Typography
 					variant="h1Md"

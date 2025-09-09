@@ -11,7 +11,7 @@ function Layout() {
 	return (
 		<>
 			<MiniDrawer>
-				<Box sx={{ height: "100%", padding: 10 }}>
+				<Box sx={{ height: "100%" }}>
 					<Outlet />
 				</Box>
 			</MiniDrawer>

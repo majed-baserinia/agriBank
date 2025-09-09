@@ -63,7 +63,7 @@ export function MiniDrawer({ children }: { children: ReactNode }) {
 
 	return (
 		<>
-			<div className="fixed">
+			<div className="fixed z-0">
 				<Button onClick={toggleDrawer(true)}><MenuIcon /></Button>
 			</div>
 			<Grid2

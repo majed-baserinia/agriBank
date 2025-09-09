@@ -19,6 +19,7 @@ export function Login() {
 	return (
 		<FormProvider {...form}>
 			<Grid2
+				padding={10}
 				container
 				flexDirection={"column"}
 			>
