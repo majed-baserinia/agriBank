@@ -9,7 +9,7 @@ import CallToActionIcon from "@mui/icons-material/CallToAction";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
 import MenuIcon from "@mui/icons-material/Menu";
 import WebIcon from "@mui/icons-material/Web";
-import { Grid2, Paper } from "@mui/material";
+import { Grid2, Paper, Drawer, Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -49,6 +49,7 @@ function MicroToolBar({ isOpen }: { isOpen: boolean }) {
 
 export function MiniDrawer({ children }: { children: ReactNode }) {
 	const [isOpen, setIsOpen] = useState(false);
+	const [open, setOpen] = useState(false);
 
 	const navigate = useNavigate();
 
@@ -56,95 +57,107 @@ export function MiniDrawer({ children }: { children: ReactNode }) {
 		setIsOpen(false);
 		await navigate(options);
 	}
+	const toggleDrawer = (newOpen: boolean) => () => {
+		setOpen(newOpen);
+	};
 
 	return (
-		<Grid2
-			sx={{
-				height: "100vh",
-				width: "100vw",
-				boxSizing: "border-box"
-			}}
-			container
-		>
-			<Paper
-				elevation={10}
+		<>
+			<div className="fixed">
+				<Button onClick={toggleDrawer(true)}><MenuIcon /></Button>
+			</div>
+			<Grid2
 				sx={{
-					display: "flex",
-					flexDirection: "column",
-					alignItems: "center",
-					height: "100%"
-				}}
-			>
-				<List sx={{ width: "100%" }}>
-					<NavbarItem
-						text="close"
-						title={"toggle navbar"}
-						icon={<MenuIcon />}
-						isOpen={isOpen}
-						onClick={() => setIsOpen((prev) => !prev)}
-					/>
-					<NavbarItem
-						text="account"
-						title="account management"
-						icon={<AccountCircleIcon />}
-						isOpen={isOpen}
-						onClick={() => changePage({ to: "/playground/login" })}
-					/>
-					<NavbarItem
-						text="environment"
-						title="environment management"
-						icon={<DeviceHubIcon />}
-						isOpen={isOpen}
-						onClick={() => changePage({ to: "/playground/environment" })}
-					/>
-					<NavbarItem
-						text="application"
-						title="application management"
-						icon={<AppRegistrationIcon />}
-						isOpen={isOpen}
-						onClick={() => changePage({ to: "/playground/apps" })}
-					/>
-					<NavbarItem
-						text={"open active application"}
-						title="open active application"
-						isOpen={isOpen}
-						onClick={() => {
-							setIsOpen(false);
-							void navigateToActiveApplication(navigate);
-						}}
-						icon={<WebIcon />}
-					/>
-				</List>
-				<Divider />
-
-				<List
-					sx={{
-						marginTop: "auto",
-						justifyContent: "center",
-						alignItems: "center",
-						boxSizing: "border-box",
-						width: "100%"
-					}}
-				>
-					<MicroToolBar isOpen={isOpen} />
-				</List>
-			</Paper>
-			<Box
-				component="main"
-				sx={{
-					maxHeight: "100%",
-					maxWidth: "100%",
-					flexGrow: 1,
-					flexShrink: 0,
-					flexBasis: 0,
-					p: 0,
-					overflowY: "auto",
-					overflowX: "hidden",
+					height: "100vh",
+					width: "100vw",
 					boxSizing: "border-box"
 				}}
+				container
 			>
-				{children}
-			</Box>
-		</Grid2>
+
+				<Drawer open={open} onClose={toggleDrawer(false)}>
+					<Paper
+						elevation={10}
+						sx={{
+							display: "flex",
+							flexDirection: "column",
+							alignItems: "center",
+							height: "100%",
+							// width: "80px",
+						}}
+					>
+						<List sx={{ width: "100%" }}>
+							<NavbarItem
+								text="close"
+								title={"toggle navbar"}
+								icon={<MenuIcon />}
+								isOpen={isOpen}
+								onClick={() => setIsOpen((prev) => !prev)}
+							/>
+							<NavbarItem
+								text="account"
+								title="account management"
+								icon={<AccountCircleIcon />}
+								isOpen={isOpen}
+								onClick={() => changePage({ to: "/playground/login" })}
+							/>
+							<NavbarItem
+								text="environment"
+								title="environment management"
+								icon={<DeviceHubIcon />}
+								isOpen={isOpen}
+								onClick={() => changePage({ to: "/playground/environment" })}
+							/>
+							<NavbarItem
+								text="application"
+								title="application management"
+								icon={<AppRegistrationIcon />}
+								isOpen={isOpen}
+								onClick={() => changePage({ to: "/playground/apps" })}
+							/>
+							<NavbarItem
+								text={"open active application"}
+								title="open active application"
+								isOpen={isOpen}
+								onClick={() => {
+									setIsOpen(false);
+									void navigateToActiveApplication(navigate);
+								}}
+								icon={<WebIcon />}
+							/>
+						</List>
+						<Divider />
+
+						<List
+							sx={{
+								marginTop: "auto",
+								justifyContent: "center",
+								alignItems: "center",
+								boxSizing: "border-box",
+								width: "100%"
+							}}
+						>
+							<MicroToolBar isOpen={isOpen} />
+						</List>
+					</Paper>
+				</Drawer>
+				<Box
+					component="main"
+					sx={{
+						maxHeight: "100%",
+						maxWidth: "100%",
+						flexGrow: 1,
+						flexShrink: 0,
+						flexBasis: 0,
+						p: 0,
+						overflowY: "auto",
+						overflowX: "hidden",
+						boxSizing: "border-box"
+					}}
+				>
+					{children}
+				</Box>
+			</Grid2>
+		</>
 	);
 }

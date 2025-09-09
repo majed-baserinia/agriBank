@@ -83,7 +83,7 @@ export function Register() {
 					control={form.control}
 					name="preRegister.birthDate"
 					label="birth date"
-					type="date"
+					// type="date"
 					helperText={form.formState.errors.preRegister?.birthDate?.message}
 					error={!!form.formState.errors.preRegister?.birthDate?.message}
 					defaultValue={user?.input?.preRegister?.birthDate ?? ""}

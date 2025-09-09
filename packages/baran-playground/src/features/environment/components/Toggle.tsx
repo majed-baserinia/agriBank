@@ -32,7 +32,8 @@ export function Toggle({ orientation, sx }: Props) {
 			exclusive
 			sx={{
 				...sx,
-				padding: 5
+				padding: 0.5,
+				marginBottom: 10
 			}}
 			onChange={handleChange}
 		>
@@ -42,9 +43,10 @@ export function Toggle({ orientation, sx }: Props) {
 					value={environment}
 					fullWidth
 					aria-label={environment}
+					sx={{ paddingX: 1.5, paddingY: 1 }}
 				>
 					{orientation === "vertical" ? (
-						<Typography sx={{ wordBreak: "break-all" }}>{shorthand(environment)}</Typography>
+						<Typography sx={{ wordBreak: "break-all", color: "white" }} fontSize={12} >{shorthand(environment)}</Typography>
 					) : (
 						<Typography>{environment}</Typography>
 					)}

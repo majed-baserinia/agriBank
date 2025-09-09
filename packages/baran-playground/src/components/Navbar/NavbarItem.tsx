@@ -32,7 +32,7 @@ export function NavbarItem({ title, text, icon, isOpen, onClick }: Props) {
 				{isOpen && (
 					<ListItemText
 						sx={{
-							paddingLeft: 9
+							paddingLeft: 9,
 						}}
 						primary={text}
 					/>
