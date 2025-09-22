@@ -9,7 +9,7 @@ import CallToActionIcon from "@mui/icons-material/CallToAction";
 import DeviceHubIcon from "@mui/icons-material/DeviceHub";
 import MenuIcon from "@mui/icons-material/Menu";
 import WebIcon from "@mui/icons-material/Web";
-import { Grid2, Paper, Drawer, Button } from "@mui/material";
+import { Button, Drawer, Grid2, Paper } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -62,10 +62,12 @@ export function MiniDrawer({ children }: { children: ReactNode }) {
 	};
 
 	return (
-		<>
-			<div className="fixed z-0">
-				<Button onClick={toggleDrawer(true)}><MenuIcon /></Button>
-			</div>
+		<Box>
+			<Box position={"fixed"}>
+				<Button onClick={toggleDrawer(true)}>
+					<MenuIcon />
+				</Button>
+			</Box>
 			<Grid2
 				sx={{
 					height: "100vh",
@@ -74,15 +76,17 @@ export function MiniDrawer({ children }: { children: ReactNode }) {
 				}}
 				container
 			>
-
-				<Drawer open={open} onClose={toggleDrawer(false)}>
+				<Drawer
+					open={open}
+					onClose={toggleDrawer(false)}
+				>
 					<Paper
 						elevation={10}
 						sx={{
 							display: "flex",
 							flexDirection: "column",
 							alignItems: "center",
-							height: "100%",
+							height: "100%"
 							// width: "80px",
 						}}
 					>
@@ -158,6 +162,6 @@ export function MiniDrawer({ children }: { children: ReactNode }) {
 					{children}
 				</Box>
 			</Grid2>
-		</>
+		</Box>
 	);
 }

@@ -26,11 +26,7 @@ export default defineConfig(({ mode }) => {
 			plugins: [
 				tsconfigPaths(),
 				dts({
-					insertTypesEntry: true,
-					compilerOptions: {
-						sourceMap: false,
-						declarationMap: false
-					}
+					insertTypesEntry: true
 				})
 			],
 			base: APP_NAME

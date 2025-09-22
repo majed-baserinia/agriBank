@@ -1,3 +1,4 @@
+import { MiniDrawer } from "$/components/Navbar/Navbar";
 import { useCiLoader, useConfigOverrides } from "$/hooks";
 import { useInitClients } from "$/services";
 import { searchParamsSchema } from "$/utils/search-params";
@@ -51,23 +52,27 @@ function App() {
 	});
 	useLoadingHandler(!isReady);
 	const theme = useIgniteStore((state) => state.settings.theme);
+	// console.log(theme);
 	useInitClients();
 	useCiLoader();
+	// console.log("root");
 
 	return (
-		<QueryClientProvider client={queryClient}>
-			<RootStyles>
-				<MaterialThemeProvider theme={theme}>
-					<SnackbarProvider>
-						<Alerts />
-						<Loader.UnControlled />
-						{isReady ? <Outlet /> : <></>}
-					</SnackbarProvider>
-				</MaterialThemeProvider>
-			</RootStyles>
+		theme.palette && (
+			<QueryClientProvider client={queryClient}>
+				<RootStyles>
+					<MaterialThemeProvider theme={theme}>
+						<SnackbarProvider>
+							<Alerts />
+							<Loader.UnControlled />
+							<MiniDrawer>{isReady ? <Outlet /> : <></>}</MiniDrawer>
+						</SnackbarProvider>
+					</MaterialThemeProvider>
+				</RootStyles>
 
-			<TanStackRouterDevtools position="bottom-left" />
-			<ReactQueryDevtools />
-		</QueryClientProvider>
+				<TanStackRouterDevtools position="bottom-left" />
+				<ReactQueryDevtools />
+			</QueryClientProvider>
+		)
 	);
 }

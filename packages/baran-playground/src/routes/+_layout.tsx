@@ -1,20 +1,16 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
-
-import { MiniDrawer } from "$/components/Navbar/Navbar";
 import { Box } from "@mui/material";
+import { createFileRoute, Outlet } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_layout")({
 	component: Layout
 });
 
 function Layout() {
+	// console.log("layout");
+
 	return (
-		<>
-			<MiniDrawer>
-				<Box sx={{ height: "100%" }}>
-					<Outlet />
-				</Box>
-			</MiniDrawer>
-		</>
+		<Box sx={{ height: "100%" }}>
+			<Outlet />
+		</Box>
 	);
 }
