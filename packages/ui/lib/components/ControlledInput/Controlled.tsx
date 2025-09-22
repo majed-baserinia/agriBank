@@ -29,7 +29,7 @@ export function Controlled<
 	...restProps
 }: Props<TElementProps, TFieldValues, TContext>) {
 	const callBack = (value: string, field: ControllerRenderProps<TFieldValues, typeof name>) => {
-		field.onChange(value);
+		(field.onChange as (val: string) => void)(value);
 		onChange?.(value);
 	};
 
